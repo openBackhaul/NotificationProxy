@@ -1,0 +1,17 @@
+@startuml bm104_UnSubscribingFromDeviceNotifications
+skinparam responseMessageBelowArrow true
+
+title PromptForBequeathingCausesUnSubscribingFromDeviceNotifications
+
+participant "NewRelease" as NewRelease
+participant "NP://v1/bequeath-your-data-and-die" as NP_bequeath
+participant "unsubscribe me" as ODL
+
+
+NewRelease -> NP_bequeath
+activate NP_bequeath
+
+NP_bequeath -> ODL
+deactivate NP_bequeath
+
+@enduml

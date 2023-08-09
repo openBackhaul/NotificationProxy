@@ -1,0 +1,391 @@
+servers:
+
+  operation-servers:
+    own-oam:
+      basic:
+        - operation-name: /v1/register-yourself
+          uuid: np-1-0-0-op-s-bm-000
+        - operation-name: /v1/embed-yourself
+          uuid: np-1-0-0-op-s-bm-001
+        - operation-name: /v1/redirect-service-request-information
+          uuid: np-1-0-0-op-s-bm-002
+        - operation-name: /v1/redirect-oam-request-information
+          uuid: np-1-0-0-op-s-bm-003
+        - operation-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+        - operation-name: /v1/inquire-oam-request-approvals
+          uuid: np-1-0-0-op-s-bm-005
+        - operation-name: /v1/update-client
+          uuid: np-1-0-0-op-s-bm-007
+        - operation-name: /v1/list-ltps-and-fcs
+          uuid: np-1-0-0-op-s-bm-008
+        - operation-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+        - operation-name: /v1/update-operation-key
+          uuid: np-1-0-0-op-s-bm-010
+        - operation-name: /v1/update-operation-client
+          uuid: np-1-0-0-op-s-bm-011
+      individual:
+        - operation-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+    service:
+      basic:
+        - operation-name: /v1/start-application-in-generic-representation
+          uuid: np-1-0-0-op-s-bs-000
+        - operation-name: /v1/inform-about-application
+          uuid: np-1-0-0-op-s-bs-001
+        - operation-name: /v1/inform-about-application-in-generic-representation
+          uuid: np-1-0-0-op-s-bs-002
+        - operation-name: /v1/inform-about-release-history
+          uuid: np-1-0-0-op-s-bs-003
+        - operation-name: /v1/inform-about-release-history-in-generic-representation
+          uuid: np-1-0-0-op-s-bs-004
+        - operation-name: /docs
+          uuid: np-1-0-0-op-s-bs-005
+      individual:
+        - operation-name: /v1/add-controller
+          uuid: np-1-0-0-op-s-is-000
+        - operation-name: /v1/listen-to-controllers
+          uuid: np-1-0-0-op-s-is-001
+        - operation-name: /v1/remove-controller
+          uuid: np-1-0-0-op-s-is-002
+        - operation-name: /v1/notify-controller-attribute-value-changes
+          uuid: np-1-0-0-op-s-is-011
+        - operation-name: /v1/notify-controller-object-creations
+          uuid: np-1-0-0-op-s-is-012
+        - operation-name: /v1/notify-controller-object-deletions
+          uuid: np-1-0-0-op-s-is-013
+        - operation-name: /v1/notify-device-alarms
+          uuid: np-1-0-0-op-s-is-020
+        - operation-name: /v1/notify-device-attribute-value-changes
+          uuid: np-1-0-0-op-s-is-021
+        - operation-name: /v1/notify-device-object-creations
+          uuid: np-1-0-0-op-s-is-022
+        - operation-name: /v1/notify-device-object-deletions
+          uuid: np-1-0-0-op-s-is-023
+  http-server:
+    own-application-name: NotificationProxy
+    own-release-number: 1.0.0
+    uuid: np-1-0-0-http-s-000
+  tcp-server:
+    - description: Without TLS layer
+      local-protocol: http
+      own-ip-address: 1.1.4.11
+      own-tcp-port: 4011
+      uuid: np-1-0-0-tcp-s-000
+    - description: With TLS layer
+      local-protocol: https
+      own-ip-address: 1.2.4.11
+      own-tcp-port: 4211
+      uuid: np-1-0-0-tcp-s-001
+
+
+clients:
+
+  - http-client:
+      application-name: OldRelease
+      uuid: np-1-0-0-http-c-or-1-0-0-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.4.11
+      tcp-port: 4011
+      uuid: np-1-0-0-tcp-c-or-1-0-0-000
+    operation-clients:
+      own-oam:
+        basic:
+          - operation-name: /v1/bequeath-your-data-and-die
+            uuid: np-1-0-0-op-c-bm-or-1-0-0-000
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: NewRelease
+      release-number: 0.0.1
+      uuid: np-1-0-0-http-c-nr-1-0-0-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.4.11
+      tcp-port: 4011
+      uuid: np-1-0-0-tcp-c-nr-1-0-0-000
+    operation-clients:
+      own-oam:
+        basic:
+        individual:
+        - operation-name: /v1/add-controller
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-000
+        - operation-name: /v1/listen-to-controllers
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-001
+        - operation-name: /v1/notify-controller-attribute-value-changes
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-011
+        - operation-name: /v1/notify-controller-object-creations
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-012
+        - operation-name: /v1/notify-controller-object-deletions
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-013
+        - operation-name: /v1/notify-device-alarms
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-020
+        - operation-name: /v1/notify-device-attribute-value-changes
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-021
+        - operation-name: /v1/notify-device-object-creations
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-022
+        - operation-name: /v1/notify-device-object-deletions
+          uuid: np-1-0-0-op-c-im-nr-1-0-0-023
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: RegistryOffice
+      release-number: 2.0.1
+      uuid: np-1-0-0-http-c-ro-2-0-1-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.3.8
+      tcp-port: 3008
+      uuid: np-1-0-0-tcp-c-ro-2-0-1-000
+    operation-clients:
+      own-oam:
+        basic:
+          - operation-name: /v1/register-application
+            uuid: np-1-0-0-op-c-bm-ro-2-0-1-000
+          - operation-name: /v1/relay-server-replacement
+            uuid: np-1-0-0-op-c-bm-ro-2-0-1-001
+          - operation-name: /v1/deregister-application
+            uuid: np-1-0-0-op-c-bm-ro-2-0-1-002
+          - operation-name: /v1/relay-operation-update
+            uuid: np-1-0-0-op-c-bm-ro-2-0-1-003
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: TypeApprovalRegister
+      release-number: 2.0.1
+      uuid: np-1-0-0-http-c-tar-2-0-1-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.3.9
+      tcp-port: 3009
+      uuid: np-1-0-0-tcp-c-tar-2-0-1-000
+    operation-clients:
+      own-oam:
+        basic:
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: ExecutionAndTraceLog
+      release-number: 2.0.1
+      uuid: np-1-0-0-http-c-eatl-2-0-1-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.3.10
+      tcp-port: 3010
+      uuid: np-1-0-0-tcp-c-eatl-2-0-1-000
+    operation-clients:
+      own-oam:
+        basic:
+          - operation-name: /v1/record-service-request
+            uuid: np-1-0-0-op-c-bs-eatl-2-0-1-000
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: OamLog
+      release-number: 2.0.1
+      uuid: np-1-0-0-http-c-ol-2-0-1-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.3.11
+      tcp-port: 3011
+      uuid: np-1-0-0-tcp-c-ol-2-0-1-000
+    operation-clients:
+      own-oam:
+        basic:
+          - operation-name: /v1/record-oam-request
+            uuid: np-1-0-0-op-c-bs-ol-2-0-1-000
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: AdministratorAdministration
+      release-number: 2.0.1
+      uuid: np-1-0-0-http-c-aa-2-0-1-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.3.12
+      tcp-port: 3012
+      uuid: np-1-0-0-tcp-c-aa-2-0-1-000
+    operation-clients:
+      own-oam:
+        basic:
+          - operation-name: /v1/approve-oam-request
+            uuid: np-1-0-0-op-c-bs-aa-2-0-1-000
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: ApplicationLayerTopology
+      release-number: 2.0.1
+      uuid: np-1-0-0-http-c-alt-2-0-1-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.3.13
+      tcp-port: 3013
+      uuid: np-1-0-0-tcp-c-alt-2-0-1-000
+    operation-clients:
+      own-oam:
+        basic:
+          - operation-name: /v1/update-all-ltps-and-fcs
+            uuid: np-1-0-0-op-c-bm-alt-2-0-1-000
+          - operation-name: /v1/update-ltp
+            uuid: np-1-0-0-op-c-bm-alt-2-0-1-001
+          - operation-name: /v1/delete-ltp-and-dependents
+            uuid: np-1-0-0-op-c-bm-alt-2-0-1-002
+          - operation-name: /v1/update-fc
+            uuid: np-1-0-0-op-c-bm-alt-2-0-1-003
+          - operation-name: /v1/update-fc-port
+            uuid: np-1-0-0-op-c-bm-alt-2-0-1-004
+          - operation-name: /v1/delete-fc-port
+            uuid: np-1-0-0-op-c-bm-alt-2-0-1-005
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: OperationKeyManagement
+      release-number: 2.0.1
+      uuid: np-1-0-0-http-c-okm-2-0-1-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.3.14
+      tcp-port: 3014
+      uuid: np-1-0-0-tcp-c-okm-2-0-1-000
+    operation-clients:
+      own-oam:
+        basic:
+        individual:
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: NotificationProxy
+      release-number: 1.0.0
+      uuid: np-1-0-0-http-c-np-1-0-0-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.4.11
+      tcp-port: 4011
+      uuid: np-1-0-0-tcp-c-np-1-0-0-000
+    operation-clients:
+      own-oam:
+        basic:
+        individual:
+          - operation-name: /v1/listen-to-controllers
+            uuid: np-1-0-0-op-c-bm-np-1-0-0-000
+      service:
+        basic:
+        individual:
+
+  - http-client:
+      application-name: OpenDayLightTemplate
+      release-number: 4.0.2
+      uuid: np-1-0-0-http-c-odlt-4-0-2-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.1.1
+      tcp-port: 1001
+      uuid: np-1-0-0-tcp-c-odlt-4-0-2-000
+    operation-clients:
+      own-oam:
+        basic:
+        individual:
+      service:
+        basic:
+        individual:
+          - operation-name: /rests/operations/sal-remote:create-data-change-event-subscription
+            uuid: np-1-0-0-op-c-is-odlt-4-0-2-000
+          # ControllerConfigurationNotifications
+          - operation-name: /rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+            uuid: np-1-0-0-op-c-is-odlt-4-0-2-001
+          - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+            uuid: np-1-0-0-op-c-is-odlt-4-0-2-002
+          # ControllerOperationNotifications
+          - operation-name: /rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+            uuid: np-1-0-0-op-c-is-odlt-4-0-2-003
+          - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+            uuid: np-1-0-0-op-c-is-odlt-4-0-2-004
+          # DeviceNotifications
+          - operation-name: ODL://rests/notif/device?notificationType=device
+            uuid: np-1-0-0-op-c-is-odlt-4-0-2-005
+
+  - http-client:
+      application-name: OpenDayLight1
+      release-number: 4.0.2
+      uuid: np-1-0-0-http-c-odl1-4-0-2-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.1.1
+      tcp-port: 1001
+      uuid: np-1-0-0-tcp-c-odl1-4-0-2-000
+    operation-clients:
+      own-oam:
+        basic:
+        individual:
+      service:
+        basic:
+        individual:
+          - operation-name: /rests/operations/sal-remote:create-data-change-event-subscription
+            uuid: np-1-0-0-op-c-is-odl1-4-0-2-000
+          # ControllerConfigurationNotifications
+          - operation-name: /rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+            uuid: np-1-0-0-op-c-is-odl1-4-0-2-001
+          - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+            uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
+          # ControllerOperationNotifications
+          - operation-name: /rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+            uuid: np-1-0-0-op-c-is-odl1-4-0-2-003
+          - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+            uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
+          # DeviceNotifications
+          - operation-name: ODL://rests/notif/device?notificationType=device
+            uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
+
+  - http-client:
+      application-name: MicroWaveDeviceInventory
+      release-number: 1.0.0
+      uuid: np-1-0-0-http-c-mwdi-1-0-0-100
+    tcp-client:
+      remote-protocol: http
+      ip-address: 1.1.4.4
+      tcp-port: 4004
+      uuid: np-1-0-0-tcp-c-mwdi-1-0-0-100
+    operation-clients:
+      own-oam:
+        basic:
+        individual:
+          - operation-name: /v1/regard-controller-attribute-value-change
+            uuid: np-1-0-0-op-c-is-mwdi-1-0-0-111
+          - operation-name: /v1/regard-device-alarm
+            uuid: np-1-0-0-op-c-is-mwdi-1-0-0-120
+          - operation-name: /v1/regard-device-attribute-value-change
+            uuid: np-1-0-0-op-c-is-mwdi-1-0-0-121
+          - operation-name: /v1/regard-device-object-creation
+            uuid: np-1-0-0-op-c-is-mwdi-1-0-0-122
+          - operation-name: /v1/regard-device-object-deletion
+            uuid: np-1-0-0-op-c-is-mwdi-1-0-0-123
+      service:
+        basic:
+        individual:

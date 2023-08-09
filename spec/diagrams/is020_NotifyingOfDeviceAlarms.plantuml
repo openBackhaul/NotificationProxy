@@ -1,0 +1,33 @@
+@startuml is020_NotifyingOfDeviceAlarms
+skinparam responseMessageBelowArrow true
+
+title SubscriptionCausesNotifyingOfDeviceAlarms
+
+participant "e.g. MWDI" as Subscriber
+participant "NP://v1/notify-device-alarms" as NP_notifyAlarms
+participant "unklar: \nODLn:/rests/notif?notificationType=device}" as Device
+
+Subscriber -> NP_notifyAlarms: {ownIP, ownPort, ownReceiveOperation}
+activate NP_notifyAlarms
+
+Device --> NP_notifyAlarms: {notifications}
+
+note over NP_notifyAlarms
+Repetitions are suppressed
+end note
+
+note over NP_notifyAlarms
+IF AlarmNotification: alarms-1-0:alarm-event-notification
+alarmEventSequenceNumber = alarm-event-sequence-number
+alarmTypeId = alarm-type-id
+alarmTypeQualifier = alarm-type-qualifier
+resource = resource (resolving required, mount-name to be added)
+problemSeverity = problem-severity
+timestamp = timestamp (not event-time)
+end note
+
+Subscriber <- NP_notifyAlarms: {MountName, alarmEventSequenceNumber, alarmTypeId, alarmTypeQualifier, resource, problemSeverity, timestamp}
+
+deactivate NP_notifyAlarms
+
+@enduml

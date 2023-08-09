@@ -1,0 +1,29 @@
+@startuml im001_SubscribingForControllerConfigurationNotifications
+skinparam responseMessageBelowArrow true
+
+title PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
+
+participant "Admin or \n/v1/embed-yourself" as Requestor
+participant "NP://v1/listen-to-controllers" as NP_listen
+participant "ODLn://rests/operations/sal-remote:create-data-change-event-subscription" as ODL_step1
+participant "ODLn://rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/\ndata-change-event-subscription/network-topology:network-topology/\ndatastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true" as ODL_step2
+participant "ODLn:/{subscriptionUri}" as ODL_step3
+
+Requestor -> NP_listen
+activate NP_listen
+
+note over NP_listen
+Repeat for all ODLn that are connected (by FcPorts) with
+Forwarding PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
+end note
+
+NP_listen -> ODL_step1: {path, datastore, scope, notificationOutputType}
+ODL_step1 --> NP_listen
+
+NP_listen -> ODL_step2
+ODL_step2 --> NP_listen: {subscriptionUri = e.g. /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON}
+
+NP_listen -> ODL_step3: {URI = subscriptionUri}
+ODL_step3 --> NP_listen: {notifications}
+
+@enduml

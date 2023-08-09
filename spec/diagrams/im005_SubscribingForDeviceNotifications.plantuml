@@ -1,0 +1,21 @@
+@startuml im005_SubscribingForDeviceNotifications
+skinparam responseMessageBelowArrow true
+
+title PromptForListenToControllersCausesSubscribingForDeviceNotifications
+
+participant "Admin or \n/v1/embed-yourself" as Requestor
+participant "NP://v1/listen-to-controllers" as NP_listen
+participant "ODLn://rests/notif/device?notificationType=device" as ODLn
+
+Requestor -> NP_listen
+activate NP_listen
+
+note over NP_listen
+Repeat for all ODLn that are connected (by FcPorts) with
+Forwarding PromptForListenToControllersCausesSubscribingForDeviceNotifications
+end note
+
+NP_listen -> ODLn
+ODLn --> NP_listen: {notifications}
+
+@enduml
