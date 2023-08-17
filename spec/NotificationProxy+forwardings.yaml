@@ -448,6 +448,8 @@ forwardings:
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
+      - server-name: /v1/end-subscription
+        uuid: np-1-0-0-op-s-bm-004
       - server-name: /v1/remove-controller
         uuid: np-1-0-0-op-s-is-002
     consequent-requests:
@@ -684,7 +686,7 @@ forwardings:
       - server-name: /v1/listen-to-controllers
         uuid: np-1-0-0-op-s-is-001
     consequent-requests:
-      - client-name: ODL1:/OpenDayLight://rests/notif/device?notificationType=device
+      - client-name: OpenDayLight1://rests/notif/device?notificationType=device
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
 
   - forwarding-name: SubscriptionCausesNotifyingOfChangedControllerAttributeValue
