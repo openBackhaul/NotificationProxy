@@ -48,7 +48,7 @@ profile-instances:
       value-reference: '/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/application-name'
 
   - profile-name: 'GenericResponseProfile'
-    uuid: 'np-1-0-0-response-p-002' 
+    uuid: 'np-1-0-0-response-p-002'
     capability:
       operation-name: '/v1/inform-about-application-in-generic-representation'
       static-field-name: 'releaseNumber'
@@ -58,7 +58,7 @@ profile-instances:
       value-reference: '/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-number'
 
   - profile-name: 'GenericResponseProfile'
-    uuid: 'np-1-0-0-response-p-003' 
+    uuid: 'np-1-0-0-response-p-003'
     capability:
       operation-name: '/v1/inform-about-application-in-generic-representation'
       static-field-name: 'applicationPurpose'
@@ -68,7 +68,7 @@ profile-instances:
       value-reference: '/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/application-purpose'
 
   - profile-name: 'GenericResponseProfile'
-    uuid: 'np-1-0-0-response-p-004' 
+    uuid: 'np-1-0-0-response-p-004'
     capability:
       operation-name: '/v1/inform-about-application-in-generic-representation'
       static-field-name: 'dataUpdatePeriod'

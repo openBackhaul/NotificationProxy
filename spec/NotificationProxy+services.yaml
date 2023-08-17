@@ -114,24 +114,24 @@ clients:
       own-oam:
         basic:
         individual:
-        - operation-name: /v1/add-controller
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-000
-        - operation-name: /v1/listen-to-controllers
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-001
-        - operation-name: /v1/notify-controller-attribute-value-changes
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-011
-        - operation-name: /v1/notify-controller-object-creations
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-012
-        - operation-name: /v1/notify-controller-object-deletions
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-013
-        - operation-name: /v1/notify-device-alarms
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-020
-        - operation-name: /v1/notify-device-attribute-value-changes
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-021
-        - operation-name: /v1/notify-device-object-creations
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-022
-        - operation-name: /v1/notify-device-object-deletions
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-023
+          - operation-name: /v1/add-controller
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-000
+          - operation-name: /v1/listen-to-controllers
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-001
+          - operation-name: /v1/notify-controller-attribute-value-changes
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-011
+          - operation-name: /v1/notify-controller-object-creations
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-012
+          - operation-name: /v1/notify-controller-object-deletions
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-013
+          - operation-name: /v1/notify-device-alarms
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-020
+          - operation-name: /v1/notify-device-attribute-value-changes
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-021
+          - operation-name: /v1/notify-device-object-creations
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-022
+          - operation-name: /v1/notify-device-object-deletions
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-023
       service:
         basic:
         individual:
