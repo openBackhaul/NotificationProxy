@@ -1,4 +1,4 @@
-@startuml im003_SubscribingForControllerOperationNotifications
+@startuml is003_SubscribingForControllerOperationNotifications
 skinparam responseMessageBelowArrow true
 
 title PromptForListenToControllersCausesSubscribingForControllerOperationNotifications

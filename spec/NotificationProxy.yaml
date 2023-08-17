@@ -1672,6 +1672,8 @@ paths:
                           urn-ietf-params-xml-ns-netconf-notification-1.0:notification:
                             type: object
                             properties:
+                              controller-id:
+                                type: string
                               event-time:
                                 type: string
                               urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification:
@@ -1744,6 +1746,7 @@ paths:
                                               type: integer
                       example:
                         urn-ietf-params-xml-ns-netconf-notification-1.0:notification:
+                          controller-id: 'odl-1'
                           event-time: '2023-07-11T08:21:50.526721696Z'
                           urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification:
                             data-change-event:
@@ -1876,6 +1879,8 @@ paths:
                           urn-ietf-params-xml-ns-netconf-notification-1.0:notification:
                             type: object
                             properties:
+                              controller-id:
+                                type: string
                               event-time:
                                 type: string
                               urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification:
@@ -1948,6 +1953,7 @@ paths:
                                               type: integer
                         example:
                           urn-ietf-params-xml-ns-netconf-notification-1.0:notification:
+                            controller-id: 'odl-1'
                             event-time: '2023-07-11T08:21:50.526721696Z'
                             urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification:
                               data-change-event:
@@ -2432,10 +2438,10 @@ paths:
                               description: >
                                 'Path to the object that holds the attribute that changed its value
                                 for notifications initiated by a callback resulting from PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
-                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#node-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration]
+                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/controller-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration]
                                   example: [/core-model-1-4:network-control-domain=live/control-construct=][{node-id}][/logical-termination-point=][{mount-name}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration]
                                 for notifications initiated by a callback resulting from PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
-                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#node-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/pac/mount-point-status]
+                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/controller-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/pac/mount-point-status]
                                   example: [/core-model-1-4:network-control-domain=live/control-construct=][{node-id}][/logical-termination-point=][{mount-name}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration]'
                             attribute-name:
                               type: string
@@ -2682,10 +2688,10 @@ paths:
                               description: >
                                 'Path to the object that has been created
                                 for notifications initiated by a callback resulting from PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
-                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#node-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
+                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/controller-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
                                   example: [/core-model-1-4:network-control-domain=live/control-construct=][{node-id}][/logical-termination-point=][{mount-name}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][/{attribute-name}]
                                 for notifications initiated by a callback resulting from PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
-                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#node-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/pac/mount-point-status][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
+                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/controller-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/pac/mount-point-status][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
                                   example: [/core-model-1-4:network-control-domain=live/control-construct=][{node-id}][/logical-termination-point=][{mount-name}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][/{attribute-name}]'
                             object-type:
                               type: string
@@ -2924,10 +2930,10 @@ paths:
                               description: >
                                 'Path to the object that has been deleted
                                 for notifications initiated by a callback resulting from PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
-                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#node-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
+                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/controller-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
                                   example: [/core-model-1-4:network-control-domain=live/control-construct=][{node-id}][/logical-termination-point=][{mount-name}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][/{attribute-name}]
                                 for notifications initiated by a callback resulting from PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
-                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#node-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/pac/mount-point-status][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
+                                  from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/controller-id}][/logical-termination-point=][value of node-id in {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}][/layer-protocol=0/mount-point-1-0:mount-point-pac/pac/mount-point-status][from behind last colon of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForControllerOperationNotifications.step3.response.body#urn-ietf-params-xml-ns-netconf-notification-1.0:notification/urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification/data-change-event/path}]
                                   example: [/core-model-1-4:network-control-domain=live/control-construct=][{node-id}][/logical-termination-point=][{mount-name}][/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration][/{attribute-name}]'
                       example:
                         notification-proxy-1-0:object-deletion-notification:
@@ -3120,7 +3126,7 @@ paths:
             description: >
               'This callback is to be sent if
               {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameBehindColon}} == alarm-event-notification
-              Repetitions are to be suppressed.'
+              Repetitions have to be suppressed.'
             post:
               parameters:
                 - $ref: '#/components/parameters/user'
@@ -3381,7 +3387,7 @@ paths:
             description: >
               'This callback is to be sent if
               {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameBehindColon}} == attribute-value-changed-notification
-              Repetitions are to be suppressed.'
+              Repetitions have to be suppressed.'
             post:
               parameters:
                 - $ref: '#/components/parameters/user'
@@ -3627,7 +3633,7 @@ paths:
             description: >
               'This callback is to be sent if
               {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameBehindColon}} == object-creation-notification
-              Repetitions are to be suppressed.'
+              Repetitions have to be suppressed.'
             post:
               parameters:
                 - $ref: '#/components/parameters/user'
@@ -3866,7 +3872,7 @@ paths:
             description: >
               'This callback is to be sent if
               {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameBehindColon}} == object-deletion-notification
-              Repetitions are to be suppressed.'
+              Repetitions have to be suppressed.'
             post:
               parameters:
                 - $ref: '#/components/parameters/user'
@@ -4655,7 +4661,7 @@ paths:
                 default:
                   $ref: '#/components/responses/responseForErroredServiceRequests'
         PromptForEmbeddingCausesRequestForListenToControllers:
-          url: #[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]://[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name or /core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]:[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port][/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-op-c-bm-np-1-0-0-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]
+          url: #[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]://[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name or /core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]:[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-np-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port][/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-op-c-im-np-1-0-0-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]
             post:
               parameters:
                 - $ref: '#/components/parameters/user'

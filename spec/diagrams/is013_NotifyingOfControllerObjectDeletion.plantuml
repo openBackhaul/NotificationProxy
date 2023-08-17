@@ -15,10 +15,7 @@ Configuration --> NP_notifyDeletedObjects: {notifications}
 Operational --> NP_notifyDeletedObjects: {notifications}
 
 note over NP_notifyDeletedObjects
-IF operation == "deleted" AND data.{attributeName} == "network-topology:node-id"
-counter = {to be generated or empty}
-timestamp = event-time
-_objectIdRef = identifierOfTheController + path::..::urn-TBD-params-xml-ns-yang-network-topology:node-id
+IF operation == "deleted"
 end note
 
 Subscriber <- NP_notifyDeletedObjects

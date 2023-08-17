@@ -1,4 +1,4 @@
-@startuml im005_SubscribingForDeviceNotifications
+@startuml is005_SubscribingForDeviceNotifications
 skinparam responseMessageBelowArrow true
 
 title PromptForListenToControllersCausesSubscribingForDeviceNotifications

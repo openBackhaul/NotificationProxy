@@ -1,4 +1,4 @@
-@startuml bm002_ListenToControllers
+@startuml im000_ListenToControllers
 skinparam responseMessageBelowArrow true
 
 title PromptForEmbeddingCausesRequestForListenToControllers

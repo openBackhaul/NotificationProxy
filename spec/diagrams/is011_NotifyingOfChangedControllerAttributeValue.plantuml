@@ -16,11 +16,6 @@ Operational --> NP_notifyChanges: {notifications}
 
 note over NP_notifyChanges
 IF operation == "updated"
-counter = {to be generated or empty}
-timestamp = event-time
-_objectIdRef = identifierOfTheController + path::..::urn-TBD-params-xml-ns-yang-network-topology:node-id
-attributeName = data.{attributeName}
-newValue = data.{attributeValue}
 end note
 
 Subscriber <- NP_notifyChanges

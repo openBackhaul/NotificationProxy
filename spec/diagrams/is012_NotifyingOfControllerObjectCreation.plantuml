@@ -15,11 +15,7 @@ Configuration --> NP_notifyNewObjects: {notifications}
 Operational --> NP_notifyNewObjects: {notifications}
 
 note over NP_notifyNewObjects
-IF operation == "created" AND data.{attributeName} == "network-topology:node-id"
-counter = {to be generated or empty}
-timestamp = event-time
-_objectIdRef = identifierOfTheController + path::..::urn-TBD-params-xml-ns-yang-network-topology:node-id
-objectType = "HttpClient"
+IF operation == "created"
 end note
 
 Subscriber <- NP_notifyNewObjects

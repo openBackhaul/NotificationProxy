@@ -294,7 +294,7 @@ clients:
         basic:
         individual:
           - operation-name: /v1/listen-to-controllers
-            uuid: np-1-0-0-op-c-bm-np-1-0-0-000
+            uuid: np-1-0-0-op-c-im-np-1-0-0-000
       service:
         basic:
         individual:

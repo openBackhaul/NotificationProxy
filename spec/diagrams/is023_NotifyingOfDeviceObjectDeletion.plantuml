@@ -5,7 +5,7 @@ title SubscriptionCausesNotifyingOfDeviceObjectDeletion
 
 participant "e.g. MWDI" as Subscriber
 participant "NP://v1/notify-device-object-deletions" as NP_notifyObjectDeletion
-participant "unklar: \nODLn:/rests/notif?notificationType=device}" as Device
+participant "ODLn://rests/notif/device?notificationType=device" as Device
 
 Subscriber -> NP_notifyObjectDeletion: {ownIP, ownPort, ownReceiveOperation}
 activate NP_notifyObjectDeletion
@@ -13,17 +13,14 @@ activate NP_notifyObjectDeletion
 Device --> NP_notifyObjectDeletion: {notifications}
 
 note over NP_notifyObjectDeletion
-Repetitions are suppressed
+Repetitions have to be suppressed
 end note
 
 note over NP_notifyObjectDeletion
-IF ObjectDeletionNotification: *:object-deletion-notification
-counter = counter
-timestamp = timestamp (not event-time)
-_objectIdRef = object-id-ref (mount-name+uuid)
+IF *:object-deletion-notification
 end note
 
-Subscriber <- NP_notifyObjectDeletion: {MountName, counter, timestamp, logicalTerminationPointUuid, attributeName, newValue}
+Subscriber <- NP_notifyObjectDeletion: {counter, timestamp, resource}
 
 deactivate NP_notifyObjectDeletion
 

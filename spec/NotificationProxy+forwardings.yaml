@@ -35,7 +35,7 @@ forwardings:
         uuid: np-1-0-0-op-c-bm-or-1-0-0-000
 
   - forwarding-name: PromptForEmbeddingCausesRequestForListenToControllers
-    uuid: np-1-0-0-op-fc-bm-002
+    uuid: np-1-0-0-op-fc-im-000
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
@@ -47,7 +47,7 @@ forwardings:
         uuid: np-1-0-0-op-s-bm-001
     consequent-requests:
       - client-name: NP://v1/listen-to-controllers
-        uuid: np-1-0-0-op-c-bm-np-1-0-0-000
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-001
 
   - forwarding-name: ServiceRequestCausesLoggingRequest
     uuid: np-1-0-0-op-fc-bm-002
@@ -161,11 +161,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -180,11 +180,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -199,11 +199,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -218,11 +218,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -237,11 +237,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -256,11 +256,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -275,11 +275,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -294,11 +294,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -313,11 +313,11 @@ forwardings:
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-update:
-        - server-name: /v1/embed-yourself
-          uuid: np-1-0-0-op-s-bm-001
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
@@ -710,7 +710,7 @@ forwardings:
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
     consequent-requests:
       - client-name: MWDI://v1/regard-controller-attribute-value-change
-        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-011
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-111
 
   - forwarding-name: SubscriptionCausesNotifyingOfControllerObjectCreation
     uuid: np-1-0-0-op-fc-is-012
@@ -731,6 +731,8 @@ forwardings:
     initiating-requests:
       - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
+      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
     consequent-requests:
 
   - forwarding-name: SubscriptionCausesNotifyingOfControllerObjectDeletion
@@ -752,6 +754,8 @@ forwardings:
     initiating-requests:
       - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
+      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
     consequent-requests:
 
   - forwarding-name: SubscriptionCausesNotifyingOfDeviceAlarms
@@ -771,11 +775,11 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif?notificationType=device
-        uuid: np-1-0-0-op-c-is-odl1-4-0-2-006
+      - server-name: ODL1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
       - client-name: MWDI://v1/regard-device-alarm
-        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-020
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-120
 
   - forwarding-name: SubscriptionCausesNotifyingOfChangedDeviceAttributeValue
     uuid: np-1-0-0-op-fc-is-021
@@ -794,11 +798,11 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif?notificationType=device
-        uuid: np-1-0-0-op-c-is-odl1-4-0-2-006
+      - server-name: ODL1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
       - client-name: MWDI://v1/regard-device-attribute-value-change
-        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-021
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-121
 
   - forwarding-name: SubscriptionCausesNotifyingOfDeviceObjectCreation
     uuid: np-1-0-0-op-fc-is-022
@@ -817,11 +821,11 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif?notificationType=device
-        uuid: np-1-0-0-op-c-is-odl1-4-0-2-006
+      - server-name: ODL1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
       - client-name: MWDI://v1/regard-device-object-creation
-        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-022
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-122
 
   - forwarding-name: SubscriptionCausesNotifyingOfDeviceObjectDeletion
     uuid: np-1-0-0-op-fc-is-023
@@ -840,8 +844,8 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif?notificationType=device
-        uuid: np-1-0-0-op-c-is-odl1-4-0-2-006
+      - server-name: ODL1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
       - client-name: MWDI://v1/regard-device-object-deletion
-        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-023
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-123
