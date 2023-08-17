@@ -46,7 +46,7 @@ forwardings:
       - server-name: /v1/embed-yourself
         uuid: np-1-0-0-op-s-bm-001
     consequent-requests:
-      - client-name: NP://v1/listen-to-controllers
+      - client-name: NotificationProxy://v1/listen-to-controllers
         uuid: np-1-0-0-op-c-im-nr-1-0-0-001
 
   - forwarding-name: ServiceRequestCausesLoggingRequest
@@ -630,11 +630,11 @@ forwardings:
       - server-name: /v1/listen-to-controllers
         uuid: np-1-0-0-op-s-is-001
     consequent-requests:
-      - client-name: ODL1://rests/operations/sal-remote:create-data-change-event-subscription
+      - client-name: OpenDayLight1://rests/operations/sal-remote:create-data-change-event-subscription
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-000
-      - client-name: ODL1://rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+      - client-name: OpenDayLight1://rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-001
-      - client-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+      - client-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
 
   - forwarding-name: PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
@@ -657,11 +657,11 @@ forwardings:
       - server-name: /v1/listen-to-controllers
         uuid: np-1-0-0-op-s-is-001
     consequent-requests:
-      - client-name: ODL1://rests/operations/sal-remote:create-data-change-event-subscription
+      - client-name: OpenDayLight1://rests/operations/sal-remote:create-data-change-event-subscription
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-000
-      - client-name: ODL1://rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+      - client-name: OpenDayLight1://rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-003
-      - client-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+      - client-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
 
   - forwarding-name: PromptForListenToControllersCausesSubscribingForDeviceNotifications
@@ -684,7 +684,7 @@ forwardings:
       - server-name: /v1/listen-to-controllers
         uuid: np-1-0-0-op-s-is-001
     consequent-requests:
-      - client-name: ODL1:/ODL://rests/notif/device?notificationType=device
+      - client-name: ODL1:/OpenDayLight://rests/notif/device?notificationType=device
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
 
   - forwarding-name: SubscriptionCausesNotifyingOfChangedControllerAttributeValue
@@ -704,12 +704,12 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
-      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
     consequent-requests:
-      - client-name: MWDI://v1/regard-controller-attribute-value-change
+      - client-name: MicroWaveDeviceInventory://v1/regard-controller-attribute-value-change
         uuid: np-1-0-0-op-c-is-mwdi-1-0-0-111
 
   - forwarding-name: SubscriptionCausesNotifyingOfControllerObjectCreation
@@ -729,9 +729,9 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
-      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
     consequent-requests:
 
@@ -752,9 +752,9 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
-      - server-name: ODL1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
     consequent-requests:
 
@@ -775,10 +775,10 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif/device?notificationType=device
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
-      - client-name: MWDI://v1/regard-device-alarm
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-alarm
         uuid: np-1-0-0-op-c-is-mwdi-1-0-0-120
 
   - forwarding-name: SubscriptionCausesNotifyingOfChangedDeviceAttributeValue
@@ -798,10 +798,10 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif/device?notificationType=device
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
-      - client-name: MWDI://v1/regard-device-attribute-value-change
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-attribute-value-change
         uuid: np-1-0-0-op-c-is-mwdi-1-0-0-121
 
   - forwarding-name: SubscriptionCausesNotifyingOfDeviceObjectCreation
@@ -821,10 +821,10 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif/device?notificationType=device
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
-      - client-name: MWDI://v1/regard-device-object-creation
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-object-creation
         uuid: np-1-0-0-op-c-is-mwdi-1-0-0-122
 
   - forwarding-name: SubscriptionCausesNotifyingOfDeviceObjectDeletion
@@ -844,8 +844,8 @@ forwardings:
         - server-name: /v1/end-subscription
           uuid: np-1-0-0-op-s-bm-004
     initiating-requests:
-      - server-name: ODL1://rests/notif/device?notificationType=device
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
         uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
     consequent-requests:
-      - client-name: MWDI://v1/regard-device-object-deletion
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-object-deletion
         uuid: np-1-0-0-op-c-is-mwdi-1-0-0-123
