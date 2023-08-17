@@ -84,6 +84,7 @@ clients:
 
   - http-client:
       application-name: OldRelease
+      release-number: 1.0.0
       uuid: np-1-0-0-http-c-or-1-0-0-000
     tcp-client:
       remote-protocol: http
@@ -113,24 +114,24 @@ clients:
       own-oam:
         basic:
         individual:
-        - operation-name: /v1/add-controller
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-000
-        - operation-name: /v1/listen-to-controllers
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-001
-        - operation-name: /v1/notify-controller-attribute-value-changes
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-011
-        - operation-name: /v1/notify-controller-object-creations
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-012
-        - operation-name: /v1/notify-controller-object-deletions
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-013
-        - operation-name: /v1/notify-device-alarms
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-020
-        - operation-name: /v1/notify-device-attribute-value-changes
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-021
-        - operation-name: /v1/notify-device-object-creations
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-022
-        - operation-name: /v1/notify-device-object-deletions
-          uuid: np-1-0-0-op-c-im-nr-1-0-0-023
+          - operation-name: /v1/add-controller
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-000
+          - operation-name: /v1/listen-to-controllers
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-001
+          - operation-name: /v1/notify-controller-attribute-value-changes
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-011
+          - operation-name: /v1/notify-controller-object-creations
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-012
+          - operation-name: /v1/notify-controller-object-deletions
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-013
+          - operation-name: /v1/notify-device-alarms
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-020
+          - operation-name: /v1/notify-device-attribute-value-changes
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-021
+          - operation-name: /v1/notify-device-object-creations
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-022
+          - operation-name: /v1/notify-device-object-deletions
+            uuid: np-1-0-0-op-c-im-nr-1-0-0-023
       service:
         basic:
         individual:
@@ -328,7 +329,7 @@ clients:
           - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
             uuid: np-1-0-0-op-c-is-odlt-4-0-2-004
           # DeviceNotifications
-          - operation-name: ODL://rests/notif/device?notificationType=device
+          - operation-name: /rests/notif/device?notificationType=device
             uuid: np-1-0-0-op-c-is-odlt-4-0-2-005
 
   - http-client:
@@ -360,7 +361,7 @@ clients:
           - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
             uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
           # DeviceNotifications
-          - operation-name: ODL://rests/notif/device?notificationType=device
+          - operation-name: /rests/notif/device?notificationType=device
             uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
 
   - http-client:

@@ -352,7 +352,7 @@ paths:
                           ip-address:
                             ipv-4-address: '1.1.4.4'
                         subscribing-application-port: 4004
-                        notifications-receiving-operation:  '/v1/regard-controller-object-creation'
+                        notifications-receiving-operation: '/v1/regard-controller-object-creation'
               responses:
                 '204':
                   description: 'Subscription for notifications about object creations at the controllers created'
@@ -817,7 +817,7 @@ paths:
                           ip-address:
                             ipv-4-address: '1.1.4.4'
                         subscribing-application-port: 4004
-                        notifications-receiving-operation:  '/v1/regard-device-object-creation'
+                        notifications-receiving-operation: '/v1/regard-device-object-creation'
               responses:
                 '204':
                   description: 'Subscription for notifications about object creations at the devices created'
@@ -1125,7 +1125,7 @@ paths:
                           - 'UNKNOWN'
                           - 'NOT_YET_DEFINED'
                         example: 'EXPERIMENTAL'
-                      description: 'Life cycle state of the consumed service'                        
+                      description: 'Life cycle state of the consumed service'
                 '400':
                   $ref: '#/components/responses/responseForErroredServiceRequests'
                 '401':
@@ -2596,7 +2596,7 @@ paths:
                   ip-address:
                     ipv-4-address: '1.1.4.4'
                 subscribing-application-port: 4004
-                notifications-receiving-operation:  '/v1/regard-controller-object-creation'
+                notifications-receiving-operation: '/v1/regard-controller-object-creation'
       responses:
         '204':
           description: 'Subscription for notifications about object creations at the controllers created'
@@ -3490,7 +3490,7 @@ paths:
                   $ref: '#/components/responses/responseForErroredServiceRequests'
                 default:
                   $ref: '#/components/responses/responseForErroredServiceRequests'
-  /v1/notify-device-object-creations: 
+  /v1/notify-device-object-creations:
     parameters:
       - $ref: '#/components/parameters/user'
       - $ref: '#/components/parameters/originator'
@@ -3581,7 +3581,7 @@ paths:
                   ip-address:
                     ipv-4-address: '1.1.4.4'
                 subscribing-application-port: 4004
-                notifications-receiving-operation:  '/v1/regard-device-object-creation'
+                notifications-receiving-operation: '/v1/regard-device-object-creation'
       responses:
         '204':
           description: 'Subscription for notifications about object creations at the devices created'
