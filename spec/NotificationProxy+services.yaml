@@ -84,6 +84,7 @@ clients:
 
   - http-client:
       application-name: OldRelease
+      release-number: 1.0.0
       uuid: np-1-0-0-http-c-or-1-0-0-000
     tcp-client:
       remote-protocol: http
@@ -328,7 +329,7 @@ clients:
           - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
             uuid: np-1-0-0-op-c-is-odlt-4-0-2-004
           # DeviceNotifications
-          - operation-name: ODL://rests/notif/device?notificationType=device
+          - operation-name: /rests/notif/device?notificationType=device
             uuid: np-1-0-0-op-c-is-odlt-4-0-2-005
 
   - http-client:
@@ -360,7 +361,7 @@ clients:
           - operation-name: /rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
             uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
           # DeviceNotifications
-          - operation-name: ODL://rests/notif/device?notificationType=device
+          - operation-name: /rests/notif/device?notificationType=device
             uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
 
   - http-client:
