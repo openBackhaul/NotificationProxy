@@ -1,20 +1,23 @@
 # OfficialApplicationName Specification
 
-### ServiceList
-- [OfficialApplicationName+services](./OfficialApplicationName+services.yaml)
+### Diagrams  
+- [List of Diagrams](./diagrams/README.md)
 
-### ProfileList and ProfileInstanceList
-- [OfficialApplicationName+profiles](./OfficialApplicationName+profiles.yaml)
-- [OfficialApplicationName+profileInstances](./OfficialApplicationName+profileInstances.yaml)
+### ServiceList  
+- [OfficialApplicationName+services](./OfficialApplicationName+services.yaml)  
 
-### ForwardingList
-- [OfficialApplicationName+forwardings](./OfficialApplicationName+forwardings.yaml)
+### ProfileList and ProfileInstanceList  
+- [OfficialApplicationName+profiles](./OfficialApplicationName+profiles.yaml)  
+- [OfficialApplicationName+profileInstances](./OfficialApplicationName+profileInstances.yaml)  
 
-### Open API specification (Swagger)
-- [OfficialApplicationName](./OfficialApplicationName.yaml)
+### ForwardingList  
+- [OfficialApplicationName+forwardings](./OfficialApplicationName+forwardings.yaml)  
 
-### CONFIGfile (JSON)
-- [OfficialApplicationName+config](./OfficialApplicationName+config.json)
+### Open API specification (Swagger)  
+- [OfficialApplicationName](./OfficialApplicationName.yaml)  
 
-### Comments
-./.
+### CONFIGfile (JSON)  
+- [OfficialApplicationName+config](./OfficialApplicationName+config.json)  
+
+### Comments  
+./.  
