@@ -18,10 +18,6 @@
 
 ### CONFIGfile (JSON)
 - [NotificationProxy+config](./NotificationProxy+config.json)
->>>>>>> 4ff5643796703c46bd5e0b60c4f1210a19d56893
-
-### CONFIGfile (JSON)  
-- [OfficialApplicationName+config](./OfficialApplicationName+config.json)  
 
 ### Comments  
 ./.  
