@@ -3,18 +3,22 @@
 ### Diagrams  
 - [List of Diagrams](./diagrams/README.md)
 
-### ServiceList  
-- [OfficialApplicationName+services](./OfficialApplicationName+services.yaml)  
+### ServiceList
+- [NotificationProxy+services](./NotificationProxy+services.yaml)
 
-### ProfileList and ProfileInstanceList  
-- [OfficialApplicationName+profiles](./OfficialApplicationName+profiles.yaml)  
-- [OfficialApplicationName+profileInstances](./OfficialApplicationName+profileInstances.yaml)  
+### ProfileList and ProfileInstanceList
+- [NotificationProxy+profiles](./NotificationProxy+profiles.yaml)
+- [NotificationProxy+profileInstances](./NotificationProxy+profileInstances.yaml)
 
-### ForwardingList  
-- [OfficialApplicationName+forwardings](./OfficialApplicationName+forwardings.yaml)  
+### ForwardingList
+- [NotificationProxy+forwardings](./NotificationProxy+forwardings.yaml)
 
-### Open API specification (Swagger)  
-- [OfficialApplicationName](./OfficialApplicationName.yaml)  
+### Open API specification (Swagger)
+- [NotificationProxy](./NotificationProxy.yaml)
+
+### CONFIGfile (JSON)
+- [NotificationProxy+config](./NotificationProxy+config.json)
+>>>>>>> 4ff5643796703c46bd5e0b60c4f1210a19d56893
 
 ### CONFIGfile (JSON)  
 - [OfficialApplicationName+config](./OfficialApplicationName+config.json)  
