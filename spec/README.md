@@ -1,7 +1,7 @@
-# OfficialApplicationName Specification
+# NotificationProxy Specification
 
 ### Diagrams  
-- [List of Diagrams](./diagrams/README.md)
+- [List of Diagrams](./diagrams)
 
 ### ServiceList
 - [NotificationProxy+services](./NotificationProxy+services.yaml)
