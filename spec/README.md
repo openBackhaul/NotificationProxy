@@ -1,20 +1,20 @@
 # OfficialApplicationName Specification
 
 ### ServiceList
-- [OfficialApplicationName+services](./OfficialApplicationName+services.yaml)
+- [NotificationProxy+services](./NotificationProxy+services.yaml)
 
 ### ProfileList and ProfileInstanceList
-- [OfficialApplicationName+profiles](./OfficialApplicationName+profiles.yaml)
-- [OfficialApplicationName+profileInstances](./OfficialApplicationName+profileInstances.yaml)
+- [NotificationProxy+profiles](./NotificationProxy+profiles.yaml)
+- [NotificationProxy+profileInstances](./NotificationProxy+profileInstances.yaml)
 
 ### ForwardingList
-- [OfficialApplicationName+forwardings](./OfficialApplicationName+forwardings.yaml)
+- [NotificationProxy+forwardings](./NotificationProxy+forwardings.yaml)
 
 ### Open API specification (Swagger)
-- [OfficialApplicationName](./OfficialApplicationName.yaml)
+- [NotificationProxy](./NotificationProxy.yaml)
 
 ### CONFIGfile (JSON)
-- [OfficialApplicationName+config](./OfficialApplicationName+config.json)
+- [NotificationProxy+config](./NotificationProxy+config.json)
 
 ### Comments
 ./.
