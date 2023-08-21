@@ -1,0 +1,853 @@
+forwardings:
+
+  - forwarding-name: PromptForRegisteringCausesRegistrationRequest
+    uuid: np-1-0-0-op-fc-bm-000
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/register-yourself
+          uuid: np-1-0-0-op-s-bm-000
+      fc-port-update:
+        - server-name: /v1/register-yourself
+          uuid: np-1-0-0-op-s-bm-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/register-yourself
+        uuid: np-1-0-0-op-s-bm-000
+    consequent-requests:
+      - client-name: RegistryOffice://v1/register-application
+        uuid: np-1-0-0-op-c-bm-ro-2-0-1-000
+
+  - forwarding-name: PromptForEmbeddingCausesRequestForBequeathingData
+    uuid: np-1-0-0-op-fc-bm-001
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+      fc-port-update:
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/embed-yourself
+        uuid: np-1-0-0-op-s-bm-001
+    consequent-requests:
+      - client-name: OldRelease://v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-c-bm-or-1-0-0-000
+
+  - forwarding-name: PromptForEmbeddingCausesRequestForListenToControllers
+    uuid: np-1-0-0-op-fc-im-000
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+      fc-port-update:
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/embed-yourself
+        uuid: np-1-0-0-op-s-bm-001
+    consequent-requests:
+      - client-name: NotificationProxy://v1/listen-to-controllers
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-001
+
+  - forwarding-name: ServiceRequestCausesLoggingRequest
+    uuid: np-1-0-0-op-fc-bm-002
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-service-request-information
+          uuid: np-1-0-0-op-s-bm-002
+      fc-port-update:
+        - server-name: /v1/redirect-service-request-information
+          uuid: np-1-0-0-op-s-bm-002
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/register-yourself
+        uuid: np-1-0-0-op-s-bm-000
+      - server-name: /v1/embed-yourself
+        uuid: np-1-0-0-op-s-bm-001
+      - server-name: /v1/redirect-service-request-information
+        uuid: np-1-0-0-op-s-bm-002
+      - server-name: /v1/redirect-oam-request-information
+        uuid: np-1-0-0-op-s-bm-003
+      - server-name: /v1/end-subscription
+        uuid: np-1-0-0-op-s-bm-004
+      - server-name: /v1/inquire-oam-request-approvals
+        uuid: np-1-0-0-op-s-bm-005
+      - server-name: /v1/update-client
+        uuid: np-1-0-0-op-s-bm-007
+      - server-name: /v1/list-ltps-and-fcs
+        uuid: np-1-0-0-op-s-bm-008
+      - server-name: /v1/redirect-topology-change-information
+        uuid: np-1-0-0-op-s-bm-009
+      - server-name: /v1/update-operation-key
+        uuid: np-1-0-0-op-s-bm-010
+      - server-name: /v1/update-operation-client
+        uuid: np-1-0-0-op-s-bm-011
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+      - server-name: /v1/start-application-in-generic-representation
+        uuid: np-1-0-0-op-s-bs-000
+      - server-name: /v1/inform-about-application
+        uuid: np-1-0-0-op-s-bs-001
+      - server-name: /v1/inform-about-application-in-generic-representation
+        uuid: np-1-0-0-op-s-bs-002
+      - server-name: /v1/inform-about-release-history
+        uuid: np-1-0-0-op-s-bs-003
+      - server-name: /v1/inform-about-release-history-in-generic-representation
+        uuid: np-1-0-0-op-s-bs-004
+      - server-name: /docs
+        uuid: np-1-0-0-op-s-bs-005
+      - server-name: /v1/add-controller
+        uuid: np-1-0-0-op-s-is-000
+      - server-name: /v1/listen-to-controllers
+        uuid: np-1-0-0-op-s-is-001
+      - server-name: /v1/remove-controller
+        uuid: np-1-0-0-op-s-is-002
+      - server-name: /v1/notify-controller-attribute-value-changes
+        uuid: np-1-0-0-op-s-is-011
+      - server-name: /v1/notify-controller-object-creations
+        uuid: np-1-0-0-op-s-is-012
+      - server-name: /v1/notify-controller-object-deletions
+        uuid: np-1-0-0-op-s-is-013
+      - server-name: /v1/notify-device-alarms
+        uuid: np-1-0-0-op-s-is-020
+      - server-name: /v1/notify-device-attribute-value-changes
+        uuid: np-1-0-0-op-s-is-021
+      - server-name: /v1/notify-device-object-creations
+        uuid: np-1-0-0-op-s-is-022
+      - server-name: /v1/notify-device-object-deletions
+        uuid: np-1-0-0-op-s-is-023
+    consequent-requests:
+      - client-name: ExecutionAndTraceLog://v1/record-service-request
+        uuid: np-1-0-0-op-c-bs-eatl-2-0-1-000
+
+  - forwarding-name: OamRequestCausesLoggingRequest
+    uuid: np-1-0-0-op-fc-bm-003
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-oam-request-information
+          uuid: np-1-0-0-op-s-bm-003
+      fc-port-update:
+        - server-name: /v1/redirect-oam-request-information
+          uuid: np-1-0-0-op-s-bm-003
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: OamLog://v1/record-oam-request
+        uuid: np-1-0-0-op-c-bs-ol-2-0-1-000
+
+  - forwarding-name: OamRequestCausesInquiryForAuthentication
+    uuid: np-1-0-0-op-fc-bm-004
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/inquire-oam-request-approvals
+          uuid: np-1-0-0-op-s-bm-005
+      fc-port-update:
+        - server-name: /v1/inquire-oam-request-approvals
+          uuid: np-1-0-0-op-s-bm-005
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: AdministratorAdministration://v1/approve-oam-request
+        uuid: np-1-0-0-op-c-bs-aa-2-0-1-000
+
+  - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerAttributeValueChangedNotificationsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-011
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/notify-controller-attribute-value-changes
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-011
+
+  - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerObjectCreationNotificationsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-012
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/notify-controller-object-creations
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-012
+
+  - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerObjectDeletionNotificationsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-013
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/notify-controller-object-deletions
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-013
+
+  - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceAlarmNotificationsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-020
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/notify-device-alarms
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-020
+
+  - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceAttributeValueChangedNotificationsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-021
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/notify-device-attribute-value-changes
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-021
+
+  - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceObjectCreationNotificationsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-022
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/notify-device-object-creations
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-022
+
+  - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForCDeviceObjectDeletionNotificationsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-023
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/notify-device-object-deletions
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-023
+
+  - forwarding-name: PromptForBequeathingDataCausesControllerClientsBeingTransferredToNR
+    uuid: np-1-0-0-op-fc-im-030
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/add-controller
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-000
+
+  - forwarding-name: PromptForBequeathingDataCausesNRbeingRequestedToListenToControllers
+    uuid: np-1-0-0-op-fc-im-040
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-update:
+        - server-name: /v1/bequeath-your-data-and-die
+          uuid: np-1-0-0-op-s-im-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: NewRelease://v1/listen-to-controllers
+        uuid: np-1-0-0-op-c-im-nr-1-0-0-001
+
+  - forwarding-name: PromptForBequeathingDataCausesRequestForBroadcastingInfoAboutServerReplacement
+    uuid: np-1-0-0-op-fc-bm-105
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/embed-yourself
+          uuid: np-1-0-0-op-s-bm-001
+      fc-port-update:
+        - server-name: /v1/embed-yourself
+          uuid: np-1-0-0-op-s-bm-001
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: RegistryOffice://v1/relay-server-replacement
+        uuid: np-1-0-0-op-c-bm-ro-2-0-1-001
+
+  - forwarding-name: PromptForBequeathingDataCausesRequestForDeregisteringOfOldRelease
+    uuid: np-1-0-0-op-fc-bm-106
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/embed-yourself
+          uuid: np-1-0-0-op-s-bm-001
+      fc-port-update:
+        - server-name: /v1/embed-yourself
+          uuid: np-1-0-0-op-s-bm-001
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+    consequent-requests:
+      - client-name: RegistryOffice://v1/deregister-application
+        uuid: np-1-0-0-op-c-bm-ro-2-0-1-002
+
+  - forwarding-name: PromptingNewReleaseForUpdatingServerCausesRequestForBroadcastingInfoAboutBackwardCompatibleUpdateOfOperation
+    uuid: np-1-0-0-op-fc-bm-107
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/embed-yourself
+          uuid: np-1-0-0-op-s-bm-001
+      fc-port-update:
+        - server-name: /v1/embed-yourself
+          uuid: np-1-0-0-op-s-bm-001
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/update-client
+        uuid: np-1-0-0-op-s-bm-007
+    consequent-requests:
+      - client-name: RegistryOffice://v1/relay-operation-update
+        uuid: np-1-0-0-op-c-bm-ro-2-0-1-003
+
+  - forwarding-name: ServiceRequestCausesLtpUpdateRequest
+    uuid: np-1-0-0-op-fc-bm-006
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/register-yourself
+        uuid: np-1-0-0-op-s-bm-000
+      - server-name: /v1/embed-yourself
+        uuid: np-1-0-0-op-s-bm-001
+      - server-name: /v1/redirect-service-request-information
+        uuid: np-1-0-0-op-s-bm-002
+      - server-name: /v1/redirect-oam-request-information
+        uuid: np-1-0-0-op-s-bm-003
+      - server-name: /v1/inquire-oam-request-approvals
+        uuid: np-1-0-0-op-s-bm-005
+      - server-name: /v1/update-client
+        uuid: np-1-0-0-op-s-bm-007
+      - server-name: /v1/redirect-topology-change-information
+        uuid: np-1-0-0-op-s-bm-009
+      - server-name: /v1/update-operation-client
+        uuid: np-1-0-0-op-s-bm-011
+      - server-name: /v1/bequeath-your-data-and-die
+        uuid: np-1-0-0-op-s-im-000
+      - server-name: /v1/add-controller
+        uuid: np-1-0-0-op-s-is-000
+      - server-name: /v1/notify-controller-attribute-value-changes
+        uuid: np-1-0-0-op-s-is-011
+      - server-name: /v1/notify-controller-object-creations
+        uuid: np-1-0-0-op-s-is-012
+      - server-name: /v1/notify-controller-object-deletions
+        uuid: np-1-0-0-op-s-is-013
+      - server-name: /v1/notify-device-alarms
+        uuid: np-1-0-0-op-s-is-020
+      - server-name: /v1/notify-device-attribute-value-changes
+        uuid: np-1-0-0-op-s-is-021
+      - server-name: /v1/notify-device-object-creations
+        uuid: np-1-0-0-op-s-is-022
+      - server-name: /v1/notify-device-object-deletions
+        uuid: np-1-0-0-op-s-is-023
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/update-ltp
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-001
+
+  - forwarding-name: ServiceRequestCausesLtpDeletionRequest
+    uuid: np-1-0-0-op-fc-bm-007
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/end-subscription
+        uuid: np-1-0-0-op-s-bm-004
+      - server-name: /v1/remove-controller
+        uuid: np-1-0-0-op-s-is-002
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/delete-ltp-and-dependents
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-002
+
+  - forwarding-name: ServiceRequestCausesFcUpdateRequest
+    uuid: np-1-0-0-op-fc-bm-008
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/update-fc
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-003
+
+  - forwarding-name: ServiceRequestCausesFcPortUpdateRequest
+    uuid: np-1-0-0-op-fc-bm-009
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/add-controller
+        uuid: np-1-0-0-op-s-is-000
+      - server-name: /v1/notify-controller-attribute-value-changes
+        uuid: np-1-0-0-op-s-is-011
+      - server-name: /v1/notify-controller-object-creations
+        uuid: np-1-0-0-op-s-is-012
+      - server-name: /v1/notify-controller-object-deletions
+        uuid: np-1-0-0-op-s-is-013
+      - server-name: /v1/notify-device-alarms
+        uuid: np-1-0-0-op-s-is-020
+      - server-name: /v1/notify-device-attribute-value-changes
+        uuid: np-1-0-0-op-s-is-021
+      - server-name: /v1/notify-device-object-creations
+        uuid: np-1-0-0-op-s-is-022
+      - server-name: /v1/notify-device-object-deletions
+        uuid: np-1-0-0-op-s-is-023
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/update-fc-port
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-004
+
+  - forwarding-name: ServiceRequestCausesFcPortDeletionRequest
+    uuid: np-1-0-0-op-fc-bm-010
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/end-subscription
+        uuid: np-1-0-0-op-s-bm-004
+      - server-name: /v1/remove-controller
+        uuid: np-1-0-0-op-s-is-002
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/delete-fc-port
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-005
+
+  - forwarding-name: OamRequestCausesLtpUpdateRequest
+    uuid: np-1-0-0-op-fc-bm-011
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/update-ltp
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-001
+
+  - forwarding-name: OamRequestCausesLtpDeletionRequest
+    uuid: np-1-0-0-op-fc-bm-012
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/delete-ltp-and-dependents
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-002
+
+  - forwarding-name: OamRequestCausesFcUpdateRequest
+    uuid: np-1-0-0-op-fc-bm-013
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/update-fc
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-003
+
+  - forwarding-name: OamRequestCausesFcPortUpdateRequest
+    uuid: np-1-0-0-op-fc-bm-014
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/update-fc-port
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-004
+
+  - forwarding-name: OamRequestCausesFcPortDeletionRequest
+    uuid: np-1-0-0-op-fc-bm-015
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-update:
+        - server-name: /v1/redirect-topology-change-information
+          uuid: np-1-0-0-op-s-bm-009
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+    consequent-requests:
+      - client-name: ApplicationLayerTopology://v1/delete-fc-port
+        uuid: np-1-0-0-op-c-bm-alt-2-0-1-005
+
+  - forwarding-name: PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
+    uuid: np-1-0-0-op-fc-is-001
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/add-controller
+          uuid: np-1-0-0-op-s-is-000
+      fc-port-update:
+        - server-name: /v1/add-controller
+          uuid: np-1-0-0-op-s-is-000
+      fc-port-deletion:
+        - server-name: /v1/remove-controller
+          uuid: np-1-0-0-op-s-is-002
+      operation-client-deletion:
+        - server-name: /v1/remove-controller
+          uuid: np-1-0-0-op-s-is-002
+    initiating-requests:
+      - server-name: /v1/listen-to-controllers
+        uuid: np-1-0-0-op-s-is-001
+    consequent-requests:
+      - client-name: OpenDayLight1://rests/operations/sal-remote:create-data-change-event-subscription
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-000
+      - client-name: OpenDayLight1://rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-001
+      - client-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
+
+  - forwarding-name: PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
+    uuid: np-1-0-0-op-fc-is-003
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/add-controller
+          uuid: np-1-0-0-op-s-is-000
+      fc-port-update:
+        - server-name: /v1/add-controller
+          uuid: np-1-0-0-op-s-is-000
+      fc-port-deletion:
+        - server-name: /v1/remove-controller
+          uuid: np-1-0-0-op-s-is-002
+      operation-client-deletion:
+        - server-name: /v1/remove-controller
+          uuid: np-1-0-0-op-s-is-002
+    initiating-requests:
+      - server-name: /v1/listen-to-controllers
+        uuid: np-1-0-0-op-s-is-001
+    consequent-requests:
+      - client-name: OpenDayLight1://rests/operations/sal-remote:create-data-change-event-subscription
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-000
+      - client-name: OpenDayLight1://rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-003
+      - client-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
+
+  - forwarding-name: PromptForListenToControllersCausesSubscribingForDeviceNotifications
+    uuid: np-1-0-0-op-fc-is-005
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/add-controller
+          uuid: np-1-0-0-op-s-is-000
+      fc-port-update:
+        - server-name: /v1/add-controller
+          uuid: np-1-0-0-op-s-is-000
+      fc-port-deletion:
+        - server-name: /v1/remove-controller
+          uuid: np-1-0-0-op-s-is-002
+      operation-client-deletion:
+        - server-name: /v1/remove-controller
+          uuid: np-1-0-0-op-s-is-002
+    initiating-requests:
+      - server-name: /v1/listen-to-controllers
+        uuid: np-1-0-0-op-s-is-001
+    consequent-requests:
+      - client-name: OpenDayLight1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
+
+  - forwarding-name: SubscriptionCausesNotifyingOfChangedControllerAttributeValue
+    uuid: np-1-0-0-op-fc-is-011
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/notify-controller-attribute-value-changes
+          uuid: np-1-0-0-op-s-is-011
+      fc-port-update:
+        - server-name: /v1/notify-controller-attribute-value-changes
+          uuid: np-1-0-0-op-s-is-011
+      fc-port-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+      operation-client-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+    initiating-requests:
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
+    consequent-requests:
+      - client-name: MicroWaveDeviceInventory://v1/regard-controller-attribute-value-change
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-111
+
+  - forwarding-name: SubscriptionCausesNotifyingOfControllerObjectCreation
+    uuid: np-1-0-0-op-fc-is-012
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/notify-controller-object-creations
+          uuid: np-1-0-0-op-s-is-012
+      fc-port-update:
+        - server-name: /v1/notify-controller-object-creations
+          uuid: np-1-0-0-op-s-is-012
+      fc-port-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+      operation-client-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+    initiating-requests:
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
+    consequent-requests:
+
+  - forwarding-name: SubscriptionCausesNotifyingOfControllerObjectDeletion
+    uuid: np-1-0-0-op-fc-is-013
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/notify-controller-object-deletions
+          uuid: np-1-0-0-op-s-is-013
+      fc-port-update:
+        - server-name: /v1/notify-controller-object-deletions
+          uuid: np-1-0-0-op-s-is-013
+      fc-port-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+      operation-client-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+    initiating-requests:
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-002
+      - server-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-004
+    consequent-requests:
+
+  - forwarding-name: SubscriptionCausesNotifyingOfDeviceAlarms
+    uuid: np-1-0-0-op-fc-is-020
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/notify-device-alarms
+          uuid: np-1-0-0-op-s-is-020
+      fc-port-update:
+        - server-name: /v1/notify-device-alarms
+          uuid: np-1-0-0-op-s-is-020
+      fc-port-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+      operation-client-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+    initiating-requests:
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
+    consequent-requests:
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-alarm
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-120
+
+  - forwarding-name: SubscriptionCausesNotifyingOfChangedDeviceAttributeValue
+    uuid: np-1-0-0-op-fc-is-021
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/notify-device-attribute-value-changes
+          uuid: np-1-0-0-op-s-is-021
+      fc-port-update:
+        - server-name: /v1/notify-device-attribute-value-changes
+          uuid: np-1-0-0-op-s-is-021
+      fc-port-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+      operation-client-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+    initiating-requests:
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
+    consequent-requests:
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-attribute-value-change
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-121
+
+  - forwarding-name: SubscriptionCausesNotifyingOfDeviceObjectCreation
+    uuid: np-1-0-0-op-fc-is-022
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/notify-device-object-creations
+          uuid: np-1-0-0-op-s-is-022
+      fc-port-update:
+        - server-name: /v1/notify-device-object-creations
+          uuid: np-1-0-0-op-s-is-022
+      fc-port-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+      operation-client-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+    initiating-requests:
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
+    consequent-requests:
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-object-creation
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-122
+
+  - forwarding-name: SubscriptionCausesNotifyingOfDeviceObjectDeletion
+    uuid: np-1-0-0-op-fc-is-023
+    forwarding-type: Subscription
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/notify-device-object-deletions
+          uuid: np-1-0-0-op-s-is-023
+      fc-port-update:
+        - server-name: /v1/notify-device-object-deletions
+          uuid: np-1-0-0-op-s-is-023
+      fc-port-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+      operation-client-deletion:
+        - server-name: /v1/end-subscription
+          uuid: np-1-0-0-op-s-bm-004
+    initiating-requests:
+      - server-name: OpenDayLight1://rests/notif/device?notificationType=device
+        uuid: np-1-0-0-op-c-is-odl1-4-0-2-005
+    consequent-requests:
+      - client-name: MicroWaveDeviceInventory://v1/regard-device-object-deletion
+        uuid: np-1-0-0-op-c-is-mwdi-1-0-0-123

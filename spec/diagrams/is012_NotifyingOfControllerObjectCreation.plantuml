@@ -1,0 +1,25 @@
+@startuml is012_NotifyingOfControllerObjectCreation
+skinparam responseMessageBelowArrow true
+
+title SubscriptionCausesNotifyingOfControllerObjectCreation
+
+participant "e.g. MWDI" as Subscriber
+participant "NP://v1/notify-controller-object-creations" as NP_notifyNewObjects
+participant "ODLn://rests/notif/data-change-event-subscription/network-topology:network-topology/\ndatastore=CONFIGURATION/scope=SUBTREE/JSON" as Configuration
+participant "ODLn://rests/notif/data-change-event-subscription/network-topology:network-topology/\ndatastore=OPERATIONAL/scope=SUBTREE/JSON" as Operational
+
+Subscriber -> NP_notifyNewObjects: {ownIP, ownPort, ownReceiveOperation}
+activate NP_notifyNewObjects
+
+Configuration --> NP_notifyNewObjects: {notifications}
+Operational --> NP_notifyNewObjects: {notifications}
+
+note over NP_notifyNewObjects
+IF operation == "created"
+end note
+
+Subscriber <- NP_notifyNewObjects
+
+deactivate NP_notifyNewObjects
+
+@enduml

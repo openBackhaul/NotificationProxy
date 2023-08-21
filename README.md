@@ -1,20 +1,21 @@
-Delete these statements:  
-- This repository is a template for specifying applications for the MW SDN application layer  
-- Fill in the Location, Description and Relevance below (check existing repositories as templates)
-
-Delete this link at the end of the specification process:  
-- [Roadmap to Specification](../../issues/1)
-
-# OfficialApplicationName
+# NotificationProxy - NP
 
 ### Location
-Location of the application in the logical structure of the application layer.
+The NotificationProxy is part of the HighPerformanceNetworkInterface.
 
 ### Description
-Four to ten sentences describing the functionalities of the application.
+The NotificationProxy allows subscribing for DeviceNotifications and ControllerNotifications according to the ONF TR-532 definitions.  
+
+It encapsulates all necessary formats and communication required for that. This includes:  
+- It opens the necessary permanent HTTP connections for receiving notifications of all controllers.  
+- It opens the necessary permanent HTTP connections for receiving notifications of all mounted devices.  
+- Wherever required, it is translating notification formats (e.g. ODL=>ONF or IETF=>ONF).  
+- It translates the event stream based method for forwarding notifications applied by OpenDaylight to the webhook based method applied in the MW SDN application layer.  
+- It removes duplicates potentially caused by the controller architecture.  
 
 ### Relevance
-Statement about the importance of the application.
+The NotificationProxy significantly reduces the implementation efforts of every application that requires receiving notifications.
+This includes not just Closed-Loop-Automation applications, but also very fundamental Inventories.
 
 ### Resources
 - [Specification](./spec/)

@@ -1,0 +1,16 @@
+@startuml im000_ListenToControllers
+skinparam responseMessageBelowArrow true
+
+title PromptForEmbeddingCausesRequestForListenToControllers
+
+participant "RO" as RO
+participant "NP://v1/embed-yourself" as NP_embedYourself
+participant "NP://v1/listen-to-controllers" as NP_listen
+
+RO -> NP_embedYourself
+activate NP_embedYourself
+
+NP_embedYourself -> NP_listen
+deactivate NP_embedYourself
+
+@enduml

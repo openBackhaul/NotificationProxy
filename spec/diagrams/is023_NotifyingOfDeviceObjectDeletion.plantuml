@@ -1,0 +1,27 @@
+@startuml is023_NotifyingOfDeviceObjectDeletion
+skinparam responseMessageBelowArrow true
+
+title SubscriptionCausesNotifyingOfDeviceObjectDeletion
+
+participant "e.g. MWDI" as Subscriber
+participant "NP://v1/notify-device-object-deletions" as NP_notifyObjectDeletion
+participant "ODLn://rests/notif/device?notificationType=device" as Device
+
+Subscriber -> NP_notifyObjectDeletion: {ownIP, ownPort, ownReceiveOperation}
+activate NP_notifyObjectDeletion
+
+Device --> NP_notifyObjectDeletion: {notifications}
+
+note over NP_notifyObjectDeletion
+Repetitions have to be suppressed
+end note
+
+note over NP_notifyObjectDeletion
+IF *:object-deletion-notification
+end note
+
+Subscriber <- NP_notifyObjectDeletion: {counter, timestamp, resource}
+
+deactivate NP_notifyObjectDeletion
+
+@enduml

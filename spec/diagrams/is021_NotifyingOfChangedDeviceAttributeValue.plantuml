@@ -1,0 +1,27 @@
+@startuml is021_NotifyingOfChangedDeviceAttributeValue
+skinparam responseMessageBelowArrow true
+
+title SubscriptionCausesNotifyingOfChangedDeviceAttributeValue
+
+participant "e.g. MWDI" as Subscriber
+participant "NP://v1/notify-device-attribute-value-changes" as NP_notifyChanges
+participant "ODLn://rests/notif/device?notificationType=device" as Device
+
+Subscriber -> NP_notifyChanges: {ownIP, ownPort, ownReceiveOperation}
+activate NP_notifyChanges
+
+Device --> NP_notifyChanges: {notifications}
+
+note over NP_notifyChanges
+Repetitions have to be suppressed
+end note
+
+note over NP_notifyChanges
+IF *:attribute-value-changed-notification
+end note
+
+Subscriber <- NP_notifyChanges: {counter, timestamp, resource, attributeName, newValue}
+
+deactivate NP_notifyChanges
+
+@enduml

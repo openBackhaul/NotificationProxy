@@ -1,0 +1,25 @@
+@startuml is013_NotifyingOfControllerObjectDeletion
+skinparam responseMessageBelowArrow true
+
+title SubscriptionCausesNotifyingOfControllerObjectDeletion
+
+participant "e.g. MWDI" as Subscriber
+participant "NP://v1/notify-controller-object-deletions" as NP_notifyDeletedObjects
+participant "ODLn://rests/notif/data-change-event-subscription/network-topology:network-topology/\ndatastore=CONFIGURATION/scope=SUBTREE/JSON" as Configuration
+participant "ODLn://rests/notif/data-change-event-subscription/network-topology:network-topology/\ndatastore=OPERATIONAL/scope=SUBTREE/JSON" as Operational
+
+Subscriber -> NP_notifyDeletedObjects: {ownIP, ownPort, ownReceiveOperation}
+activate NP_notifyDeletedObjects
+
+Configuration --> NP_notifyDeletedObjects: {notifications}
+Operational --> NP_notifyDeletedObjects: {notifications}
+
+note over NP_notifyDeletedObjects
+IF operation == "deleted"
+end note
+
+Subscriber <- NP_notifyDeletedObjects
+
+deactivate NP_notifyDeletedObjects
+
+@enduml
