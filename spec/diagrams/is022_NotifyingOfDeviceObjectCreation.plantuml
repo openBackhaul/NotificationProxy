@@ -1,0 +1,27 @@
+@startuml is022_NotifyingOfDeviceObjectCreation
+skinparam responseMessageBelowArrow true
+
+title SubscriptionCausesNotifyingOfDeviceObjectCreation
+
+participant "e.g. MWDI" as Subscriber
+participant "NP://v1/notify-device-object-creations" as NP_notifyObjectCreation
+participant "ODLn://rests/notif/device?notificationType=device" as Device
+
+Subscriber -> NP_notifyObjectCreation: {ownIP, ownPort, ownReceiveOperation}
+activate NP_notifyObjectCreation
+
+Device --> NP_notifyObjectCreation: {notifications}
+
+note over NP_notifyObjectCreation
+Repetitions have to be suppressed
+end note
+
+note over NP_notifyObjectCreation
+IF *:object-creation-notification
+end note
+
+Subscriber <- NP_notifyObjectCreation: {counter, timestamp, resource, objectType}
+
+deactivate NP_notifyObjectCreation
+
+@enduml
