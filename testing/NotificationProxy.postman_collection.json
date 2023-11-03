@@ -36,7 +36,7 @@
 									"apikey": [
 										{
 											"key": "value",
-											"value": "{{apiKeyBasic}}",
+											"value": "{{apiKeyInitial}}",
 											"type": "string"
 										},
 										{
@@ -8100,7 +8100,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"operation-uuid\": \"np-1-0-0-op-s-bm-000\",\n  \"new-operation-key\": \"API_KEY_BASIC\"\n}\n",
+									"raw": "{\n  \"operation-uuid\": \"np-1-0-0-op-s-bm-000\",\n  \"new-operation-key\": \"{{apiKeyInitial}}\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -12297,7 +12297,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"controller-name\": \"OpenDayLight1\",\n  \"controller-release\": \"51.5.86\",\n  \"controller-protocol\": \"HTTP\",\n  \"controller-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"250.16.211.251\"\n    }\n  },\n  \"controller-port\": 54321\n}\n",
+									"raw": "{\n  \"controller-name\": \"OpenDayLight47\",\n  \"controller-release\": \"51.5.86\",\n  \"controller-protocol\": \"HTTP\",\n  \"controller-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"32.33.45.56\"\n    }\n  },\n  \"controller-port\": 3456\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -13107,7 +13107,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"controller-name\": \"OpenDayLight5\",\n  \"controller-release\": \"3.07.3\"\n}\n",
+									"raw": "{\n  \"controller-name\": \"OpenDayLight47\",\n  \"controller-release\": \"51.5.86\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -21038,6 +21038,7 @@
 						"exec": [
 							"// Validate that the response code\r",
 							"pm.test(\"Status code is 200\", function () {\r",
+							"    console.log(\"message: \"+pm.response.json().message);\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
@@ -21387,6 +21388,21 @@
 		{
 			"key": "apiKeyIndividual",
 			"value": "API_KEY_INDIVIDUAL",
+			"type": "string"
+		},
+		{
+			"key": "basicAuthUsername",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "basicAuthPassword",
+			"value": "admin@123",
+			"type": "string"
+		},
+		{
+			"key": "apiKeyInitial",
+			"value": "Operation key not yet provided.",
 			"type": "string"
 		}
 	]
