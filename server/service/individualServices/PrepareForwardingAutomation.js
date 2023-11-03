@@ -5,30 +5,24 @@ const prepareALTForwardingAutomation = require('onf-core-model-ap-bs/basicServic
  * @param logicalTerminationPointconfigurationStatus
  * @returns {Promise<unknown>}
  */
-exports.bequeathYourDataAndDie = function (logicalTerminationPointconfigurationStatus) {
-  return new Promise(async function (resolve, reject) {
+exports.bequeathYourDataAndDie = async function (logicalTerminationPointconfigurationStatus) {
     let forwardingConstructAutomationList = [];
-    try {
-      /***********************************************************************************
-       * forwardings for application layer topology
-       ************************************************************************************/
-      let applicationLayerTopologyForwardingInputList = await prepareALTForwardingAutomation.getALTForwardingAutomationInputAsync(
-        logicalTerminationPointconfigurationStatus,
-        undefined
-      );
 
-      if (applicationLayerTopologyForwardingInputList) {
-        for (let i = 0; i < applicationLayerTopologyForwardingInputList.length; i++) {
-          let applicationLayerTopologyForwardingInput = applicationLayerTopologyForwardingInputList[i];
-          forwardingConstructAutomationList.push(applicationLayerTopologyForwardingInput);
-        }
+    /***********************************************************************************
+     * forwardings for application layer topology
+     ************************************************************************************/
+    let applicationLayerTopologyForwardingInputList = await prepareALTForwardingAutomation.getALTForwardingAutomationInputAsync(
+      logicalTerminationPointconfigurationStatus,
+      undefined
+    );
+
+    if (applicationLayerTopologyForwardingInputList) {
+      for (let applicationLayerTopologyForwardingInput of applicationLayerTopologyForwardingInputList) {
+        forwardingConstructAutomationList.push(applicationLayerTopologyForwardingInput);
       }
-
-      resolve(forwardingConstructAutomationList);
-    } catch (error) {
-      reject(error);
     }
-  });
+
+    return forwardingConstructAutomationList;
 }
 
 /**
@@ -37,28 +31,21 @@ exports.bequeathYourDataAndDie = function (logicalTerminationPointconfigurationS
  * @returns {Promise<unknown>}
  * @constructor
  */
-exports.OAMLayerRequest = function (uuid) {
-  return new Promise(async function (resolve, reject) {
+exports.OAMLayerRequest = async function (uuid) {
     let forwardingConstructAutomationList = [];
-    try {
 
-      /***********************************************************************************
-       * forwardings for application layer topology
-       ************************************************************************************/
-      let applicationLayerTopologyForwardingInputList = await prepareALTForwardingAutomation.getALTForwardingAutomationInputForOamRequestAsync(
-        uuid
-      );
+    /***********************************************************************************
+     * forwardings for application layer topology
+     ************************************************************************************/
+    let applicationLayerTopologyForwardingInputList = await prepareALTForwardingAutomation.getALTForwardingAutomationInputForOamRequestAsync(
+      uuid
+    );
 
-      if (applicationLayerTopologyForwardingInputList) {
-        for (let i = 0; i < applicationLayerTopologyForwardingInputList.length; i++) {
-          let applicationLayerTopologyForwardingInput = applicationLayerTopologyForwardingInputList[i];
-          forwardingConstructAutomationList.push(applicationLayerTopologyForwardingInput);
-        }
+    if (applicationLayerTopologyForwardingInputList) {
+      for (let applicationLayerTopologyForwardingInput of applicationLayerTopologyForwardingInputList) {
+        forwardingConstructAutomationList.push(applicationLayerTopologyForwardingInput);
       }
-
-      resolve(forwardingConstructAutomationList);
-    } catch (error) {
-      reject(error);
     }
-  });
+
+    return forwardingConstructAutomationList;
 }

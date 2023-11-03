@@ -6,6 +6,7 @@ var responseCodeEnum = require('onf-core-model-ap/applicationPattern/rest/server
 var RestResponseHeader = require('onf-core-model-ap/applicationPattern/rest/server/ResponseHeader');
 var RestResponseBuilder = require('onf-core-model-ap/applicationPattern/rest/server/ResponseBuilder');
 var ExecutionAndTraceService = require('onf-core-model-ap/applicationPattern/services/ExecutionAndTraceService');
+const notificationManagement = require("../service/individualServices/NotificationManagement");
 
 const NEW_RELEASE_FORWARDING_NAME = 'PromptForBequeathingDataCausesTransferOfListOfApplications';
 
@@ -24,6 +25,9 @@ module.exports.embedYourself = async function embedYourself(req, res, next, body
     responseBodyToDocument = sentResp.body;
   }
   ExecutionAndTraceService.recordServiceRequest(xCorrelator, traceIndicator, user, originator, req.url, responseCode, req.body, responseBodyToDocument);
+
+  // trigger listen-to-controllers - diagram im000_ListenToControllers.png
+  notificationManagement.triggerListenToControllerCallbackChain();
 };
 
 module.exports.endSubscription = async function endSubscription(req, res, next, body, user, originator, xCorrelator, traceIndicator, customerJourney) {

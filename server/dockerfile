@@ -5,12 +5,13 @@ WORKDIR /home/openbackhaul/NotificationProxy
 
 # Install and app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
-#COPY package*.json ./
+COPY package*.json ./
 # Only copy package.json to avoid copying package-lock.json with local registry paths
-COPY package.json ./
+#COPY package.json ./
 
 # install application by NPM
-RUN npm install
+#RUN npm install
+RUN npm --proxy http://172.16.1.2:8080 --without-ssl --insecure ci --only=production
 
 # Bundle app source
 COPY . .
