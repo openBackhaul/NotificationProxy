@@ -15436,7 +15436,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"28.5.7\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/notify-callback\"\n}\n",
+									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"28.5.7\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/v1/regard-controller-attribute-value-change\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -16246,7 +16246,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"85.66.54\",\n  \"subscribing-application-protocol\": \"HTTP\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/notify-callback\"\n}\n",
+									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"85.66.54\",\n  \"subscribing-application-protocol\": \"HTTP\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/v1/regard-controller-object-creation\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -17056,7 +17056,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"02.33.85\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/notify-callback\"\n}\n",
+									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"02.33.85\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/v1/regard-controller-object-deletion\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -17866,7 +17866,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"3.0.8\",\n  \"subscribing-application-protocol\": \"HTTP\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/notify-callback\"\n}\n",
+									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"3.0.8\",\n  \"subscribing-application-protocol\": \"HTTP\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/v1/regard-device-alarm\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -18676,7 +18676,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"5.31.3\",\n  \"subscribing-application-protocol\": \"HTTP\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/notify-callback\"\n}\n",
+									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"5.31.3\",\n  \"subscribing-application-protocol\": \"HTTP\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/v1/regard-device-attribute-value-change\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -19486,7 +19486,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"52.10.5\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/noticy-callback\"\n}\n",
+									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"52.10.5\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/v1/regard-device-object-creation\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -20296,7 +20296,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"3.5.7\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/notify-callback\"\n}\n",
+									"raw": "{\n  \"subscribing-application-name\": \"<string>\",\n  \"subscribing-application-release\": \"3.5.7\",\n  \"subscribing-application-protocol\": \"HTTPS\",\n  \"subscribing-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"subscribing-application-port\": 12345,\n  \"notifications-receiving-operation\": \"/v1/regard-device-object-deletion\"\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -21382,12 +21382,12 @@
 		},
 		{
 			"key": "apiKeyBasic",
-			"value": "API_KEY_BASIC",
+			"value": "Operation key not yet provided.",
 			"type": "string"
 		},
 		{
 			"key": "apiKeyIndividual",
-			"value": "API_KEY_INDIVIDUAL",
+			"value": "Operation key not yet provided.",
 			"type": "string"
 		},
 		{
@@ -21404,6 +21404,17 @@
 			"key": "apiKeyInitial",
 			"value": "Operation key not yet provided.",
 			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3009",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9092",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }
