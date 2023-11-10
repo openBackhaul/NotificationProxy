@@ -10,8 +10,7 @@ COPY package*.json ./
 #COPY package.json ./
 
 # install application by NPM
-#RUN npm install
-RUN npm --proxy http://172.16.1.2:8080 --without-ssl --insecure ci --only=production
+RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
