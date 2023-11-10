@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^1.5.1",
     "connect": "^3.2.0",
+    "eventsource": "^2.0.2",
     "js-yaml": "^3.3.0",
     "oas3-tools": "^2.2.3",
     "onf-core-model-ap": "v2.0.2-alpha.2",

@@ -1,6 +1,4 @@
-const fileOperation = require("onf-core-model-ap/applicationPattern/databaseDriver/JSONDriver");
 const configConstants = require('./ConfigConstants');
-const notificationManagement = require("./NotificationManagement");
 const logicalTerminationPointServices = require("onf-core-model-ap/applicationPattern/onfModel/services/LogicalTerminationPointServices");
 const LogicalTerminationPointConfigurationInput = require("onf-core-model-ap/applicationPattern/onfModel/services/models/logicalTerminationPoint/ConfigurationInput");
 const TcpObject = require("onf-core-model-ap/applicationPattern/onfModel/services/models/TcpObject");
@@ -8,6 +6,9 @@ const forwardingConstruct = require("onf-core-model-ap/applicationPattern/onfMod
 const forwardingDomain = require('onf-core-model-ap/applicationPattern/onfModel/models/ForwardingDomain');
 const httpClientInterface = require('onf-core-model-ap/applicationPattern/onfModel/models/layerProtocols/HttpClientInterface');
 const individualServicesOperationsMapping = require('./IndividualServicesOperationsMapping');
+const notificationStreamManagement = require('./NotificationStreamManagement');
+const fcPort = require('onf-core-model-ap/applicationPattern/onfModel/models/FcPort');
+const controlConstructUtils = require('./ControlConstructUtil');
 
 /**
  * Add a controller which will be source for notifications which can be subscribed to.
@@ -57,35 +58,72 @@ exports.registerController = async function (inputControllerName, inputControlle
         //get all forwardConstructs
         let allForwardingConstructs = await forwardingDomain.getForwardingConstructListAsync();
 
-        let allForwardConstructsToUpdateNames = exports.getAllForwardConstructNamesToUpdate();
+        let allForwardConstructsToUpdateNames = configConstants.getAllForwardConstructNamesToUpdate();
 
         //add fcPort for all forwarding constructs that notify subscribers
         for (const allForwardingConstruct of allForwardingConstructs) {
-            let nameOfFC = allForwardingConstruct.name[1].value; //TODO filter for "value-name" == "ForwardingName"
-            if (allForwardConstructsToUpdateNames.includes(nameOfFC)) {
+            for (const fcConstructName of allForwardingConstruct.name) {
+                if (fcConstructName["value-name"] === "ForwardingName") {
+                    let nameOfFC = fcConstructName.value;
+                    if (allForwardConstructsToUpdateNames.includes(nameOfFC)) {
 
-                let forwardingConstructInstance = await forwardingDomain.getForwardingConstructForTheForwardingNameAsync(
-                    nameOfFC);
+                        let forwardingConstructInstance = await forwardingDomain.getForwardingConstructForTheForwardingNameAsync(
+                            nameOfFC);
 
-                //add PORT_DIRECTION_TYPE_INPUT fcPort - information should be received from controller for forwardConstruct
-                const newFcPort = {
-                    "local-id": "999", //todo how to generate?
-                    "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_INPUT",
-                    "logical-termination-point": operationUUID
-                };
+                        let nextFcPortLocalId = fcPort.generateNextLocalId(forwardingConstructInstance);
 
-                // let fcPortExists = forwardingConstruct.isFcPortExists(forwardingConstructInstance, operationUUID);
-                //
-                // if (!fcPortExists) {
-                    let successFc = await forwardingConstruct.addFcPortAsync(forwardingConstructInstance.uuid, newFcPort);
-                    if (!successFc) {
-                        console.log("addFcPortAsync failed for operationUUID="+operationUUID);
+                        //add PORT_DIRECTION_TYPE_INPUT fcPort - information should be received from controller for forwardConstruct
+                        const newFcPort = {
+                            "local-id": nextFcPortLocalId,
+                            "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_INPUT",
+                            "logical-termination-point": operationUUID
+                        };
+
+                        let fcPortExists = forwardingConstruct.isFcPortExists(forwardingConstructInstance, operationUUID);
+
+                        if (fcPortExists === false) {
+                            let successFc = await forwardingConstruct.addFcPortAsync(forwardingConstructInstance.uuid, newFcPort);
+                            if (!successFc) {
+                                console.log("addFcPortAsync failed for operationUUID=" + operationUUID);
+                            }
+                        }
                     }
-                // }
+                }
             }
         }
 
         return true;
+
+        // let inputControllerAddress = buildControllerTargetPath(controllerProtocol, controllerAddress, controllerPort);
+        //
+        // let foundControllerAddressInExistingControllers = await checkExistingControllerWithSameTargetPath(inputControllerAddress);
+        //
+        // if (foundControllerAddressInExistingControllers === false) {
+        //     //build db entity
+        //     let controllerEntry = {
+        //         controllerName: inputControllerName,
+        //         controllerRelease: inputControllerRelease,
+        //         controllerAddress: inputControllerAddress,
+        //         headerUser: user,
+        //         headerOriginator: originator,
+        //         headerXCorrelator: xCorrelator,
+        //         headerTraceIndicator: traceIndicator,
+        //         headerCustomerJourney: customerJourney,
+        //     };
+        //
+        //     const controllerEntryJSONString = JSON.stringify(controllerEntry);
+        //
+        //     //add entry to controller list - isAList param always adds current entry to list
+        //     try {
+        //         return await fileOperation.writeToDatabaseAsync(configConstants.OAM_PATH_CONTROLLERS, controllerEntryJSONString, true);
+        //     } catch (exception) {
+        //         console.log("error during writing controllers to config.json: " + exception);
+        //         return false;
+        //     }
+        // } else {
+        //     console.log("controller already registered");
+        //     return true;
+        // }
 
     } catch (exception) {
         console.log(exception);
@@ -99,79 +137,46 @@ exports.registerController = async function (inputControllerName, inputControlle
  *
  * @param inputControllerName name of controller to register
  * @param inputControllerRelease release of controller
- * @param user user header from original subscription request
- * @param originator originator header from original subscription request
- * @param xCorrelator x-correlator header from original subscription request
- * @param traceIndicator trace-indicator header from original subscription request
- * @param customerJourney customer-journey header from original subscription request
- * @returns {Promise<Boolean|boolean>} indicates if subscriber was added to database
  */
-exports.deregisterController = async function (inputControllerName, inputControllerRelease,
-                                               user, originator, xCorrelator, traceIndicator, customerJourney) {
-    return true;
-    //TODO only remove one specific controller, not _ALL_ controllers
-    // try {
-    //     return await fileOperation.deletefromDatabaseAsync(configConstants.OAM_PATH_CONTROLLERS);
-    // } catch (exception) {
-    //     console.log("error during writing controllers to config.json: " + exception);
-    //     return false;
-    // }
-}
+exports.deregisterController = async function (inputControllerName, inputControllerRelease) {
+    try {
+        //find controller
+        let httpClientUuid = await httpClientInterface.getHttpClientUuidExcludingOldReleaseAndNewRelease(
+            inputControllerName, inputControllerRelease, "not used"
+        );
 
+        if (httpClientUuid) {
+            //stop active notification handling streams for this application
+            await notificationStreamManagement.removeAllStreamsForController(inputControllerName, inputControllerRelease);
 
-function buildControllerTargetPath(controllerProtocol, controllerAddress, controllerPort) {
+            //remove all FcPorts still in database for this application
+            let success = await controlConstructUtils.deleteAllFcPortsForApplication(httpClientUuid);
 
-    let addressPart;
-    if (controllerAddress["domain-name"]) {
-        addressPart = controllerAddress["domain-name"];
-    } else {
-        addressPart = controllerAddress["ip-address"]["ipv-4-address"];
-    }
+            if (!success) {
+                throw new Error("FcPort cleaning failed");
+            }
 
-    return controllerProtocol
-        + "://" + addressPart
-        + ":" + controllerPort;
-}
-
-async function checkExistingControllerWithSameTargetPath(controllerAddress) {
-    //check if controllerAddress is already contained in an existing entry
-    let registeredControllers = await notificationManagement.getActiveSubscribers(configConstants.OAM_PATH_CONTROLLERS);
-
-    let foundEquivalentEntry = false;
-    for (let activeController of registeredControllers) {
-        if (controllerAddress === activeController.controllerAddress) {
-            foundEquivalentEntry = true;
-            break;
-        }
-    }
-    return foundEquivalentEntry;
-}
-
-exports.getRegisteredControllers = async function () {
-
-    //fetch subscribers from database
-    let controllers = await fileOperation.readFromDatabaseAsync(configConstants.OAM_PATH_CONTROLLERS);
-
-    if (controllers) {
-        for (let i = 0; i < controllers.length; i++) {
-            controllers[i] = JSON.parse(controllers[i])
+            //delete all linked LTPs from config
+            await logicalTerminationPointServices.deleteApplicationLtpsAsync(httpClientUuid);
         }
 
-        return controllers;
+        return true;
+    } catch (exception) {
+        console.log("deregisterController failed: " + exception + " with name " + inputControllerName);
+        return false;
     }
-
-    return []; //nothing found
 }
 
-//todo move to ConfigConstants.js?
-//todo duplicate code
-exports.getAllForwardConstructNamesToUpdate = function (){
-    return ["SubscriptionCausesNotifyingOfChangedControllerAttributeValue",
-        "SubscriptionCausesNotifyingOfControllerObjectCreation",
-        "SubscriptionCausesNotifyingOfControllerObjectDeletion",
-        "SubscriptionCausesNotifyingOfDeviceAlarms",
-        "SubscriptionCausesNotifyingOfChangedDeviceAttributeValue",
-        "SubscriptionCausesNotifyingOfDeviceObjectCreation",
-        "SubscriptionCausesNotifyingOfDeviceObjectDeletion"
-    ];
-}
+// async function checkExistingControllerWithSameTargetPath(controllerAddress) {
+//     //check if controllerAddress is already contained in an existing entry
+//     let registeredControllers = await notificationManagement.getActiveSubscribers(configConstants.OAM_PATH_CONTROLLERS);
+//
+//     let foundEquivalentEntry = false;
+//     for (let activeController of registeredControllers) {
+//         if (controllerAddress === activeController.controllerAddress) {
+//             foundEquivalentEntry = true;
+//             break;
+//         }
+//     }
+//     return foundEquivalentEntry;
+// }
