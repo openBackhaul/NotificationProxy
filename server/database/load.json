@@ -251,7 +251,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -274,7 +274,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -297,7 +297,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -320,7 +320,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -343,7 +343,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -366,7 +366,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -389,7 +389,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -412,7 +412,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -435,7 +435,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -458,7 +458,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -481,7 +481,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -504,7 +504,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "n.a."
               }
             }
           }
@@ -527,7 +527,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "n.a."
               }
             }
           }
@@ -550,7 +550,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "n.a."
               }
             }
           }
@@ -573,7 +573,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "n.a."
               }
             }
           }
@@ -596,7 +596,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_BASIC"
+                "operation-key": "n.a."
               }
             }
           }
@@ -642,7 +642,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -665,7 +665,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -688,7 +688,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -711,7 +711,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -734,7 +734,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -757,7 +757,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -780,7 +780,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -803,7 +803,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -826,7 +826,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -849,7 +849,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "n.a."
               }
             }
           }
@@ -899,7 +899,7 @@
             "http-server-interface-1-0:http-server-interface-pac": {
               "http-server-interface-capability": {
                 "application-name": "NotificationProxy",
-                "release-number": "1.0.1",
+                "release-number": "1.0.0",
                 "application-purpose": "The NotificationProxy allows subscribing for DeviceNotifications and ControllerNotifications according to the ONF TR-532 definitions.",
                 "data-update-period": "http-server-interface-1-0:DATA_UPDATE_PERIOD_TYPE_REAL_TIME",
                 "owner-name": "Thorsten Heinze",
@@ -907,8 +907,8 @@
                 "release-list": [
                   {
                     "local-id": "0",
-                    "release-number": "1.0.1",
-                    "release-date": "03.11.2023",
+                    "release-number": "1.0.0",
+                    "release-date": "31.08.2023",
                     "changes": "Initial version"
                   }
                 ]
@@ -933,9 +933,9 @@
                 "description": "Without TLS layer",
                 "local-protocol": "tcp-server-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "local-address": {
-                  "ipv-4-address": "192.168.0.47"
+                  "ipv-4-address": "1.1.4.11"
                 },
-                "local-port": 3005
+                "local-port": 4011
               }
             }
           }
@@ -953,14 +953,13 @@
             "local-id": "0",
             "layer-protocol-name": "tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
             "tcp-server-interface-1-0:tcp-server-interface-pac": {
-              "comment": "// AdministratorAdministration",
               "tcp-server-interface-configuration": {
                 "description": "With TLS layer",
                 "local-protocol": "tcp-server-interface-1-0:PROTOCOL_TYPE_HTTPS",
                 "local-address": {
-                  "ipv-4-address": "192.168.0.47"
+                  "ipv-4-address": "1.2.4.11"
                 },
-                "local-port": 3005
+                "local-port": 4211
               }
             }
           }
@@ -980,7 +979,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/bequeath-your-data-and-die",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1028,10 +1027,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "255.233.3.250"
+                    "ipv-4-address": "1.1.4.11"
                   }
                 },
-                "remote-port": 12345
+                "remote-port": 4011
               }
             }
           }
@@ -1051,7 +1050,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/add-controller",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1075,7 +1074,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/listen-to-controllers",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1099,7 +1098,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/notify-controller-attribute-value-changes",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1123,7 +1122,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/notify-controller-object-creations",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1147,7 +1146,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/notify-controller-object-deletions",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1171,7 +1170,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/notify-device-alarms",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1195,7 +1194,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/notify-device-attribute-value-changes",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1219,7 +1218,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/notify-device-object-creations",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1243,7 +1242,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/notify-device-object-deletions",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -1299,7 +1298,7 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.4.11"
                   }
                 },
                 "remote-port": 4011
@@ -1445,10 +1444,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.3.8"
                   }
                 },
-                "remote-port": 3001
+                "remote-port": 3008
               }
             }
           }
@@ -1493,7 +1492,7 @@
                     "ipv-4-address": "1.1.3.9"
                   }
                 },
-                "remote-port": 3002
+                "remote-port": 3009
               }
             }
           }
@@ -1562,10 +1561,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.3.10"
                   }
                 },
-                "remote-port": 3003
+                "remote-port": 3010
               }
             }
           }
@@ -1630,14 +1629,13 @@
             "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
             "tcp-client-interface-1-0:tcp-client-interface-pac": {
               "tcp-client-interface-configuration": {
-                "comment": "// OAMLog",
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.3.11"
                   }
                 },
-                "remote-port": 3004
+                "remote-port": 3011
               }
             }
           }
@@ -1702,14 +1700,13 @@
             "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
             "tcp-client-interface-1-0:tcp-client-interface-pac": {
               "tcp-client-interface-configuration": {
-                "comment": "// AdministratorAdministration",
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.3.12"
                   }
                 },
-                "remote-port": 3005
+                "remote-port": 3012
               }
             }
           }
@@ -1902,10 +1899,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.3.13"
                   }
                 },
-                "remote-port": 3006
+                "remote-port": 3013
               }
             }
           }
@@ -1947,10 +1944,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.3.14"
                   }
                 },
-                "remote-port": 3007
+                "remote-port": 3014
               }
             }
           }
@@ -1970,7 +1967,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/v1/listen-to-controllers",
-                "operation-key": "API_KEY_INDIVIDUAL"
+                "operation-key": "Operation key not yet provided."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2018,7 +2015,7 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "192.168.0.47"
+                    "ipv-4-address": "1.1.4.11"
                   }
                 },
                 "remote-port": 4011
@@ -2214,10 +2211,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "172.28.127.3"
+                    "ipv-4-address": "1.1.1.1"
                   }
                 },
-                "remote-port": 8181
+                "remote-port": 1001
               }
             }
           }
@@ -2410,10 +2407,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "172.28.127.3"
+                    "ipv-4-address": "1.1.1.1"
                   }
                 },
-                "remote-port": 8181
+                "remote-port": 1001
               }
             }
           }
@@ -2587,127 +2584,6 @@
                 "remote-port": 4004
               }
             }
-          }
-        ]
-      },
-      {
-        "uuid": "np-1-0-0-http-c-ro-0-4-99-000",
-        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-          "np-1-0-0-op-c-bm-ro-0-4-99-002",
-          "np-1-0-0-op-c-bm-ro-0-4-99-001",
-          "np-1-0-0-op-c-bm-ro-0-4-99-003"
-        ],
-        "server-ltp": [
-          "np-1-0-0-tcp-c-ro-0-4-99-000"
-        ],
-        "layer-protocol": [
-          {
-            "http-client-interface-1-0:http-client-interface-pac": {
-              "http-client-interface-configuration": {
-                "release-number": "0.4.99",
-                "application-name": "RegistryOffice"
-              }
-            },
-            "local-id": "0",
-            "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER"
-          }
-        ]
-      },
-      {
-        "uuid": "np-1-0-0-tcp-c-ro-0-4-99-000",
-        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-          "np-1-0-0-http-c-ro-0-4-99-000"
-        ],
-        "server-ltp": [],
-        "layer-protocol": [
-          {
-            "tcp-client-interface-1-0:tcp-client-interface-pac": {
-              "tcp-client-interface-configuration": {
-                "remote-address": {
-                  "ip-address": {
-                    "ipv-4-address": "233.72.4.245"
-                  }
-                },
-                "remote-port": 3000,
-                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP"
-              }
-            },
-            "local-id": "0",
-            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER"
-          }
-        ]
-      },
-      {
-        "uuid": "np-1-0-0-op-c-bm-ro-0-4-99-002",
-        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [],
-        "server-ltp": [
-          "np-1-0-0-http-c-ro-0-4-99-000"
-        ],
-        "layer-protocol": [
-          {
-            "operation-client-interface-1-0:operation-client-interface-pac": {
-              "operation-client-interface-configuration": {
-                "operation-name": "<string>",
-                "operation-key": "Operation key not yet provided."
-              },
-              "operation-client-interface-status": {
-                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
-              }
-            },
-            "local-id": "0",
-            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER"
-          }
-        ]
-      },
-      {
-        "uuid": "np-1-0-0-op-c-bm-ro-0-4-99-001",
-        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [],
-        "server-ltp": [
-          "np-1-0-0-http-c-ro-0-4-99-000"
-        ],
-        "layer-protocol": [
-          {
-            "operation-client-interface-1-0:operation-client-interface-pac": {
-              "operation-client-interface-configuration": {
-                "operation-name": "<string>",
-                "operation-key": "Operation key not yet provided."
-              },
-              "operation-client-interface-status": {
-                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
-              }
-            },
-            "local-id": "0",
-            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER"
-          }
-        ]
-      },
-      {
-        "uuid": "np-1-0-0-op-c-bm-ro-0-4-99-003",
-        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [],
-        "server-ltp": [
-          "np-1-0-0-http-c-ro-0-4-99-000"
-        ],
-        "layer-protocol": [
-          {
-            "operation-client-interface-1-0:operation-client-interface-pac": {
-              "operation-client-interface-configuration": {
-                "operation-name": "<string>",
-                "operation-key": "Operation key not yet provided."
-              },
-              "operation-client-interface-status": {
-                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
-              }
-            },
-            "local-id": "0",
-            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER"
           }
         ]
       }
@@ -3337,7 +3213,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-0-0-op-c-bm-ro-0-4-99-003"
+                "logical-termination-point": "np-1-0-0-op-c-bm-ro-2-0-1-002"
               }
             ]
           },
