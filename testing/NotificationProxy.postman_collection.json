@@ -21382,12 +21382,12 @@
 		},
 		{
 			"key": "apiKeyBasic",
-			"value": "API_KEY_BASIC",
+			"value": "Operation key not yet provided.",
 			"type": "string"
 		},
 		{
 			"key": "apiKeyIndividual",
-			"value": "API_KEY_INDIVIDUAL",
+			"value": "Operation key not yet provided.",
 			"type": "string"
 		},
 		{
