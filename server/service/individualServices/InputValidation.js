@@ -1,22 +1,56 @@
 /**
  * Check for valid input data for subscribing a device notification.
- * @param body request body
  * @returns true if all mandatory parameters are present
  */
-exports.validateDeviceSubscriberInput = function (body)
-{
+exports.validateSubscriberInput = function (subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+                                            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation) {
     let validInput;
-
-    let subscribingApplicationName = body["subscribing-application-name"];
-    let subscribingApplicationRelease = body["subscribing-application-release"];
-    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
-    let subscribingApplicationAddress = body["subscribing-application-address"];
-    let subscribingApplicationPort = body["subscribing-application-port"];
-    let notificationsReceivingOperation = body["notifications-receiving-operation"];
 
     if (subscribingApplicationName && subscribingApplicationRelease && subscribingApplicationProtocol
         && (subscribingApplicationAddress["ip-address"] || subscribingApplicationAddress["domain-name"])
         && subscribingApplicationPort && notificationsReceivingOperation) {
+        validInput = true;
+    } else {
+        validInput = false;
+    }
+
+    return validInput;
+}
+
+/**
+ * Check for valid input data for registering a controller.
+ * @returns true if all mandatory parameters are present
+ * @param controllerName name of controller
+ * @param controllerRelease release number
+ * @param controllerProtocol protocol of target url
+ * @param controllerAddress target address
+ * @param controllerPort target address port
+ */
+exports.validateControllerRegisterInput = function (controllerName, controllerRelease, controllerProtocol, controllerAddress, controllerPort) {
+
+    let validInput;
+
+    if (controllerName && controllerRelease && controllerProtocol
+        && (controllerAddress["ip-address"] || controllerAddress["domain-name"])
+        && controllerPort) {
+        validInput = true;
+    } else {
+        validInput = false;
+    }
+
+    return validInput;
+}
+/**
+ * Check for valid input data for deregistering a controller.
+ * @returns true if all mandatory parameters are present
+ * @param controllerName name of controller
+ * @param controllerRelease release number
+ */
+exports.validateControllerDeRegisterInput = function (controllerName, controllerRelease) {
+
+    let validInput;
+
+    if (controllerName && controllerRelease) {
         validInput = true;
     } else {
         validInput = false;

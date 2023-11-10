@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest"
   },
   "keywords": [
     "swagger"
@@ -17,7 +18,11 @@
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
     "oas3-tools": "^2.2.3",
-    "onf-core-model-ap": "v2.0.2-alpha.1",
-    "onf-core-model-ap-bs": "v2.0.2-alpha.1"
+    "onf-core-model-ap": "v2.0.2-alpha.2",
+    "onf-core-model-ap-bs": "v2.0.2-alpha.2",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

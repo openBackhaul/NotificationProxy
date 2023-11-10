@@ -2,6 +2,12 @@
 
 const inputValidation = require('./individualServices/InputValidation');
 const subscriberManagement = require('./individualServices/SubscriberManagement');
+const controllerManagement = require('./individualServices/ControllerManagement');
+// const configConstants = require('./individualServices/ConfigConstants');
+const notificationManagement = require('./individualServices/NotificationManagement');
+// const forwardingConstruct = require('onf-core-model-ap/applicationPattern/onfModel/models/ForwardingConstruct');
+// const forwardingDomain = require("onf-core-model-ap/applicationPattern/onfModel/models/ForwardingDomain");
+// const controlConstruct = require("onf-core-model-ap/applicationPattern/onfModel/models/ControlConstruct");
 
 /**
  * Creates Tcp-, Http- and OperationClients of additional ODLn from OdlTemplate and adds FcPorts to the FCs of the callbacks section
@@ -14,10 +20,26 @@ const subscriberManagement = require('./individualServices/SubscriberManagement'
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.addController = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
+exports.addController = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let controllerName = body["controller-name"];
+    let controllerRelease = body["controller-release"];
+    let controllerProtocol = body["controller-protocol"];
+    let controllerAddress = body["controller-address"];
+    let controllerPort = body["controller-port"];
+
+    let validInput = inputValidation.validateControllerRegisterInput(controllerName, controllerRelease, controllerProtocol, controllerAddress, controllerPort);
+
+    if (validInput) {
+        let success = await controllerManagement.registerController(
+            controllerName, controllerRelease, controllerProtocol, controllerAddress, controllerPort,
+            user, originator, xCorrelator, traceIndicator, customerJourney);
+
+        if (!success) {
+            throw new Error('addController: registerController failed');
+        }
+    } else {
+        throw new Error('addController: invalid input data');
+    }
 }
 
 
@@ -33,9 +55,9 @@ exports.addController = function (requestUrl, body, user, originator, xCorrelato
  * no response value expected for this operation
  **/
 exports.bequeathYourDataAndDie = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
+    return new Promise(function (resolve, reject) {
+        resolve();
+    });
 }
 
 
@@ -49,10 +71,12 @@ exports.bequeathYourDataAndDie = function (requestUrl, body, user, originator, x
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.listenToControllers = function (requestUrl, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
+exports.listenToControllers = async function (requestUrl, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let success = await notificationManagement.triggerListenToControllerCallbackChain();
+
+    if (!success) {
+        throw new Error('listenToControllers: triggerListenToControllerCallbackChain failed');
+    }
 }
 
 
@@ -67,10 +91,33 @@ exports.listenToControllers = function (requestUrl, user, originator, xCorrelato
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.notifyControllerAttributeValueChanges = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
+exports.notifyControllerAttributeValueChanges = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let subscribingApplicationName = body["subscribing-application-name"];
+    let subscribingApplicationRelease = body["subscribing-application-release"];
+    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
+    let subscribingApplicationAddress = body["subscribing-application-address"];
+    let subscribingApplicationPort = body["subscribing-application-port"];
+    let notificationsReceivingOperation = body["notifications-receiving-operation"];
+
+    let validInput = inputValidation.validateSubscriberInput(
+        subscribingApplicationName,
+        subscribingApplicationRelease,
+        subscribingApplicationProtocol,
+        subscribingApplicationAddress,
+        subscribingApplicationPort,
+        notificationsReceivingOperation
+    );
+
+    if (validInput) {
+        let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
+
+        if (!success) {
+            throw new Error('notifyControllerAttributeValueChanges: addSubscriber failed');
+        }
+    } else {
+        throw new Error('notifyControllerAttributeValueChanges: invalid input data');
+    }
 }
 
 
@@ -85,10 +132,33 @@ exports.notifyControllerAttributeValueChanges = function (requestUrl, body, user
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.notifyControllerObjectCreations = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
+exports.notifyControllerObjectCreations = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let subscribingApplicationName = body["subscribing-application-name"];
+    let subscribingApplicationRelease = body["subscribing-application-release"];
+    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
+    let subscribingApplicationAddress = body["subscribing-application-address"];
+    let subscribingApplicationPort = body["subscribing-application-port"];
+    let notificationsReceivingOperation = body["notifications-receiving-operation"];
+
+    let validInput = inputValidation.validateSubscriberInput(
+        subscribingApplicationName,
+        subscribingApplicationRelease,
+        subscribingApplicationProtocol,
+        subscribingApplicationAddress,
+        subscribingApplicationPort,
+        notificationsReceivingOperation
+    );
+
+    if (validInput) {
+        let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
+
+        if (!success) {
+            throw new Error('notifyControllerObjectCreations: addSubscriber failed');
+        }
+    } else {
+        throw new Error('notifyControllerObjectCreations: invalid input data');
+    }
 }
 
 
@@ -103,13 +173,34 @@ exports.notifyControllerObjectCreations = function (requestUrl, body, user, orig
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.notifyControllerObjectDeletions = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
-}
+exports.notifyControllerObjectDeletions = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let subscribingApplicationName = body["subscribing-application-name"];
+    let subscribingApplicationRelease = body["subscribing-application-release"];
+    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
+    let subscribingApplicationAddress = body["subscribing-application-address"];
+    let subscribingApplicationPort = body["subscribing-application-port"];
+    let notificationsReceivingOperation = body["notifications-receiving-operation"];
 
-const OAM_PATH_DEVICE_ALARMS = "notifications/device-alarms";
+    let validInput = inputValidation.validateSubscriberInput(
+        subscribingApplicationName,
+        subscribingApplicationRelease,
+        subscribingApplicationProtocol,
+        subscribingApplicationAddress,
+        subscribingApplicationPort,
+        notificationsReceivingOperation
+    );
+
+    if (validInput) {
+        let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
+
+        if (!success) {
+            throw new Error('notifyControllerObjectCreations: addSubscriber failed');
+        }
+    } else {
+        throw new Error('notifyControllerObjectDeletions: invalid input data');
+    }
+}
 
 /**
  * Offers subscription for notifications about alarms at the devices
@@ -122,21 +213,34 @@ const OAM_PATH_DEVICE_ALARMS = "notifications/device-alarms";
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.notifyDeviceAlarms = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(async function (resolve, reject) {
+exports.notifyDeviceAlarms = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let subscribingApplicationName = body["subscribing-application-name"];
+    let subscribingApplicationRelease = body["subscribing-application-release"];
+    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
+    let subscribingApplicationAddress = body["subscribing-application-address"];
+    let subscribingApplicationPort = body["subscribing-application-port"];
+    let notificationsReceivingOperation = body["notifications-receiving-operation"];
 
-    let validInput = inputValidation.validateDeviceSubscriberInput(body);
+    let validInput = inputValidation.validateSubscriberInput(
+        subscribingApplicationName,
+        subscribingApplicationRelease,
+        subscribingApplicationProtocol,
+        subscribingApplicationAddress,
+        subscribingApplicationPort,
+        notificationsReceivingOperation
+    );
 
     if (validInput) {
-      let success = subscriberManagement.addDeviceSubscriber(body, OAM_PATH_DEVICE_ALARMS, user, originator, xCorrelator, traceIndicator, customerJourney);
+        let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+                subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
 
-      success ? resolve() : reject();
+        if (!success) {
+            throw new Error('notifyDeviceAlarms: addSubscriber failed');
+        }
     } else {
-      reject();
+        throw new Error('notifyDeviceAlarms: invalid input data');
     }
-  });
 }
-
 
 /**
  * Offers subscription for notifications about changes of attributes at the devices
@@ -149,12 +253,34 @@ exports.notifyDeviceAlarms = function (requestUrl, body, user, originator, xCorr
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.notifyDeviceAttributeValueChanges = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
-}
+exports.notifyDeviceAttributeValueChanges = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let subscribingApplicationName = body["subscribing-application-name"];
+    let subscribingApplicationRelease = body["subscribing-application-release"];
+    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
+    let subscribingApplicationAddress = body["subscribing-application-address"];
+    let subscribingApplicationPort = body["subscribing-application-port"];
+    let notificationsReceivingOperation = body["notifications-receiving-operation"];
 
+    let validInput = inputValidation.validateSubscriberInput(
+        subscribingApplicationName,
+        subscribingApplicationRelease,
+        subscribingApplicationProtocol,
+        subscribingApplicationAddress,
+        subscribingApplicationPort,
+        notificationsReceivingOperation
+    );
+
+    if (validInput) {
+        let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
+
+        if (!success) {
+            throw new Error('notifyDeviceAttributeValueChanges: addSubscriber failed');
+        }
+    } else {
+        throw new Error('notifyDeviceAttributeValueChanges: invalid input data');
+    }
+}
 
 /**
  * Offers subscription for notifications about object creations at the devices
@@ -167,12 +293,34 @@ exports.notifyDeviceAttributeValueChanges = function (requestUrl, body, user, or
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.notifyDeviceObjectCreations = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
-}
+exports.notifyDeviceObjectCreations = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let subscribingApplicationName = body["subscribing-application-name"];
+    let subscribingApplicationRelease = body["subscribing-application-release"];
+    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
+    let subscribingApplicationAddress = body["subscribing-application-address"];
+    let subscribingApplicationPort = body["subscribing-application-port"];
+    let notificationsReceivingOperation = body["notifications-receiving-operation"];
 
+    let validInput = inputValidation.validateSubscriberInput(
+        subscribingApplicationName,
+        subscribingApplicationRelease,
+        subscribingApplicationProtocol,
+        subscribingApplicationAddress,
+        subscribingApplicationPort,
+        notificationsReceivingOperation
+    );
+
+    if (validInput) {
+        let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
+
+        if (!success) {
+            throw new Error('notifyDeviceObjectCreations: addSubscriber failed');
+        }
+    } else {
+        throw new Error('notifyDeviceObjectCreations: invalid input data');
+    }
+}
 
 /**
  * Offers subscription for notifications about object deletions at the devices
@@ -185,10 +333,33 @@ exports.notifyDeviceObjectCreations = function (requestUrl, body, user, originat
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.notifyDeviceObjectDeletions = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
+exports.notifyDeviceObjectDeletions = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let subscribingApplicationName = body["subscribing-application-name"];
+    let subscribingApplicationRelease = body["subscribing-application-release"];
+    let subscribingApplicationProtocol = body["subscribing-application-protocol"];
+    let subscribingApplicationAddress = body["subscribing-application-address"];
+    let subscribingApplicationPort = body["subscribing-application-port"];
+    let notificationsReceivingOperation = body["notifications-receiving-operation"];
+
+    let validInput = inputValidation.validateSubscriberInput(
+        subscribingApplicationName,
+        subscribingApplicationRelease,
+        subscribingApplicationProtocol,
+        subscribingApplicationAddress,
+        subscribingApplicationPort,
+        notificationsReceivingOperation
+    );
+
+    if (validInput) {
+        let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
+            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
+
+        if (!success) {
+            throw new Error('notifyDeviceObjectDeletions: addSubscriber failed');
+        }
+    } else {
+        throw new Error('notifyDeviceObjectDeletions: invalid input data');
+    }
 }
 
 
@@ -203,9 +374,20 @@ exports.notifyDeviceObjectDeletions = function (requestUrl, body, user, originat
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.removeController = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-  return new Promise(function (resolve, reject) {
-    resolve();
-  });
-}
+exports.removeController = async function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
+    let controllerName = body["controller-name"];
+    let controllerRelease = body["controller-release"];
 
+    let validInput = inputValidation.validateControllerDeRegisterInput(controllerName, controllerRelease);
+
+    if (validInput) {
+        let success = await controllerManagement.deregisterController(
+            controllerName, controllerRelease, user, originator, xCorrelator, traceIndicator, customerJourney);
+
+        if (!success) {
+            throw new Error('removeController: deregisterController failed');
+        }
+    } else {
+        throw new Error('removeController: invalid input data');
+    }
+}
