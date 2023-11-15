@@ -49,24 +49,18 @@ exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicati
         let forwardingConstructInstance = await forwardingDomain.getForwardingConstructForTheForwardingNameAsync(
             forwardingName);
 
-        // let fcPort = forwardingConstruct.getFcPortAsync(forwardingConstructUuid, fcPortLocalId);
-        // let forwardingConstruct = forwardingDomain.getForwardingConstructAsync(forwardingConstructUuid);
-
-        //get existing
-        // let fcPorts = await forwardingConstruct.getOutputFcPortsAsync(forwardingConstructInstance.uuid);
-
-        let nextFcPortLocalId = fcPort.generateNextLocalId(forwardingConstructInstance);
-
-        //add PORT_DIRECTION_TYPE_OUTPUT fcPort - information should be forwarded to subscriber for forwardConstruct
-        const newFcPort = {
-            "local-id": nextFcPortLocalId,
-            "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-            "logical-termination-point": operationUUID
-        };
-
         let fcPortExists = forwardingConstruct.isFcPortExists(forwardingConstructInstance, operationUUID);
 
         if (fcPortExists === false) {
+            let nextFcPortLocalId = fcPort.generateNextLocalId(forwardingConstructInstance);
+
+            //add PORT_DIRECTION_TYPE_OUTPUT fcPort - information should be forwarded to subscriber for forwardConstruct
+            const newFcPort = {
+                "local-id": nextFcPortLocalId,
+                "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
+                "logical-termination-point": operationUUID
+            };
+
             await forwardingConstruct.addFcPortAsync(forwardingConstructInstance.uuid, newFcPort);
         }
 

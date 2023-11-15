@@ -7,9 +7,10 @@ const FcPort = require('onf-core-model-ap/applicationPattern/onfModel/models/FcP
 const controlConstruct = require("onf-core-model-ap/applicationPattern/onfModel/models/ControlConstruct");
 const tcpClientInterface = require('onf-core-model-ap/applicationPattern/onfModel/models/layerProtocols/TcpClientInterface');
 const notificationStreamManagement = require('./NotificationStreamManagement');
+const process = require('process');
 
-const NP_SERVER_APP_NAME = "NotificationProxy";
-const NP_SERVER_APP_RELEASE_NUMBER = "1.0.0"; //todo get from config?
+const NP_SERVER_APP_NAME = "NotificationProxy"; //todo get from config? -> see informAboutApplication
+const NP_SERVER_APP_RELEASE_NUMBER = "1.0.0"; //todo get from config? -> see informAboutApplication
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
@@ -151,26 +152,26 @@ async function registerControllerCallbackChain(registeredController, controllerS
         console.log("starting controller stream step1: " + registeredController.name + " " + controllerSubscriptionMode);
 
         //step 1
-        let streamNameForSubscription = await createControllerConfigurationStream(
+        let streamNameForSubscription = await createControllerNotificationStream(
             controllerAddress,
             registeredController.operationKey,
             controllerSubscriptionMode);
 
         if (!streamNameForSubscription) {
-            throw new Error('registerControllerCallbackChain: createControllerConfigurationStream failed');
+            throw new Error('registerControllerCallbackChain: createControllerNotificationStream failed');
         }
 
         console.log("starting controller stream step2: " + registeredController.name + " " + controllerSubscriptionMode);
 
         //step 2
-        let streamLocation = await subscribeToControllerConfigurationStream(
+        let streamLocation = await subscribeToControllerNotificationStream(
             controllerAddress,
             registeredController.operationKey,
             streamNameForSubscription
         );
 
         if (!streamLocation) {
-            throw new Error('registerControllerCallbackChain: subscribeToControllerConfigurationStream failed');
+            throw new Error('registerControllerCallbackChain: subscribeToControllerNotificationStream failed');
         }
 
         try {
@@ -234,7 +235,7 @@ exports.triggerListenToControllerCallbackChain = async function () {
         }
     }
 
-    let uniqueControllerUUIDs = [...new Set(relevantControllersUUIDList)]
+    let uniqueControllerUUIDs = [...new Set(relevantControllersUUIDList)];
 
     let controllers = [];
     for (const uniqueControllerUUID of uniqueControllerUUIDs) {
@@ -345,7 +346,7 @@ function buildControllerTargetPath(controllerProtocol, controllerAddress, contro
  * @param controllerSubscriptionMode CONFIGURATION or OPERATIONAL
  * @return string: URL for subscription or null
  */
-async function createControllerConfigurationStream(controllerAddress, operationKey,
+async function createControllerNotificationStream(controllerAddress, operationKey,
                                                    // user, originator, xCorrelator, traceIndicator,
                                                    controllerSubscriptionMode) {
 
@@ -377,8 +378,8 @@ async function createControllerConfigurationStream(controllerAddress, operationK
 
     console.log("creating controller configuration stream on controller: " + controllerTargetUrl);
 
-    let user = 'mentopolis_rw';
-    let password = 'MenPo1016';
+    let user = process.env['CONTROLLER_USER'];
+    let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
     //return streamName from post call
@@ -441,7 +442,7 @@ async function createControllerConfigurationStream(controllerAddress, operationK
  * @param streamNameForSubscription
  * @returns string URL for stream-location or null
  */
-async function subscribeToControllerConfigurationStream(
+async function subscribeToControllerNotificationStream(
     controllerAddress,
     operationKey,
     streamNameForSubscription
@@ -454,8 +455,8 @@ async function subscribeToControllerConfigurationStream(
 
     console.log("subscribing to change-event stream of controller with path: " + controllerTargetUrl);
 
-    let user = 'mentopolis_rw';
-    let password = 'MenPo1016';
+    let user = process.env['CONTROLLER_USER'];
+    let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
     //return streamLocation from get call

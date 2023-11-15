@@ -105,7 +105,7 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
     // evtSource.close();
 
 
-    //todo reenable when it is clear how we proceed
+    //todo re-enable when it is clear how we proceed
     //add to global list of open webSockets
     // addStreamItem(registeredController, webSocket, streamType);
 }

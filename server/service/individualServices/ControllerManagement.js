@@ -11,8 +11,49 @@ const fcPort = require('onf-core-model-ap/applicationPattern/onfModel/models/FcP
 const controlConstructUtils = require('./ControlConstructUtil');
 
 /**
+ * @param nameOfFc fcport name
+ * @return list of operation names for fc port (input direction)
+ */
+async function getOperationUUIDsForFcPort(nameOfFc, applicationHttpClientUuid) {
+
+    let operationNameList = [];
+    switch (nameOfFc) {
+        case configConstants.OPERATION_SUB_NOTIF_CONTROLLER_CHANGED_ATTR:
+        case configConstants.OPERATION_SUB_NOTIF_CONTROLLER_OBJ_CREATION:
+        case configConstants.OPERATION_SUB_NOTIF_CONTROLLER_OBJ_DELETION:
+            //"np-1-0-0-op-c-is-odl1-4-0-2-002" -> "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON"
+            //"np-1-0-0-op-c-is-odl1-4-0-2-004" -> "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON"
+            operationNameList.push("/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON");
+            operationNameList.push("/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON");
+            break;
+        case configConstants.OPERATION_SUB_NOTIF_DEVICE_ALARMS:
+        case configConstants.OPERATION_SUB_NOTIF_DEVICE_CHANGED_ATTR:
+        case configConstants.OPERATION_SUB_NOTIF_DEVICE_OBJ_CREATION:
+        case configConstants.OPERATION_SUB_NOTIF_DEVICE_OBJ_DELETION:
+            //"np-1-0-0-op-c-is-odl1-4-0-2-005" -> "/rests/notif/device?notificationType=device"
+            operationNameList.push("/rests/notif/device?notificationType=device");
+            break;
+        default:
+            break;
+    }
+
+    let operationUUIDs = [];
+    for (const operationNameListElement of operationNameList) {
+        //get operation-ids by name
+        let operationLTPs = await controlConstructUtils.getLogicalTerminationPointsAsync(operationNameListElement, applicationHttpClientUuid);
+        for (const operationLTP of operationLTPs) {
+            operationUUIDs.push(operationLTP.uuid);
+        }
+    }
+
+    return operationUUIDs;
+}
+
+/**
  * Add a controller which will be source for notifications which can be subscribed to.
  * The same controller can only be registered once.
+ *
+ * "Creates Tcp-, Http- and OperationClients of additional ODLn from OdlTemplate and adds FcPorts to the FCs of the callbacks section"
  *
  * @param inputControllerName name of controller to register
  * @param inputControllerRelease release of controller
@@ -24,14 +65,28 @@ const controlConstructUtils = require('./ControlConstructUtil');
 exports.registerController = async function (inputControllerName, inputControllerRelease, controllerProtocol, controllerAddress, controllerPort) {
 
     try {
-        //Creates Tcp-, Http- and OperationClients of additional ODLn from OdlTemplate and adds FcPorts to the FCs of the callbacks section
 
         let operationNamesByAttributes = new Map();
-        //for example "/v1/regard-device-alarms"
-        operationNamesByAttributes.set("/v1/add-controller", "/v1/add-controller");
+        //PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications step1
+        //PromptForListenToControllersCausesSubscribingForControllerOperationNotifications step1
+        operationNamesByAttributes.set("/rests/operations/sal-remote:create-data-change-event-subscription",
+            "/rests/operations/sal-remote:create-data-change-event-subscription");
+        //PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications step2
+        operationNamesByAttributes.set("/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
+            "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true");
+        //PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications step3
+        operationNamesByAttributes.set("/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
+            "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON");
+        //PromptForListenToControllersCausesSubscribingForControllerOperationNotifications step2
+        operationNamesByAttributes.set("/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
+            "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true");
+        //PromptForListenToControllersCausesSubscribingForControllerOperationNotifications step3
+        operationNamesByAttributes.set("/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
+            "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON");
+        //PromptForListenToControllersCausesSubscribingForDeviceNotifications
+        operationNamesByAttributes.set("/rests/notif/device?notificationType=device",
+            "/rests/notif/device?notificationType=device");
 
-        //todo create from odltemplate?
-        //todo create forward operation for 3 notification streams?
 
         let tcpObjectList = [];
         let tcpObject = new TcpObject(controllerProtocol, controllerAddress, controllerPort);
@@ -45,15 +100,19 @@ exports.registerController = async function (inputControllerName, inputControlle
             inputControllerName,
             inputControllerRelease,
             tcpObjectList,
-            "/v1/add-controller",
+            "NotificationProxyOperation",
             operationNamesByAttributes,
             individualServicesOperationsMapping.individualServicesOperationsMapping
         );
+
         let ltpConfigurationStatus = await logicalTerminationPointServices.createOrUpdateApplicationLtpsAsync(
             logicalTerminationPointConfigurationInput
         );
 
-        let operationUUID = ltpConfigurationStatus.operationClientConfigurationStatusList[0].uuid;
+        if (httpClientUuid === undefined) {
+            //get uuid of newly created application httpclient
+            httpClientUuid = ltpConfigurationStatus.httpClientConfigurationStatus.uuid;
+        }
 
         //get all forwardConstructs
         let allForwardingConstructs = await forwardingDomain.getForwardingConstructListAsync();
@@ -70,21 +129,25 @@ exports.registerController = async function (inputControllerName, inputControlle
                         let forwardingConstructInstance = await forwardingDomain.getForwardingConstructForTheForwardingNameAsync(
                             nameOfFC);
 
-                        let nextFcPortLocalId = fcPort.generateNextLocalId(forwardingConstructInstance);
+                        let operationUUIDs = await getOperationUUIDsForFcPort(nameOfFC, httpClientUuid);
 
-                        //add PORT_DIRECTION_TYPE_INPUT fcPort - information should be received from controller for forwardConstruct
-                        const newFcPort = {
-                            "local-id": nextFcPortLocalId,
-                            "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_INPUT",
-                            "logical-termination-point": operationUUID
-                        };
+                        for (const operationUUID of operationUUIDs) {
+                            let fcPortExists = forwardingConstruct.isFcPortExists(forwardingConstructInstance, operationUUID);
 
-                        let fcPortExists = forwardingConstruct.isFcPortExists(forwardingConstructInstance, operationUUID);
+                            if (fcPortExists === false) {
+                                let nextFcPortLocalId = fcPort.generateNextLocalId(forwardingConstructInstance);
 
-                        if (fcPortExists === false) {
-                            let successFc = await forwardingConstruct.addFcPortAsync(forwardingConstructInstance.uuid, newFcPort);
-                            if (!successFc) {
-                                console.log("addFcPortAsync failed for operationUUID=" + operationUUID);
+                                //add PORT_DIRECTION_TYPE_INPUT fcPort - information should be received from controller for forwardConstruct
+                                const newFcPort = {
+                                    "local-id": nextFcPortLocalId,
+                                    "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_INPUT",
+                                    "logical-termination-point": operationUUID
+                                };
+
+                                let successFc = await forwardingConstruct.addFcPortAsync(forwardingConstructInstance.uuid, newFcPort);
+                                if (!successFc) {
+                                    console.log("addFcPortAsync failed for operationUUID=" + operationUUID);
+                                }
                             }
                         }
                     }
@@ -93,37 +156,6 @@ exports.registerController = async function (inputControllerName, inputControlle
         }
 
         return true;
-
-        // let inputControllerAddress = buildControllerTargetPath(controllerProtocol, controllerAddress, controllerPort);
-        //
-        // let foundControllerAddressInExistingControllers = await checkExistingControllerWithSameTargetPath(inputControllerAddress);
-        //
-        // if (foundControllerAddressInExistingControllers === false) {
-        //     //build db entity
-        //     let controllerEntry = {
-        //         controllerName: inputControllerName,
-        //         controllerRelease: inputControllerRelease,
-        //         controllerAddress: inputControllerAddress,
-        //         headerUser: user,
-        //         headerOriginator: originator,
-        //         headerXCorrelator: xCorrelator,
-        //         headerTraceIndicator: traceIndicator,
-        //         headerCustomerJourney: customerJourney,
-        //     };
-        //
-        //     const controllerEntryJSONString = JSON.stringify(controllerEntry);
-        //
-        //     //add entry to controller list - isAList param always adds current entry to list
-        //     try {
-        //         return await fileOperation.writeToDatabaseAsync(configConstants.OAM_PATH_CONTROLLERS, controllerEntryJSONString, true);
-        //     } catch (exception) {
-        //         console.log("error during writing controllers to config.json: " + exception);
-        //         return false;
-        //     }
-        // } else {
-        //     console.log("controller already registered");
-        //     return true;
-        // }
 
     } catch (exception) {
         console.log(exception);
@@ -166,17 +198,3 @@ exports.deregisterController = async function (inputControllerName, inputControl
         return false;
     }
 }
-
-// async function checkExistingControllerWithSameTargetPath(controllerAddress) {
-//     //check if controllerAddress is already contained in an existing entry
-//     let registeredControllers = await notificationManagement.getActiveSubscribers(configConstants.OAM_PATH_CONTROLLERS);
-//
-//     let foundEquivalentEntry = false;
-//     for (let activeController of registeredControllers) {
-//         if (controllerAddress === activeController.controllerAddress) {
-//             foundEquivalentEntry = true;
-//             break;
-//         }
-//     }
-//     return foundEquivalentEntry;
-// }
