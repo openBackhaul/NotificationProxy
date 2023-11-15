@@ -22,5 +22,10 @@ This includes not just Closed-Loop-Automation applications, but also very fundam
 - [TestSuite](./testing/)
 - [Implementation](./server/)
 
+### Configuration
+In order to configure the SDN controller login, you have to edit this lines in the .env file of your docker-compose workspace:
+CONTROLLER_USER=xxx
+CONTROLLER_PASSWORD=xxx
+
 ### Comments
 ./.
