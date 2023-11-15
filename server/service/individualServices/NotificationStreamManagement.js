@@ -1,6 +1,6 @@
 const http = require('http');
 const EventSource = require('eventsource');
-const env = require('node:process');
+const process = require('process');
 
 const controllerNotificationStreams = [];
 
@@ -69,8 +69,8 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
 
     // controllerTargetUrl = "http://localhost:1500"; //local test
 
-    let user = env['CONTROLLER_USER'];
-    let password = env['CONTROLLER_PASSWORD'];
+    let user = process.env['CONTROLLER_USER'];
+    let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
     console.log("starting eventsource " + controllerTargetUrl);

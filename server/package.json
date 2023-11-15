@@ -21,6 +21,7 @@
     "oas3-tools": "^2.2.3",
     "onf-core-model-ap": "v2.0.2-alpha.2",
     "onf-core-model-ap-bs": "v2.0.2-alpha.2",
+    "process": "^0.11.10",
     "ws": "^8.14.2"
   },
   "devDependencies": {
