@@ -8,12 +8,33 @@ const controlConstruct = require("onf-core-model-ap/applicationPattern/onfModel/
 const tcpClientInterface = require('onf-core-model-ap/applicationPattern/onfModel/models/layerProtocols/TcpClientInterface');
 const notificationStreamManagement = require('./NotificationStreamManagement');
 const process = require('process');
-
-const NP_SERVER_APP_NAME = "NotificationProxy"; //todo get from config? -> see informAboutApplication
-const NP_SERVER_APP_RELEASE_NUMBER = "1.0.0"; //todo get from config? -> see informAboutApplication
+const BasicServices = require("onf-core-model-ap-bs/basicServices/BasicServicesService");
+const RestResponseHeader = require("onf-core-model-ap/applicationPattern/rest/server/ResponseHeader");
+const RestResponseBuilder = require("onf-core-model-ap/applicationPattern/rest/server/ResponseBuilder");
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
+
+let appInformation = null;
+
+/**
+ * Query and cache app information from the load file.
+ * @returns appInformation with application-name and release-number
+ */
+async function getAppInformation() {
+    if (!appInformation) {
+        appInformation = {};
+
+        try {
+            appInformation = await BasicServices.informAboutApplication();
+        } catch (exception) {
+            appInformation["application-name"] = "NotificationProxy";
+            appInformation["release-number"] = "1.0.0";
+        }
+    }
+
+    return appInformation;
+}
 
 /**
  * Trigger notification to subscriber with device data
@@ -26,6 +47,8 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
 
     //send notification
     console.log("sending subscriber notification to: " + targetOperationURL);
+
+    let appInformation = await getAppInformation();
 
     axios.post(targetOperationURL, notificationMessage, {
         // axios.post("http://localhost:1237", notificationMessage, {
@@ -42,8 +65,8 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
             console.log("result from axios call: " + response.status);
 
             executionAndTraceService.recordServiceRequestFromClient(
-                NP_SERVER_APP_NAME,
-                NP_SERVER_APP_RELEASE_NUMBER,
+                appInformation["application-name"],
+                appInformation["release-number"],
                 "", //xCorrelator,
                 "", //traceIndicator,
                 "", //userName,
@@ -57,8 +80,8 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
             console.log("error during axios call: " + e);
 
             executionAndTraceService.recordServiceRequestFromClient(
-                NP_SERVER_APP_NAME,
-                NP_SERVER_APP_RELEASE_NUMBER,
+                appInformation["application-name"],
+                appInformation["release-number"],
                 "", //xCorrelator,
                 "", //traceIndicator,
                 "", //userName,
@@ -382,6 +405,8 @@ async function createControllerNotificationStream(controllerAddress, operationKe
     let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
+    let appInformation = await getAppInformation();
+
     //return streamName from post call
     // return await axios.post("http://localhost:1234", payload, {
     return await axios.post(controllerTargetUrl, payload, {
@@ -399,8 +424,8 @@ async function createControllerNotificationStream(controllerAddress, operationKe
             console.log("result from axios call: " + response.status);
 
             executionAndTraceService.recordServiceRequestFromClient(
-                NP_SERVER_APP_NAME,
-                NP_SERVER_APP_RELEASE_NUMBER,
+                appInformation["application-name"],
+                appInformation["release-number"],
                 "", //xCorrelator,
                 "", //traceIndicator,
                 "", //user,
@@ -421,8 +446,8 @@ async function createControllerNotificationStream(controllerAddress, operationKe
         .catch(e => {
             console.log("error during axios call: " + e);
             executionAndTraceService.recordServiceRequestFromClient(
-                NP_SERVER_APP_NAME,
-                NP_SERVER_APP_RELEASE_NUMBER,
+                appInformation["application-name"],
+                appInformation["release-number"],
                 "", //xCorrelator,
                 "", //traceIndicator,
                 "", //user,
@@ -459,6 +484,8 @@ async function subscribeToControllerNotificationStream(
     let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
+    let appInformation = await getAppInformation();
+
     //return streamLocation from get call
     // return await axios.get("http://localhost:1235" + "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/" + streamNameForSubscription, { //local testing
     return await axios.get(controllerTargetUrl, {
@@ -476,8 +503,8 @@ async function subscribeToControllerNotificationStream(
             console.log("result from axios call: " + response.status);
 
             executionAndTraceService.recordServiceRequestFromClient(
-                NP_SERVER_APP_NAME,
-                NP_SERVER_APP_RELEASE_NUMBER,
+                appInformation["application-name"],
+                appInformation["release-number"],
                 "", //xCorrelator,
                 "", //traceIndicator,
                 "", //userName,
@@ -500,8 +527,8 @@ async function subscribeToControllerNotificationStream(
         .catch(e => {
             console.log("error during axios call: " + e);
             executionAndTraceService.recordServiceRequestFromClient(
-                NP_SERVER_APP_NAME,
-                NP_SERVER_APP_RELEASE_NUMBER,
+                appInformation["application-name"],
+                appInformation["release-number"],
                 "", //xCorrelator,
                 "", //traceIndicator,
                 "", //userName,
