@@ -174,11 +174,16 @@ async function registerControllerCallbackChain(registeredController, controllerS
 
         console.log("starting controller stream step1: " + registeredController.name + " " + controllerSubscriptionMode);
 
+        let user = process.env['CONTROLLER_USER'];
+        let password = process.env['CONTROLLER_PASSWORD'];
+
         //step 1
         let streamNameForSubscription = await createControllerNotificationStream(
             controllerAddress,
             registeredController.operationKey,
-            controllerSubscriptionMode);
+            controllerSubscriptionMode,
+            user, password
+        );
 
         if (!streamNameForSubscription) {
             throw new Error('registerControllerCallbackChain: createControllerNotificationStream failed');
@@ -190,7 +195,8 @@ async function registerControllerCallbackChain(registeredController, controllerS
         let streamLocation = await subscribeToControllerNotificationStream(
             controllerAddress,
             registeredController.operationKey,
-            streamNameForSubscription
+            streamNameForSubscription,
+            user, password
         );
 
         if (!streamLocation) {
@@ -202,7 +208,8 @@ async function registerControllerCallbackChain(registeredController, controllerS
             await listenToControllerNotifications(
                 streamLocation,
                 registeredController,
-                controllerSubscriptionMode);
+                controllerSubscriptionMode,
+                user, password);
 
             console.log("controller stream established");
         } catch (exception) {
@@ -223,12 +230,40 @@ async function registerDeviceCallbackChain(registeredController) {
     if (streamActive === false) {
         let controllerAddress = buildControllerTargetPath(registeredController.protocol, registeredController.address, registeredController.port);
 
+        //todo get path from config json operation?
         let controllerTargetUrl = controllerAddress + "/rests/notif/device?notificationType=device";
+        let user = process.env['DEVICE_USER'];
+        let password = process.env['DEVICE_PASSWORD'];
 
-        await notificationStreamManagement.startStream(controllerTargetUrl, registeredController, handleDeviceNotification, notificationStreamManagement.STREAM_TYPE_DEVICE);
+        await notificationStreamManagement.startStream(controllerTargetUrl, registeredController, handleDeviceNotification,
+                                                        notificationStreamManagement.STREAM_TYPE_DEVICE, user, password);
     } else {
         console.log("device stream for " + registeredController.name + " already active");
     }
+}
+
+async function buildControllerDataWrapper(uniqueControllerUUID) {
+    let operationLTP = await controlConstruct.getLogicalTerminationPointAsync(uniqueControllerUUID);
+    let httpUUID = operationLTP['server-ltp'][0];
+    let httpLTP = await controlConstruct.getLogicalTerminationPointAsync(httpUUID);
+    let tcpUUID = httpLTP['server-ltp'][0];
+    let tcpLTP = await controlConstruct.getLogicalTerminationPointAsync(tcpUUID);
+
+    let enumProtocol = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-protocol'];
+
+    let stringProtocol = tcpClientInterface.getProtocolFromProtocolEnum(enumProtocol)[0];
+
+    let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
+
+    let controllerDataWrapper = {
+        "name": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['application-name'],
+        "release": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['release-number'],
+        "port": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-port'],
+        "address": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-address'],
+        "protocol": stringProtocol,
+        "operationKey": operationKey
+    }
+    return controllerDataWrapper;
 }
 
 /**
@@ -262,26 +297,7 @@ exports.triggerListenToControllerCallbackChain = async function () {
 
     let controllers = [];
     for (const uniqueControllerUUID of uniqueControllerUUIDs) {
-        let operationLTP = await controlConstruct.getLogicalTerminationPointAsync(uniqueControllerUUID);
-        let httpUUID = operationLTP['server-ltp'][0];
-        let httpLTP = await controlConstruct.getLogicalTerminationPointAsync(httpUUID);
-        let tcpUUID = httpLTP['server-ltp'][0];
-        let tcpLTP = await controlConstruct.getLogicalTerminationPointAsync(tcpUUID);
-
-        let enumProtocol = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-protocol'];
-
-        let stringProtocol = tcpClientInterface.getProtocolFromProtocolEnum(enumProtocol)[0];
-
-        let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
-
-        let controllerDataWrapper = {
-            "name": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['application-name'],
-            "release": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['release-number'],
-            "port": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-port'],
-            "address": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-address'],
-            "protocol": stringProtocol,
-            "operationKey": operationKey
-        }
+        let controllerDataWrapper = await buildControllerDataWrapper(uniqueControllerUUID);
 
         //prevent duplicate controllers
         let found = false;
@@ -367,12 +383,16 @@ function buildControllerTargetPath(controllerProtocol, controllerAddress, contro
  * @param controllerAddress base controller address, {protocol}://{url}:{port}
  * @param operationKey
  * @param controllerSubscriptionMode CONFIGURATION or OPERATIONAL
+ * @user controller login account
+ * @password controller login password
  * @return string: URL for subscription or null
  */
 async function createControllerNotificationStream(controllerAddress, operationKey,
                                                    // user, originator, xCorrelator, traceIndicator,
-                                                   controllerSubscriptionMode) {
+                                                   controllerSubscriptionMode,
+                                                  user, password) {
 
+    //todo get path from config json operation?
     //for example http://{odlAddress}:{odlPort}/rests/operations/sal-remote:create-data-change-event-subscription
     let controllerTargetUrl = controllerAddress + "/rests/operations/sal-remote:create-data-change-event-subscription";
 
@@ -401,8 +421,6 @@ async function createControllerNotificationStream(controllerAddress, operationKe
 
     console.log("creating controller configuration stream on controller: " + controllerTargetUrl);
 
-    let user = process.env['CONTROLLER_USER'];
-    let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
     let appInformation = await getAppInformation();
@@ -465,23 +483,26 @@ async function createControllerNotificationStream(controllerAddress, operationKe
  * @param controllerAddress
  * @param operationKey
  * @param streamNameForSubscription
+ * @param user controller login account
+ * @param password controller login password
  * @returns string URL for stream-location or null
  */
 async function subscribeToControllerNotificationStream(
     controllerAddress,
     operationKey,
-    streamNameForSubscription
+    streamNameForSubscription,
+    user,
+    password
     // userName, originator, xCorrelator, traceIndicator
 ) {
 
+    //todo get path from config json operation?
     //for example http://{odlAddress}:{odlPort}/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/{stream-name}
     let controllerTargetUrl =
         controllerAddress + "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/" + streamNameForSubscription;
 
     console.log("subscribing to change-event stream of controller with path: " + controllerTargetUrl);
 
-    let user = process.env['CONTROLLER_USER'];
-    let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
     let appInformation = await getAppInformation();
@@ -513,8 +534,6 @@ async function subscribeToControllerNotificationStream(
                 response.status,
                 null,
                 response.data);
-
-            //todo result in response header field "Location" instead of body?
 
             try {
                 // for example "{subscribe-to-notification:location": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON"}"
@@ -592,8 +611,10 @@ function handleControllerNotification(message) {
  * @param streamLocation stream location URL returned in step 2
  * @param registeredController
  * @param controllerSubscriptionMode
+ * @param user
+ * @param password
  */
-async function listenToControllerNotifications(streamLocation, registeredController, controllerSubscriptionMode) {
+async function listenToControllerNotifications(streamLocation, registeredController, controllerSubscriptionMode, user, password) {
 
     let streamType;
     if (controllerSubscriptionMode === CONTROLLER_SUB_MODE_CONFIGURATION) {
@@ -602,7 +623,8 @@ async function listenToControllerNotifications(streamLocation, registeredControl
         streamType = notificationStreamManagement.STREAM_TYPE_OPERATIONAL;
     }
 
-    await notificationStreamManagement.startStream(streamLocation, registeredController, handleControllerNotification, streamType);
+    await notificationStreamManagement.startStream(streamLocation, registeredController, handleControllerNotification,
+                                                    streamType, user, password);
 }
 
 /**

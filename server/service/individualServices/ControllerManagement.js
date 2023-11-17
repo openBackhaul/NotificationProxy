@@ -12,6 +12,7 @@ const controlConstructUtils = require('./ControlConstructUtil');
 
 /**
  * @param nameOfFc fcport name
+ * @param applicationHttpClientUuid
  * @return list of operation names for fc port (input direction)
  */
 async function getOperationUUIDsForFcPort(nameOfFc, applicationHttpClientUuid) {

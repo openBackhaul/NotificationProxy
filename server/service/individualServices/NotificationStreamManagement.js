@@ -1,16 +1,20 @@
-const http = require('http');
 const EventSource = require('eventsource');
 const process = require('process');
+const http = require('http');
 
 const controllerNotificationStreams = [];
 
-function addStreamItem(registeredController, webSocket, streamType) {
+const STREAM_TYPE_CONFIGURATION = "CONFIGURATION";
+const STREAM_TYPE_OPERATIONAL = "OPERATIONAL";
+const STREAM_TYPE_DEVICE = "DEVICE";
+
+function addStreamItem(registeredController, eventSource, streamType) {
 
     let key = registeredController.name + "-" + registeredController.release + '-' + streamType;
 
     let notificationStreamItem = {
         'controllerKey': key,
-        'websocket': webSocket
+        'eventSource': eventSource
     }
 
     controllerNotificationStreams.push(notificationStreamItem);
@@ -22,10 +26,6 @@ function addStreamItem(registeredController, webSocket, streamType) {
 
     console.log("notification streams after adding: " + logString);
 }
-
-const STREAM_TYPE_CONFIGURATION = "CONFIGURATION";
-const STREAM_TYPE_OPERATIONAL = "OPERATIONAL";
-const STREAM_TYPE_DEVICE = "DEVICE";
 
 /**
  *
@@ -39,20 +39,20 @@ async function removeStreamItem(applicationName, applicationRelease, streamType)
     let key = applicationName + "-" + applicationRelease + "-" + streamType;
 
     //get by key
-    let openStreamWebsocket = null;
+    let openStreamEventSource = null;
     for (const controllerNotificationStreamItem of controllerNotificationStreams) {
         if (controllerNotificationStreamItem.controllerKey === key) {
-            openStreamWebsocket = controllerNotificationStreamItem.websocket;
+            openStreamEventSource = controllerNotificationStreamItem.eventSource;
             break;
         }
     }
 
-    if (openStreamWebsocket) {
+    if (openStreamEventSource) {
         //kill open streams
-        await openStreamWebsocket.close();
+        await openStreamEventSource.close();
 
         //remove from managed list
-        removeItemAll(controllerNotificationStreams, openStreamWebsocket);
+        removeItemAll(controllerNotificationStreams, openStreamEventSource);
     }
 
     console.log("removed stream item for " + key);
@@ -65,49 +65,40 @@ async function removeAllStreamsForController(applicationName, applicationRelease
     await removeStreamItem(applicationName, applicationRelease, STREAM_TYPE_DEVICE);
 }
 
-async function startStream(controllerTargetUrl, registeredController, handleFunction, streamType) {
+async function startStream(controllerTargetUrl, registeredController, handleFunction, streamType, user, password) {
 
     // controllerTargetUrl = "http://localhost:1500"; //local test
 
-    let user = process.env['CONTROLLER_USER'];
-    let password = process.env['CONTROLLER_PASSWORD'];
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
     console.log("starting eventsource " + controllerTargetUrl);
 
-    const evtSource = new EventSource(controllerTargetUrl, {
+    const eventSource = new EventSource(controllerTargetUrl, {
         withCredentials: true,
         headers: {
             'Authorization': 'Basic ' + base64encodedData,
         }
     });
 
-    evtSource.onopen = (event) => {
+    eventSource.onopen = (event) => {
         console.log("listening to stream for notifications: " + controllerTargetUrl);
     };
 
-    evtSource.onmessage = (event) => {
+    eventSource.onmessage = (event) => {
         console.log("received event: " + event.data);
         handleFunction(event.data);
     };
 
-    evtSource.onerror = (err) => {
+    eventSource.onerror = (err) => {
         console.error("EventSource failed: ", err);
     };
 
-    evtSource.onclose = (event) => {
+    eventSource.onclose = (event) => {
         console.error("EventSource closed");
     };
 
-
-    //todo closing
-
-    // evtSource.close();
-
-
-    //todo re-enable when it is clear how we proceed
-    //add to global list of open webSockets
-    // addStreamItem(registeredController, webSocket, streamType);
+    //add to global list of open eventSources
+    addStreamItem(registeredController, eventSource, streamType);
 }
 
 function checkIfStreamIsActive(registeredController, streamType) {
@@ -150,47 +141,3 @@ module.exports = {
     removeAllStreamsForController,
     checkIfStreamIsActive
 }
-
-
-/// MOCK FOR TEXTSTREAM ///
-
-// const server = http.createServer((req, res) => {
-//     // Set the content type to text/event-stream for Server-Sent Events (SSE)
-//
-//     console.log(req.headers);
-//
-//     res.writeHead(200, {
-//         'Content-Type': 'text/event-stream',
-//         'Cache-Control': 'no-cache',
-//         'Connection': 'keep-alive',
-//     });
-//
-//     // Function to send data as a text stream
-//     const sendTextStream = (data) => {
-//         res.write(`data: ${data}\n\n`);
-//     };
-//
-//     // Send a message every second (for example purposes)
-//     const intervalId = setInterval(() => {
-//         sendTextStream('This is a message from the server');
-//     }, 1000);
-//
-//     // Close the connection after 10 seconds (for example purposes)
-//     // setTimeout(() => {
-//     //     clearInterval(intervalId);
-//     //     res.end();
-//     // }, 60000);
-//
-//     // Handle client disconnect
-//     req.on('close', () => {
-//         clearInterval(intervalId);
-//         res.end();
-//     });
-// });
-//
-// const PORT = 1500;
-// server.listen(PORT, () => {
-//     console.log(`Server running at http://localhost:${PORT}`);
-// });
-
-/// MOCK FOR TEXTSTREAM END ///

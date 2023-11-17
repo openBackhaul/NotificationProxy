@@ -23,9 +23,14 @@ This includes not just Closed-Loop-Automation applications, but also very fundam
 - [Implementation](./server/)
 
 ### Configuration
-In order to configure the SDN controller login, you have to edit this lines in the .env file of your docker-compose workspace:
+In order to configure the SDN controller login, you have to edit this lines in the .env file of your docker-compose workspace.
+There are two basic auth logins for controller notifications resp. device notifications:
+
 CONTROLLER_USER=xxx
 CONTROLLER_PASSWORD=xxx
+
+DEVICE_USER=xxx
+DEVICE_PASSWORD=xxx
 
 ### Comments
 ./.

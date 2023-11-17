@@ -43,7 +43,6 @@ exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicati
 
         let operationUUID = ltpConfigurationStatus.operationClientConfigurationStatusList[0].uuid;
 
-        //todo get by requestUrl or operationName from config
         let forwardingName = configConstants.getForwardingName(requestUrl);
 
         let forwardingConstructInstance = await forwardingDomain.getForwardingConstructForTheForwardingNameAsync(
