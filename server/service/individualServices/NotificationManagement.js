@@ -9,8 +9,7 @@ const tcpClientInterface = require('onf-core-model-ap/applicationPattern/onfMode
 const notificationStreamManagement = require('./NotificationStreamManagement');
 const process = require('process');
 const BasicServices = require("onf-core-model-ap-bs/basicServices/BasicServicesService");
-const RestResponseHeader = require("onf-core-model-ap/applicationPattern/rest/server/ResponseHeader");
-const RestResponseBuilder = require("onf-core-model-ap/applicationPattern/rest/server/ResponseBuilder");
+const RequestHeader = require("onf-core-model-ap/applicationPattern/rest/client/RequestHeader");
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
@@ -50,15 +49,17 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
 
     let appInformation = await getAppInformation();
 
+    let requestHeader = new RequestHeader("NotificationProxy", "NotificationProxy");
+
     axios.post(targetOperationURL, notificationMessage, {
         // axios.post("http://localhost:1237", notificationMessage, {
         headers: {
-            // 'operation-key': operationKey,
-            'trace-indicator': "1",
-            'x-correlator': "550e8400-e29b-11d4-a716-446655440000", //todo generate
-            'user': "NotificationProxy",
-            'customer-journey': "CustomerJourney not yet defined.",
-            'originator': "NotificationProxy"
+            'originator': requestHeader.originator,
+            'user': requestHeader.user,
+            'x-correlator': requestHeader.xCorrelator,
+            'trace-indicator': requestHeader.traceIndicator,
+            'customer-journey': requestHeader.customerJourney
+            // 'operation-key': operationKey
         }
     })
         .then((response) => {
@@ -425,17 +426,19 @@ async function createControllerNotificationStream(controllerAddress, operationKe
 
     let appInformation = await getAppInformation();
 
+    let requestHeader = new RequestHeader("NotificationProxy", "NotificationProxy");
+
     //return streamName from post call
     // return await axios.post("http://localhost:1234", payload, {
     return await axios.post(controllerTargetUrl, payload, {
         headers: {
+            'originator': requestHeader.originator,
+            'user': requestHeader.user,
+            'x-correlator': requestHeader.xCorrelator,
+            'trace-indicator': requestHeader.traceIndicator,
+            'customer-journey': requestHeader.customerJourney,
+            'Authorization': 'Basic ' + base64encodedData
             // 'operation-key': operationKey,
-            'Authorization': 'Basic ' + base64encodedData,
-            'trace-indicator': "1",
-            'x-correlator': "550e8400-e29b-11d4-a716-446655440000", //todo generate
-            'user': "NotificationProxy",
-            'customer-journey': "CustomerJourney not yet defined.",
-            'originator': "NotificationProxy"
         }
     })
         .then((response) => {
@@ -507,17 +510,18 @@ async function subscribeToControllerNotificationStream(
 
     let appInformation = await getAppInformation();
 
+    let requestHeader = new RequestHeader("NotificationProxy", "NotificationProxy");
+
     //return streamLocation from get call
     // return await axios.get("http://localhost:1235" + "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/" + streamNameForSubscription, { //local testing
     return await axios.get(controllerTargetUrl, {
         headers: {
-            // 'operation-key': operationKey,
-            'Authorization': 'Basic ' + base64encodedData,
-            'trace-indicator': "1",
-            'x-correlator': "550e8400-e29b-11d4-a716-446655440000", //todo generate
-            'user': "NotificationProxy",
-            'customer-journey': "CustomerJourney not yet defined.",
-            'originator': "NotificationProxy"
+            'originator': requestHeader.originator,
+            'user': requestHeader.user,
+            'x-correlator': requestHeader.xCorrelator,
+            'trace-indicator': requestHeader.traceIndicator,
+            'customer-journey': requestHeader.customerJourney,
+            'Authorization': 'Basic ' + base64encodedData
         }
     })
         .then((response) => {
