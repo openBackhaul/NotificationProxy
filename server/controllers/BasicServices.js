@@ -293,3 +293,11 @@ module.exports.updateOperationKey = async function updateOperationKey(req, res, 
   }
   ExecutionAndTraceService.recordServiceRequest(xCorrelator, traceIndicator, user, originator, req.url, responseCode, req.body, responseBodyToDocument);
 };
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.log("unhandled Rejection, please check: " + reason);
+});
+
+process.on('uncaughtException', (reason) => {
+  console.log("unhandled Exception, please check: " + reason);
+});

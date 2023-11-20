@@ -3,11 +3,7 @@
 const inputValidation = require('./individualServices/InputValidation');
 const subscriberManagement = require('./individualServices/SubscriberManagement');
 const controllerManagement = require('./individualServices/ControllerManagement');
-// const configConstants = require('./individualServices/ConfigConstants');
 const notificationManagement = require('./individualServices/NotificationManagement');
-// const forwardingConstruct = require('onf-core-model-ap/applicationPattern/onfModel/models/ForwardingConstruct');
-// const forwardingDomain = require("onf-core-model-ap/applicationPattern/onfModel/models/ForwardingDomain");
-// const controlConstruct = require("onf-core-model-ap/applicationPattern/onfModel/models/ControlConstruct");
 
 /**
  * Creates Tcp-, Http- and OperationClients of additional ODLn from OdlTemplate and adds FcPorts to the FCs of the callbacks section
@@ -232,7 +228,7 @@ exports.notifyDeviceAlarms = async function (requestUrl, body, user, originator,
 
     if (validInput) {
         let success = await subscriberManagement.addSubscriberToConfig(requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
-                subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
+            subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation);
 
         if (!success) {
             throw new Error('notifyDeviceAlarms: addSubscriber failed');
@@ -381,8 +377,7 @@ exports.removeController = async function (requestUrl, body, user, originator, x
     let validInput = inputValidation.validateControllerDeRegisterInput(controllerName, controllerRelease);
 
     if (validInput) {
-        let success = await controllerManagement.deregisterController(
-            controllerName, controllerRelease, user, originator, xCorrelator, traceIndicator, customerJourney);
+        let success = await controllerManagement.deregisterController(controllerName, controllerRelease);
 
         if (!success) {
             throw new Error('removeController: deregisterController failed');
