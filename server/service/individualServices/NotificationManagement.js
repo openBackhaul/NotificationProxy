@@ -55,10 +55,10 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
         axios.post(targetOperationURL, notificationMessage, {
             // axios.post("http://localhost:1237", notificationMessage, {
             headers: {
-                'originator': requestHeader.originator,
-                'user': requestHeader.user,
                 'x-correlator': requestHeader.xCorrelator,
                 'trace-indicator': requestHeader.traceIndicator,
+                'user': requestHeader.user,
+                'originator': requestHeader.originator,
                 'customer-journey': requestHeader.customerJourney,
                 'operation-key': operationKey
             }
@@ -69,10 +69,10 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
                 executionAndTraceService.recordServiceRequestFromClient(
                     appInformation["application-name"],
                     appInformation["release-number"],
-                    "", //xCorrelator,
-                    "", //traceIndicator,
-                    "", //userName,
-                    "", //originator,
+                    requestHeader.xCorrelator,
+                    requestHeader.traceIndicator,
+                    requestHeader.user,
+                    requestHeader.originator,
                     deviceNotificationType, //for example "notifications/device-alarms"
                     response.status,
                     notificationMessage,
@@ -84,10 +84,10 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
                 executionAndTraceService.recordServiceRequestFromClient(
                     appInformation["application-name"],
                     appInformation["release-number"],
-                    "", //xCorrelator,
-                    "", //traceIndicator,
-                    "", //userName,
-                    "", //originator,
+                    requestHeader.xCorrelator,
+                    requestHeader.traceIndicator,
+                    requestHeader.user,
+                    requestHeader.originator,
                     deviceNotificationType,
                     e.status,
                     notificationMessage,
@@ -470,10 +470,10 @@ async function createControllerNotificationStream(controllerAddress, operationKe
     // return await axios.post("http://localhost:1234", payload, {
     return await axios.post(controllerTargetUrl, payload, {
         headers: {
-            'originator': requestHeader.originator,
-            'user': requestHeader.user,
             'x-correlator': requestHeader.xCorrelator,
             'trace-indicator': requestHeader.traceIndicator,
+            'user': requestHeader.user,
+            'originator': requestHeader.originator,
             'customer-journey': requestHeader.customerJourney,
             'Authorization': 'Basic ' + base64encodedData
             // 'operation-key': operationKey,
@@ -485,10 +485,10 @@ async function createControllerNotificationStream(controllerAddress, operationKe
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],
-                "", //xCorrelator,
-                "", //traceIndicator,
-                "", //user,
-                "", //originator,
+                requestHeader.xCorrelator,
+                requestHeader.traceIndicator,
+                requestHeader.user,
+                requestHeader.originator,
                 "SubscribeToControllerNotificationsStep1",
                 response.status,
                 payload,
@@ -507,10 +507,10 @@ async function createControllerNotificationStream(controllerAddress, operationKe
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],
-                "", //xCorrelator,
-                "", //traceIndicator,
-                "", //user,
-                "", //originator,
+                requestHeader.xCorrelator,
+                requestHeader.traceIndicator,
+                requestHeader.user,
+                requestHeader.originator,
                 "SubscribeToControllerNotificationsStep1",
                 e.status,
                 payload,
@@ -554,10 +554,10 @@ async function subscribeToControllerNotificationStream(
     // return await axios.get("http://localhost:1235" + "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/" + streamNameForSubscription, { //local testing
     return await axios.get(controllerTargetUrl, {
         headers: {
-            'originator': requestHeader.originator,
-            'user': requestHeader.user,
             'x-correlator': requestHeader.xCorrelator,
             'trace-indicator': requestHeader.traceIndicator,
+            'user': requestHeader.user,
+            'originator': requestHeader.originator,
             'customer-journey': requestHeader.customerJourney,
             'Authorization': 'Basic ' + base64encodedData
         }
@@ -568,10 +568,10 @@ async function subscribeToControllerNotificationStream(
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],
-                "", //xCorrelator,
-                "", //traceIndicator,
-                "", //userName,
-                "", //originator,
+                requestHeader.xCorrelator,
+                requestHeader.traceIndicator,
+                requestHeader.user,
+                requestHeader.originator,
                 "SubscribeToControllerNotificationsStep2",
                 response.status,
                 null,
@@ -590,10 +590,10 @@ async function subscribeToControllerNotificationStream(
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],
-                "", //xCorrelator,
-                "", //traceIndicator,
-                "", //userName,
-                "", //originator,
+                requestHeader.xCorrelator,
+                requestHeader.traceIndicator,
+                requestHeader.user,
+                requestHeader.originator,
                 "SubscribeToControllerNotificationsStep2",
                 e.status,
                 null,
