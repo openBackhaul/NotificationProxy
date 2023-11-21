@@ -36,6 +36,14 @@ async function getAppInformation() {
 }
 
 /**
+ * Create a new request header.
+ * @returns {RequestHeader}
+ */
+function createRequestHeader() {
+    return new RequestHeader("NotificationProxy", "NotificationProxy", undefined, "1");
+}
+
+/**
  * Trigger notification to subscriber with device data
  * @param deviceNotificationType type of device notification
  * @param targetOperationURL target url with endpoint where subscriber expects arrival of notifications
@@ -49,7 +57,7 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
 
     let appInformation = await getAppInformation();
 
-    let requestHeader = new RequestHeader("NotificationProxy", "NotificationProxy");
+    let requestHeader = createRequestHeader();
 
     for (const notificationMessage of notificationMessages) {
         axios.post(targetOperationURL, notificationMessage, {
@@ -464,7 +472,7 @@ async function createControllerNotificationStream(controllerAddress, operationKe
 
     let appInformation = await getAppInformation();
 
-    let requestHeader = new RequestHeader("NotificationProxy", "NotificationProxy");
+    let requestHeader = createRequestHeader();
 
     //return streamName from post call
     // return await axios.post("http://localhost:1234", payload, {
@@ -548,7 +556,7 @@ async function subscribeToControllerNotificationStream(
 
     let appInformation = await getAppInformation();
 
-    let requestHeader = new RequestHeader("NotificationProxy", "NotificationProxy");
+    let requestHeader = createRequestHeader();
 
     //return streamLocation from get call
     // return await axios.get("http://localhost:1235" + "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/" + streamNameForSubscription, { //local testing
