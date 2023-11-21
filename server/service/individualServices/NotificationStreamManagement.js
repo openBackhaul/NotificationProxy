@@ -135,7 +135,7 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
 
     eventSource.onmessage = (event) => {
         console.log("received event: " + event.data);
-        handleFunction(event.data, registeredController.name, registeredController.release);
+        handleFunction(event.data, registeredController.name, registeredController.release, controllerTargetUrl);
     };
 
     eventSource.onerror = (err) => {

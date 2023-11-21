@@ -23,7 +23,7 @@ test('Convert alarm device data notification', () => {
     let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_ALARMS, null, null);
 
     let outputExpected =
-        [{
+        {
             "notification-proxy-1-0:alarm-event-notification": {
                 "alarm-event-sequence-number": 1,
                 "timestamp": "2023-07-11T08:45:02.000Z",
@@ -31,9 +31,9 @@ test('Convert alarm device data notification', () => {
                 "alarm-type-id": "siae-alarms-1-0:radioEquipLinkTelemetryFailAlarm",
                 "alarm-type-qualifier": "",
                 "problem-severity": "major",
-                "counter" : -1
+                "counter": -1
             }
-        }];
+        };
 
     expect(output).toStrictEqual(outputExpected);
 });
@@ -58,7 +58,7 @@ test('Convert attr value change device notification', () => {
     let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES, null, null);
 
     let outputExpected =
-        [{
+        {
             "notification-proxy-1-0:attribute-value-changed-notification": {
                 "timestamp": "2010-11-20T13:00:00.000Z",
                 "resource": "/core-model-1-4:network-control-domain=live/control-construct=513250009/logical-termination-point=RF-2146697857/layer-protocol=2146697857/air-interface-2-0:air-interface-pac/air-interface-configuration",
@@ -66,7 +66,7 @@ test('Convert attr value change device notification', () => {
                 "new-value": "true",
                 "counter": -1
             }
-        }];
+        };
 
     expect(output).toStrictEqual(outputExpected);
 });
@@ -94,9 +94,9 @@ test('Convert controller configuration event notification', () => {
             }
         };
 
-    let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_VALUE_CHANGES, "odl-5", "1.0.2");
+    let output = notificationConverter.convertControllerNotification(input, "odl-5", "1.0.2");
 
-    let outputExpected = [{
+    let outputExpected = {
         "notification-proxy-1-0:attribute-value-changed-notification": {
             "timestamp": "2023-07-11T08:21:50.526Z",
             "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-5/logical-termination-point=513250009/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-status",
@@ -104,9 +104,9 @@ test('Convert controller configuration event notification', () => {
             "new-value": "connecting",
             "counter": -1
         }
-    }];
+    };
 
-    expect(output).toStrictEqual(outputExpected);
+    expect(output[0].notificationMessage).toStrictEqual(outputExpected);
 });
 
 test('Convert controller configuration event notification (real data)', () => {
@@ -4589,9 +4589,9 @@ test('Convert controller configuration event notification (real data)', () => {
             }
         };
 
-    let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_VALUE_CHANGES, "odl-5", "1.0.2");
+    let output = notificationConverter.convertControllerNotification(input, "odl-5", "1.0.2");
 
-    let outputExpected = [{
+    let outputExpected = {
         "notification-proxy-1-0:attribute-value-changed-notification": {
             "timestamp": "2023-11-09T18:21:12.427941449Z",
             "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-5/logical-termination-point=-params-x/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-status",
@@ -9059,9 +9059,9 @@ test('Convert controller configuration event notification (real data)', () => {
                 ]
             }
         }
-    }];
+    };
 
-    expect(output).toStrictEqual(outputExpected);
+    expect(output[0].notificationMessage).toStrictEqual(outputExpected);
 });
 
 test('Convert controller configuration event notification (real data2)', () => {
@@ -9159,10 +9159,9 @@ test('Convert controller configuration event notification (real data2)', () => {
                 },
                 "event-time": "2023-07-11T08:21:50.526721696Z"
             }
-        }
-    ;
+        };
 
-    let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_VALUE_CHANGES, "odl-5", "1.0.2");
+    let output = notificationConverter.convertControllerNotification(input, "odl-5", "1.0.2");
 
     let outputExpected = [
         {
@@ -9275,6 +9274,7 @@ test('Convert controller configuration event notification (real data2)', () => {
         }
     ];
 
-    expect(output).toStrictEqual(outputExpected);
+    for (let i = 0; i < 12; i++) {
+        expect(output[i].notificationMessage).toStrictEqual(outputExpected[i]);
+    }
 });
-
