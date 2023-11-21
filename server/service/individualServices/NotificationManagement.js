@@ -10,6 +10,7 @@ const notificationStreamManagement = require('./NotificationStreamManagement');
 const process = require('process');
 const BasicServices = require("onf-core-model-ap-bs/basicServices/BasicServicesService");
 const RequestHeader = require("onf-core-model-ap/applicationPattern/rest/client/RequestHeader");
+var responseCodeEnum = require('onf-core-model-ap/applicationPattern/rest/server/ResponseCode');
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
@@ -97,9 +98,9 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
                     requestHeader.user,
                     requestHeader.originator,
                     deviceNotificationType,
-                    e.status,
+                    responseCodeEnum.code.INTERNAL_SERVER_ERROR,
                     notificationMessage,
-                    e.data);
+                    e);
             });
     }
 }
@@ -520,9 +521,9 @@ async function createControllerNotificationStream(controllerAddress, operationKe
                 requestHeader.user,
                 requestHeader.originator,
                 "SubscribeToControllerNotificationsStep1",
-                e.status,
+                responseCodeEnum.code.INTERNAL_SERVER_ERROR,
                 payload,
-                e.data);
+                e);
 
             return null;
         });
@@ -603,9 +604,9 @@ async function subscribeToControllerNotificationStream(
                 requestHeader.user,
                 requestHeader.originator,
                 "SubscribeToControllerNotificationsStep2",
-                e.status,
+                responseCodeEnum.code.INTERNAL_SERVER_ERROR,
                 null,
-                e.data);
+                e);
 
             return null;
         });
