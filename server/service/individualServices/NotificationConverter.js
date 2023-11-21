@@ -1,4 +1,5 @@
 const configConstants = require("./ConfigConstants");
+const notificationStreamManagement = require('./NotificationStreamManagement');
 
 /**
  * Convert a notification from ODL format to REST notification data.
@@ -6,9 +7,11 @@ const configConstants = require("./ConfigConstants");
  *
  * @param controllerNotification original message from controller which concerns controllers or device events
  * @param notificationType
- * @returns convertedNotification notification in ONF-format for subscribers
+ * @param controllerName
+ * @param controllerRelease
+ * @returns list of convertedNotifications, notification in ONF-format for subscribers
  */
-exports.convertNotification = function (controllerNotification, notificationType) {
+exports.convertNotification = function (controllerNotification, notificationType, controllerName, controllerRelease) {
 
     let isDeviceTypeNotification = [
         configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES,
@@ -18,13 +21,13 @@ exports.convertNotification = function (controllerNotification, notificationType
     ].includes(notificationType);
 
     if (isDeviceTypeNotification) {
-        return convertDeviceNotification(controllerNotification);
+        return [convertDeviceNotification(controllerNotification, controllerName, controllerRelease)];
     } else {
-        return convertControllerNotification(controllerNotification, notificationType);
+        return convertControllerNotification(controllerNotification, notificationType, controllerName, controllerRelease);
     }
 }
 
-function convertDeviceNotification(controllerNotification) {
+function convertDeviceNotification(controllerNotification, controllerName, controllerRelease) {
 
     let innerElement = Object.values(controllerNotification["ietf-restconf:notification"])[0];
     let eventType = Object.keys(controllerNotification["ietf-restconf:notification"])[0].split(':')[1];
@@ -54,6 +57,9 @@ function convertDeviceNotification(controllerNotification) {
         outputInnerElement["resource"] = outputResourceString;
     }
 
+    let sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+    outputInnerElement["counter"] = sequenceCounter;
+
     let innerLabel = "notification-proxy-1-0:" + eventType;
     let resultNotification = {
         [innerLabel] : outputInnerElement
@@ -62,47 +68,69 @@ function convertDeviceNotification(controllerNotification) {
     return resultNotification;
 }
 
-function convertControllerNotification(controllerNotification, notificationType) {
+/**
+ *
+ * @param controllerNotification
+ * @param notificationType
+ * @param controllerName
+ * @param controllerRelease
+ * @return list of converted notifications
+ */
+function convertControllerNotification(controllerNotification, notificationType, controllerName, controllerRelease) {
 
-    //todo implement
+    let convertedNotificationWrapperList = [];
 
-    let message;
+    let innerElement = controllerNotification["urn-ietf-params-xml-ns-netconf-notification-1.0:notification"];
+    let dataChangeEventArray = innerElement["urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification"]["data-change-event"];
+    for (const dataChangeEventArrayElement of dataChangeEventArray) {
+        let controllerID;
+        if (controllerID) {
+            controllerID = innerElement["controller-id"];
+        } else {
+            controllerID = controllerName;
+        }
+        let path = dataChangeEventArrayElement["path"];
+        let nodeIDStartIndex = path.indexOf("node-id");
+        let nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + 18);
+        let eventTime = innerElement["event-time"];
 
-    switch (notificationType) {
-        case configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_VALUE_CHANGES:
-            message = {
-                "notification-proxy-1-0:attribute-value-changed-notification": {
-                    "counter": 32,
-                    "timestamp": "2023-07-11T07:21:50.000Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-1/logical-termination-point=513250009/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-status",
-                    "attribute-name": "connection-status",
-                    "new-value": "connecting"
-                }
+        let dataKey = null;
+        let dataValue = null;
+        if (dataChangeEventArrayElement["data"]) {
+            dataKey = Object.keys(dataChangeEventArrayElement["data"])[0];
+            dataValue = Object.values(dataChangeEventArrayElement["data"])[0];
+        }
+
+        //build result
+        let resourceString = "/core-model-1-4:network-control-domain=live/control-construct=" + controllerID
+            + "/logical-termination-point=" + nodeID + "/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-status";
+
+        let sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+
+        let innerOutputElement;
+        if (dataKey) {
+            innerOutputElement = {
+                "counter" : sequenceCounter,
+                "timestamp" : eventTime,
+                "resource" : resourceString,
+                "attribute-name" : dataKey,
+                "new-value" : dataValue,
             };
-            break;
-        case configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_CREATIONS:
-            message = {
-                "notification-proxy-1-0:object-creation-notification": {
-                    "counter": 32,
-                    "timestamp": "2023-07-11T07:21:50.000Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-1/logical-termination-point=513250009/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/node-id",
-                    "object-type": "node-id"
-                }
+        } else {
+            innerOutputElement = {
+                "counter" : sequenceCounter,
+                "timestamp" : eventTime,
+                "resource" : resourceString
             };
-            break;
-        case configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_DELETIONS:
-            message = {
-                "notification-proxy-1-0:object-deletion-notification": {
-                    "counter": 13,
-                    "timestamp": "2023-07-11T07:21:50.000Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-1/logical-termination-point=513250009/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/node-id"
-                }
-            };
-            break;
-        default:
-            message = null;
-            break;
+        }
+
+        let convertedNotificationWrapper = {
+            "notification-proxy-1-0:attribute-value-changed-notification": innerOutputElement
+        };
+
+        convertedNotificationWrapperList.push(convertedNotificationWrapper);
     }
 
-    return message;
+
+    return convertedNotificationWrapperList;
 }

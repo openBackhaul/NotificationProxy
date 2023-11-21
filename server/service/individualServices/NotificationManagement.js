@@ -39,10 +39,10 @@ async function getAppInformation() {
  * Trigger notification to subscriber with device data
  * @param deviceNotificationType type of device notification
  * @param targetOperationURL target url with endpoint where subscriber expects arrival of notifications
- * @param notificationMessage notification to send
+ * @param notificationMessages notifications to send
  * @param operationKey
  */
-async function sendMessageToSubscriber(deviceNotificationType, targetOperationURL, operationKey, notificationMessage) {
+async function sendMessageToSubscriber(deviceNotificationType, targetOperationURL, operationKey, notificationMessages) {
 
     //send notification
     console.log("sending subscriber notification to: " + targetOperationURL);
@@ -51,47 +51,49 @@ async function sendMessageToSubscriber(deviceNotificationType, targetOperationUR
 
     let requestHeader = new RequestHeader("NotificationProxy", "NotificationProxy");
 
-    axios.post(targetOperationURL, notificationMessage, {
-        // axios.post("http://localhost:1237", notificationMessage, {
-        headers: {
-            'originator': requestHeader.originator,
-            'user': requestHeader.user,
-            'x-correlator': requestHeader.xCorrelator,
-            'trace-indicator': requestHeader.traceIndicator,
-            'customer-journey': requestHeader.customerJourney
-            // 'operation-key': operationKey
-        }
-    })
-        .then((response) => {
-            console.log("result from axios call: " + response.status);
-
-            executionAndTraceService.recordServiceRequestFromClient(
-                appInformation["application-name"],
-                appInformation["release-number"],
-                "", //xCorrelator,
-                "", //traceIndicator,
-                "", //userName,
-                "", //originator,
-                deviceNotificationType, //for example "notifications/device-alarms"
-                response.status,
-                notificationMessage,
-                response.data);
+    for (const notificationMessage of notificationMessages) {
+        axios.post(targetOperationURL, notificationMessage, {
+            // axios.post("http://localhost:1237", notificationMessage, {
+            headers: {
+                'originator': requestHeader.originator,
+                'user': requestHeader.user,
+                'x-correlator': requestHeader.xCorrelator,
+                'trace-indicator': requestHeader.traceIndicator,
+                'customer-journey': requestHeader.customerJourney,
+                'operation-key': operationKey
+            }
         })
-        .catch(e => {
-            console.log("error during axios call: " + e);
+            .then((response) => {
+                console.log("result from axios call: " + response.status);
 
-            executionAndTraceService.recordServiceRequestFromClient(
-                appInformation["application-name"],
-                appInformation["release-number"],
-                "", //xCorrelator,
-                "", //traceIndicator,
-                "", //userName,
-                "", //originator,
-                deviceNotificationType,
-                e.status,
-                notificationMessage,
-                e.data);
-        });
+                executionAndTraceService.recordServiceRequestFromClient(
+                    appInformation["application-name"],
+                    appInformation["release-number"],
+                    "", //xCorrelator,
+                    "", //traceIndicator,
+                    "", //userName,
+                    "", //originator,
+                    deviceNotificationType, //for example "notifications/device-alarms"
+                    response.status,
+                    notificationMessage,
+                    response.data);
+            })
+            .catch(e => {
+                console.log("error during subscriber-notification for " + deviceNotificationType + ": " + e);
+
+                executionAndTraceService.recordServiceRequestFromClient(
+                    appInformation["application-name"],
+                    appInformation["release-number"],
+                    "", //xCorrelator,
+                    "", //traceIndicator,
+                    "", //userName,
+                    "", //originator,
+                    deviceNotificationType,
+                    e.status,
+                    notificationMessage,
+                    e.data);
+            });
+    }
 }
 
 /**
@@ -147,6 +149,42 @@ exports.getActiveSubscribers = async function (oamPath) {
     }
 
     return subscribersForOamPath;
+
+    // try {
+    //     // getOutputFcPortAsync();
+    //
+    //     let forwardingName = "SubscriptionCausesNotifyingOfDeviceAlarms";
+    //     let forwardingConstruct = await ForwardingDomain.getForwardingConstructForTheForwardingNameAsync(
+    //         forwardingName);
+    //
+    //     //SoftwareUpgrade.getFcPortOutputLogicalTerminationPointList()
+    //
+    //
+    //     let applicationList = await logicalTerminationPointServiceOfUtility.getAllApplicationList(forwardingName);
+    //
+    //     console.log(applicationList);
+    //
+    // } catch (exception) {
+    //     console.log(exception);
+    // }
+
+    // let httpClientUuid2 = await httpClientInterface.getHttpClientUuidExcludingOldReleaseAndNewRelease(subscribingApplicationName, subscribingApplicationRelease, "not used");
+    // let operationClientUUID = await operationClientInterface.getOperationClientUuidAsync(httpClientUuid2, operationName);
+    // console.log(operationClientUUID);
+
+
+    //fetch subscribers from database
+    // let dbSubscribersArray = await fileOperation.readFromDatabaseAsync(oamPath);
+    //
+    // if (dbSubscribersArray) {
+    //     for (let i = 0; i < dbSubscribersArray.length; i++) {
+    //         dbSubscribersArray[i] = JSON.parse(dbSubscribersArray[i])
+    //     }
+    //
+    //     return dbSubscribersArray;
+    // }
+    //
+    // return []; //nothing found
 }
 
 /**
@@ -237,7 +275,7 @@ async function registerDeviceCallbackChain(registeredController) {
         let password = process.env['DEVICE_PASSWORD'];
 
         await notificationStreamManagement.startStream(controllerTargetUrl, registeredController, handleDeviceNotification,
-                                                        notificationStreamManagement.STREAM_TYPE_DEVICE, user, password);
+            notificationStreamManagement.STREAM_TYPE_DEVICE, user, password);
     } else {
         console.log("device stream for " + registeredController.name + " already active");
     }
@@ -384,13 +422,13 @@ function buildControllerTargetPath(controllerProtocol, controllerAddress, contro
  * @param controllerAddress base controller address, {protocol}://{url}:{port}
  * @param operationKey
  * @param controllerSubscriptionMode CONFIGURATION or OPERATIONAL
- * @user controller login account
- * @password controller login password
+ * @param user controller login account
+ * @param password controller login password
  * @return string: URL for subscription or null
  */
 async function createControllerNotificationStream(controllerAddress, operationKey,
-                                                   // user, originator, xCorrelator, traceIndicator,
-                                                   controllerSubscriptionMode,
+                                                  // user, originator, xCorrelator, traceIndicator,
+                                                  controllerSubscriptionMode,
                                                   user, password) {
 
     //todo get path from config json operation?
@@ -570,8 +608,10 @@ async function subscribeToControllerNotificationStream(
  * Handle inbound controller notification - message about status of controllers
  *
  * @param message inbound notification
+ * @param controllerName
+ * @param controllerRelease
  */
-function handleControllerNotification(message) {
+function handleControllerNotification(message, controllerName, controllerRelease) {
     let notificationString = message.toString();
     try {
         let notification = JSON.parse(notificationString);
@@ -596,7 +636,7 @@ function handleControllerNotification(message) {
             }
 
             if (subscriberNotificationType) {
-                notifyAllSubscribers(subscriberNotificationType, notification);
+                notifyAllSubscribers(subscriberNotificationType, notification, controllerName, controllerRelease);
             }
         }
     } catch (exception) {
@@ -628,15 +668,17 @@ async function listenToControllerNotifications(streamLocation, registeredControl
     }
 
     await notificationStreamManagement.startStream(streamLocation, registeredController, handleControllerNotification,
-                                                    streamType, user, password);
+        streamType, user, password);
 }
 
 /**
  * Handle inbound controller notification - message about status of device
  *
  * @param message inbound notification
+ * @param controllerName
+ * @param controllerRelease
  */
-function handleDeviceNotification(message) {
+function handleDeviceNotification(message, controllerName, controllerRelease) {
     let notificationString = message.toString();
     try {
         let notification = JSON.parse(notificationString);
@@ -659,7 +701,7 @@ function handleDeviceNotification(message) {
             }
 
             if (subscriberNotificationType) {
-                notifyAllSubscribers(subscriberNotificationType, notification);
+                notifyAllSubscribers(subscriberNotificationType, notification, controllerName, controllerRelease);
             }
         }
     } catch (exception) {
@@ -672,20 +714,22 @@ function handleDeviceNotification(message) {
  *
  * @param deviceNotificationType type of subscription
  * @param controllerNotification inbound notification from controller
+ * @param controllerName
+ * @param controllerRelease
  */
-async function notifyAllSubscribers(deviceNotificationType, controllerNotification) {
+async function notifyAllSubscribers(deviceNotificationType, controllerNotification, controllerName, controllerRelease) {
     let activeSubscribers = await exports.getActiveSubscribers(deviceNotificationType);
 
     if (activeSubscribers.length > 0) {
         console.log("starting notification of " + activeSubscribers.length + " subscribers of '" + deviceNotificationType + "'");
 
         //build one notification for all subscribers
-        let notificationMessage = notificationConverter.convertNotification(controllerNotification, deviceNotificationType);
+        let notificationMessages = notificationConverter.convertNotification(controllerNotification, deviceNotificationType, controllerName, controllerRelease);
 
         //todo check duplicate notifications
 
         for (let subscriber of activeSubscribers) {
-            sendMessageToSubscriber(deviceNotificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessage);
+            sendMessageToSubscriber(deviceNotificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessages);
         }
     }
 }
