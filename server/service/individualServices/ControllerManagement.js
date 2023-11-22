@@ -9,6 +9,7 @@ const individualServicesOperationsMapping = require('./IndividualServicesOperati
 const notificationStreamManagement = require('./NotificationStreamManagement');
 const fcPort = require('onf-core-model-ap/applicationPattern/onfModel/models/FcPort');
 const controlConstructUtils = require('./ControlConstructUtil');
+const logger = require('../LoggingService.js').getLogger();
 
 /**
  * @param nameOfFc fcport name
@@ -147,7 +148,7 @@ exports.registerController = async function (inputControllerName, inputControlle
 
                                 let successFc = await forwardingConstruct.addFcPortAsync(forwardingConstructInstance.uuid, newFcPort);
                                 if (!successFc) {
-                                    console.log("addFcPortAsync failed for operationUUID=" + operationUUID);
+                                    logger.error("addFcPortAsync failed for operationUUID=" + operationUUID);
                                 }
                             }
                         }
@@ -159,7 +160,7 @@ exports.registerController = async function (inputControllerName, inputControlle
         return true;
 
     } catch (exception) {
-        console.log(exception);
+        logger.error(exception);
         return false;
     }
 }
@@ -195,7 +196,7 @@ exports.deregisterController = async function (inputControllerName, inputControl
 
         return true;
     } catch (exception) {
-        console.log("deregisterController failed: " + exception + " with name " + inputControllerName);
+        logger.error("deregisterController failed: " + exception + " with name " + inputControllerName);
         return false;
     }
 }

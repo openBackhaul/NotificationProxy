@@ -7,6 +7,7 @@ var RestResponseHeader = require('onf-core-model-ap/applicationPattern/rest/serv
 var RestResponseBuilder = require('onf-core-model-ap/applicationPattern/rest/server/ResponseBuilder');
 var ExecutionAndTraceService = require('onf-core-model-ap/applicationPattern/services/ExecutionAndTraceService');
 const notificationManagement = require("../service/individualServices/NotificationManagement");
+const logger = require('../service/LoggingService.js').getLogger();
 
 const NEW_RELEASE_FORWARDING_NAME = 'PromptForBequeathingDataCausesTransferOfListOfApplications';
 
@@ -295,9 +296,9 @@ module.exports.updateOperationKey = async function updateOperationKey(req, res, 
 };
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.log("unhandled Rejection, please check: " + reason);
+  logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
 });
 
 process.on('uncaughtException', (reason) => {
-  console.log("unhandled Exception, please check: " + reason);
+  logger.error("Unhandled Exception: ", reason);
 });

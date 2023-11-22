@@ -1,6 +1,7 @@
 const EventSource = require('eventsource');
 const process = require('process');
 const http = require('http');
+const logger = require('../LoggingService.js').getLogger();
 
 const controllerNotificationStreams = [];
 
@@ -32,7 +33,7 @@ function addStreamItem(name, release, eventSource, streamType) {
         logString += controllerNotificationStream.controllerKey + ", ";
     }
 
-    console.log("notification streams after adding: " + logString);
+    logger.debug("notification streams after adding: " + logString);
 }
 
 /**
@@ -50,7 +51,7 @@ function increaseCounter(name, release, streamType) {
         element.counter = element.counter + 1;
         return element.counter;
     } else {
-        console.log("no stream found to increase counter for: " + name);
+        logger.error("no stream found to increase counter for: " + name);
         return -1;
     }
 }
@@ -98,11 +99,11 @@ async function removeStreamItem(applicationName, applicationRelease, streamType)
             for (let i = controllerNotificationStreams.length - 1; i >= 0; i--) {
                 if (controllerNotificationStreams[i].controllerKey === key) {
                     controllerNotificationStreams.splice(i, 1);
-                    console.log("removed stream item for " + key);
+                    logger.debug("removed stream item for " + key);
                 }
             }
         } catch (e) {
-            console.log("EventSource for " + key + " could not be closed");
+            logger.error("EventSource for " + key + " could not be closed");
         }
     }
 }
@@ -120,7 +121,7 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
 
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
-    console.log("starting eventsource " + controllerTargetUrl);
+    logger.debug("starting eventsource " + controllerTargetUrl);
 
     const eventSource = new EventSource(controllerTargetUrl, {
         withCredentials: true,
@@ -130,11 +131,11 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
     });
 
     eventSource.onopen = (event) => {
-        console.log("listening to stream for notifications: " + controllerTargetUrl);
+        logger.debug("listening to stream for notifications: " + controllerTargetUrl);
     };
 
     eventSource.onmessage = (event) => {
-        console.log("received event: " + event.data);
+        logger.debug("received event: " + event.data);
         handleFunction(event.data, registeredController.name, registeredController.release, controllerTargetUrl);
     };
 

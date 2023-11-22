@@ -1,5 +1,6 @@
 const configConstants = require("./ConfigConstants");
 const notificationStreamManagement = require('./NotificationStreamManagement');
+const logger = require('../LoggingService.js').getLogger();
 
 /**
  * Convert a notification from ODL format to REST notification data.
@@ -165,7 +166,7 @@ exports.convertControllerNotification = function (notification, controllerName, 
                     subscriberNotificationType = configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_DELETIONS;
                     break;
                 default:
-                    console.log("notificationType unknown: " + inboundNotificationType);
+                    logger.error("notificationType unknown: " + inboundNotificationType);
                     break;
             }
 

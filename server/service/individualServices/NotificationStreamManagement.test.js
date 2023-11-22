@@ -24,9 +24,13 @@ test('Adding and removal from managed stream list', async () => {
     let elements = notificationStreamManagement.getAllElements();
 
     expect(elements.length).toBe(1);
+
+    //close or jest thread will wait
+    notificationStreamManagement.removeAllStreamsForController("example", "4.5.2");
+    notificationStreamManagement.removeAllStreamsForController("example2", "1.5.12");
 });
 
-test('Managing counters for notifications', async () => {
+test('Managing counters for notifications', () => {
 
     notificationStreamManagement.addStreamItem("odl1", "1.0.0", new EventSource("https://example.com"), notificationStreamManagement.STREAM_TYPE_DEVICE);
     notificationStreamManagement.addStreamItem("odl1", "1.0.0", new EventSource("https://example.com"), notificationStreamManagement.STREAM_TYPE_OPERATIONAL);
@@ -41,4 +45,7 @@ test('Managing counters for notifications', async () => {
 
     let element2 = notificationStreamManagement.retrieveElement("odl1", "1.0.0", notificationStreamManagement.STREAM_TYPE_OPERATIONAL);
     expect(element2.counter).toBe(1);
+
+    //close or jest thread will wait
+    notificationStreamManagement.removeAllStreamsForController("odl1", "1.0.0");
 });

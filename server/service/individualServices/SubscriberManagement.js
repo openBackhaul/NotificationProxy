@@ -7,7 +7,7 @@ const forwardingDomain = require("onf-core-model-ap/applicationPattern/onfModel/
 const forwardingConstruct = require('onf-core-model-ap/applicationPattern/onfModel/models/ForwardingConstruct');
 const configConstants = require('./ConfigConstants');
 const fcPort = require('onf-core-model-ap/applicationPattern/onfModel/models/FcPort');
-
+const logger = require('../LoggingService.js').getLogger();
 
 exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
                                                 subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation) {
@@ -65,7 +65,7 @@ exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicati
 
         return true;
     } catch (exception) {
-        console.log("error adding subscriber to config: " + exception);
+        logger.error("error adding subscriber to config: " + exception);
         return false;
     }
 }

@@ -5,6 +5,7 @@ const forwardingConstruct = require("onf-core-model-ap/applicationPattern/onfMod
 const fileOperation = require("onf-core-model-ap/applicationPattern/databaseDriver/JSONDriver");
 const onfPaths = require("onf-core-model-ap/applicationPattern/onfModel/constants/OnfPaths");
 const FcPort = require("onf-core-model-ap/applicationPattern/onfModel/models/FcPort");
+const logger = require('../LoggingService.js').getLogger();
 
 /**
  * Deletes all fcPorts (for client LTPs) for application with httpClientUUID. Application LTP must be deleted after this
@@ -18,7 +19,7 @@ async function deleteAllFcPortsForApplication(httpClientUUID) {
             await forwardingConstruct.deleteFcPortAsync(fcPortsForAppElement.forwardingConstruct.uuid, fcPortsForAppElement.fcPort["local-id"]);
         }
     } catch (exception) {
-        console.log("cleaning of FcPorts failed for " + httpClientUUID);
+        logger.error("cleaning of FcPorts failed for " + httpClientUUID);
         return false;
     }
 
