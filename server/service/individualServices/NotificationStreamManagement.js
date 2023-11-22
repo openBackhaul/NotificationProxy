@@ -8,23 +8,73 @@ const STREAM_TYPE_CONFIGURATION = "CONFIGURATION";
 const STREAM_TYPE_OPERATIONAL = "OPERATIONAL";
 const STREAM_TYPE_DEVICE = "DEVICE";
 
-function addStreamItem(registeredController, eventSource, streamType) {
+/**
+ *
+ * @param name
+ * @param release
+ * @param eventSource object to manage SSE stream with
+ * @param streamType type of stream - DEVICE, OPERATIONAL or CONFIGURATION
+ */
+function addStreamItem(name, release, eventSource, streamType) {
 
-    let key = registeredController.name + "-" + registeredController.release + '-' + streamType;
+    let key = name + "-" + release + '-' + streamType;
 
     let notificationStreamItem = {
         'controllerKey': key,
-        'eventSource': eventSource
+        'eventSource': eventSource,
+        'counter' : 0,
     }
 
     controllerNotificationStreams.push(notificationStreamItem);
 
     let logString = "";
     for (const controllerNotificationStream of controllerNotificationStreams) {
-        logString += controllerNotificationStream.controllerKey + ",";
+        logString += controllerNotificationStream.controllerKey + ", ";
     }
 
     console.log("notification streams after adding: " + logString);
+}
+
+/**
+ * increase call counter for stream.
+ * @param name
+ * @param release
+ * @param streamType
+ * @return counter number or -1 when stream not found
+ */
+function increaseCounter(name, release, streamType) {
+
+    //get by key
+    let element = retrieveElement(name, release, streamType);
+    if (element) {
+        element.counter = element.counter + 1;
+        return element.counter;
+    } else {
+        console.log("no stream found to increase counter for: " + name);
+        return -1;
+    }
+}
+
+/**
+ * search established streams for element with name, release and streamType
+ *
+ * @param name  controller name
+ * @param release controller release
+ * @param streamType DEVICE, CONFIGURATION or OPERATIONAL
+ * @return stream wrapper or null
+ */
+function retrieveElement(name, release, streamType) {
+
+    let key = name + "-" + release + "-" + streamType;
+
+    let searchedItem = null;
+    for (const controllerNotificationStreamItem of controllerNotificationStreams) {
+        if (controllerNotificationStreamItem.controllerKey === key) {
+            searchedItem = controllerNotificationStreamItem;
+            break;
+        }
+    }
+    return searchedItem;
 }
 
 /**
@@ -37,25 +87,24 @@ function addStreamItem(registeredController, eventSource, streamType) {
 async function removeStreamItem(applicationName, applicationRelease, streamType) {
 
     let key = applicationName + "-" + applicationRelease + "-" + streamType;
+    let element = retrieveElement(applicationName, applicationRelease, streamType);
 
-    //get by key
-    let openStreamEventSource = null;
-    for (const controllerNotificationStreamItem of controllerNotificationStreams) {
-        if (controllerNotificationStreamItem.controllerKey === key) {
-            openStreamEventSource = controllerNotificationStreamItem.eventSource;
-            break;
+    if (element) {
+        try {
+            //kill open streams
+            await element.eventSource.close();
+
+            //remove from managed list
+            for (let i = controllerNotificationStreams.length - 1; i >= 0; i--) {
+                if (controllerNotificationStreams[i].controllerKey === key) {
+                    controllerNotificationStreams.splice(i, 1);
+                    console.log("removed stream item for " + key);
+                }
+            }
+        } catch (e) {
+            console.log("EventSource for " + key + " could not be closed");
         }
     }
-
-    if (openStreamEventSource) {
-        //kill open streams
-        await openStreamEventSource.close();
-
-        //remove from managed list
-        removeItemAll(controllerNotificationStreams, openStreamEventSource);
-    }
-
-    console.log("removed stream item for " + key);
 }
 
 async function removeAllStreamsForController(applicationName, applicationRelease) {
@@ -86,7 +135,7 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
 
     eventSource.onmessage = (event) => {
         console.log("received event: " + event.data);
-        handleFunction(event.data);
+        handleFunction(event.data, registeredController.name, registeredController.release, controllerTargetUrl);
     };
 
     eventSource.onerror = (err) => {
@@ -98,38 +147,24 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
     };
 
     //add to global list of open eventSources
-    addStreamItem(registeredController, eventSource, streamType);
-}
-
-function checkIfStreamIsActive(registeredController, streamType) {
-
-    let key = registeredController.name + "-" + registeredController.release + "-" + streamType;
-
-    for (const controllerNotificationStream of controllerNotificationStreams) {
-        if (controllerNotificationStream.controllerKey === key) {
-            return true;
-        }
-    }
-
-    return false;
+    addStreamItem(registeredController.name, registeredController.release, eventSource, streamType);
 }
 
 /**
- * remove all instances of value from array
- * @param array
- * @param value
- * @return modified array
+ * @param registeredController
+ * @param streamType
+ * @return {boolean}
  */
-function removeItemAll(array, value) {
-    let i = 0;
-    while (i < array.length) {
-        if (array[i] === value) {
-            array.splice(i, 1);
-        } else {
-            ++i;
-        }
-    }
-    return array;
+function checkIfStreamIsActive(registeredController, streamType) {
+
+    let element = retrieveElement(registeredController.name, registeredController.release, streamType);
+
+    //true if element exists
+    return !!element;
+}
+
+function getAllElements() {
+    return Array.from(controllerNotificationStreams);
 }
 
 module.exports = {
@@ -139,5 +174,9 @@ module.exports = {
 
     startStream,
     removeAllStreamsForController,
-    checkIfStreamIsActive
+    checkIfStreamIsActive,
+    increaseCounter,
+    addStreamItem,
+    retrieveElement,
+    getAllElements
 }
