@@ -66,7 +66,13 @@ function convertDeviceNotification(controllerNotification, controllerName, contr
         delete outputInnerElement["object-path"]; //not needed when resource is present
     }
 
-    let sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+    let sequenceCounter;
+    if (innerElement["counter"]) {
+        //if present use this counter - if not, count all outbound device notifications internally
+        sequenceCounter = innerElement["counter"];
+    } else {
+        sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+    }
     outputInnerElement["counter"] = sequenceCounter;
 
     let innerLabel = "notification-proxy-1-0:" + eventType;
