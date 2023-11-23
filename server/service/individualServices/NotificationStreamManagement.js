@@ -1,5 +1,4 @@
 const EventSource = require('eventsource');
-const process = require('process');
 const http = require('http');
 const logger = require('../LoggingService.js').getLogger();
 
@@ -23,7 +22,7 @@ function addStreamItem(name, release, eventSource, streamType) {
     let notificationStreamItem = {
         'controllerKey': key,
         'eventSource': eventSource,
-        'counter' : 0,
+        'counter': 0,
     }
 
     controllerNotificationStreams.push(notificationStreamItem);
@@ -51,7 +50,7 @@ function increaseCounter(name, release, streamType) {
         element.counter = element.counter + 1;
         return element.counter;
     } else {
-        logger.error("no stream found to increase counter for: " + name);
+        logger.warn("no stream found to increase counter for: " + name);
         return -1;
     }
 }
@@ -139,12 +138,27 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
         handleFunction(event.data, registeredController.name, registeredController.release, controllerTargetUrl);
     };
 
-    eventSource.onerror = (err) => {
-        console.error("EventSource failed: ", err);
+    eventSource.onerror = async (err) => {
+
+        logger.error(registeredController.name + ": SSE-Error on EventSource (" + streamType + "), details: ", err);
+
+        //checking for closed state - indicating severe network error
+        if (eventSource.readyState === 2) {
+            logger.debug(registeredController.name + ': SSE-Connection to controller interrupted. Trying to reconnect after 60 seconds');
+
+            await removeStreamItem(registeredController.name, registeredController.release, streamType);
+            logger.debug(registeredController.name + ': Closed old stream ' + streamType);
+
+            setTimeout(async function () {
+                //reconnect
+                await startStream(controllerTargetUrl, registeredController, handleFunction, streamType, user, password);
+                logger.debug(registeredController.name + ': Stream reestablished ' + streamType);
+            }, 60000);
+        }
     };
 
     eventSource.onclose = (event) => {
-        console.error("EventSource closed");
+        logger.debug("EventSource closed");
     };
 
     //add to global list of open eventSources

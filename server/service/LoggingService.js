@@ -11,7 +11,7 @@ const transports = pino.transport({
     {
       level: 'trace',
       target: 'pino/file',
-      options: { destination: 'logs/NotificationProxy.log', mkdir: true }
+      options: { destination: __dirname+'/../logs/NotificationProxy.log', mkdir: true }
     }
   ]
 });
