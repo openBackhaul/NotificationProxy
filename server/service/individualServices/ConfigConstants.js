@@ -20,6 +20,10 @@ const OPERATION_SUB_NOTIF_DEVICE_CHANGED_ATTR = "SubscriptionCausesNotifyingOfCh
 const OPERATION_SUB_NOTIF_DEVICE_OBJ_CREATION = "SubscriptionCausesNotifyingOfDeviceObjectCreation";
 const OPERATION_SUB_NOTIF_DEVICE_OBJ_DELETION = "SubscriptionCausesNotifyingOfDeviceObjectDeletion";
 
+const PATH_STREAM_DEVICE = "/rests/notif/device?notificationType=device";
+const PATH_STREAM_CONTROLLER_STEP1 = "/rests/operations/sal-remote:create-data-change-event-subscription";
+const PATH_STREAM_CONTROLLER_STEP2 = "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/";
+
 function getAllForwardConstructNamesToUpdate() {
     return [OPERATION_SUB_NOTIF_CONTROLLER_CHANGED_ATTR,
         OPERATION_SUB_NOTIF_CONTROLLER_OBJ_CREATION,
@@ -72,6 +76,10 @@ module.exports = {
     OPERATION_SUB_NOTIF_DEVICE_CHANGED_ATTR,
     OPERATION_SUB_NOTIF_DEVICE_OBJ_CREATION,
     OPERATION_SUB_NOTIF_DEVICE_OBJ_DELETION,
+
+    PATH_STREAM_DEVICE,
+    PATH_STREAM_CONTROLLER_STEP1,
+    PATH_STREAM_CONTROLLER_STEP2,
 
     getAllForwardConstructNamesToUpdate,
     getForwardingName

@@ -33,7 +33,7 @@ async function getOperationUUIDsForFcPort(nameOfFc, applicationHttpClientUuid) {
         case configConstants.OPERATION_SUB_NOTIF_DEVICE_OBJ_CREATION:
         case configConstants.OPERATION_SUB_NOTIF_DEVICE_OBJ_DELETION:
             //"np-1-0-0-op-c-is-odl1-4-0-2-005" -> "/rests/notif/device?notificationType=device"
-            operationNameList.push("/rests/notif/device?notificationType=device");
+            operationNameList.push(configConstants.PATH_STREAM_DEVICE);
             break;
         default:
             break;
@@ -71,8 +71,7 @@ exports.registerController = async function (inputControllerName, inputControlle
         let operationNamesByAttributes = new Map();
         //PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications step1
         //PromptForListenToControllersCausesSubscribingForControllerOperationNotifications step1
-        operationNamesByAttributes.set("/rests/operations/sal-remote:create-data-change-event-subscription",
-            "/rests/operations/sal-remote:create-data-change-event-subscription");
+        operationNamesByAttributes.set(configConstants.PATH_STREAM_CONTROLLER_STEP1, configConstants.PATH_STREAM_CONTROLLER_STEP1);
         //PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications step2
         operationNamesByAttributes.set("/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
             "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true");
@@ -86,8 +85,7 @@ exports.registerController = async function (inputControllerName, inputControlle
         operationNamesByAttributes.set("/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
             "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON");
         //PromptForListenToControllersCausesSubscribingForDeviceNotifications
-        operationNamesByAttributes.set("/rests/notif/device?notificationType=device",
-            "/rests/notif/device?notificationType=device");
+        operationNamesByAttributes.set(configConstants.PATH_STREAM_DEVICE, configConstants.PATH_STREAM_DEVICE);
 
 
         let tcpObjectList = [];
