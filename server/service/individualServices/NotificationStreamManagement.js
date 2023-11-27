@@ -140,7 +140,7 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
 
     eventSource.onerror = async (err) => {
 
-        logger.error(registeredController.name + ": SSE-Error on EventSource (" + streamType + "), details: ", err);
+        logger.error(err, registeredController.name + ": SSE-Error on EventSource (" + streamType + "), details: ");
 
         //checking for closed state - indicating severe network error
         if (eventSource.readyState === 2) {

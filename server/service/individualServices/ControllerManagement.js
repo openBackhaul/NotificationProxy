@@ -196,7 +196,7 @@ exports.deregisterController = async function (inputControllerName, inputControl
 
         return true;
     } catch (exception) {
-        logger.error("deregisterController failed: " + exception + " with name " + inputControllerName);
+        logger.error(exception, "deregisterController failed with name " + inputControllerName);
         return false;
     }
 }

@@ -65,7 +65,7 @@ exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicati
 
         return true;
     } catch (exception) {
-        logger.error("error adding subscriber to config: " + exception);
+        logger.error(exception, "error adding subscriber to config");
         return false;
     }
 }

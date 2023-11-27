@@ -338,7 +338,7 @@ exports.triggerListenToControllerCallbackChain = async function () {
         try {
             await promiseConfig;
         } catch (exception) {
-            logger.error("error during registering CONFIGURATION callback: " + exception);
+            logger.error(exception, "error during registering CONFIGURATION callback");
             success = false;
         }
 
@@ -346,7 +346,7 @@ exports.triggerListenToControllerCallbackChain = async function () {
             try {
                 await promiseOperational;
             } catch (exception) {
-                logger.error("error during registering OPERATIONAL callback: " + exception);
+                logger.error(exception, "error during registering OPERATIONAL callback");
                 success = false;
             }
         }
@@ -355,7 +355,7 @@ exports.triggerListenToControllerCallbackChain = async function () {
             try {
                 await promiseDevice;
             } catch (exception) {
-                logger.error("error during registering DEVICE callback: " + exception);
+                logger.error(exception, "error during registering DEVICE callback");
                 success = false;
             }
         }
@@ -467,12 +467,12 @@ async function createControllerNotificationStream(controllerAddress, operationKe
                 // for example "{\"sal-remote:output\": {\"stream-name\": \"data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON\"} }"
                 return response.data["sal-remote:output"]["stream-name"];
             } catch (e) {
-                logger.error("Getting stream-name from payload failed: " + e);
+                logger.error(e, "Getting stream-name from payload failed");
                 return null;
             }
         })
         .catch(e => {
-            logger.error("error during axios call: " + e);
+            logger.error(e, "error during axios call");
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],
@@ -549,12 +549,12 @@ async function subscribeToControllerNotificationStream(
                 // for example "{subscribe-to-notification:location": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON"}"
                 return response.data["subscribe-to-notification:location"];
             } catch (e) {
-                logger.error("Getting stream-name from payload failed: " + e);
+                logger.error(e, "Getting stream-name from payload failed");
                 return null;
             }
         })
         .catch(e => {
-            logger.error("error during axios call: " + e);
+            logger.error(e, "error during axios call");
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],

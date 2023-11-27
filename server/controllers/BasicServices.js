@@ -296,9 +296,9 @@ module.exports.updateOperationKey = async function updateOperationKey(req, res, 
 };
 
 process.on('unhandledRejection', (reason, promise) => {
-  logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  logger.error(reason, 'Unhandled Rejection at:', promise);
 });
 
 process.on('uncaughtException', (reason) => {
-  logger.error("Unhandled Exception: ", reason);
+  logger.error(reason, "Unhandled Exception");
 });
