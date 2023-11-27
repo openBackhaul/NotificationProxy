@@ -25,7 +25,7 @@ test('Device-Notification: Attribute Value change notification:', () => {
                 "new-value": "true",
                 "attribute-name": "adaptive-modulation-is-on",
                 "timestamp": "2023-11-21T04:28:14.0+00:00",
-                "counter": -1,
+                "counter": 1,
                 "resource": "/core-model-1-4:network-control-domain=live/control-construct=513250006/logical-termination-point[uuid='LTP-MWPS-TTP-ODU-A']/layer-protocol[local-id='LP-MWPS-TTP-ODU-A']/air-interface-2-0:air-interface-pac/air-interface-configuration"
             }
         };
@@ -51,7 +51,7 @@ test('Device-Notification: Object Creation notification:', () => {
         {
             "notification-proxy-1-0:object-creation-notification": {
                 "timestamp": "2023-11-21T04:30:18.0+00:00",
-                "counter": -1,
+                "counter": 1,
                 "resource": "/core-model-1-4:network-control-domain=live/control-construct=513250009/forwarding-domain[uuid='VLAN-FD']/fc[uuid='VLAN-3321']"
             }
         };
@@ -77,7 +77,7 @@ test('Device-Notification: Object Deletion notification', () => {
         {
             "notification-proxy-1-0:object-deletion-notification": {
                 "timestamp": "2023-11-21T04:32:24.0+00:00",
-                "counter": -1,
+                "counter": 1,
                 "resource": "/core-model-1-4:network-control-domain=live/control-construct=513250009/forwarding-domain[uuid='VLAN-FD']/fc[uuid='VLAN-3321']"
             }
         };

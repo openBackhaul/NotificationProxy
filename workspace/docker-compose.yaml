@@ -195,8 +195,9 @@ services:
       - "DEVICE_USER=${DEVICE_USER}"
       - "DEVICE_PASSWORD=${DEVICE_PASSWORD}"
     restart: on-failure
-#    volumes:
+    volumes:
 #      - notificationproxy:/home/node/database
+      - /home/mentouser/workspace/np-logs:/home/openbackhaul/NotificationProxy/logs
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -212,7 +213,8 @@ volumes:
   applicationlayertopology:
   oamlog:
   operationkeymanagement:
-# notificationproxy
+# notificationproxy:
+  np-logs:
 
 networks:
     tinynetwork:
