@@ -166,7 +166,7 @@ exports.convertControllerNotification = function (notification, controllerName, 
                     subscriberNotificationType = configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_DELETIONS;
                     break;
                 default:
-                    logger.error("notificationType unknown: " + inboundNotificationType);
+                    logger.warn("notificationType unknown: " + inboundNotificationType);
                     break;
             }
 

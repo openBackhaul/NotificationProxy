@@ -1,5 +1,5 @@
-const notificationConverter = require('./NotificationConverter');
-const configConstants = require("./ConfigConstants");
+const notificationConverter = require('../NotificationConverter');
+const configConstants = require("../ConfigConstants");
 
 //contains all controller notifications
 
@@ -174,7 +174,7 @@ test('Controller-Configuration: Mount point creation', () => {
         }
     ];
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < output.length; i++) {
         expect(output[i].notificationMessage).toStrictEqual(outputExpected[i]);
     }
 });
@@ -304,7 +304,7 @@ test('Controller-Configuration: Mount point deletion', () => {
         }
     ];
 
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < output.length; i++) {
         expect(output[i].notificationMessage).toStrictEqual(outputExpected[i]);
     }
 });

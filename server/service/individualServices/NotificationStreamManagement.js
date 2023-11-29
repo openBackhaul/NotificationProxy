@@ -1,6 +1,7 @@
 const EventSource = require('eventsource');
 const http = require('http');
 const logger = require('../LoggingService.js').getLogger();
+const notificationManagement = require('./NotificationManagement');
 
 const controllerNotificationStreams = [];
 
@@ -114,6 +115,20 @@ async function removeAllStreamsForController(applicationName, applicationRelease
     await removeStreamItem(applicationName, applicationRelease, STREAM_TYPE_DEVICE);
 }
 
+function tryContinuousReconnectStream(registeredController, streamType) {
+    setTimeout(async function () {
+        //reconnect - build new stream
+        let success = await notificationManagement.buildStreamsForController(registeredController, [streamType]);
+        if (success) {
+            logger.debug(registeredController.name + ': Stream reestablished ' + streamType);
+        } else {
+            setTimeout(async function () {
+                tryContinuousReconnectStream(registeredController, streamType)
+            }, 60000);
+        }
+    }, 60000);
+}
+
 async function startStream(controllerTargetUrl, registeredController, handleFunction, streamType, user, password) {
 
     // controllerTargetUrl = "http://localhost:1500"; //local test
@@ -140,20 +155,16 @@ async function startStream(controllerTargetUrl, registeredController, handleFunc
 
     eventSource.onerror = async (err) => {
 
-        logger.error(err, registeredController.name + ": SSE-Error on EventSource (" + streamType + "), details: ");
+        logger.error(err, registeredController.name + ": SSE-Error on EventSource (" + streamType + ", readyState is " + eventSource.readyState + "), details: ");
 
-        //checking for closed state - indicating severe network error
+        //checking for closed state - may indicate severe network error
         if (eventSource.readyState === 2) {
             logger.debug(registeredController.name + ': SSE-Connection to controller interrupted. Trying to reconnect after 60 seconds');
 
             await removeStreamItem(registeredController.name, registeredController.release, streamType);
             logger.debug(registeredController.name + ': Closed old stream ' + streamType);
 
-            setTimeout(async function () {
-                //reconnect
-                await startStream(controllerTargetUrl, registeredController, handleFunction, streamType, user, password);
-                logger.debug(registeredController.name + ': Stream reestablished ' + streamType);
-            }, 60000);
+            tryContinuousReconnectStream(registeredController, streamType);
         }
     };
 

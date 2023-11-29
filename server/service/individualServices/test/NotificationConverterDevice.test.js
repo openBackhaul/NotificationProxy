@@ -1,5 +1,5 @@
-const notificationConverter = require('./NotificationConverter');
-const configConstants = require("./ConfigConstants");
+const notificationConverter = require('../NotificationConverter');
+const configConstants = require("../ConfigConstants");
 
 //contains all device notifications
 

@@ -1,5 +1,5 @@
-const notificationConverter = require('./NotificationConverter');
-const configConstants = require("./ConfigConstants");
+const notificationConverter = require('../NotificationConverter');
+const configConstants = require("../ConfigConstants");
 
 test('Convert alarm device data notification', () => {
 
@@ -9274,7 +9274,7 @@ test('Convert controller configuration event notification (real data2)', () => {
         }
     ];
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < output.length; i++) {
         expect(output[i].notificationMessage).toStrictEqual(outputExpected[i]);
     }
 });
