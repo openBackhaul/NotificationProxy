@@ -1,5 +1,5 @@
 
-const inputValidation = require('./InputValidation');
+const inputValidation = require('../InputValidation');
 
 test('Controller: no input', () => {
     let valid = inputValidation.validateControllerRegisterInput(null, null, null, null, null);

@@ -1,4 +1,4 @@
-const notificationStreamManagement = require('./NotificationStreamManagement');
+const notificationStreamManagement = require('../NotificationStreamManagement');
 const EventSource = require('eventsource');
 
 test('Adding and removal from managed stream list', async () => {
@@ -26,11 +26,11 @@ test('Adding and removal from managed stream list', async () => {
     expect(elements.length).toBe(1);
 
     //close or jest thread will wait
-    notificationStreamManagement.removeAllStreamsForController("example", "4.5.2");
-    notificationStreamManagement.removeAllStreamsForController("example2", "1.5.12");
+    await notificationStreamManagement.removeAllStreamsForController("example", "4.5.2");
+    await notificationStreamManagement.removeAllStreamsForController("example2", "1.5.12");
 });
 
-test('Managing counters for notifications', () => {
+test('Managing counters for notifications', async () => {
 
     notificationStreamManagement.addStreamItem("odl1", "1.0.0", new EventSource("https://example.com"), notificationStreamManagement.STREAM_TYPE_DEVICE);
     notificationStreamManagement.addStreamItem("odl1", "1.0.0", new EventSource("https://example.com"), notificationStreamManagement.STREAM_TYPE_OPERATIONAL);
@@ -47,5 +47,5 @@ test('Managing counters for notifications', () => {
     expect(element2.counter).toBe(1);
 
     //close or jest thread will wait
-    notificationStreamManagement.removeAllStreamsForController("odl1", "1.0.0");
+    await notificationStreamManagement.removeAllStreamsForController("odl1", "1.0.0");
 });

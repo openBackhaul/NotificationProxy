@@ -395,6 +395,58 @@ async function findRelevantControllers() {
 }
 
 /**
+ * @param registeredController contains all relevant controller
+ * @param streamTypeArray contains all stream types which are to be connected
+ * @return {Promise<boolean>} success of all connections
+ */
+exports.buildStreamsForController = async function (registeredController, streamTypeArray) {
+    let success = true;
+
+    logger.debug("starting establishment of streams for controller: " + registeredController.name);
+
+    //start registering for controller subscriptions (config, operation) and devices in parallel
+
+    if (streamTypeArray.includes(notificationStreamManagement.STREAM_TYPE_CONFIGURATION)) {
+        try {
+            await registerControllerCallbackChain(registeredController, CONTROLLER_SUB_MODE_CONFIGURATION);
+        } catch (exception) {
+            logger.error(exception, "error during registering CONFIGURATION callback");
+            success = false;
+        }
+    }
+
+    if (streamTypeArray.includes(notificationStreamManagement.STREAM_TYPE_OPERATIONAL)) {
+        if (success) {
+            try {
+                await registerControllerCallbackChain(registeredController, CONTROLLER_SUB_MODE_OPERATIONAL);
+            } catch (exception) {
+                logger.error(exception, "error during registering OPERATIONAL callback");
+                success = false;
+            }
+        }
+    }
+
+    if (streamTypeArray.includes(notificationStreamManagement.STREAM_TYPE_DEVICE)) {
+        if (success) {
+            try {
+                await registerDeviceCallbackChain(registeredController);
+            } catch (exception) {
+                logger.error(exception, "error during registering DEVICE callback");
+                success = false;
+            }
+        }
+    }
+
+    if (!success) {
+        //shutdown all created streams for this controller
+        await notificationStreamManagement.removeAllStreamsForController(registeredController.name, registeredController.release);
+        logger.debug("removed streams for controller " + registeredController.name);
+    }
+
+    return success;
+}
+
+/**
  * Start callback chain to subscribe to controller configurations, controller operations and device notifications
  *
  * PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
@@ -404,49 +456,17 @@ async function findRelevantControllers() {
 exports.triggerListenToControllerCallbackChain = async function () {
 
     let uniqueControllerUUIDs = await findRelevantControllers();
-
     let controllers = await fetchControllerData(uniqueControllerUUIDs);
-
     let success = true;
 
     //init callback chain for each controller and register async notification handlers
     for (const registeredController of controllers) {
-        logger.debug("starting establishment of streams for controller: " + registeredController.name);
-
-        //start registering for controller subscriptions (config, operation) and devices in parallel
-        let promiseConfig = registerControllerCallbackChain(registeredController, CONTROLLER_SUB_MODE_CONFIGURATION);
-        let promiseOperational = registerControllerCallbackChain(registeredController, CONTROLLER_SUB_MODE_OPERATIONAL);
-        let promiseDevice = registerDeviceCallbackChain(registeredController);
-
-        try {
-            await promiseConfig;
-        } catch (exception) {
-            logger.error(exception, "error during registering CONFIGURATION callback");
-            success = false;
-        }
-
-        if (success) {
-            try {
-                await promiseOperational;
-            } catch (exception) {
-                logger.error(exception, "error during registering OPERATIONAL callback");
-                success = false;
-            }
-        }
-
-        if (success) {
-            try {
-                await promiseDevice;
-            } catch (exception) {
-                logger.error(exception, "error during registering DEVICE callback");
-                success = false;
-            }
-        }
-
-        if (!success) {
-            //shutdown all created streams for this controller
-            await notificationStreamManagement.removeAllStreamsForController(registeredController.name, registeredController.release);
-            logger.debug("removed streams for controller " + registeredController.name);
+        success = await exports.buildStreamsForController(registeredController, [
+            notificationStreamManagement.STREAM_TYPE_DEVICE,
+            notificationStreamManagement.STREAM_TYPE_OPERATIONAL,
+            notificationStreamManagement.STREAM_TYPE_CONFIGURATION]);
+        if (success === false) {
+            break;
         }
     }
 
@@ -531,7 +551,7 @@ async function createControllerNotificationStream(controllerAddress, operationKe
         }
     })
         .then((response) => {
-            logger.debug("result from axios call: " + response.status);
+            logger.debug("result " + response.status + " for controller configuration stream creation on url " + controllerTargetUrl);
 
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
@@ -549,12 +569,13 @@ async function createControllerNotificationStream(controllerAddress, operationKe
                 // for example "{\"sal-remote:output\": {\"stream-name\": \"data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON\"} }"
                 return response.data["sal-remote:output"]["stream-name"];
             } catch (e) {
-                logger.error(e, "Getting stream-name from payload failed");
+                logger.error(e, "Getting stream-name from payload failed for target url " + controllerTargetUrl);
                 return null;
             }
         })
         .catch(e => {
-            logger.error(e, "error during axios call");
+            logger.error(e, "error during axios call for target url " + controllerTargetUrl);
+
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],
@@ -612,7 +633,7 @@ async function subscribeToControllerNotificationStream(
         }
     })
         .then((response) => {
-            logger.debug("result from axios call: " + response.status);
+            logger.debug("result " + response.status + " for controller configuration stream subscription on path " + controllerTargetUrl);
 
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
@@ -630,12 +651,13 @@ async function subscribeToControllerNotificationStream(
                 // for example "{subscribe-to-notification:location": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON"}"
                 return response.data["subscribe-to-notification:location"];
             } catch (e) {
-                logger.error(e, "Getting stream-name from payload failed");
+                logger.error(e, "Getting stream-name from payload failed for path " + controllerTargetUrl);
                 return null;
             }
         })
         .catch(e => {
-            logger.error(e, "error during axios call");
+            logger.error(e, "error during axios call for target path " + controllerTargetUrl);
+
             executionAndTraceService.recordServiceRequestFromClient(
                 appInformation["application-name"],
                 appInformation["release-number"],
