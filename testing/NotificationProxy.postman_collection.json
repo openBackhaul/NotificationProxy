@@ -14573,7 +14573,7 @@
 									"apikey": [
 										{
 											"key": "value",
-											"value": "{{apiKeyIndividual}}",
+											"value": "{{apiKeyNYP}}",
 											"type": "string"
 										},
 										{
@@ -21377,8 +21377,9 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:3009",
-			"type": "string"
+			"value": "http://linkvis-staging-01:4011",
+			"type": "string",
+			"disabled": true
 		},
 		{
 			"key": "apiKeyBasic",
@@ -21387,7 +21388,7 @@
 		},
 		{
 			"key": "apiKeyIndividual",
-			"value": "Operation key not yet provided.",
+			"value": "n.a.",
 			"type": "string"
 		},
 		{
@@ -21415,6 +21416,17 @@
 			"value": "http://localhost:9092",
 			"type": "string",
 			"disabled": true
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://linkvis-ci-01:3009",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "apiKeyNYP",
+			"value": "Operation key not yet provided.",
+			"type": "string"
 		}
 	]
 }

@@ -2,6 +2,37 @@ const configConstants = require("./ConfigConstants");
 const notificationStreamManagement = require('./NotificationStreamManagement');
 const logger = require('../LoggingService.js').getLogger();
 
+const callbackCounters = [
+    {
+        'callback': configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_VALUE_CHANGES,
+        'counter': 0,
+    },
+    {
+        'callback': configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_CREATIONS,
+        'counter': 0,
+    },
+    {
+        'callback': configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_DELETIONS,
+        'counter': 0,
+    },
+    {
+        'callback': configConstants.OAM_PATH_DEVICE_ALARMS,
+        'counter': 0,
+    },
+    {
+        'callback': configConstants.OAM_PATH_DEVICE_OBJECT_CREATIONS,
+        'counter': 0,
+    },
+    {
+        'callback': configConstants.OAM_PATH_DEVICE_OBJECT_DELETIONS,
+        'counter': 0,
+    },
+    {
+        'callback': configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES,
+        'counter': 0,
+    },
+];
+
 /**
  * Convert a notification from ODL format to REST notification data.
  * ODL=>ONF or IETF=>ONF
@@ -23,13 +54,32 @@ exports.convertNotification = function (controllerNotification, notificationType
     ].includes(notificationType);
 
     if (isDeviceTypeNotification) {
-        return convertDeviceNotification(controllerNotification, controllerName, controllerRelease);
+        return convertDeviceNotification(controllerNotification, controllerName, controllerRelease, notificationType);
     } else {
-        return convertControllerNotificationEvent(controllerNotification, controllerName, controllerRelease, eventTime);
+        return convertControllerNotificationEvent(controllerNotification, controllerName, controllerRelease, eventTime, notificationType);
     }
 }
 
-function convertDeviceNotification(controllerNotification, controllerName, controllerRelease) {
+/**
+ * Callbacks
+ *  SubscriptionCausesNotifyingOfDeviceAlarms
+ *  SubscriptionCausesNotifyingOfChangedDeviceAttributeValue
+ *  SubscriptionCausesNotifyingOfDeviceObjectCreation
+ *  SubscriptionCausesNotifyingOfDeviceObjectDeletion
+ *
+ * @param controllerNotification
+ * @param controllerName
+ * @param controllerRelease
+ * @param notificationType
+ * @return {{[p: string]: {}}}
+ */
+function convertDeviceNotification(controllerNotification, controllerName, controllerRelease, notificationType) {
+
+    //todo alarm - path after localid? logical-termination-point={uuid}/layer-protocol={local-id}/air-interface-2-0:air-interface-pac
+
+    //todo created - needs resource path built from something
+    //todo created - needs object-type taken from object-type which does not exist?
+
 
     let innerElement = Object.values(controllerNotification["ietf-restconf:notification"])[0];
     let eventType = Object.keys(controllerNotification["ietf-restconf:notification"])[0].split(':')[1];
@@ -67,14 +117,20 @@ function convertDeviceNotification(controllerNotification, controllerName, contr
         delete outputInnerElement["object-path"]; //not needed when resource is present
     }
 
-    let sequenceCounter;
-    if (innerElement["counter"]) {
+    if (notificationType !== configConstants.OAM_PATH_DEVICE_ALARMS) {
+        let sequenceCounter;
+        // if (innerElement["counter"]) {
         //if present use this counter - if not, count all outbound device notifications internally
         sequenceCounter = innerElement["counter"];
-    } else {
-        sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+        // } else {
+        //     sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+        // }
+        outputInnerElement["counter"] = sequenceCounter;
     }
-    outputInnerElement["counter"] = sequenceCounter;
+
+    if (notificationType === configConstants.OAM_PATH_DEVICE_OBJECT_CREATIONS) {
+        outputInnerElement["object-type"] = "";
+    }
 
     let innerLabel = "notification-proxy-1-0:" + eventType;
     let resultNotification = {
@@ -84,15 +140,62 @@ function convertDeviceNotification(controllerNotification, controllerName, contr
     return resultNotification;
 }
 
+function increaseCounter(notificationType) {
+
+    let searchedItem = null;
+    for (const callbackCounter of callbackCounters) {
+        if (callbackCounter.callback === notificationType) {
+            searchedItem = callbackCounter;
+            break;
+        }
+    }
+
+    if (searchedItem) {
+        searchedItem.counter = searchedItem.counter + 1;
+        return searchedItem.counter;
+    } else {
+        return -1;
+    }
+}
+
 /**
+ * conversion of controller notifications
+ *  callbacks
+ *      SubscriptionCausesNotifyingOfChangedControllerAttributeValue
+ *      SubscriptionCausesNotifyingOfControllerObjectCreation
+ *      SubscriptionCausesNotifyingOfControllerObjectDeletion
  *
- * @param controllerEvent single event from controller notification
+ * fields:
+ *  counter
+ *      Continuous count of all requests sent by this callback
+ *
+ *  timestamp
+ *      event-time from incoming controller notification
+ *
+ *  resource
+ *      path to the target attribute
+ *
+ *
+ * !changed-value!
+ *  attribute-name
+ *      name of the concerned attribute
+ *
+ *  new-value
+ *      new value of the attribute
+ *
+ *
+ *  !object-creation!
+ *  object-type
+ *      name of the new object
+ *
+ * @param controllerEvent
  * @param controllerName
  * @param controllerRelease
  * @param eventTime
- * @return converted notification for single controller event
+ * @param notificationType
+ * @return {{[p: string]: {}}}
  */
-function convertControllerNotificationEvent(controllerEvent, controllerName, controllerRelease, eventTime) {
+function convertControllerNotificationEvent(controllerEvent, controllerName, controllerRelease, eventTime, notificationType) {
 
     let controllerID = controllerName;
     let path = controllerEvent["path"];
@@ -104,23 +207,53 @@ function convertControllerNotificationEvent(controllerEvent, controllerName, con
     if (controllerEvent["data"]) {
         dataKey = Object.keys(controllerEvent["data"])[0];
         dataValue = Object.values(controllerEvent["data"])[0];
+        dataKey = dataKey.substring(dataKey.lastIndexOf(":") + 1, dataKey.length);
+    }
+
+    let controllerTargetPath = null;
+    let headerKey = null;
+
+    switch (notificationType) {
+        case configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_VALUE_CHANGES:
+            controllerTargetPath = "/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration";
+            headerKey = "notification-proxy-1-0:attribute-value-changed-notification";
+            break;
+        case configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_CREATIONS:
+            controllerTargetPath = "/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration" + "/" + dataKey;
+            headerKey = "notification-proxy-1-0:object-creation-notification";
+            break;
+        case configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_DELETIONS:
+            let lastPartOfPath = path.substring(path.lastIndexOf(":") + 1, path.length);
+            controllerTargetPath = "/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration" + "/" + lastPartOfPath;
+            headerKey = "notification-proxy-1-0:object-deletion-notification";
+            break;
     }
 
     //build result
     let resourceString = "/core-model-1-4:network-control-domain=live/control-construct=" + controllerID
-        + "/logical-termination-point=" + nodeID + "/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-status";
+        + "/logical-termination-point=" + nodeID + controllerTargetPath;
 
-    let sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+    // let sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
+    let sequenceCounter = increaseCounter(notificationType);
 
     let innerOutputElement;
     if (dataKey) {
-        innerOutputElement = {
-            "counter": sequenceCounter,
-            "timestamp": eventTime,
-            "resource": resourceString,
-            "attribute-name": dataKey,
-            "new-value": dataValue,
-        };
+        if (notificationType === configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_CREATIONS) {
+            innerOutputElement = {
+                "counter": sequenceCounter,
+                "timestamp": eventTime,
+                "resource": resourceString,
+                "object-type": dataKey
+            };
+        } else {
+            innerOutputElement = {
+                "counter": sequenceCounter,
+                "timestamp": eventTime,
+                "resource": resourceString,
+                "attribute-name": dataKey,
+                "new-value": dataValue
+            };
+        }
     } else {
         innerOutputElement = {
             "counter": sequenceCounter,
@@ -130,7 +263,7 @@ function convertControllerNotificationEvent(controllerEvent, controllerName, con
     }
 
     let convertedNotificationWrapper = {
-        "notification-proxy-1-0:attribute-value-changed-notification": innerOutputElement
+        [headerKey]: innerOutputElement
     };
 
     return convertedNotificationWrapper;
@@ -187,4 +320,10 @@ exports.convertControllerNotification = function (notification, controllerName, 
     }
 
     return notificationsToSend;
+}
+
+exports.resetAllCounters = function () {
+    for (const callbackCounter of callbackCounters) {
+        callbackCounter.counter = 0;
+    }
 }

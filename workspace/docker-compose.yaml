@@ -204,6 +204,23 @@ services:
     networks:
       - tinynetwork
 
+  microwavedeviceinventory:
+    build:
+      context: ./MicroWaveDeviceInventory/server/
+      dockerfile: Dockerfile
+    image: mwdi:${DOCKER_IMAGE_TAG}
+    container_name: mwdi_${DOCKER_IMAGE_TAG}
+    ports:
+      - '4004:8080'
+    restart: on-failure
+#    volumes:
+#      - microwavedeviceinventory:/home/openbackhaul/MicroWaveDeviceInventory/database
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - tinynetwork
+
 volumes:
   executionandtracelog:
   typeapprovalregister:
@@ -215,6 +232,7 @@ volumes:
   operationkeymanagement:
 # notificationproxy:
   np-logs:
+#  microwavedeviceinventory:
 
 networks:
     tinynetwork:
