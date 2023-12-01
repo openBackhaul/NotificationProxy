@@ -24,12 +24,12 @@ exports.init = function initCheckExtensions()
     })
   });
 
-  // compare configuration data without IP addresses and port numbers
+  // compare configuration data without IP addresses, port numbers and the WORKAROUND-FIX
   expect.extend({
     toMatchConfig: (actualString, expectedEnding) => ({
       message: () => `expected that ${actualString.replace(/,/g, ',\n')} matches with ${expectedEnding.replace(/,/g, ',\n')} ignoring whitespace`,
-      pass: actualString.replace(/\s+/g, '').replace(/ipv-4-address.*\}/, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/, 'port:XXXX}') ==
-        expectedEnding.replace(/\s+/g, '').replace(/ipv-4-address.*\}/, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/, 'port:XXXX}')
+      pass: actualString.replace(/\s+/g, '').replace(/ipv-4-address.*\}/g, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/g, 'port:XXXX}').replace(/\"static-value\":\"WORKAROUND-FIX\",/g, '') ==
+        expectedEnding.replace(/\s+/g, '').replace(/ipv-4-address.*\}/g, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/g, 'port:XXXX}').replace(/\"static-value\":\"WORKAROUND-FIX\",/g, '')
     })
   });
 }
