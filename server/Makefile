@@ -28,7 +28,9 @@ run: rm
 	docker run -d -p $(PORT):$(SERVER_PORT) --restart always --name $(CONTAINER) $(IMAGE)
 
 test: run
+	npm run test
 	newman run ../testing/NotificationProxy.postman_collection.json --env-var baseUrl=http://$(DOCKER_HOST):$(PORT)
 
 test-local: run
+	npm run test
 	newman run ../testing/NotificationProxy.postman_collection.json --env-var baseUrl=http://localhost:$(PORT)
