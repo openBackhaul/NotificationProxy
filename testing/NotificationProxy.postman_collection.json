@@ -4951,7 +4951,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"oam-approval-application\": \"AdministratorAdministration\",\n  \"oam-approval-application-release-number\": \"8.2.97\",\n  \"oam-approval-operation\": \"<string>\",\n  \"oam-approval-protocol\": \"HTTP\",\n  \"oam-approval-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"253.255.250.09\"\n    }\n  },\n  \"oam-approval-port\": 3012\n}\n",
+									"raw": "{\n  \"oam-approval-application\": \"AdministratorAdministration\",\n  \"oam-approval-application-release-number\": \"1.0.0\",\n  \"oam-approval-operation\": \"/v1/approve-oam-request\",\n  \"oam-approval-protocol\": \"HTTP\",\n  \"oam-approval-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"192.168.0.47\"\n    }\n  },\n  \"oam-approval-port\": 3005\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -13044,9 +13044,11 @@
 											"});\r",
 											"\r",
 											"\r",
-											"// skip listen-to-controllers and jump to bequeath-your-data-and-die\r",
+											"// skip listen-to-controllers and bequeath-your-data-and-die\r",
+											"// Instead jump to notify-controller-attribute-value-changes\r",
 											"if (!pm.environment.get(\"controllerPresent\")) {\r",
-											"    postman.setNextRequest(\"Initiates process of embedding a new release\");\r",
+											"//  postman.setNextRequest(\"Initiates process of embedding a new release\");\r",
+											"    postman.setNextRequest(\"Offers subscription for notifications about changes of attributes at the controllers\");\r",
 											"}\r",
 											""
 										],
