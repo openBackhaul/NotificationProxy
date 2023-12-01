@@ -38,7 +38,7 @@ exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicati
     //add forwardingConstructs fcPorts
     try {
         let ltpConfigurationStatus = await logicalTerminationPointServices.createOrUpdateApplicationLtpsAsync(
-            logicalTerminationPointConfigurationInput
+            logicalTerminationPointConfigurationInput, false
         );
 
         let operationUUID = ltpConfigurationStatus.operationClientConfigurationStatusList[0].uuid;

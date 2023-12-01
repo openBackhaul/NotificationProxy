@@ -4,8 +4,12 @@ const logicalTerminationPoint = require("onf-core-model-ap/applicationPattern/on
 const forwardingConstruct = require("onf-core-model-ap/applicationPattern/onfModel/models/ForwardingConstruct");
 const fileOperation = require("onf-core-model-ap/applicationPattern/databaseDriver/JSONDriver");
 const onfPaths = require("onf-core-model-ap/applicationPattern/onfModel/constants/OnfPaths");
-const FcPort = require("onf-core-model-ap/applicationPattern/onfModel/models/FcPort");
 const logger = require('../LoggingService.js').getLogger();
+const FcPort = require("onf-core-model-ap/applicationPattern/onfModel/models/FcPort");
+const controlConstruct = require("onf-core-model-ap/applicationPattern/onfModel/models/ControlConstruct");
+const tcpClientInterface = require("onf-core-model-ap/applicationPattern/onfModel/models/layerProtocols/TcpClientInterface");
+const ForwardingDomain = require("onf-core-model-ap/applicationPattern/onfModel/models/ForwardingDomain");
+const ForwardingConstruct = require("onf-core-model-ap/applicationPattern/onfModel/models/ForwardingConstruct");
 
 /**
  * Deletes all fcPorts (for client LTPs) for application with httpClientUUID. Application LTP must be deleted after this
@@ -117,15 +121,6 @@ async function getLogicalTerminationPointsAsync(logicalTerminationPointOperation
                 opLTPList.push(ltp);
             }
         }
-
-        // ltp[onfAttributes.LOGICAL_TERMINATION_POINT.LAYER_PROTOCOL] in ltp &&
-        // ltp[onfAttributes.LOGICAL_TERMINATION_POINT.LAYER_PROTOCOL][onfAttributes.LAYER_PROTOCOL.OPERATION_CLIENT_INTERFACE_PAC] in ltp &&
-        // ltp[onfAttributes.LOGICAL_TERMINATION_POINT.LAYER_PROTOCOL][onfAttributes.LAYER_PROTOCOL.OPERATION_CLIENT_INTERFACE_PAC][onfAttributes.OPERATION_CLIENT.CONFIGURATION] in ltp &&
-        // ltp[onfAttributes.LOGICAL_TERMINATION_POINT.LAYER_PROTOCOL][onfAttributes.LAYER_PROTOCOL.OPERATION_CLIENT_INTERFACE_PAC][onfAttributes.OPERATION_CLIENT.CONFIGURATION][onfAttributes.OPERATION_CLIENT.OPERATION_NAME] in ltp &&
-        // ltp[onfAttributes.LOGICAL_TERMINATION_POINT.LAYER_PROTOCOL][onfAttributes.LAYER_PROTOCOL.OPERATION_CLIENT_INTERFACE_PAC][onfAttributes.OPERATION_CLIENT.CONFIGURATION][onfAttributes.OPERATION_CLIENT.OPERATION_NAME] === logicalTerminationPointOperationName)
-        // {
-        //      opLTPList.push(ltp);
-        // }
     }
 
     return opLTPList;
@@ -149,7 +144,72 @@ function recursiveSearchForKey(obj, targetKey) {
     }
 }
 
+async function getForwardingConstructOutputOperationData(forwardingName) {
+
+    //get forwardConstruct output operation, get server ltp (http), get server ltp (tcp), get protocol, address and port
+    let forwardingConstructInstance = await forwardingDomain.getForwardingConstructForTheForwardingNameAsync(
+        forwardingName);
+
+    let deregisterTargetAddressWrapper = null;
+    for (const singleFcPort of forwardingConstructInstance['fc-port']) {
+        if (FcPort.portDirectionEnum.OUTPUT === singleFcPort['port-direction']) {
+
+            //get http, tcp and operationName of subscriber
+            let operationLTP = await controlConstruct.getLogicalTerminationPointAsync(singleFcPort['logical-termination-point']);
+            let httpUUID = operationLTP['server-ltp'][0];
+            let httpLTP = await controlConstruct.getLogicalTerminationPointAsync(httpUUID);
+            let tcpUUID = httpLTP['server-ltp'][0];
+            let tcpLTP = await controlConstruct.getLogicalTerminationPointAsync(tcpUUID);
+
+            let enumProtocol = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-protocol'];
+            let stringProtocol = tcpClientInterface.getProtocolFromProtocolEnum(enumProtocol)[0];
+
+            let operationName = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-name'];
+            let port = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-port'];
+
+            let address = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-address'];
+            // let targetOperationUrl = buildDeviceSubscriberOperationPath(stringProtocol, address, port, operationName);
+            // let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
+            // let operationUUID = operationLTP['uuid'];
+
+            deregisterTargetAddressWrapper = {
+                "protocol": stringProtocol,
+                "address": address,
+                "port": port,
+                "operationName": operationName
+            }
+            break;
+        }
+    }
+
+    return deregisterTargetAddressWrapper;
+}
+
+function getHttpAndTcpUUIDForNewRelease() {
+    return new Promise(async function (resolve, reject) {
+        let forwardingName = 'PromptForBequeathingDataCausesNRbeingRequestedToListenToControllers';
+        try {
+            let uuidOfHttpAndTcpClient = {};
+            let forwardConstructName = await ForwardingDomain.getForwardingConstructForTheForwardingNameAsync(forwardingName)
+            if (forwardConstructName === undefined) {
+                return {};
+            }
+            let forwardConstructUuid = forwardConstructName[onfAttributes.GLOBAL_CLASS.UUID]
+            let fcPortOutput = (await ForwardingConstruct.getOutputFcPortsAsync(forwardConstructUuid))[0]
+            let operationClientUuid = fcPortOutput[onfAttributes.FC_PORT.LOGICAL_TERMINATION_POINT];
+            let httpClientUuid = (await logicalTerminationPoint.getServerLtpListAsync(operationClientUuid))[0];
+            let tcpClientUuid = (await logicalTerminationPoint.getServerLtpListAsync(httpClientUuid))[0];
+            uuidOfHttpAndTcpClient = {httpClientUuid, tcpClientUuid}
+            resolve(uuidOfHttpAndTcpClient)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     deleteAllFcPortsForApplication,
-    getLogicalTerminationPointsAsync
+    getLogicalTerminationPointsAsync,
+    getForwardingConstructOutputOperationData,
+    getHttpAndTcpUUIDForNewRelease
 }

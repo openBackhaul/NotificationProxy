@@ -9,6 +9,9 @@ const individualServicesOperationsMapping = require('./IndividualServicesOperati
 const notificationStreamManagement = require('./NotificationStreamManagement');
 const fcPort = require('onf-core-model-ap/applicationPattern/onfModel/models/FcPort');
 const controlConstructUtils = require('./ControlConstructUtil');
+const FcPort = require("onf-core-model-ap/applicationPattern/onfModel/models/FcPort");
+const controlConstruct = require("onf-core-model-ap/applicationPattern/onfModel/models/ControlConstruct");
+const tcpClientInterface = require("onf-core-model-ap/applicationPattern/onfModel/models/layerProtocols/TcpClientInterface");
 const logger = require('../LoggingService.js').getLogger();
 
 /**
@@ -106,7 +109,7 @@ exports.registerController = async function (inputControllerName, inputControlle
         );
 
         let ltpConfigurationStatus = await logicalTerminationPointServices.createOrUpdateApplicationLtpsAsync(
-            logicalTerminationPointConfigurationInput
+            logicalTerminationPointConfigurationInput, false
         );
 
         if (httpClientUuid === undefined) {
@@ -197,4 +200,74 @@ exports.deregisterController = async function (inputControllerName, inputControl
         logger.error(exception, "deregisterController failed with name " + inputControllerName);
         return false;
     }
+}
+
+exports.findRelevantControllers = async function() {
+
+    let allForwardingConstructs = await forwardingDomain.getForwardingConstructListAsync();
+
+    let forwardConstructsToStartStreamsFor = configConstants.getAllForwardConstructNamesToUpdate();
+
+    let relevantControllersUUIDList = [];
+
+    //identify relevant controllers by fcPorts that notify subscribers
+    for (const allForwardingConstruct of allForwardingConstructs) {
+        let nameOfFC = allForwardingConstruct.name[1].value;
+        if (forwardConstructsToStartStreamsFor.includes(nameOfFC)) {
+            for (const singleFcPort of allForwardingConstruct["fc-port"]) {
+                if (FcPort.portDirectionEnum.INPUT === singleFcPort['port-direction']) {
+                    relevantControllersUUIDList.push(singleFcPort['logical-termination-point']);
+                }
+            }
+        }
+    }
+
+    let uniqueControllerUUIDs = [...new Set(relevantControllersUUIDList)];
+    return uniqueControllerUUIDs;
+}
+
+exports.fetchControllerData = async function(uniqueControllerUUIDs) {
+    let controllers = [];
+    for (const uniqueControllerUUID of uniqueControllerUUIDs) {
+        let controllerDataWrapper = await requestControllerConfigData(uniqueControllerUUID);
+
+        //prevent duplicate controllers in list
+        let found = false;
+        for (const controllerDataWrapperElement of controllers) {
+            if (controllerDataWrapperElement.name === controllerDataWrapper.name &&
+                controllerDataWrapperElement.release === controllerDataWrapper.release) {
+                found = true;
+            }
+        }
+
+        if (found === false) {
+            controllers.push(controllerDataWrapper);
+        }
+    }
+    return controllers;
+}
+
+async function requestControllerConfigData(uniqueControllerUUID) {
+    let operationLTP = await controlConstruct.getLogicalTerminationPointAsync(uniqueControllerUUID);
+    let httpUUID = operationLTP['server-ltp'][0];
+    let httpLTP = await controlConstruct.getLogicalTerminationPointAsync(httpUUID);
+    let tcpUUID = httpLTP['server-ltp'][0];
+    let tcpLTP = await controlConstruct.getLogicalTerminationPointAsync(tcpUUID);
+
+    let enumProtocol = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-protocol'];
+    let stringProtocol = tcpClientInterface.getProtocolFromProtocolEnum(enumProtocol)[0];
+
+    let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
+    let operationUUID = operationLTP['uuid'];
+
+    let controllerDataWrapper = {
+        "name": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['application-name'],
+        "release": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['release-number'],
+        "port": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-port'],
+        "address": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-address'],
+        "protocol": stringProtocol,
+        "operationKey": operationKey,
+        "operationUUID": operationUUID
+    }
+    return controllerDataWrapper;
 }

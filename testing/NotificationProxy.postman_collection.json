@@ -13042,6 +13042,12 @@
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
+											"\r",
+											"\r",
+											"// skip listen-to-controllers\r",
+											"if (!pm.environment.get(\"controllerPresent\")) {\r",
+											"    postman.setNextRequest(\"Initiates process of embedding a new release\");\r",
+											"}\r",
 											""
 										],
 										"type": "text/javascript"
@@ -21426,6 +21432,11 @@
 		{
 			"key": "apiKeyNYP",
 			"value": "Operation key not yet provided.",
+			"type": "string"
+		},
+		{
+			"key": "controllerPresent",
+			"value": "0",
 			"type": "string"
 		}
 	]

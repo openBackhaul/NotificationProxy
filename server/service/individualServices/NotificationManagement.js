@@ -12,6 +12,8 @@ const BasicServices = require("onf-core-model-ap-bs/basicServices/BasicServicesS
 const RequestHeader = require("onf-core-model-ap/applicationPattern/rest/client/RequestHeader");
 const responseCodeEnum = require('onf-core-model-ap/applicationPattern/rest/server/ResponseCode');
 const logger = require('../LoggingService.js').getLogger();
+const controllerManagement = require('./ControllerManagement');
+const notificationManagement = require("./NotificationManagement");
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
@@ -24,13 +26,14 @@ let lastSentMessages = [];
  * Query and cache app information from the load file.
  * @returns appInformation with application-name and release-number
  */
-async function getAppInformation() {
+exports.getAppInformation = async function() {
     if (!appInformation) {
         appInformation = {};
 
         try {
             appInformation = await BasicServices.informAboutApplication();
         } catch (exception) {
+            logger.error(exception, "no application information found, using fallback");
             appInformation["application-name"] = "NotificationProxy";
             appInformation["release-number"] = "1.0.0";
         }
@@ -43,7 +46,7 @@ async function getAppInformation() {
  * Create a new request header.
  * @returns {RequestHeader}
  */
-function createRequestHeader() {
+exports.createRequestHeader = function () {
     return new RequestHeader("NotificationProxy", "NotificationProxy", undefined, "1");
 }
 
@@ -56,7 +59,6 @@ function cleanupOutboundNotificationCache() {
         //timeout from env - use 5 seconds as fallback
         let timespanMs = process.env['NOTIFICATION_DUPLICATE_TIMESPAN_MS'] ? process.env['NOTIFICATION_DUPLICATE_TIMESPAN_MS'] : 5000;
 
-        //env variable?
         if (differenceInTimestampMs > timespanMs) {
             toRemoveElements.push(lastSentMessage)
         }
@@ -126,9 +128,9 @@ async function sendMessageToSubscriber(notificationType, targetOperationURL, ope
         }
         lastSentMessages.push(messageCacheEntry);
 
-        let appInformation = await getAppInformation();
+        let appInformation = await exports.getAppInformation();
 
-        let requestHeader = createRequestHeader();
+        let requestHeader = exports.createRequestHeader();
 
         //send notification
         logger.debug("sending subscriber notification to: " + targetOperationURL + " with content: " + JSON.stringify(notificationMessage));
@@ -216,10 +218,19 @@ exports.getActiveSubscribers = async function (oamPath) {
 
                     let targetOperationUrl = buildDeviceSubscriberOperationPath(stringProtocol, address, port, operation);
                     let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
+                    let operationUUID = operationLTP['uuid'];
+                    let operationName = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-name'];
 
                     let subscriberDataWrapper = {
                         "targetOperationURL": targetOperationUrl,
-                        "operationKey": operationKey
+                        "operationKey": operationKey,
+                        "operationUUID": operationUUID,
+                        "name": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['application-name'],
+                        "release": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['release-number'],
+                        "port": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-port'],
+                        "address": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-address'],
+                        "protocol": stringProtocol,
+                        "operationName": operationName
                     }
                     subscribersForOamPath.push(subscriberDataWrapper);
                 }
@@ -250,7 +261,7 @@ async function registerControllerCallbackChain(registeredController, controllerS
     let streamActive = notificationStreamManagement.checkIfStreamIsActive(registeredController, streamType);
 
     if (streamActive === false) {
-        let controllerAddress = buildControllerTargetPath(
+        let controllerAddress = notificationManagement.buildControllerTargetPath(
             registeredController.protocol,
             registeredController.address,
             registeredController.port
@@ -312,7 +323,7 @@ async function registerDeviceCallbackChain(registeredController) {
     let streamActive = notificationStreamManagement.checkIfStreamIsActive(registeredController, notificationStreamManagement.STREAM_TYPE_DEVICE);
 
     if (streamActive === false) {
-        let controllerAddress = buildControllerTargetPath(registeredController.protocol, registeredController.address, registeredController.port);
+        let controllerAddress = notificationManagement.buildControllerTargetPath(registeredController.protocol, registeredController.address, registeredController.port);
 
         let controllerTargetUrl = controllerAddress + configConstants.PATH_STREAM_DEVICE;
         let user = process.env['DEVICE_USER'];
@@ -323,75 +334,6 @@ async function registerDeviceCallbackChain(registeredController) {
     } else {
         logger.warn("device stream for " + registeredController.name + " already active");
     }
-}
-
-async function requestControllerConfigData(uniqueControllerUUID) {
-    let operationLTP = await controlConstruct.getLogicalTerminationPointAsync(uniqueControllerUUID);
-    let httpUUID = operationLTP['server-ltp'][0];
-    let httpLTP = await controlConstruct.getLogicalTerminationPointAsync(httpUUID);
-    let tcpUUID = httpLTP['server-ltp'][0];
-    let tcpLTP = await controlConstruct.getLogicalTerminationPointAsync(tcpUUID);
-
-    let enumProtocol = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-protocol'];
-
-    let stringProtocol = tcpClientInterface.getProtocolFromProtocolEnum(enumProtocol)[0];
-
-    let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
-
-    let controllerDataWrapper = {
-        "name": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['application-name'],
-        "release": httpLTP['layer-protocol'][0]['http-client-interface-1-0:http-client-interface-pac']['http-client-interface-configuration']['release-number'],
-        "port": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-port'],
-        "address": tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-address'],
-        "protocol": stringProtocol,
-        "operationKey": operationKey
-    }
-    return controllerDataWrapper;
-}
-
-async function fetchControllerData(uniqueControllerUUIDs) {
-    let controllers = [];
-    for (const uniqueControllerUUID of uniqueControllerUUIDs) {
-        let controllerDataWrapper = await requestControllerConfigData(uniqueControllerUUID);
-
-        //prevent duplicate controllers in list
-        let found = false;
-        for (const controllerDataWrapperElement of controllers) {
-            if (controllerDataWrapperElement.name === controllerDataWrapper.name &&
-                controllerDataWrapperElement.release === controllerDataWrapper.release) {
-                found = true;
-            }
-        }
-
-        if (found === false) {
-            controllers.push(controllerDataWrapper);
-        }
-    }
-    return controllers;
-}
-
-async function findRelevantControllers() {
-
-    let allForwardingConstructs = await forwardingDomain.getForwardingConstructListAsync();
-
-    let forwardConstructsToStartStreamsFor = configConstants.getAllForwardConstructNamesToUpdate();
-
-    let relevantControllersUUIDList = [];
-
-    //identify relevant controllers by fcPorts that notify subscribers
-    for (const allForwardingConstruct of allForwardingConstructs) {
-        let nameOfFC = allForwardingConstruct.name[1].value;
-        if (forwardConstructsToStartStreamsFor.includes(nameOfFC)) {
-            for (const singleFcPort of allForwardingConstruct["fc-port"]) {
-                if (FcPort.portDirectionEnum.INPUT === singleFcPort['port-direction']) {
-                    relevantControllersUUIDList.push(singleFcPort['logical-termination-point']);
-                }
-            }
-        }
-    }
-
-    let uniqueControllerUUIDs = [...new Set(relevantControllersUUIDList)];
-    return uniqueControllerUUIDs;
 }
 
 /**
@@ -455,8 +397,8 @@ exports.buildStreamsForController = async function (registeredController, stream
  */
 exports.triggerListenToControllerCallbackChain = async function () {
 
-    let uniqueControllerUUIDs = await findRelevantControllers();
-    let controllers = await fetchControllerData(uniqueControllerUUIDs);
+    let uniqueControllerUUIDs = await controllerManagement.findRelevantControllers();
+    let controllers = await controllerManagement.fetchControllerData(uniqueControllerUUIDs);
     let success = true;
 
     //init callback chain for each controller and register async notification handlers
@@ -474,8 +416,7 @@ exports.triggerListenToControllerCallbackChain = async function () {
 }
 
 
-function buildControllerTargetPath(controllerProtocol, controllerAddress, controllerPort) {
-
+exports.buildControllerTargetPath = function (controllerProtocol, controllerAddress, controllerPort) {
     let addressPart;
     if (controllerAddress["domain-name"]) {
         addressPart = controllerAddress["domain-name"];
@@ -533,9 +474,9 @@ async function createControllerNotificationStream(controllerAddress, operationKe
 
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
-    let appInformation = await getAppInformation();
+    let appInformation = await exports.getAppInformation();
 
-    let requestHeader = createRequestHeader();
+    let requestHeader = exports.createRequestHeader();
 
     //return streamName from post call
     // return await axios.post("http://localhost:1234", payload, {
@@ -616,9 +557,9 @@ async function subscribeToControllerNotificationStream(
 
     let base64encodedData = Buffer.from(user + ':' + password).toString('base64');
 
-    let appInformation = await getAppInformation();
+    let appInformation = await exports.getAppInformation();
 
-    let requestHeader = createRequestHeader();
+    let requestHeader = exports.createRequestHeader();
 
     //return streamLocation from get call
     // return await axios.get("http://localhost:1235" + "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/" + streamNameForSubscription, { //local testing
