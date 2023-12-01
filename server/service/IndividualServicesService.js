@@ -4,6 +4,8 @@ const inputValidation = require('./individualServices/InputValidation');
 const subscriberManagement = require('./individualServices/SubscriberManagement');
 const controllerManagement = require('./individualServices/ControllerManagement');
 const notificationManagement = require('./individualServices/NotificationManagement');
+const logger = require('../service/LoggingService.js').getLogger();
+const bequeathHandler = require('./individualServices/BequeathHandler');
 
 /**
  * Creates Tcp-, Http- and OperationClients of additional ODLn from OdlTemplate and adds FcPorts to the FCs of the callbacks section
@@ -27,8 +29,7 @@ exports.addController = async function (requestUrl, body, user, originator, xCor
 
     if (validInput) {
         let success = await controllerManagement.registerController(
-            controllerName, controllerRelease, controllerProtocol, controllerAddress, controllerPort,
-            user, originator, xCorrelator, traceIndicator, customerJourney);
+            controllerName, controllerRelease, controllerProtocol, controllerAddress, controllerPort);
 
         if (!success) {
             throw new Error('addController: registerController failed');
@@ -37,7 +38,6 @@ exports.addController = async function (requestUrl, body, user, originator, xCor
         throw new Error('addController: invalid input data');
     }
 }
-
 
 /**
  * Initiates process of embedding a new release
@@ -50,9 +50,16 @@ exports.addController = async function (requestUrl, body, user, originator, xCor
  * customerJourney String Holds information supporting customer’s journey to which the execution applies
  * no response value expected for this operation
  **/
-exports.bequeathYourDataAndDie = function (requestUrl, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
-    return new Promise(function (resolve, reject) {
-        resolve();
+exports.bequeathYourDataAndDie = function (requestUrl, body) {
+    return new Promise(async function (resolve, reject) {
+
+        try {
+            await bequeathHandler.handleRequest(body, requestUrl);
+            resolve();
+        } catch (exception) {
+            logger.error(exception, "bequeath was not successful");
+            reject();
+        }
     });
 }
 
