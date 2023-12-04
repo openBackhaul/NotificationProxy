@@ -168,15 +168,14 @@ async function getForwardingConstructOutputOperationData(forwardingName) {
             let port = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-port'];
 
             let address = tcpLTP['layer-protocol'][0]['tcp-client-interface-1-0:tcp-client-interface-pac']['tcp-client-interface-configuration']['remote-address'];
-            // let targetOperationUrl = buildDeviceSubscriberOperationPath(stringProtocol, address, port, operationName);
-            // let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
-            // let operationUUID = operationLTP['uuid'];
+            let operationKey = operationLTP['layer-protocol'][0]['operation-client-interface-1-0:operation-client-interface-pac']['operation-client-interface-configuration']['operation-key'];
 
             deregisterTargetAddressWrapper = {
                 "protocol": stringProtocol,
                 "address": address,
                 "port": port,
-                "operationName": operationName
+                "operationName": operationName,
+                "operationKey": operationKey,
             }
             break;
         }

@@ -13044,11 +13044,10 @@
 											"});\r",
 											"\r",
 											"\r",
-											"// skip listen-to-controllers and bequeath-your-data-and-die\r",
+											"// Skip listen-to-controllers.\r",
 											"// Instead jump to notify-controller-attribute-value-changes\r",
 											"if (!pm.environment.get(\"controllerPresent\")) {\r",
-											"//  postman.setNextRequest(\"Initiates process of embedding a new release\");\r",
-											"    postman.setNextRequest(\"Offers subscription for notifications about changes of attributes at the controllers\");\r",
+											"    postman.setNextRequest(\"Initiates process of embedding a new release\");\r",
 											"}\r",
 											""
 										],
@@ -14634,7 +14633,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"new-application-name\": \"newApplicationName\",\n  \"new-application-release\": \"7.3.0\",\n  \"new-application-protocol\": \"HTTP\",\n  \"new-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"127.0.0.1\"\n    }\n  },\n  \"new-application-port\": 3009\n}\n",
+									"raw": "{\n  \"new-application-name\": \"newApplicationName\",\n  \"new-application-release\": \"7.3.0\",\n  \"new-application-protocol\": \"HTTP\",\n  \"new-application-address\": {\n    \"ip-address\": {\n      \"ipv-4-address\": \"192.168.0.47\"\n    }\n  },\n  \"new-application-port\": 4011\n}\n",
 									"options": {
 										"raw": {
 											"headerFamily": "json",

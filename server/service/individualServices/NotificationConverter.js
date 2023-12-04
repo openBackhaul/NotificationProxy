@@ -1,5 +1,4 @@
 const configConstants = require("./ConfigConstants");
-const notificationStreamManagement = require('./NotificationStreamManagement');
 const logger = require('../LoggingService.js').getLogger();
 
 const callbackCounters = [
@@ -75,12 +74,6 @@ exports.convertNotification = function (controllerNotification, notificationType
  */
 function convertDeviceNotification(controllerNotification, controllerName, controllerRelease, notificationType) {
 
-    //todo alarm - path after localid? logical-termination-point={uuid}/layer-protocol={local-id}/air-interface-2-0:air-interface-pac
-
-    //todo created - needs resource path built from something
-    //todo created - needs object-type taken from object-type which does not exist?
-
-
     let innerElement = Object.values(controllerNotification["ietf-restconf:notification"])[0];
     let eventType = Object.keys(controllerNotification["ietf-restconf:notification"])[0].split(':')[1];
     let nodeId = controllerNotification['node-id'];
@@ -118,14 +111,7 @@ function convertDeviceNotification(controllerNotification, controllerName, contr
     }
 
     if (notificationType !== configConstants.OAM_PATH_DEVICE_ALARMS) {
-        let sequenceCounter;
-        // if (innerElement["counter"]) {
-        //if present use this counter - if not, count all outbound device notifications internally
-        sequenceCounter = innerElement["counter"];
-        // } else {
-        //     sequenceCounter = notificationStreamManagement.increaseCounter(controllerName, controllerRelease, notificationStreamManagement.STREAM_TYPE_DEVICE);
-        // }
-        outputInnerElement["counter"] = sequenceCounter;
+        outputInnerElement["counter"] = innerElement["counter"];
     }
 
     if (notificationType === configConstants.OAM_PATH_DEVICE_OBJECT_CREATIONS) {

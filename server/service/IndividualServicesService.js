@@ -54,11 +54,16 @@ exports.bequeathYourDataAndDie = function (requestUrl, body) {
     return new Promise(async function (resolve, reject) {
 
         try {
-            await bequeathHandler.handleRequest(body, requestUrl);
-            resolve();
+            let success = await bequeathHandler.handleRequest(body, requestUrl);
+
+            if (success) {
+                resolve();
+            } else {
+                reject(new Error("bequeathHandler.handleRequest failed."));
+            }
         } catch (exception) {
             logger.error(exception, "bequeath was not successful");
-            reject();
+            reject(exception);
         }
     });
 }
