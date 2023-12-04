@@ -28,8 +28,8 @@ exports.init = function initCheckExtensions()
   expect.extend({
     toMatchConfig: (actualString, expectedEnding) => ({
       message: () => `expected that ${actualString.replace(/,/g, ',\n')} matches with ${expectedEnding.replace(/,/g, ',\n')} ignoring whitespace`,
-      pass: actualString.replace(/\s+/g, '').replace(/ipv-4-address.*\}/g, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/g, 'port:XXXX}').replace(/\"static-value\":\"WORKAROUND-FIX\",/g, '') ==
-        expectedEnding.replace(/\s+/g, '').replace(/ipv-4-address.*\}/g, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/g, 'port:XXXX}').replace(/\"static-value\":\"WORKAROUND-FIX\",/g, '')
+      pass: actualString.replace(/\s+/g, '').replace(/ipv-4-address.*\}/g, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/g, 'port:XXXX}').replace(/"static-value":"WORKAROUND-FIX",/g, '') ==
+        expectedEnding.replace(/\s+/g, '').replace(/ipv-4-address.*\}/g, 'ipv-4-address:X.X.X.X}').replace(/port.:.*\}/g, 'port:XXXX}').replace(/"static-value":"WORKAROUND-FIX",/g, '')
     })
   });
 }
