@@ -13044,11 +13044,10 @@
 											"});\r",
 											"\r",
 											"\r",
-											"// skip listen-to-controllers and bequeath-your-data-and-die\r",
+											"// Skip listen-to-controllers.\r",
 											"// Instead jump to notify-controller-attribute-value-changes\r",
 											"if (!pm.environment.get(\"controllerPresent\")) {\r",
-											"//  postman.setNextRequest(\"Initiates process of embedding a new release\");\r",
-											"    postman.setNextRequest(\"Offers subscription for notifications about changes of attributes at the controllers\");\r",
+											"    postman.setNextRequest(\"Initiates process of embedding a new release\");\r",
 											"}\r",
 											""
 										],

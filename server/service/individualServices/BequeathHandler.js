@@ -140,7 +140,7 @@ async function addNewReleaseInfoToConfig(appName, appRelease, appAddress, appPor
 
     let operationNamesByAttributes = new Map();
 
-    let tcpServerList = [new TcpObject("http", appAddress, appPort)];
+    let tcpServerList = [new TcpObject("HTTP", appAddress, appPort)];
 
     let ltpConfigurationInput = new LogicalTerminationPointConfigurationInput(
         newReleaseHttpUUID,
