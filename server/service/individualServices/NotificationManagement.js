@@ -147,7 +147,7 @@ async function sendMessageToSubscriber(notificationType, targetOperationURL, ope
             }
         })
             .then((response) => {
-                logger.debug("result from axios call: " + response.status);
+                logger.debug("subscriber-notification success, notificationType " + notificationType + ", target url: " + targetOperationURL + ", result status: " + response.status);
 
                 executionAndTraceService.recordServiceRequestFromClient(
                     appInformation["application-name"],
@@ -646,7 +646,7 @@ async function sendControllerNotification(notificationsToSend, controllerName, c
 
         if (activeSubscribers.length > 0) {
             logger.debug("starting notification of " + activeSubscribers.length + " subscribers for '" + notificationType
-                + "', source-stream is " + controllerName + " -> " + controllerTargetUrl);
+                + "', source-stream is " + controllerName + ": " + controllerTargetUrl);
 
             for (let subscriber of activeSubscribers) {
                 sendMessageToSubscriber(notificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessage);
