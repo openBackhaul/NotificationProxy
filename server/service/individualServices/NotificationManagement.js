@@ -633,7 +633,7 @@ function handleControllerNotification(message, controllerName, controllerRelease
 
         sendControllerNotification(notificationsToSend, controllerName, controllerTargetUrl);
     } catch (exception) {
-        logger.error("count not parse notification - not json: '" + notificationString + "'")
+        logger.warn("count not parse notification - not json: '" + notificationString + "'")
     }
 }
 
@@ -716,7 +716,7 @@ function handleDeviceNotification(message, controllerName, controllerRelease, co
             }
         }
     } catch (exception) {
-        logger.error("count not parse notification - not json: '" + notificationString + "'")
+        logger.warn("count not parse notification - not json: '" + notificationString + "'")
     }
 }
 

@@ -393,7 +393,7 @@ test('Controller-Configuration: Configuration changes on Mount point', () => {
                     "timestamp": "2023-07-11T08:38:29.086561862Z",
                     "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=513250009/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
                     "attribute-name": "max-connection-attempts",
-                    "new-value": 7
+                    "new-value": "7"
                 }
             }
         }

@@ -115,7 +115,11 @@ function convertDeviceNotification(controllerNotification, controllerName, contr
     }
 
     if (notificationType === configConstants.OAM_PATH_DEVICE_OBJECT_CREATIONS) {
-        outputInnerElement["object-type"] = "";
+        if (innerElement["object-type"]) {
+            outputInnerElement["object-type"] = innerElement["object-type"];
+        } else {
+            outputInnerElement["object-type"] = "";
+        }
     }
 
     let innerLabel = "notification-proxy-1-0:" + eventType;
@@ -193,6 +197,12 @@ function convertControllerNotificationEvent(controllerEvent, controllerName, con
     if (controllerEvent["data"]) {
         dataKey = Object.keys(controllerEvent["data"])[0];
         dataValue = Object.values(controllerEvent["data"])[0];
+        //if object stringify it
+        if (typeof dataValue === 'object') {
+            dataValue = JSON.stringify(dataValue);
+        } else if (typeof dataValue !== 'string' && !(dataValue instanceof String)) {
+            dataValue = String(dataValue);
+        }
         dataKey = dataKey.substring(dataKey.lastIndexOf(":") + 1, dataKey.length);
     }
 
