@@ -663,7 +663,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -687,7 +687,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -711,7 +711,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -735,7 +735,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -759,7 +759,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -783,7 +783,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -807,7 +807,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -831,7 +831,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -855,7 +855,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -879,7 +879,7 @@
                   },
                   "operation-server-interface-configuration": {
                     "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                    "operation-key": "n.a."
+                    "operation-key": "Operation key not yet provided."
                   }
                 }
               }
@@ -2107,7 +2107,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2132,7 +2132,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2157,7 +2157,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2182,7 +2182,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2207,7 +2207,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2232,7 +2232,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/notif/device?notificationType=device",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2310,7 +2310,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2335,7 +2335,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2360,7 +2360,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2385,7 +2385,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2410,7 +2410,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2435,7 +2435,7 @@
                 "operation-client-interface-1-0:operation-client-interface-pac": {
                   "operation-client-interface-configuration": {
                     "operation-name": "/rests/notif/device?notificationType=device",
-                    "operation-key": "Operation key not yet provided."
+                    "operation-key": "n.a."
                   },
                   "operation-client-interface-status": {
                     "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2498,12 +2498,6 @@
               }
             ]
           },
-
-
-
-
-
-
           {
             "uuid": "np-1-0-0-op-c-is-mwdi-1-0-0-111",
             "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
