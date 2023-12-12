@@ -122,6 +122,19 @@ function convertDeviceNotification(controllerNotification, controllerName, contr
         }
     }
 
+    if (notificationType === configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES) {
+        if (!outputResourceString) {
+            //build default path
+            let objectIdRef = innerElement["object-id-ref"];
+
+            //overwrite resource
+            outputInnerElement["resource"] = "/core-model-1-4:" + controlConstruct + "/logical-termination-point=" + objectIdRef;
+        }
+
+        //remove objectIdRef
+        delete outputInnerElement["object-id-ref"];
+    }
+
     let innerLabel = "notification-proxy-1-0:" + eventType;
     let resultNotification = {
         [innerLabel]: outputInnerElement
@@ -188,8 +201,8 @@ function increaseCounter(notificationType) {
 function convertControllerNotificationEvent(controllerEvent, controllerName, controllerRelease, eventTime, notificationType) {
 
     let controllerID = controllerName;
-    let path = controllerEvent["path"];
-    let nodeIDStartIndex = path.indexOf("node-id");
+        let path = controllerEvent["path"];
+        let nodeIDStartIndex = path.indexOf("node-id");
     let nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + 18);
 
     let dataKey = null;

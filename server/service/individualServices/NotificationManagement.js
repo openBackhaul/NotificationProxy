@@ -551,7 +551,7 @@ async function subscribeToControllerNotificationStream(
 
     //for example http://{odlAddress}:{odlPort}/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/{stream-name}
     let controllerTargetUrl =
-        controllerAddress + configConstants.PATH_STREAM_CONTROLLER_STEP2 + streamNameForSubscription;
+        controllerAddress + configConstants.PATH_STREAM_CONTROLLER_STEP2 + streamNameForSubscription + "?changed-leaf-nodes-only=true";
 
     logger.debug("subscribing to change-event stream of controller with path: " + controllerTargetUrl);
 

@@ -8,13 +8,16 @@ const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriv
  * url String
  * returns inline_response_200_10
  **/
-exports.getActionProfileConsequentOperationReference = function (url) {
-  var examples = {};
-  examples['application/json'] = {
-    "action-profile-1-0:consequent-operation-reference": "/core-model-1-4:control-construct/logical-termination-point=ro-1-0-0-op-s-bs-002/layer-protocol=0/operation-server-interface-1-0:operation-server-interface-pac/operation-server-interface-capability/operation-name"
+exports.getActionProfileConsequentOperationReference = async function (url) {
+  var value = await fileOperation.readFromDatabaseAsync(url);
+  var response = {};
+  response['application/json'] = {
+    "action-profile-1-0:consequent-operation-reference" : value
   };
-  if (Object.keys(examples).length > 0) {
-    return examples[Object.keys(examples)[0]];
+  if (Object.keys(response).length > 0) {
+    resolve(response[Object.keys(response)[0]]);
+  } else {
+    resolve();
   }
 }
 
