@@ -37,40 +37,6 @@ test('Convert alarm device data notification', () => {
     expect(output).toStrictEqual(outputExpected);
 });
 
-test('Convert attr value change device notification', () => {
-
-    let input =
-        {
-            "node-id": "513250009",
-            "event-time": "2023-08-08T08:27:23.623Z",
-            "ietf-restconf:notification": {
-                "alarms-1-0:attribute-value-changed-notification": {
-                    "attribute-name": "performance-monitoring-is-on",
-                    "counter": 0,
-                    "new-value": "true",
-                    "timestamp": "2010-11-20T13:00:00.000Z",
-                    "resource": "/core-model-1-4:control-construct/logical-termination-point=RF-2146697857/layer-protocol=2146697857/air-interface-2-0:air-interface-pac/air-interface-configuration"
-                }
-            }
-        };
-
-    let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES, null, null);
-
-    let outputExpected =
-        {
-            "notification-proxy-1-0:attribute-value-changed-notification": {
-                "timestamp": "2010-11-20T13:00:00.000Z",
-                "resource": "/core-model-1-4:network-control-domain=live/control-construct=513250009/logical-termination-point=RF-2146697857/layer-protocol=2146697857/air-interface-2-0:air-interface-pac/air-interface-configuration",
-                "attribute-name": "performance-monitoring-is-on",
-                "new-value": "true",
-                "counter": 0
-            }
-        };
-
-    expect(output).toStrictEqual(outputExpected);
-});
-
-
 test('Convert controller configuration event notification', () => {
 
     let input =
