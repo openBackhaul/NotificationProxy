@@ -8,6 +8,7 @@ var RestResponseBuilder = require('onf-core-model-ap/applicationPattern/rest/ser
 var ExecutionAndTraceService = require('onf-core-model-ap/applicationPattern/services/ExecutionAndTraceService');
 const notificationManagement = require("../service/individualServices/NotificationManagement");
 const logger = require('../service/LoggingService.js').getLogger();
+const subscriberManagement = require('../service/individualServices/SubscriberManagement');
 
 const NEW_RELEASE_FORWARDING_NAME = 'PromptForBequeathingDataCausesTransferOfListOfApplications';
 
@@ -46,6 +47,8 @@ module.exports.endSubscription = async function endSubscription(req, res, next, 
     responseBodyToDocument = sentResp.body;
   }
   ExecutionAndTraceService.recordServiceRequest(xCorrelator, traceIndicator, user, originator, req.url, responseCode, req.body, responseBodyToDocument);
+
+  await subscriberManagement.logActiveSubscribers();
 };
 
 module.exports.informAboutApplication = async function informAboutApplication(req, res, next, user, originator, xCorrelator, traceIndicator, customerJourney) {

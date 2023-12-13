@@ -54,6 +54,16 @@ async function getOperationUUIDsForFcPort(nameOfFc, applicationHttpClientUuid) {
     return operationUUIDs;
 }
 
+async function logActiveControllers() {
+    let uniqueControllerUUIDs = await exports.findRelevantControllers();
+    let listOfActiveControllers = await exports.fetchControllerData(uniqueControllerUUIDs);
+    let activeControllerLog = "";
+    for (const activeController of listOfActiveControllers) {
+        activeControllerLog += activeController.name + "/" + activeController.release + ", ";
+    }
+    logger.info("active controllers: " + activeControllerLog);
+}
+
 /**
  * Add a controller which will be source for notifications which can be subscribed to.
  * The same controller can only be registered once.
@@ -158,6 +168,8 @@ exports.registerController = async function (inputControllerName, inputControlle
             }
         }
 
+        await logActiveControllers();
+
         return true;
 
     } catch (exception) {
@@ -194,6 +206,8 @@ exports.deregisterController = async function (inputControllerName, inputControl
             //delete all linked LTPs from config
             await logicalTerminationPointServices.deleteApplicationLtpsAsync(httpClientUuid);
         }
+
+        await logActiveControllers();
 
         return true;
     } catch (exception) {

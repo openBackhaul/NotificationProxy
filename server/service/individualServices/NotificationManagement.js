@@ -346,7 +346,7 @@ exports.buildStreamsForController = async function (registeredController, stream
 
     logger.debug("starting establishment of streams for controller: " + registeredController.name);
 
-    //start registering for controller subscriptions (config, operation) and devices in parallel
+    //start registering for controller subscriptions (config, operation) and devices
 
     if (streamTypeArray.includes(notificationStreamManagement.STREAM_TYPE_CONFIGURATION)) {
         try {
