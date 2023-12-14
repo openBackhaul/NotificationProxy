@@ -1,0 +1,240 @@
+version: '3.8'
+
+services:
+  # Add the node-js service
+
+  executionandtracelog:
+  # Location to the node.js dockerfile
+    build:
+      context: ./ExecutionAndTraceLog/server/
+        # Name of the dockerfile
+      dockerfile: dockerfile
+    image: eatl:${DOCKER_IMAGE_TAG}
+    container_name: eatl_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '3003:3010'
+        #    volumes:
+    volumes:
+      - executionandtracelog:/home/openbackhaul/ExecutionAndTraceLog/database
+    restart: on-failure
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_healthy
+    networks:
+      - tinynetwork
+
+  typeapprovalregister:
+    # Location to the node.js dockerfile
+    build:
+      context: ./TypeApprovalRegister/server/
+        # Name of the dockerfile
+      dockerfile: dockerfile
+    image: tar:${DOCKER_IMAGE_TAG}
+    container_name: tar_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '3002:3001'
+    restart: on-failure
+    volumes:
+      - typeapprovalregister:/home/openbackhaul/typeApprovalRegister/database
+    networks:
+      - tinynetwork
+
+  registryoffice:
+    # Location to the node.js dockerfile
+    build:
+      context: ./RegistryOffice/server/
+        # Name of the dockerfile
+      dockerfile: dockerfile
+    image: ro:${DOCKER_IMAGE_TAG}
+    container_name: ro_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '3001:3000'
+    restart: on-failure
+    volumes:
+           - registryoffice:/home/openbackhaul/registryOffice/database
+    networks:
+      - tinynetwork
+
+  administratoradministration:
+    # Location to the node.js dockerfile
+    build:
+      context: ./AdministratorAdministration/server/
+        # Name of the dockerfile
+      dockerfile: dockerfile
+    image: aa:${DOCKER_IMAGE_TAG}
+    container_name: aa_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '3005:3004'
+    restart: on-failure
+    volumes:
+      - administratoradministration:/home/openbackhaul/administratorAdministration/database
+      - administratoradministration_app:/home/openbackhaul/administratorAdministration/application-data
+    networks:
+      - tinynetwork
+
+  applicationlayertopology:
+    # Location to the node.js dockerfile
+    build:
+      context: ./ApplicationLayerTopology/server/
+        # Name of the dockerfile
+      dockerfile: dockerfile
+    image: alt:${DOCKER_IMAGE_TAG}
+    container_name: alt_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '3006:3005'
+    restart: on-failure
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_healthy
+    volumes:
+      - applicationlayertopology:/home/openbackhaul/applicationLayerTopology/database
+    networks:
+      - tinynetwork
+
+  oamlog:
+    # Location to the node.js dockerfile
+    build:
+      context: ./OamLog/server/
+        # Name of the dockerfile
+      dockerfile: dockerfile
+    image: ol:${DOCKER_IMAGE_TAG}
+    container_name: ol_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '3004:3011'
+    restart: on-failure
+    volumes:
+      - oamlog:/home/openbackhaul/OamLog/database
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_healthy
+    networks:
+      - tinynetwork
+
+  operationkeymanagement:
+  # Location to the node.js dockerfile
+    build:
+      context: ./OperationKeyManagement/server/
+        # Name of the dockerfile
+      dockerfile: Dockerfile
+    image: okm:${DOCKER_IMAGE_TAG}
+    container_name: okm_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '3007:8080'
+    restart: on-failure
+    volumes:
+      - operationkeymanagement:/home/node/database
+    networks:
+      - tinynetwork
+
+  elasticsearch:
+    image: elasticsearch:${ELASTIC_VERSION}
+    container_name: elasticsearch
+    hostname: elasticsearch
+    environment:
+      - "discovery.type=single-node"
+      - "xpack.security.enabled=false"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 3008:9200
+      - 9300:9300
+    restart: on-failure
+    healthcheck:
+      test: curl -s http://elasticsearch:9200 >/dev/null || exit 1
+      interval: 5s
+      timeout: 10s
+      retries: 45
+    networks:
+      - tinynetwork
+
+  kibana:
+   image: kibana:${ELASTIC_VERSION}
+   container_name: kibana
+   hostname: kibana
+   ports:
+      - 5601:5601
+   restart: on-failure
+   healthcheck:
+      test: curl -s http://kibana:5601 >/dev/null || exit 1
+      interval: 5s
+      timeout: 10s
+      retries: 45
+   links:
+      - elasticsearch:elasticsearch
+   depends_on:
+      elasticsearch:
+        condition: service_healthy
+   networks:
+      - tinynetwork
+
+  notificationproxy:
+  # Location to the node.js dockerfile
+    build:
+      context: ./NotificationProxy/server/
+      dockerfile: Dockerfile
+    image: np:${DOCKER_IMAGE_TAG}
+    container_name: np_${DOCKER_IMAGE_TAG}
+    ports:
+       # Host port:Container port
+      - '4011:9092'
+    environment:
+      - "CONTROLLER_USER=${CONTROLLER_USER}"
+      - "CONTROLLER_PASSWORD=${CONTROLLER_PASSWORD}"
+      - "DEVICE_USER=${DEVICE_USER}"
+      - "DEVICE_PASSWORD=${DEVICE_PASSWORD}"
+    restart: on-failure
+    volumes:
+#      - notificationproxy:/home/node/database
+      - /home/mentouser/workspace/np-logs:/home/openbackhaul/NotificationProxy/logs
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - tinynetwork
+
+  microwavedeviceinventory:
+    build:
+      context: ./MicroWaveDeviceInventory/server/
+      dockerfile: Dockerfile
+    image: mwdi:${DOCKER_IMAGE_TAG}
+    container_name: mwdi_${DOCKER_IMAGE_TAG}
+    ports:
+      - '4004:8080'
+    restart: on-failure
+#    volumes:
+#      - microwavedeviceinventory:/home/openbackhaul/MicroWaveDeviceInventory/database
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - tinynetwork
+
+volumes:
+  executionandtracelog:
+  typeapprovalregister:
+  registryoffice:
+  administratoradministration:
+  administratoradministration_app:
+  applicationlayertopology:
+  oamlog:
+  operationkeymanagement:
+# notificationproxy:
+  np-logs:
+#  microwavedeviceinventory:
+
+networks:
+    tinynetwork:
+        driver: bridge
+

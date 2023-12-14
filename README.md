@@ -22,5 +22,15 @@ This includes not just Closed-Loop-Automation applications, but also very fundam
 - [TestSuite](./testing/)
 - [Implementation](./server/)
 
+### Configuration
+In order to configure the SDN controller login, you have to edit these lines in the .env file of your docker-compose workspace.
+There are two basic auth logins for controller notifications resp. device notifications:
+
+CONTROLLER_USER=xxx
+CONTROLLER_PASSWORD=xxx
+
+DEVICE_USER=xxx
+DEVICE_PASSWORD=xxx
+
 ### Comments
-This application will be specified during [training for ApplicationOwners](https://gist.github.com/openBackhaul/5aabdbc90257b83b9fe7fc4da059d3cd).
+./.
