@@ -90,6 +90,7 @@ exports.getGenericResponseProfileValue = async function (url) {
 /**
  * Configures the Value of the Field
  *
+ * url String
  * body Responseprofileconfiguration_value_body
  * uuid String
  * no response value expected for this operation

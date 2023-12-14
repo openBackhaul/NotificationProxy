@@ -8,10 +8,10 @@ const forwardingConstruct = require('onf-core-model-ap/applicationPattern/onfMod
 const configConstants = require('./ConfigConstants');
 const fcPort = require('onf-core-model-ap/applicationPattern/onfModel/models/FcPort');
 const logger = require('../LoggingService.js').getLogger();
+const notificationManagement = require('./NotificationManagement');
 
 exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicationName, subscribingApplicationRelease, subscribingApplicationProtocol,
                                                 subscribingApplicationAddress, subscribingApplicationPort, notificationsReceivingOperation) {
-
 
     let operationNamesByAttributes = new Map();
     //for example "/v1/regard-device-alarms"
@@ -63,9 +63,36 @@ exports.addSubscriberToConfig = async function (requestUrl, subscribingApplicati
             await forwardingConstruct.addFcPortAsync(forwardingConstructInstance.uuid, newFcPort);
         }
 
+        await exports.logActiveSubscribers();
+
         return true;
     } catch (exception) {
         logger.error(exception, "error adding subscriber to config");
         return false;
+    }
+}
+
+exports.logActiveSubscribers = async function () {
+
+    let notificationTypes = [
+        configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_VALUE_CHANGES,
+        configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_CREATIONS,
+        configConstants.OAM_PATH_CONTROLLER_ATTRIBUTE_OBJECT_DELETIONS,
+        configConstants.OAM_PATH_DEVICE_ALARMS,
+        configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES,
+        configConstants.OAM_PATH_DEVICE_OBJECT_CREATIONS,
+        configConstants.OAM_PATH_DEVICE_OBJECT_DELETIONS,
+    ]
+
+    logger.info("Active subscribers: ");
+
+    for (const notificationType of notificationTypes) {
+        let activeSubscribers = await notificationManagement.getActiveSubscribers(notificationType);
+        let logString = "";
+        for (const activeSubscriber of activeSubscribers) {
+            logString += activeSubscriber.name + "/" + activeSubscriber.release + ", ";
+        }
+
+        logger.info(notificationType + " -> " + logString);
     }
 }

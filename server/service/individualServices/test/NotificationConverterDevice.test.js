@@ -120,17 +120,17 @@ test('Device-Notification: Alarm notification', () => {
 test('Device-Notification: testset3 Device-Attribute value change', () => {
 
     let input = {
-        "ietf-restconf:notification":{
-            "air-interface-2-0:attribute-value-changed-notification":{
-                "new-value":"true",
-                "timestamp":"2023-11-29T10:30:31+01:00",
-                "attribute-name":"adaptive-modulation-is-on",
-                "object-id-ref":"LTP-MWPS-TTP-5-1",
-                "counter":25
+        "ietf-restconf:notification": {
+            "air-interface-2-0:attribute-value-changed-notification": {
+                "new-value": "true",
+                "timestamp": "2023-11-29T10:30:31+01:00",
+                "attribute-name": "adaptive-modulation-is-on",
+                "object-id-ref": "LTP-MWPS-TTP-5-1",
+                "counter": 25
             }
         },
-        "event-time":"2023-11-29T09:30:31.435Z",
-        "node-id":"513250004"
+        "event-time": "2023-11-29T09:30:31.435Z",
+        "node-id": "513250004"
     };
 
     let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES, "odl-7", "2.0.1");
@@ -140,8 +140,8 @@ test('Device-Notification: testset3 Device-Attribute value change', () => {
             "new-value": "true",
             "timestamp": "2023-11-29T10:30:31+01:00",
             "attribute-name": "adaptive-modulation-is-on",
-            "object-id-ref": "LTP-MWPS-TTP-5-1",
-            "counter": 25
+            "counter": 25,
+            "resource": "/core-model-1-4:network-control-domain=live/control-construct=513250004/logical-termination-point=LTP-MWPS-TTP-5-1",
         }
     };
 
@@ -151,15 +151,15 @@ test('Device-Notification: testset3 Device-Attribute value change', () => {
 test('Device-Notification: testset3 Device-Object deletion change', () => {
 
     let input = {
-        "ietf-restconf:notification":{
-            "notifications-1-0:object-deletion-notification":{
-                "timestamp":"2023-11-29T09:30:56.0+00:00",
-                "counter":2,
-                "object-path":"/core-model-1-4:control-construct/forwarding-domain[uuid='VLAN-FD']/fc[uuid='VLAN-201']"
+        "ietf-restconf:notification": {
+            "notifications-1-0:object-deletion-notification": {
+                "timestamp": "2023-11-29T09:30:56.0+00:00",
+                "counter": 2,
+                "object-path": "/core-model-1-4:control-construct/forwarding-domain[uuid='VLAN-FD']/fc[uuid='VLAN-201']"
             }
         },
-        "event-time":"2023-11-29T09:30:56Z",
-        "node-id":"513250007"
+        "event-time": "2023-11-29T09:30:56Z",
+        "node-id": "513250007"
     };
 
     let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_OBJECT_DELETIONS, "odl-7", "2.0.1");
@@ -178,16 +178,16 @@ test('Device-Notification: testset3 Device-Object deletion change', () => {
 test('Device-Notification: testset3 Device-Object creation change', () => {
 
     let input = {
-        "ietf-restconf:notification":{
-            "notifications-1-0:object-creation-notification":{
-                "timestamp":"2023-11-29T09:31:01.0+00:00",
+        "ietf-restconf:notification": {
+            "notifications-1-0:object-creation-notification": {
+                "timestamp": "2023-11-29T09:31:01.0+00:00",
 
-                "counter":3,
-                "object-path":"/core-model-1-4:control-construct/forwarding-domain[uuid='VLAN-FD']/fc[uuid='VLAN-221']"
+                "counter": 3,
+                "object-path": "/core-model-1-4:control-construct/forwarding-domain[uuid='VLAN-FD']/fc[uuid='VLAN-221']"
             }
         },
-        "event-time":"2023-11-29T09:31:01Z",
-        "node-id":"513250007"
+        "event-time": "2023-11-29T09:31:01Z",
+        "node-id": "513250007"
     };
 
     let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_OBJECT_CREATIONS, "odl-7", "2.0.1");

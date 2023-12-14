@@ -12,14 +12,10 @@ const tcpServerInterface = require('onf-core-model-ap/applicationPattern/onfMode
  * returns inline_response_200_26
  **/
 exports.getTcpServerDescription = async function (url) {
-  var value = await fileOperation.readFromDatabaseAsync(url);
-  var response = {};
-  response['application/json'] = {
+  const value = await fileOperation.readFromDatabaseAsync(url);
+  return {
     "tcp-server-interface-1-0:description": value
   };
-  if (Object.keys(response).length > 0) {
-    return response[Object.keys(response)[0]];
-  }
 }
 
 /**
@@ -29,33 +25,23 @@ exports.getTcpServerDescription = async function (url) {
  * returns inline_response_200_28
  **/
 exports.getTcpServerLocalAddress = async function (url) {
-  var examples = {};
-  examples['application/json'] = {
-    "tcp-server-interface-1-0:local-address": {
-      "ipv-4-address": "1.1.4.1"
-    }
+  const value = await fileOperation.readFromDatabaseAsync(url);
+  return {
+    "tcp-server-interface-1-0:local-address": value
   };
-  if (Object.keys(examples).length > 0) {
-    return examples[Object.keys(examples)[0]];
-  }
 }
-
 
 /**
  * Returns TCP port of the server
  *
- * uuid String
+ * url String
  * returns inline_response_200_29
  **/
-exports.getTcpServerLocalPort = async function (url, uuid) {
-  var value = await fileOperation.readFromDatabaseAsync(uuid);
-  var response = {};
-  response['application/json'] = {
+exports.getTcpServerLocalPort = async function (url) {
+  const value = await fileOperation.readFromDatabaseAsync(url);
+  return {
     "tcp-server-interface-1-0:local-port": value
   };
-  if (Object.keys(response).length > 0) {
-    return response[Object.keys(response)[0]];
-  }
 }
 
 /**
@@ -65,16 +51,11 @@ exports.getTcpServerLocalPort = async function (url, uuid) {
  * returns inline_response_200_27
  **/
 exports.getTcpServerLocalProtocol = async function (url) {
-  var value = await fileOperation.readFromDatabaseAsync(url);
-  var response = {};
-  response['application/json'] = {
+  const value = await fileOperation.readFromDatabaseAsync(url);
+  return {
     "tcp-server-interface-1-0:local-protocol": value
   };
-  if (Object.keys(response).length > 0) {
-    return response[Object.keys(response)[0]];
-  }
 }
-
 
 /**
  * Documents Description of TcpServer
@@ -99,6 +80,7 @@ exports.putTcpServerDescription = async function (url, body, uuid) {
 /**
  * Documents address of the server
  *
+ * url String
  * body Tcpserverinterfaceconfiguration_localaddress_body
  * uuid String
  * no response value expected for this operation
@@ -118,6 +100,7 @@ exports.putTcpServerLocalAddress = async function (url, body, uuid) {
 /**
  * Documents TCP port of the server
  *
+ * url String
  * body Tcpserverinterfaceconfiguration_localport_body
  * uuid String
  * no response value expected for this operation

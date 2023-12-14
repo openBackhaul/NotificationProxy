@@ -122,6 +122,19 @@ function convertDeviceNotification(controllerNotification, controllerName, contr
         }
     }
 
+    if (notificationType === configConstants.OAM_PATH_DEVICE_ATTR_VALUE_CHANGES) {
+        if (!outputResourceString) {
+            //build default path
+            let objectIdRef = innerElement["object-id-ref"];
+
+            //overwrite resource
+            outputInnerElement["resource"] = "/core-model-1-4:" + controlConstruct + "/logical-termination-point=" + objectIdRef;
+        }
+
+        //remove objectIdRef
+        delete outputInnerElement["object-id-ref"];
+    }
+
     let innerLabel = "notification-proxy-1-0:" + eventType;
     let resultNotification = {
         [innerLabel]: outputInnerElement
@@ -189,8 +202,22 @@ function convertControllerNotificationEvent(controllerEvent, controllerName, con
 
     let controllerID = controllerName;
     let path = controllerEvent["path"];
-    let nodeIDStartIndex = path.indexOf("node-id");
-    let nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + 18);
+    let nodeID = "unknown";
+    let nodeIDStartIndex = path.indexOf("node-id=");
+    if (nodeIDStartIndex > 0) {
+        if (path.charAt(nodeIDStartIndex + 8) === "'") {
+            let nodeIDEndIndex = path.substring(nodeIDStartIndex + 9).indexOf("'"); //find ending "'" of node-id string
+            nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + nodeIDEndIndex + 9);
+        } else if (path.charAt(nodeIDStartIndex + 8) === '"') {
+            let nodeIDEndIndex = path.substring(nodeIDStartIndex + 9).indexOf('"'); //find ending '"' of node-id string
+            nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + nodeIDEndIndex + 9);
+        } else {
+            let nodeIDEndIndex = path.substring(nodeIDStartIndex + 8).indexOf("/"); //find next "/"
+            nodeID = path.substring(nodeIDStartIndex + 8, nodeIDStartIndex + nodeIDEndIndex - 1);
+        }
+    } else {
+        logger.warn("missing node-id for controller "+controllerName+" in path: "+path);
+    }
 
     let dataKey = null;
     let dataValue = null;
