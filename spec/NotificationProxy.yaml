@@ -3131,7 +3131,7 @@ paths:
                               type: string
                               description: >
                                 'Path to the object where the error occurred
-                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][path to the class derived from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/alarms-1-0:alarm-event-notification/resource}]
+                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][path to the class derived from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/alarms-1-0:alarm-event-notification/resource}, but cornered brackets and their content being replaced by an equal sign and the string inside quotes inside the cornered brackets]
                                 example: '[/core-model-1-4:network-control-domain=live/control-construct=][{mount-name}][/logical-termination-point={uuid}/layer-protocol={local-id}/air-interface-2-0:air-interface-pac]'
                             alarm-type-id:
                               type: string
