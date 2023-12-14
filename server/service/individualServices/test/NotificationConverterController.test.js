@@ -749,7 +749,7 @@ test('Controller-Configuration: testset2 1', () => {
                 "notification-proxy-1-0:attribute-value-changed-notification": {
                     "counter": 1,
                     "timestamp": "2023-11-29T06:18:33.73139812Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=-params-x/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=unknown/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
                     "attribute-name": "topology-id",
                     "new-value": "topology-netconf"
                 }
@@ -761,7 +761,7 @@ test('Controller-Configuration: testset2 1', () => {
                 "notification-proxy-1-0:attribute-value-changed-notification": {
                     "counter": 2,
                     "timestamp": "2023-11-29T06:18:33.73139812Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
                     "attribute-name": "sleep-factor",
                     "new-value": "2.2"
                 }
@@ -773,7 +773,7 @@ test('Controller-Configuration: testset2 1', () => {
                 "notification-proxy-1-0:attribute-value-changed-notification": {
                     "counter": 3,
                     "timestamp": "2023-11-29T06:18:33.73139812Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
                     "attribute-name": "node-id",
                     "new-value": "CO13305"
                 }
@@ -818,7 +818,7 @@ test('Controller-Operation: testset2 2', () => {
                 "notification-proxy-1-0:attribute-value-changed-notification": {
                     "counter": 1,
                     "timestamp": "2023-11-29T06:18:33.7357697Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
                     "attribute-name": "connection-status",
                     "new-value": "connecting"
                 }
@@ -830,7 +830,7 @@ test('Controller-Operation: testset2 2', () => {
                 "notification-proxy-1-0:object-deletion-notification": {
                     "counter": 1,
                     "timestamp": "2023-11-29T06:18:33.7357697Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/session-id"
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/session-id"
                 }
             }
         }
@@ -878,7 +878,7 @@ test('Controller-Operation: testset2 3', () => {
                 "notification-proxy-1-0:object-deletion-notification": {
                     "counter": 1,
                     "timestamp": "2023-11-29T06:18:33.75184699Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/node-id"
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/node-id"
                 }
             }
         },
@@ -888,7 +888,7 @@ test('Controller-Operation: testset2 3', () => {
                 "notification-proxy-1-0:object-deletion-notification": {
                     "counter": 2,
                     "timestamp": "2023-11-29T06:18:33.75184699Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/port"
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/port"
                 }
             }
         },
@@ -898,7 +898,7 @@ test('Controller-Operation: testset2 3', () => {
                 "notification-proxy-1-0:object-deletion-notification": {
                     "counter": 3,
                     "timestamp": "2023-11-29T06:18:33.75184699Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/connection-status"
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/connection-status"
                 }
             }
         },
@@ -908,7 +908,7 @@ test('Controller-Operation: testset2 3', () => {
                 "notification-proxy-1-0:object-deletion-notification": {
                     "counter": 4,
                     "timestamp": "2023-11-29T06:18:33.75184699Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/host"
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/host"
                 }
             }
         }
@@ -968,7 +968,7 @@ test('Controller-Operation: testset2 4', () => {
                 "notification-proxy-1-0:object-creation-notification": {
                     "counter": 1,
                     "timestamp": "2023-11-29T06:18:33.75953913Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/node-id",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/node-id",
                     "object-type": "node-id"
                 }
             }
@@ -979,7 +979,7 @@ test('Controller-Operation: testset2 4', () => {
                 "notification-proxy-1-0:object-creation-notification": {
                     "counter": 2,
                     "timestamp": "2023-11-29T06:18:33.75953913Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/port",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/port",
                     "object-type": "port"
                 }
             }
@@ -990,7 +990,7 @@ test('Controller-Operation: testset2 4', () => {
                 "notification-proxy-1-0:object-creation-notification": {
                     "counter": 3,
                     "timestamp": "2023-11-29T06:18:33.75953913Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/connection-status",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/connection-status",
                     "object-type": "connection-status"
                 }
             }
@@ -1001,7 +1001,7 @@ test('Controller-Operation: testset2 4', () => {
                 "notification-proxy-1-0:object-creation-notification": {
                     "counter": 4,
                     "timestamp": "2023-11-29T06:18:33.75953913Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/host",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/host",
                     "object-type": "host"
                 }
             }
@@ -1048,7 +1048,7 @@ test('Controller-Operation: testset2 5', () => {
                 "notification-proxy-1-0:attribute-value-changed-notification": {
                     "counter": 1,
                     "timestamp": "2023-11-29T06:18:33.955056128Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
                     "attribute-name": "connection-status",
                     "new-value": "connected"
                 }
@@ -1060,8 +1060,62 @@ test('Controller-Operation: testset2 5', () => {
                 "notification-proxy-1-0:object-creation-notification": {
                     "counter": 1,
                     "timestamp": "2023-11-29T06:18:33.955056128Z",
-                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305']/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/session-id",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=odl-6/logical-termination-point=CO13305/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/session-id",
                     "object-type": "session-id"
+                }
+            }
+        }
+    ];
+
+    expect(output).toStrictEqual(outputExpected);
+});
+
+test('zia test issue #62', () => {
+
+    let input =
+        {
+            "urn-ietf-params-xml-ns-netconf-notification-1.0:notification": {
+                "urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification": {
+                    "data-change-event": [
+                        {
+                            "path": "/urn-TBD-params-xml-ns-yang-network-topology:network-topology/urn-TBD-params-xml-ns-yang-network-topology:topology/urn-TBD-params-xml-ns-yang-network-topology:topology[urn-TBD-params-xml-ns-yang-network-topology:topology-id='topology-netconf']/urn-TBD-params-xml-ns-yang-network-topology:node/urn-TBD-params-xml-ns-yang-network-topology:node[urn-TBD-params-xml-ns-yang-network-topology:node-id='513559991A']/urn-opendaylight-netconf-node-topology:connection-status",
+                            "data": {
+                                "netconf-node-topology:connection-status": "connecting"
+                            },
+                            "operation": "updated"
+                        },
+                        {
+                            "path": "/urn-TBD-params-xml-ns-yang-network-topology:network-topology/urn-TBD-params-xml-ns-yang-network-topology:topology/urn-TBD-params-xml-ns-yang-network-topology:topology[urn-TBD-params-xml-ns-yang-network-topology:topology-id='topology-netconf']/urn-TBD-params-xml-ns-yang-network-topology:node/urn-TBD-params-xml-ns-yang-network-topology:node[urn-TBD-params-xml-ns-yang-network-topology:node-id='513559991A']/urn-opendaylight-netconf-node-topology:session-id",
+                            "operation": "deleted"
+                        }
+                    ]
+                },
+                "event-time": "2023-12-14T07:28:58.668165416Z"
+            }
+        };
+
+    let output = notificationConverter.convertControllerNotification(input, "OpenDayLight1", "1.2.3");
+
+    let outputExpected = [
+        {
+            "subscriberNotificationType": "/v1/notify-controller-attribute-value-changes",
+            "notificationMessage": {
+                "notification-proxy-1-0:attribute-value-changed-notification": {
+                    "counter": 2,
+                    "timestamp": "2023-12-14T07:28:58.668165416Z",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=OpenDayLight1/logical-termination-point=513559991A/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
+                    "attribute-name": "connection-status",
+                    "new-value": "connecting"
+                }
+            }
+        },
+        {
+            "subscriberNotificationType": "/v1/notify-controller-object-deletions",
+            "notificationMessage": {
+                "notification-proxy-1-0:object-deletion-notification": {
+                    "counter": 1,
+                    "timestamp": "2023-12-14T07:28:58.668165416Z",
+                    "resource": "/core-model-1-4:network-control-domain=live/control-construct=OpenDayLight1/logical-termination-point=513559991A/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/session-id"
                 }
             }
         }

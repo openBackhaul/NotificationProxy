@@ -201,9 +201,23 @@ function increaseCounter(notificationType) {
 function convertControllerNotificationEvent(controllerEvent, controllerName, controllerRelease, eventTime, notificationType) {
 
     let controllerID = controllerName;
-        let path = controllerEvent["path"];
-        let nodeIDStartIndex = path.indexOf("node-id");
-    let nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + 18);
+    let path = controllerEvent["path"];
+    let nodeID = "unknown";
+    let nodeIDStartIndex = path.indexOf("node-id=");
+    if (nodeIDStartIndex > 0) {
+        if (path.charAt(nodeIDStartIndex + 8) === "'") {
+            let nodeIDEndIndex = path.substring(nodeIDStartIndex + 9).indexOf("'"); //find ending "'" of node-id string
+            nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + nodeIDEndIndex + 9);
+        } else if (path.charAt(nodeIDStartIndex + 8) === '"') {
+            let nodeIDEndIndex = path.substring(nodeIDStartIndex + 9).indexOf('"'); //find ending '"' of node-id string
+            nodeID = path.substring(nodeIDStartIndex + 9, nodeIDStartIndex + nodeIDEndIndex + 9);
+        } else {
+            let nodeIDEndIndex = path.substring(nodeIDStartIndex + 8).indexOf("/"); //find next "/"
+            nodeID = path.substring(nodeIDStartIndex + 8, nodeIDStartIndex + nodeIDEndIndex - 1);
+        }
+    } else {
+        logger.warn("missing node-id for controller "+controllerName+" in path: "+path);
+    }
 
     let dataKey = null;
     let dataValue = null;
