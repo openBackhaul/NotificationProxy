@@ -65,7 +65,7 @@ servers:
           uuid: np-1-0-0-op-s-is-023
   http-server:
     own-application-name: NotificationProxy
-    own-release-number: 1.0.0
+    own-release-number: 1.0.1
     uuid: np-1-0-0-http-s-000
   tcp-server:
     - description: Without TLS layer
@@ -73,18 +73,13 @@ servers:
       own-ip-address: 1.1.4.11
       own-tcp-port: 4011
       uuid: np-1-0-0-tcp-s-000
-    - description: With TLS layer
-      local-protocol: https
-      own-ip-address: 1.2.4.11
-      own-tcp-port: 4211
-      uuid: np-1-0-0-tcp-s-001
 
 
 clients:
 
   - http-client:
       application-name: OldRelease
-      release-number: 1.0.0
+      release-number: 1.0.1
       uuid: np-1-0-0-http-c-or-1-0-0-000
     tcp-client:
       remote-protocol: http
@@ -103,7 +98,7 @@ clients:
 
   - http-client:
       application-name: NewRelease
-      release-number: 1.0.0
+      release-number: 1.0.1
       uuid: np-1-0-0-http-c-nr-1-0-0-000
     tcp-client:
       remote-protocol: http
@@ -283,7 +278,7 @@ clients:
 
   - http-client:
       application-name: NotificationProxy
-      release-number: 1.0.0
+      release-number: 1.0.1
       uuid: np-1-0-0-http-c-np-1-0-0-000
     tcp-client:
       remote-protocol: http
@@ -366,12 +361,12 @@ clients:
 
   - http-client:
       application-name: MicroWaveDeviceInventory
-      release-number: 1.0.0
+      release-number: 1.1.1
       uuid: np-1-0-0-http-c-mwdi-1-0-0-100
     tcp-client:
       remote-protocol: http
-      ip-address: 1.1.4.4
-      tcp-port: 4004
+      ip-address: 1.1.4.15
+      tcp-port: 4015
       uuid: np-1-0-0-tcp-c-mwdi-1-0-0-100
     operation-clients:
       own-oam:
