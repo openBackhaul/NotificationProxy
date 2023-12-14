@@ -1,7 +1,7 @@
 ﻿openapi: 3.0.0
 info:
   title: NotificationProxy
-  version: 1.0.0
+  version: 1.0.1
 
 x-gui-paths:
 ########################################################################################################################
@@ -2013,91 +2013,54 @@ paths:
                               - description: 'onf attribute value changed notification'
                                 type: object
                                 properties:
-                                  air-interface-2-0:attribute-value-changed-notification:
-                                    description: 'represents *:attribute-value-changed-notification'
+                                  notifications-1-0:attribute-value-changed-notification:
                                     type: object
                                     properties:
                                       counter:
                                         type: integer
+                                        description: 'Counts attribute value changed notifications.'
                                       timestamp:
                                         type: string
-                                      object-id-ref:
+                                        description: 'Time when the notification got created on the device.'
+                                      object-path:
                                         type: string
+                                        description: 'Path from the top level element (e.g ControlConstruct) to the object that holds the attribute that changed its value. In YANG, it would be the parent data node e.g. container or list that contains the leaf.'
                                       attribute-name:
                                         type: string
+                                        description: 'Name of the attribute that has changed its value. In YANG, it would be the name of the leaf or leaflist that changed its value.'
                                       new-value:
                                         type: string
+                                        description: 'Attribute value converted to a string (xml, json, ...).'
                               - description: 'onf object creation notification'
                                 type: object
                                 properties:
-                                  vlan-fc-1-0:object-creation-notification:
-                                    description: 'represents *:object-creation-notification'
+                                  notifications-1-0:object-creation-notification:
                                     type: object
                                     properties:
                                       counter:
                                         type: integer
+                                        description: 'Counts object creation notifications.'
                                       timestamp:
                                         type: string
-                                      object-id-ref:
+                                        description: 'Time when the notification got created on the device.'
+                                      object-path:
                                         type: string
-                                      object-type:
-                                        type: string
+                                        description: 'Path from the top level element (e.g. ControlConstruct) to the object that got created. In YANG, it would be the container or list that got created.'
                               - description: 'onf object deletion notification'
                                 type: object
                                 properties:
-                                  vlan-fc-1-0:object-deletion-notification:
-                                    description: 'represents *:object-deletion-notification'
+                                  notifications-1-0:object-deletion-notification:
                                     type: object
                                     properties:
                                       counter:
                                         type: integer
+                                        description: 'Counts object deletion notifications.'
                                       timestamp:
                                         type: string
-                                      object-id-ref:
+                                        description: 'Time when the notification got deleted on the device.'
+                                      object-path:
                                         type: string
-                      examples:
-                        OnfAlarmNotification:
-                          value:
-                            node-id: '513250009'
-                            event-time: '2023-08-08T08:27:23.623559245Z'
-                            ietf-restconf:notification:
-                              alarms-1-0:alarm-event-notification:
-                                alarm-event-sequence-number: 1
-                                alarm-type-id: 'siae-alarms-1-0:radioEquipLinkTelemetryFailAlarm'
-                                alarm-type-qualifier: ''
-                                resource: '/core-model-1-4:control-construct/logical-termination-point[uuid="LTP-MWPS-TTP-RADIO-1A"]/layer-protocol[local-id="LP-MWPS-TTP-RADIO-1A"]/air-interface-2-0:air-interface-pac'
-                                problem-severity: 'alarms-1-0:SEVERITY_AND_CLEARED_TYPE_MAJOR'
-                                timestamp: '2023-07-11T08:45:02.0+00:00'
-                        OnfAttributeValueChangedNotification:
-                          value:
-                            node-id: '513250011'
-                            event-time: '2023-08-08T08:27:23.623559245Z'
-                            ietf-restconf:notification:
-                              air-interface-2-0:attribute-value-changed-notification:
-                                counter: 32
-                                timestamp: '2010-11-20T14:00:00+01:00'
-                                object-id-ref: 'RF-2146697857'
-                                attribute-name: '/core-model-1-4:logical-termination-point[uuid="RF-2146697857"]/layer-protocol[local-id="2146697857"]/air-interface-2-0:air-interface-pac/air-interface-configuration/performance-monitoring-is-on'
-                                new-value: 'true'
-                        OnfObjectCreationNotification:
-                          value:
-                            node-id: '513250009'
-                            event-time: '2023-07-10T12:27:03Z'
-                            ietf-restconf:notification:
-                              alarms-1-0:alarm-event-notification:
-                                counter: 2
-                                timestamp: '2023-07-10T12:27:03.0+00:00'
-                                object-id-ref: 'VLAN-281'
-                                object-type: 'fc'
-                        OnfObjectDeletionNotification:
-                          value:
-                            node-id: '513250009'
-                            event-time: '2023-07-13T09:31:48Z'
-                            ietf-restconf:notification:
-                              vlan-fc-1-0:object-deletion-notification:
-                                counter: '14'
-                                timestamp: '2023-07-13T09:31:48.0+00:00'
-                                object-id-ref: 'VLAN-281'
+                                        description: 'Path from the top level element (e.g. ControlConstruct) to the object that got deleted. In YANG, it would be the container or list that that got deleted.'
                 '400':
                   $ref: '#/components/responses/responseForErroredServiceRequests'
                 '401':
@@ -3168,7 +3131,7 @@ paths:
                               type: string
                               description: >
                                 'Path to the object where the error occurred
-                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][path to the class derived from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/alarms-1-0:alarm-event-notification/resource}]
+                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][path to the class derived from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/alarms-1-0:alarm-event-notification/resource}, but cornered brackets and their content being replaced by an equal sign and the string inside quotes inside the cornered brackets]
                                 example: '[/core-model-1-4:network-control-domain=live/control-construct=][{mount-name}][/logical-termination-point={uuid}/layer-protocol={local-id}/air-interface-2-0:air-interface-pac]'
                             alarm-type-id:
                               type: string
@@ -3386,7 +3349,7 @@ paths:
           url: #[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]://[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name or /core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]:[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port][/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-op-c-is-*-*-*-*-121/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]
             description: >
               'This callback is to be sent if
-              {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameBehindColon}} == attribute-value-changed-notification
+              {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{attributeName}} == notifications-1-0:attribute-value-changed-notification
               Repetitions have to be suppressed.'
             post:
               parameters:
@@ -3409,7 +3372,7 @@ paths:
                           required:
                             - counter
                             - timestamp
-                            - resource
+                            - object-path
                             - attribute-name
                             - new-value
                           properties:
@@ -3417,34 +3380,33 @@ paths:
                               type: integer
                               description: >
                                 'Sequence number of the notification at the device
-                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:attribute-value-changed-notification/counter}'
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:attribute-value-changed-notification/counter}'
                             timestamp:
                               type: string
-                              pattern: '^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})((\.[0-9]{1,}){0,1})(Z|[\+\-][0-9]{2}:[0-9]{2})$'
                               description: >
                                 'The time according to Section 5.6 of RFC 3339 at which the device created the notification
-                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:attribute-value-changed-notification/timestamp}'
-                            resource:
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:attribute-value-changed-notification/timestamp}'
+                            object-path:
                               type: string
                               description: >
                                 'Path to the object that holds the attribute that changed its value
-                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][path to the class derived from in front of last slash of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:attribute-value-changed-notification/attribute-name}]
+                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][string behind /core-model-1-4:control-construct in value of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:attribute-value-changed-notification/object-path}, but cornered brackets and their content being replaced by an equal sign and the string inside quotes inside the cornered brackets]
                                 example: [/core-model-1-4:network-control-domain=live/control-construct=][{mount-name}][/logical-termination-point={uuid}/layer-protocol={local-id}/air-interface-2-0:air-interface-pac/air-interface-configuration]'
                             attribute-name:
                               type: string
                               description: >
                                 'Name of the attribute that changed its value
-                                from behind last slash of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:attribute-value-changed-notification/attribute-name}'
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:attribute-value-changed-notification/attribute-name}'
                             new-value:
                               type: string
                               description: >
                                 'New value of the attribute
-                                from behind last slash of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:attribute-value-changed-notification/new-value}'
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:attribute-value-changed-notification/new-value}'
                       example:
                         notification-proxy-1-0:attribute-value-changed-notification:
                           counter: 32
                           timestamp: '2010-11-20T14:00:00+01:00'
-                          resource: '/core-model-1-4:network-control-domain=live/control-construct=513250009/logical-termination-point=RF-2146697857/layer-protocol=2146697857/air-interface-2-0:air-interface-pac/air-interface-configuration'
+                          object-path: '/core-model-1-4:network-control-domain=live/control-construct=513250009/logical-termination-point=RF-2146697857/layer-protocol=2146697857/air-interface-2-0:air-interface-pac/air-interface-configuration'
                           attribute-name: 'performance-monitoring-is-on'
                           new-value: 'true'
               responses:
@@ -3632,7 +3594,7 @@ paths:
           url: #[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]://[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name or /core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]:[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port][/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-op-c-is-*-*-*-*-122/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]
             description: >
               'This callback is to be sent if
-              {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameBehindColon}} == object-creation-notification
+              {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{attributeName}} == notifications-1-0:object-creation-notification
               Repetitions have to be suppressed.'
             post:
               parameters:
@@ -3655,37 +3617,28 @@ paths:
                           required:
                             - counter
                             - timestamp
-                            - resource
-                            - object-type
+                            - object-path
                           properties:
                             counter:
                               type: integer
                               description: >
                                 'Sequence number of the notification at the device
-                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:object-creation-notification/counter}'
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:object-creation-notification/counter}'
                             timestamp:
                               type: string
-                              pattern: '^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})((\.[0-9]{1,}){0,1})(Z|[\+\-][0-9]{2}:[0-9]{2})$'
                               description: >
                                 'The time according to Section 5.6 of RFC 3339 at which the device created the notification
-                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:object-creation-notification/timestamp}'
-                            resource:
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:object-creation-notification/timestamp}'
+                            object-path:
                               type: string
                               description: >
                                 'Path to the object that has been created
-                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][path to the class selected from templates based on {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameInFrontOfColon}} and completed by {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:object-creation-notification/object-id-ref}
-                                example: [/core-model-1-4:network-control-domain=live/control-construct=][{mount-name}][/profile-collection/profile={uuid}]'
-                            object-type:
-                              type: string
-                              description: >
-                                'Type of the object that has been created
-                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:object-creation-notification/object-type}'
+                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][string behind /core-model-1-4:control-construct in value of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:object-creation-notification/object-path}, but cornered brackets and their content being replaced by an equal sign and the string inside quotes inside the cornered brackets]'
                       example:
                         notification-proxy-1-0:object-creation-notification:
                           counter: 2
                           timestamp: '2023-07-10T12:27:03+01:00'
-                          resource: '/core-model-1-4:network-control-domain=live/control-construct=513250009/profile-collection/profile=co-channel-17'
-                          object-type: 'profile'
+                          object-path: '/core-model-1-4:network-control-domain=live/control-construct=513250009/profile-collection/profile=co-channel-17'
               responses:
                 '204':
                   description: 'Notification received'
@@ -3871,7 +3824,7 @@ paths:
           url: #[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]://[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name or /core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]:[/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-tcp-c-*-*-*-*-1??/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port][/core-model-1-4:control-construct/logical-termination-point=np-1-0-0-op-c-is-*-*-*-*-123/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]
             description: >
               'This callback is to be sent if
-              {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameBehindColon}} == object-deletion-notification
+              {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{attributeName}} == notifications-1-0:object-deletion-notification
               Repetitions have to be suppressed.'
             post:
               parameters:
@@ -3894,30 +3847,28 @@ paths:
                           required:
                             - counter
                             - timestamp
-                            - resource
+                            - object-path
                           properties:
                             counter:
                               type: integer
                               description: >
                                 'Sequence number of the notification at the device
-                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:object-deletion-notification/counter}'
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:object-deletion-notification/counter}'
                             timestamp:
                               type: string
-                              pattern: '^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})((\.[0-9]{1,}){0,1})(Z|[\+\-][0-9]{2}:[0-9]{2})$'
                               description: >
                                 'The time according to Section 5.6 of RFC 3339 at which the device created the notification
-                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:object-deletion-notification/timestamp}'
-                            resource:
+                                from {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:object-deletion-notification/timestamp}'
+                            object-path:
                               type: string
                               description: >
                                 'Path to the object that has been deleted
-                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][path to the class selected from templates based on {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/{partOfAttributeNameInFrontOfColon}} and completed by {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/*:object-deletion-notification/object-id-ref}
-                                example: [/core-model-1-4:network-control-domain=live/control-construct=][{mount-name}][/logical-termination-point={uuid}]'
+                                from [/core-model-1-4:network-control-domain=live/control-construct=][{$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#node-id}][string behind /core-model-1-4:control-construct in value of {$/v1/add-controller.callbacks.PromptForListenToControllersCausesSubscribingForDeviceNotifications.response.body#ietf-restconf:notification/notifications-1-0:object-deletion-notification/object-path}, but cornered brackets and their content being replaced by an equal sign and the string inside quotes inside the cornered brackets]'
                       example:
                         notification-proxy-1-0:object-deletion-notification:
                           counter: 14
                           timestamp: '2023-07-13T09:31:48+01:00'
-                          resource: '/core-model-1-4:network-control-domain=live/control-construct=513250009/logical-termination-point=RF-2146697857'
+                          object-path: '/core-model-1-4:network-control-domain=live/control-construct=513250009/logical-termination-point=RF-2146697857'
               responses:
                 '204':
                   description: 'Notification received'
@@ -7529,6 +7480,7 @@ paths:
                                     # - action-profile-1-0:action-profile-pac
                                     # workaround code is:
                                     # - empty line -
+                                  additionalProperties: false
                                   properties:
                                     uuid:
                                       type: string
@@ -8644,6 +8596,7 @@ paths:
                           - uuid
                           - profile-name
                           - action-profile-1-0:action-profile-pac
+                        additionalProperties: false
                         properties:
                           uuid:
                             type: string
