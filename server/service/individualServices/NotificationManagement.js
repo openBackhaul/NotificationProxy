@@ -651,6 +651,8 @@ async function sendControllerNotification(notificationsToSend, controllerName, c
             for (let subscriber of activeSubscribers) {
                 sendMessageToSubscriber(notificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessage);
             }
+        } else {
+            logger.debug("no subscribers for " + notificationType + ", message discarded");
         }
     }
 }
@@ -741,6 +743,8 @@ async function notifyAllDeviceSubscribers(deviceNotificationType, controllerNoti
         for (let subscriber of activeSubscribers) {
             sendMessageToSubscriber(deviceNotificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessage);
         }
+    } else {
+        logger.debug("no subscribers for " + deviceNotificationType + ", message discarded");
     }
 }
 
