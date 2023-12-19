@@ -13,7 +13,7 @@ test('Convert alarm device data notification', () => {
                     "alarm-type-id": "siae-alarms-1-0:radioEquipLinkTelemetryFailAlarm",
                     "alarm-type-qualifier": "",
                     "resource": "/core-model-1-4:control-construct/logical-termination-point=LTP-MWPS-TTP-RADIO-1A/layer-protocol=LP-MWPS-TTP-RADIO-1A/air-interface-2-0:air-interface-pac",
-                    "problem-severity": "major",
+                    "problem-severity": "alarms-1-0:SEVERITY_AND_CLEARED_TYPE_MAJOR",
                     "timestamp": "2023-07-11T08:45:02.000Z"
                 }
             }
@@ -36,6 +36,7 @@ test('Convert alarm device data notification', () => {
 
     expect(output).toStrictEqual(outputExpected);
 });
+
 
 test('Convert controller configuration event notification', () => {
 

@@ -10,8 +10,7 @@
             "action-profile-capability": {
               "operation-name": "/v1/start-application-in-generic-representation",
               "label": "Inform about Application",
-              "input-value-list": [
-              ],
+              "input-value-list": [],
               "display-in-new-browser-window": false
             },
             "action-profile-configuration": {
@@ -26,8 +25,7 @@
             "action-profile-capability": {
               "operation-name": "/v1/inform-about-application-in-generic-representation",
               "label": "Release History",
-              "input-value-list": [
-              ],
+              "input-value-list": [],
               "display-in-new-browser-window": false
             },
             "action-profile-configuration": {
@@ -42,8 +40,7 @@
             "action-profile-capability": {
               "operation-name": "/v1/inform-about-application-in-generic-representation",
               "label": "API Documentation",
-              "input-value-list": [
-              ],
+              "input-value-list": [],
               "display-in-new-browser-window": true
             },
             "action-profile-configuration": {
@@ -209,8 +206,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -233,8 +229,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -257,8 +252,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -281,8 +275,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -305,8 +298,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-004",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -329,8 +321,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-005",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -353,8 +344,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-007",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -377,8 +367,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-008",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -401,8 +390,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-009",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -425,8 +413,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-010",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -449,8 +436,7 @@
       {
         "uuid": "np-1-0-0-op-s-bm-011",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -473,8 +459,7 @@
       {
         "uuid": "np-1-0-0-op-s-im-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -497,8 +482,7 @@
       {
         "uuid": "np-1-0-0-op-s-bs-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -521,8 +505,7 @@
       {
         "uuid": "np-1-0-0-op-s-bs-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -545,8 +528,7 @@
       {
         "uuid": "np-1-0-0-op-s-bs-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -569,8 +551,7 @@
       {
         "uuid": "np-1-0-0-op-s-bs-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -593,8 +574,7 @@
       {
         "uuid": "np-1-0-0-op-s-bs-004",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -617,8 +597,7 @@
       {
         "uuid": "np-1-0-0-op-s-bs-005",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -641,8 +620,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -656,7 +634,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -665,8 +643,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -680,7 +657,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -689,8 +666,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -704,7 +680,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -713,8 +689,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-011",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -728,7 +703,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -737,8 +712,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-012",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -752,7 +726,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -761,8 +735,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-013",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -776,7 +749,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -785,8 +758,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-020",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -800,7 +772,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -809,8 +781,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-021",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -824,7 +795,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -833,8 +804,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-022",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -848,7 +818,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -857,8 +827,7 @@
       {
         "uuid": "np-1-0-0-op-s-is-023",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-s-000"
         ],
@@ -872,7 +841,7 @@
               },
               "operation-server-interface-configuration": {
                 "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-                "operation-key": "n.a."
+                "operation-key": "Operation key not yet provided."
               }
             }
           }
@@ -912,8 +881,7 @@
           "np-1-0-0-op-s-is-023"
         ],
         "server-ltp": [
-          "np-1-0-0-tcp-s-000",
-          "np-1-0-0-tcp-s-001"
+          "np-1-0-0-tcp-s-000"
         ],
         "layer-protocol": [
           {
@@ -930,8 +898,8 @@
                 "release-list": [
                   {
                     "local-id": "0",
-                    "release-number": "1.0.0",
-                    "release-date": "31.08.2023",
+                    "release-number": "1.0.1",
+                    "release-date": "14.12.2023",
                     "changes": "Initial version"
                   }
                 ]
@@ -946,8 +914,7 @@
         "client-ltp": [
           "np-1-0-0-http-s-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -966,35 +933,9 @@
         ]
       },
       {
-        "uuid": "np-1-0-0-tcp-s-001",
-        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
-        "client-ltp": [
-          "np-1-0-0-http-s-000"
-        ],
-        "server-ltp": [
-        ],
-        "layer-protocol": [
-          {
-            "local-id": "0",
-            "layer-protocol-name": "tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-            "tcp-server-interface-1-0:tcp-server-interface-pac": {
-              "tcp-server-interface-configuration": {
-                "description": "With TLS layer",
-                "local-protocol": "tcp-server-interface-1-0:PROTOCOL_TYPE_HTTPS",
-                "local-address": {
-                  "ipv-4-address": "1.2.4.11"
-                },
-                "local-port": 4211
-              }
-            }
-          }
-        ]
-      },
-      {
         "uuid": "np-1-0-0-op-c-bm-or-1-0-0-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-or-1-0-0-000"
         ],
@@ -1031,7 +972,7 @@
             "http-client-interface-1-0:http-client-interface-pac": {
               "http-client-interface-configuration": {
                 "application-name": "OldRelease",
-                "release-number": "1.0.0"
+                "release-number": "1.0.1"
               }
             }
           }
@@ -1043,8 +984,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-or-1-0-0-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1066,8 +1006,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1091,8 +1030,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1116,8 +1054,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-011",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1141,8 +1078,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-012",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1166,8 +1102,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-013",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1191,8 +1126,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-020",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1216,8 +1150,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-021",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1241,8 +1174,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-022",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1266,8 +1198,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-nr-1-0-0-023",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
@@ -1312,7 +1243,7 @@
             "http-client-interface-1-0:http-client-interface-pac": {
               "http-client-interface-configuration": {
                 "application-name": "NewRelease",
-                "release-number": "1.0.0"
+                "release-number": "1.0.1"
               }
             }
           }
@@ -1324,8 +1255,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-nr-1-0-0-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1347,8 +1277,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-ro-2-0-1-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-ro-2-0-1-000"
         ],
@@ -1372,8 +1301,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-ro-2-0-1-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-ro-2-0-1-000"
         ],
@@ -1397,8 +1325,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-ro-2-0-1-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-ro-2-0-1-000"
         ],
@@ -1422,8 +1349,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-ro-2-0-1-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-ro-2-0-1-000"
         ],
@@ -1475,8 +1401,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-ro-2-0-1-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1498,8 +1423,7 @@
       {
         "uuid": "np-1-0-0-http-c-tar-2-0-1-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-tcp-c-tar-2-0-1-000"
         ],
@@ -1522,8 +1446,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-tar-2-0-1-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1545,8 +1468,7 @@
       {
         "uuid": "np-1-0-0-op-c-bs-eatl-2-0-1-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-eatl-2-0-1-000"
         ],
@@ -1596,8 +1518,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-eatl-2-0-1-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1619,8 +1540,7 @@
       {
         "uuid": "np-1-0-0-op-c-bs-ol-2-0-1-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-ol-2-0-1-000"
         ],
@@ -1669,8 +1589,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-ol-2-0-1-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1692,8 +1611,7 @@
       {
         "uuid": "np-1-0-0-op-c-bs-aa-2-0-1-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-aa-2-0-1-000"
         ],
@@ -1742,8 +1660,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-aa-2-0-1-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1765,8 +1682,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-alt-2-0-1-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-alt-2-0-1-000"
         ],
@@ -1790,8 +1706,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-alt-2-0-1-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-alt-2-0-1-000"
         ],
@@ -1815,8 +1730,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-alt-2-0-1-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-alt-2-0-1-000"
         ],
@@ -1840,8 +1754,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-alt-2-0-1-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-alt-2-0-1-000"
         ],
@@ -1865,8 +1778,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-alt-2-0-1-004",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-alt-2-0-1-000"
         ],
@@ -1890,8 +1802,7 @@
       {
         "uuid": "np-1-0-0-op-c-bm-alt-2-0-1-005",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-alt-2-0-1-000"
         ],
@@ -1945,8 +1856,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-alt-2-0-1-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -1968,8 +1878,7 @@
       {
         "uuid": "np-1-0-0-http-c-okm-2-0-1-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-tcp-c-okm-2-0-1-000"
         ],
@@ -1992,8 +1901,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-okm-2-0-1-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -2015,8 +1923,7 @@
       {
         "uuid": "np-1-0-0-op-c-im-np-1-0-0-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-np-1-0-0-000"
         ],
@@ -2053,7 +1960,7 @@
             "http-client-interface-1-0:http-client-interface-pac": {
               "http-client-interface-configuration": {
                 "application-name": "NotificationProxy",
-                "release-number": "1.0.0"
+                "release-number": "1.0.1"
               }
             }
           }
@@ -2065,8 +1972,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-np-1-0-0-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -2088,8 +1994,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odlt-4-0-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odlt-4-0-2-000"
         ],
@@ -2100,7 +2005,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2113,8 +2018,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odlt-4-0-2-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odlt-4-0-2-000"
         ],
@@ -2125,7 +2029,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2138,8 +2042,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odlt-4-0-2-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odlt-4-0-2-000"
         ],
@@ -2150,7 +2053,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2163,8 +2066,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odlt-4-0-2-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odlt-4-0-2-000"
         ],
@@ -2175,7 +2077,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2188,8 +2090,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odlt-4-0-2-004",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odlt-4-0-2-000"
         ],
@@ -2200,7 +2101,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2213,8 +2114,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odlt-4-0-2-005",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odlt-4-0-2-000"
         ],
@@ -2225,7 +2125,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/notif/device?notificationType=device",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2268,8 +2168,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-odlt-4-0-2-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -2291,8 +2190,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odl1-4-0-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odl1-4-0-2-000"
         ],
@@ -2303,7 +2201,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2316,8 +2214,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odl1-4-0-2-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odl1-4-0-2-000"
         ],
@@ -2328,7 +2225,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2341,8 +2238,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odl1-4-0-2-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odl1-4-0-2-000"
         ],
@@ -2353,7 +2249,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2366,8 +2262,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odl1-4-0-2-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odl1-4-0-2-000"
         ],
@@ -2378,7 +2273,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2391,8 +2286,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odl1-4-0-2-004",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odl1-4-0-2-000"
         ],
@@ -2403,7 +2297,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2416,8 +2310,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-odl1-4-0-2-005",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-odl1-4-0-2-000"
         ],
@@ -2428,7 +2321,7 @@
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
                 "operation-name": "/rests/notif/device?notificationType=device",
-                "operation-key": "Operation key not yet provided."
+                "operation-key": "n.a."
               },
               "operation-client-interface-status": {
                 "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
@@ -2471,8 +2364,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-odl1-4-0-2-000"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -2491,17 +2383,10 @@
           }
         ]
       },
-
-
-
-
-
-
       {
         "uuid": "np-1-0-0-op-c-is-mwdi-1-0-0-111",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-mwdi-1-0-0-100"
         ],
@@ -2525,8 +2410,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-mwdi-1-0-0-120",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-mwdi-1-0-0-100"
         ],
@@ -2550,8 +2434,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-mwdi-1-0-0-121",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-mwdi-1-0-0-100"
         ],
@@ -2575,8 +2458,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-mwdi-1-0-0-122",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-mwdi-1-0-0-100"
         ],
@@ -2600,8 +2482,7 @@
       {
         "uuid": "np-1-0-0-op-c-is-mwdi-1-0-0-123",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
-        "client-ltp": [
-        ],
+        "client-ltp": [],
         "server-ltp": [
           "np-1-0-0-http-c-mwdi-1-0-0-100"
         ],
@@ -2642,7 +2523,7 @@
             "http-client-interface-1-0:http-client-interface-pac": {
               "http-client-interface-configuration": {
                 "application-name": "MicroWaveDeviceInventory",
-                "release-number": "1.0.0"
+                "release-number": "1.1.1"
               }
             }
           }
@@ -2654,8 +2535,7 @@
         "client-ltp": [
           "np-1-0-0-http-c-mwdi-1-0-0-100"
         ],
-        "server-ltp": [
-        ],
+        "server-ltp": [],
         "layer-protocol": [
           {
             "local-id": "0",
@@ -2665,10 +2545,10 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "1.1.4.4"
+                    "ipv-4-address": "1.1.4.15"
                   }
                 },
-                "remote-port": 4004
+                "remote-port": 4015
               }
             }
           }
