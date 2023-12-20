@@ -14,6 +14,7 @@ const responseCodeEnum = require('onf-core-model-ap/applicationPattern/rest/serv
 const logger = require('../LoggingService.js').getLogger();
 const controllerManagement = require('./ControllerManagement');
 const notificationManagement = require("./NotificationManagement");
+const crypto = require("crypto");
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
@@ -132,8 +133,10 @@ async function sendMessageToSubscriber(notificationType, targetOperationURL, ope
 
         let requestHeader = exports.createRequestHeader();
 
+        let uniqueSendingID = crypto.randomUUID();
+
         //send notification
-        logger.debug("sending subscriber notification to: " + targetOperationURL + " with content: " + JSON.stringify(notificationMessage));
+        logger.debug("sending subscriber notification to: " + targetOperationURL + " with content: " + JSON.stringify(notificationMessage) + " - debugId: '" + uniqueSendingID + "'");
 
         axios.post(targetOperationURL, notificationMessage, {
             // axios.post("http://localhost:1237", notificationMessage, {
@@ -147,7 +150,7 @@ async function sendMessageToSubscriber(notificationType, targetOperationURL, ope
             }
         })
             .then((response) => {
-                logger.debug("subscriber-notification success, notificationType " + notificationType + ", target url: " + targetOperationURL + ", result status: " + response.status);
+                logger.debug("subscriber-notification success, notificationType " + notificationType + ", target url: " + targetOperationURL + ", result status: " + response.status + " - debugId: '" + uniqueSendingID + "'");
 
                 executionAndTraceService.recordServiceRequestFromClient(
                     appInformation["application-name"],
@@ -162,7 +165,7 @@ async function sendMessageToSubscriber(notificationType, targetOperationURL, ope
                     response.data);
             })
             .catch(e => {
-                logger.error(e, "error during subscriber-notification for " + notificationType);
+                logger.error(e, "error during subscriber-notification for " + notificationType + " - debugId: '" + uniqueSendingID + "'");
 
                 executionAndTraceService.recordServiceRequestFromClient(
                     appInformation["application-name"],
