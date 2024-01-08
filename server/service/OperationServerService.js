@@ -1,5 +1,7 @@
 'use strict';
 
+const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriver/JSONDriver');
+
 /**
  * Returns the configured life cycle state of the operation
  *
