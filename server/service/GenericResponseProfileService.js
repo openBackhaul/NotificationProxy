@@ -6,7 +6,6 @@ const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriv
  * Returns the Datatype of the Field
  *
  * url String
- * returns inline_response_200_14
  **/
 exports.getGenericResponseProfileDatatype = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -23,7 +22,6 @@ exports.getGenericResponseProfileDatatype = async function (url) {
  * Returns the Description of the Field
  *
  * url String
- * returns inline_response_200_13
  **/
 exports.getGenericResponseProfileDescription = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -40,7 +38,6 @@ exports.getGenericResponseProfileDescription = async function (url) {
  * Returns the name of the Field
  *
  * url String
- * returns inline_response_200_12
  **/
 exports.getGenericResponseProfileFieldName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -57,7 +54,6 @@ exports.getGenericResponseProfileFieldName = async function (url) {
  * Returns the name of the Operation
  *
  * url String
- * returns inline_response_200_11
  **/
 exports.getGenericResponseProfileOperationName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -74,7 +70,6 @@ exports.getGenericResponseProfileOperationName = async function (url) {
  * Returns the Value of the Field
  *
  * url String
- * returns inline_response_200_15
  **/
 exports.getGenericResponseProfileValue = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
