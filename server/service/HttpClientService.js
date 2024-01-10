@@ -9,7 +9,6 @@ const httpClientInterface = require('onf-core-model-ap/applicationPattern/onfMod
  * Returns name of application to be addressed
  *
  * url String
- * returns inline_response_200_35
  **/
 exports.getHttpClientApplicationName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -26,7 +25,6 @@ exports.getHttpClientApplicationName = async function (url) {
  * Returns release number of application to be addressed
  *
  * url String
- * returns inline_response_200_36
  **/
 exports.getHttpClientReleaseNumber = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);

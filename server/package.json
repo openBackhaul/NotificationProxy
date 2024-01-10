@@ -21,8 +21,8 @@
     "oas3-tools": "^2.2.3",
     "onf-core-model-ap": "v2.0.2-alpha.2",
     "onf-core-model-ap-bs": "v2.0.2-alpha.2",
-    "pino": "^8.16.2",
-    "pino-pretty": "^10.2.3",
+    "pino": "^8.17.1",
+    "pino-pretty": "^10.3.0",
     "process": "^0.11.10",
     "ws": "^8.14.2"
   },

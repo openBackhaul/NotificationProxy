@@ -6,7 +6,6 @@ const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriv
  * Returns application name
  *
  * url String
- * returns inline_response_200_19
  **/
 exports.getHttpServerApplicationName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -23,7 +22,6 @@ exports.getHttpServerApplicationName = async function (url) {
  * Returns application purpose
  *
  * url String
- * returns inline_response_200_21
  **/
 exports.getHttpServerApplicationPurpose = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -40,7 +38,6 @@ exports.getHttpServerApplicationPurpose = async function (url) {
  * Returns update period
  *
  * url String
- * returns inline_response_200_22
  **/
 exports.getHttpServerDataUpdatePeriode = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -57,7 +54,6 @@ exports.getHttpServerDataUpdatePeriode = async function (url) {
  * Returns owner email address
  *
  * url String
- * returns inline_response_200_24
  **/
 exports.getHttpServerOwnerEmailAddress = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -74,7 +70,6 @@ exports.getHttpServerOwnerEmailAddress = async function (url) {
  * Returns owner name
  *
  * url String
- * returns inline_response_200_23
  **/
 exports.getHttpServerOwnerName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -91,7 +86,6 @@ exports.getHttpServerOwnerName = async function (url) {
  * Returns list of releases
  *
  * url String
- * returns inline_response_200_25
  **/
 exports.getHttpServerReleaseList = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -108,7 +102,6 @@ exports.getHttpServerReleaseList = async function (url) {
  * Returns release number
  *
  * url String
- * returns inline_response_200_20
  **/
 exports.getHttpServerReleaseNumber = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);

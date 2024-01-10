@@ -6,7 +6,6 @@ const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriv
  * Returns the reference on the consequent operation
  *
  * url String
- * returns inline_response_200_10
  **/
 exports.getActionProfileConsequentOperationReference = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -25,7 +24,6 @@ exports.getActionProfileConsequentOperationReference = async function (url) {
  * Returns whether to be presented in new browser window
  *
  * url String
- * returns inline_response_200_9
  **/
 exports.getActionProfileDisplayInNewBrowserWindow = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -42,7 +40,6 @@ exports.getActionProfileDisplayInNewBrowserWindow = async function (url) {
  * Returns the list of input values
  *
  * url String
- * returns inline_response_200_8
  **/
 exports.getActionProfileInputValueListt = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -59,7 +56,6 @@ exports.getActionProfileInputValueListt = async function (url) {
  * Returns the Label of the Action
  *
  * url String
- * returns inline_response_200_7
  **/
 exports.getActionProfileLabel = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -76,7 +72,6 @@ exports.getActionProfileLabel = async function (url) {
  * Returns the name of the Operation
  *
  * url String
- * returns inline_response_200_6
  **/
 exports.getActionProfileOperationName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);

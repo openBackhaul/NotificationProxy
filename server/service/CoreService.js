@@ -5,7 +5,6 @@ const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriv
 /**
  * Returns entire data tree
  *
- * returns inline_response_200_4
  **/
 exports.getControlConstruct = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync("core-model-1-4:control-construct");
@@ -22,7 +21,6 @@ exports.getControlConstruct = async function (url) {
  * Returns entire instance of Profile
  *
  * url String
- * returns inline_response_200_5
  **/
 exports.getProfileInstance = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
