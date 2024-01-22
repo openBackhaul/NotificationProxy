@@ -12,13 +12,10 @@ const operationClientInterface = require('onf-core-model-ap/applicationPattern/o
  **/
 exports.getOperationClientDetailedLoggingIsOn = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
-  var response = {};
-  response['application/json'] = {
+
+  return {
     "operation-client-interface-1-0:detailed-logging-is-on": value
   };
-  if (Object.keys(response).length > 0) {
-    return response[Object.keys(response)[0]];
-  }
 }
 
 /**
