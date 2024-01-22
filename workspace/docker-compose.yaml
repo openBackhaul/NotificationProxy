@@ -25,6 +25,8 @@ services:
         condition: service_healthy
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   typeapprovalregister:
     # Location to the node.js dockerfile
@@ -42,6 +44,8 @@ services:
       - typeapprovalregister:/home/openbackhaul/typeApprovalRegister/database
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   registryoffice:
     # Location to the node.js dockerfile
@@ -59,6 +63,8 @@ services:
            - registryoffice:/home/openbackhaul/registryOffice/database
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   administratoradministration:
     # Location to the node.js dockerfile
@@ -77,6 +83,8 @@ services:
       - administratoradministration_app:/home/openbackhaul/administratorAdministration/application-data
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   applicationlayertopology:
     # Location to the node.js dockerfile
@@ -99,6 +107,8 @@ services:
       - applicationlayertopology:/home/openbackhaul/applicationLayerTopology/database
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   oamlog:
     # Location to the node.js dockerfile
@@ -121,6 +131,8 @@ services:
         condition: service_healthy
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   operationkeymanagement:
   # Location to the node.js dockerfile
@@ -138,6 +150,8 @@ services:
       - operationkeymanagement:/home/node/database
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   elasticsearch:
     image: elasticsearch:${ELASTIC_VERSION}
@@ -147,6 +161,7 @@ services:
       - "discovery.type=single-node"
       - "xpack.security.enabled=false"
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "TZ=Europe/Berlin"
     ports:
       - 3008:9200
       - 9300:9300
@@ -160,32 +175,34 @@ services:
       - tinynetwork
 
   kibana:
-   image: kibana:${ELASTIC_VERSION}
-   container_name: kibana
-   hostname: kibana
-   ports:
+    image: kibana:${ELASTIC_VERSION}
+    container_name: kibana
+    hostname: kibana
+    ports:
       - 5601:5601
-   restart: on-failure
-   healthcheck:
+    restart: on-failure
+    healthcheck:
       test: curl -s http://kibana:5601 >/dev/null || exit 1
       interval: 5s
       timeout: 10s
       retries: 45
-   links:
+    links:
       - elasticsearch:elasticsearch
-   depends_on:
+    depends_on:
       elasticsearch:
         condition: service_healthy
-   networks:
+    networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
   notificationproxy:
   # Location to the node.js dockerfile
     build:
       context: ./NotificationProxy/server/
       dockerfile: Dockerfile
-    image: np:${DOCKER_IMAGE_TAG}
-    container_name: np_${DOCKER_IMAGE_TAG}
+    image: np
+    container_name: np
     ports:
        # Host port:Container port
       - '4011:9092'
@@ -194,6 +211,7 @@ services:
       - "CONTROLLER_PASSWORD=${CONTROLLER_PASSWORD}"
       - "DEVICE_USER=${DEVICE_USER}"
       - "DEVICE_PASSWORD=${DEVICE_PASSWORD}"
+      - "TZ=Europe/Berlin"
     restart: on-failure
     volumes:
 #      - notificationproxy:/home/node/database
@@ -220,6 +238,8 @@ services:
         condition: service_healthy
     networks:
       - tinynetwork
+    environment:
+      TZ: Europe/Berlin
 
 volumes:
   executionandtracelog:
@@ -237,4 +257,3 @@ volumes:
 networks:
     tinynetwork:
         driver: bridge
-
