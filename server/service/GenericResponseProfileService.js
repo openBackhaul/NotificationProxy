@@ -9,13 +9,10 @@ const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriv
  **/
 exports.getGenericResponseProfileDatatype = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
-  var response = {};
-  response['application/json'] = {
+
+  return {
     "response-profile-1-0:datatype": value
   };
-  if (Object.keys(response).length > 0) {
-    return response[Object.keys(response)[0]];
-  }
 }
 
 /**

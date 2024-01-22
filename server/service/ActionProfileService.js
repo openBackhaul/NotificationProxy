@@ -9,15 +9,10 @@ const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriv
  **/
 exports.getActionProfileConsequentOperationReference = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
-  var response = {};
-  response['application/json'] = {
+
+  return {
     "action-profile-1-0:consequent-operation-reference" : value
   };
-  if (Object.keys(response).length > 0) {
-    resolve(response[Object.keys(response)[0]]);
-  } else {
-    resolve();
-  }
 }
 
 /**
