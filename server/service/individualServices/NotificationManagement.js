@@ -141,11 +141,6 @@ async function sendMessageToSubscriber(notificationType, targetOperationURL, ope
         axios.post(targetOperationURL, notificationMessage, {
             // axios.post("http://localhost:1237", notificationMessage, {
             headers: {
-                'x-correlator': requestHeader.xCorrelator,
-                'trace-indicator': requestHeader.traceIndicator,
-                'user': requestHeader.user,
-                'originator': requestHeader.originator,
-                'customer-journey': requestHeader.customerJourney,
                 'operation-key': operationKey
             }
         })
@@ -485,13 +480,7 @@ async function createControllerNotificationStream(controllerAddress, operationKe
     // return await axios.post("http://localhost:1234", payload, {
     return await axios.post(controllerTargetUrl, payload, {
         headers: {
-            'x-correlator': requestHeader.xCorrelator,
-            'trace-indicator': requestHeader.traceIndicator,
-            'user': requestHeader.user,
-            'originator': requestHeader.originator,
-            'customer-journey': requestHeader.customerJourney,
             'Authorization': 'Basic ' + base64encodedData
-            // 'operation-key': operationKey,
         }
     })
         .then((response) => {
@@ -568,11 +557,6 @@ async function subscribeToControllerNotificationStream(
     // return await axios.get("http://localhost:1235" + "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/" + streamNameForSubscription, { //local testing
     return await axios.get(controllerTargetUrl, {
         headers: {
-            'x-correlator': requestHeader.xCorrelator,
-            'trace-indicator': requestHeader.traceIndicator,
-            'user': requestHeader.user,
-            'originator': requestHeader.originator,
-            'customer-journey': requestHeader.customerJourney,
             'Authorization': 'Basic ' + base64encodedData
         }
     })

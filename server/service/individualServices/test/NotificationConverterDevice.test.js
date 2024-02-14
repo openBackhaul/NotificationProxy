@@ -292,3 +292,67 @@ test('Device-Notification: Alarm from Test lab (2)', () => {
 
     expect(output).toStrictEqual(outputExpected);
 });
+
+test('Device-Notification: issue #73', () => {
+
+    let input = {
+        "ietf-restconf:notification": {
+            "alarms-1-0:alarm-event-notification": {
+                "alarm-event-sequence-number": 21,
+                "problem-severity": "alarms-1-0:SEVERITY_AND_CLEARED_TYPE_CLEARED",
+                "timestamp": "2024-02-14T10:49:19.0+00:00",
+                "resource": "/core-model-1-4:control-construct/logical-termination-point[uuid='LTP-MWPS-TTP-RADIO-1A']/layer-protocol[local-id='LP-MWPS-TTP-RADIO-1A']/air-interface-2-0:air-interface-pac",
+                "alarm-type-qualifier": "",
+                "alarm-type-id": "siae-alarms-1-0:radioBranchTxPowerAlarm"
+            }
+        }, "event-time": "2024-02-14T10:49:21Z", "node-id": "513250009"
+    };
+
+    let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_ALARMS, "odl-7", "2.0.1");
+
+    let outputExpected =
+        {
+            "notification-proxy-1-0:alarm-event-notification": {
+                "alarm-event-sequence-number": 21,
+                "timestamp": "2024-02-14T10:49:19.0+00:00",
+                "resource": "/core-model-1-4:network-control-domain=live/control-construct=513250009/logical-termination-point=LTP-MWPS-TTP-RADIO-1A/layer-protocol=LP-MWPS-TTP-RADIO-1A/air-interface-2-0:air-interface-pac",
+                "alarm-type-id": "siae-alarms-1-0:radioBranchTxPowerAlarm",
+                "alarm-type-qualifier": "",
+                "problem-severity": "cleared"
+            }
+        };
+
+    expect(output).toStrictEqual(outputExpected);
+});
+
+test('Device-Notification: issue #74', () => {
+
+    let input = {
+        "ietf-restconf:notification": {
+            "alarms-1-0:alarm-event-notification": {
+                "alarm-type-id": "alarms-1-0:ALARM_TYPE_ID_TYPE_NE_OBJ",
+                "resource": "/core-model-1-4:control-construct/equipment[uuid='HUAWEI-EQUIPMENT-1']",
+                "problem-severity": "alarms-1-0:SEVERITY_AND_CLEARED_TYPE_MAJOR",
+                "alarm-type-qualifier": "DCNSIZE_OVER/13110-20/FFFFFFFFFF",
+                "alarm-event-sequence-number": 1723,
+                "timestamp": "2024-02-14T08:54:14+00:00"
+            }
+        }, "event-time": "2024-02-14T10:01:36.737Z", "node-id": "CO17695"
+    };
+
+    let output = notificationConverter.convertNotification(input, configConstants.OAM_PATH_DEVICE_ALARMS, "odl-7", "2.0.1");
+
+    let outputExpected =
+        {
+            "notification-proxy-1-0:alarm-event-notification": {
+                "alarm-event-sequence-number": 1723,
+                "timestamp": "2024-02-14T08:54:14+00:00",
+                "resource": "/core-model-1-4:network-control-domain=live/control-construct=CO17695/equipment=HUAWEI-EQUIPMENT-1",
+                "alarm-type-id": "alarms-1-0:ALARM_TYPE_ID_TYPE_NE_OBJ",
+                "alarm-type-qualifier": "DCNSIZE_OVER/13110-20/FFFFFFFFFF",
+                "problem-severity": "major"
+            }
+        };
+
+    expect(output).toStrictEqual(outputExpected);
+});
