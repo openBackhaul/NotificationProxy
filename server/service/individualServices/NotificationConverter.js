@@ -64,6 +64,7 @@ function cleanupResource(resource) {
     cleanedResource = cleanedResource.replaceAll('[uuid=\'', "=");
     cleanedResource = cleanedResource.replaceAll('[local-id=\'', "=");
     cleanedResource = cleanedResource.replaceAll("']", "");
+    cleanedResource = cleanedResource.replaceAll("/core-model-1-4:control-construct", "");
     return cleanedResource;
 }
 
