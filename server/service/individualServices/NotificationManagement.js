@@ -141,6 +141,11 @@ async function sendMessageToSubscriber(notificationType, targetOperationURL, ope
         axios.post(targetOperationURL, notificationMessage, {
             // axios.post("http://localhost:1237", notificationMessage, {
             headers: {
+                'x-correlator': requestHeader.xCorrelator,
+                'trace-indicator': requestHeader.traceIndicator,
+                'user': requestHeader.user,
+                'originator': requestHeader.originator,
+                'customer-journey': requestHeader.customerJourney,
                 'operation-key': operationKey
             }
         })
