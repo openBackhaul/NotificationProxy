@@ -1,23 +1,42 @@
 forwardings:
 
   - forwarding-name: PromptForRegisteringCausesRegistrationRequest
-    uuid: np-1-0-0-op-fc-bm-000
+    uuid: np-1-0-2-op-fc-bm-999
     forwarding-type: InvariantProcessSnippet
     management-requests:
       operation-client-update:
         - server-name: /v1/register-yourself
-          uuid: np-1-0-0-op-s-bm-000
+          uuid: np-1-0-2-op-s-bm-000
       fc-port-update:
         - server-name: /v1/register-yourself
-          uuid: np-1-0-0-op-s-bm-000
+          uuid: np-1-0-2-op-s-bm-000
       fc-port-deletion:
       operation-client-deletion:
     initiating-requests:
       - server-name: /v1/register-yourself
-        uuid: np-1-0-0-op-s-bm-000
+        uuid: np-1-0-2-op-s-bm-000
     consequent-requests:
-      - client-name: RegistryOffice://v1/register-application
-        uuid: np-1-0-0-op-c-bm-ro-2-0-1-000
+      - client-name: RegistryOffice://v2/register-application
+        uuid: np-1-0-2-op-c-bm-ro-2-1-2-000
+
+  - forwarding-name: PromptForRegisteringCausesRegistrationRequest2
+    uuid: np-1-0-2-op-fc-bm-000
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/register-yourself
+          uuid: np-1-0-2-op-s-bm-000
+      fc-port-update:
+        - server-name: /v1/register-yourself
+          uuid: np-1-0-2-op-s-bm-000
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      - server-name: /v1/register-yourself
+        uuid: np-1-0-2-op-s-bm-000
+    consequent-requests:
+      - client-name: RegistryOffice://v2/register-application
+        uuid: np-1-0-2-op-c-bm-ro-2-1-2-000
 
   - forwarding-name: PromptForEmbeddingCausesRequestForBequeathingData
     uuid: np-1-0-0-op-fc-bm-001
@@ -84,6 +103,14 @@ forwardings:
         uuid: np-1-0-0-op-s-bm-010
       - server-name: /v1/update-operation-client
         uuid: np-1-0-0-op-s-bm-011
+      - server-name: /v1/inquire-basic-auth-approvals
+        uuid: np-1-0-2-op-s-bm-012
+      - server-name: /v1/dispose-remainders-of-deregistered-application
+        uuid: np-1-0-2-op-s-bm-013
+      - server-name: /v1/inform-about-preceding-release
+        uuid: np-1-0-2-op-s-bm-014
+      - server-name: /v1/update-client-of-subsequent-release
+        uuid: np-1-0-2-op-s-bm-015
       - server-name: /v1/bequeath-your-data-and-die
         uuid: np-1-0-0-op-s-im-000
       - server-name: /v1/start-application-in-generic-representation
@@ -155,6 +182,29 @@ forwardings:
     consequent-requests:
       - client-name: AccessAdministration://v1/approve-oam-request
         uuid: np-1-0-0-op-c-bs-aa-2-0-1-000
+
+  - forwarding-name: BasicAuthRequestCausesInquiryForAuthentication
+    uuid: np-1-0-2-op-fc-bm-005
+    forwarding-type: InvariantProcessSnippet
+    management-requests:
+      operation-client-update:
+        - server-name: /v1/inquire-basic-auth-approvals
+          uuid: np-1-0-2-op-s-bm-012
+        - server-name: /v1/inquire-oam-request-approvals
+          uuid: np-1-0-2-op-s-bm-005
+      fc-port-update:
+        - server-name: /v1/inquire-basic-auth-approvals
+          uuid: np-1-0-2-op-s-bm-012
+        - server-name: /v1/inquire-oam-request-approvals
+          uuid: np-1-0-2-op-s-bm-005
+      fc-port-deletion:
+      operation-client-deletion:
+    initiating-requests:
+      # [all oam requests]
+    consequent-requests:
+      - client-name: AccessAdministration://v1/approve-basic-auth-request
+        uuid: np-1-0-2-op-c-bs-aa-2-1-2-000
+
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerAttributeValueChangedNotificationsBeingTransferredToNR
     uuid: np-1-0-0-op-fc-im-011
@@ -413,6 +463,10 @@ forwardings:
         uuid: np-1-0-0-op-s-bm-009
       - server-name: /v1/update-operation-client
         uuid: np-1-0-0-op-s-bm-011
+      - server-name: /v1/inquire-basic-auth-approvals
+        uuid: np-1-0-2-op-s-bm-012
+      - server-name: /v1/update-client-of-subsequent-release
+        uuid: np-1-0-2-op-s-bm-015
       - server-name: /v1/bequeath-your-data-and-die
         uuid: np-1-0-0-op-s-im-000
       - server-name: /v1/add-controller
@@ -450,6 +504,8 @@ forwardings:
     initiating-requests:
       - server-name: /v1/end-subscription
         uuid: np-1-0-0-op-s-bm-004
+      - server-name: /v1/dispose-remainders-of-deregistered-application
+        uuid: np-1-0-2-op-s-bm-013
       - server-name: /v1/remove-controller
         uuid: np-1-0-0-op-s-is-002
     consequent-requests:
