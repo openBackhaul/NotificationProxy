@@ -5466,7 +5466,7 @@ paths:
                     application/json:
                       schema:
                         oneOf:
-                          - description: 'AdministratorAdministration is responding'
+                          - description: 'AccessAdministration is responding'
                             type: object
                             properties:
                               oam-request-is-approved:

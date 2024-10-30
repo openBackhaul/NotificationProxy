@@ -220,7 +220,7 @@ clients:
         individual:
 
   - http-client:
-      application-name: AdministratorAdministration
+      application-name: AccessAdministration
       release-number: 2.0.1
       uuid: np-1-0-0-http-c-aa-2-0-1-000
     tcp-client:
