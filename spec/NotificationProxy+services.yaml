@@ -286,7 +286,7 @@ clients:
 
   - http-client:
       application-name: NotificationProxy
-      release-number: 1.0.1
+      release-number: 1.0.2
       uuid: np-1-0-2-http-c-np-1-0-2-000
     tcp-client:
       remote-protocol: http
@@ -369,13 +369,13 @@ clients:
 
   - http-client:
       application-name: MicroWaveDeviceInventory
-      release-number: 1.1.1
-      uuid: np-1-0-2-http-c-mwdi-1-0-0-100
+      release-number: 1.2.0
+      uuid: np-1-0-2-http-c-mwdi-1-2-0-100
     tcp-client:
       remote-protocol: http
       ip-address: 127.0.0.1
       tcp-port: 4015
-      uuid: np-1-0-2-tcp-c-mwdi-1-0-0-100
+      uuid: np-1-0-2-tcp-c-mwdi-1-2-0-100
     operation-clients:
       own-oam:
         basic:
@@ -384,12 +384,12 @@ clients:
         basic:
         individual:
           - operation-name: /v1/regard-controller-attribute-value-change
-            uuid: np-1-0-2-op-c-is-mwdi-1-0-0-111
+            uuid: np-1-0-2-op-c-is-mwdi-1-2-0-111
           - operation-name: /v1/regard-device-alarm
-            uuid: np-1-0-2-op-c-is-mwdi-1-0-0-120
+            uuid: np-1-0-2-op-c-is-mwdi-1-2-0-120
           - operation-name: /v1/regard-device-attribute-value-change
-            uuid: np-1-0-2-op-c-is-mwdi-1-0-0-121
+            uuid: np-1-0-2-op-c-is-mwdi-1-2-0-121
           - operation-name: /v1/regard-device-object-creation
-            uuid: np-1-0-2-op-c-is-mwdi-1-0-0-122
+            uuid: np-1-0-2-op-c-is-mwdi-1-2-0-122
           - operation-name: /v1/regard-device-object-deletion
-            uuid: np-1-0-2-op-c-is-mwdi-1-0-0-123
+            uuid: np-1-0-2-op-c-is-mwdi-1-2-0-123

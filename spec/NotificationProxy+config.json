@@ -1392,7 +1392,7 @@
             "http-client-interface-1-0:http-client-interface-pac": {
               "http-client-interface-configuration": {
                 "application-name": "NewRelease",
-                "release-number": "1.0.1"
+                "release-number": "1.0.2"
               }
             }
           }
@@ -2133,7 +2133,7 @@
             "http-client-interface-1-0:http-client-interface-pac": {
               "http-client-interface-configuration": {
                 "application-name": "NotificationProxy",
-                "release-number": "1.0.1"
+                "release-number": "1.0.2"
               }
             }
           }
@@ -2572,12 +2572,12 @@
         ]
       },
       {
-        "uuid": "np-1-0-2-op-c-is-mwdi-1-0-0-111",
+        "uuid": "np-1-0-2-op-c-is-mwdi-1-2-0-111",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-0-2-http-c-mwdi-1-0-0-100"
+          "np-1-0-2-http-c-mwdi-1-2-0-100"
         ],
         "layer-protocol": [
           {
@@ -2597,12 +2597,12 @@
         ]
       },
       {
-        "uuid": "np-1-0-2-op-c-is-mwdi-1-0-0-120",
+        "uuid": "np-1-0-2-op-c-is-mwdi-1-2-0-120",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-0-2-http-c-mwdi-1-0-0-100"
+          "np-1-0-2-http-c-mwdi-1-2-0-100"
         ],
         "layer-protocol": [
           {
@@ -2622,12 +2622,12 @@
         ]
       },
       {
-        "uuid": "np-1-0-2-op-c-is-mwdi-1-0-0-121",
+        "uuid": "np-1-0-2-op-c-is-mwdi-1-2-0-121",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-0-2-http-c-mwdi-1-0-0-100"
+          "np-1-0-2-http-c-mwdi-1-2-0-100"
         ],
         "layer-protocol": [
           {
@@ -2647,12 +2647,12 @@
         ]
       },
       {
-        "uuid": "np-1-0-2-op-c-is-mwdi-1-0-0-122",
+        "uuid": "np-1-0-2-op-c-is-mwdi-1-2-0-122",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-0-2-http-c-mwdi-1-0-0-100"
+          "np-1-0-2-http-c-mwdi-1-2-0-100"
         ],
         "layer-protocol": [
           {
@@ -2672,12 +2672,12 @@
         ]
       },
       {
-        "uuid": "np-1-0-2-op-c-is-mwdi-1-0-0-123",
+        "uuid": "np-1-0-2-op-c-is-mwdi-1-2-0-123",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-0-2-http-c-mwdi-1-0-0-100"
+          "np-1-0-2-http-c-mwdi-1-2-0-100"
         ],
         "layer-protocol": [
           {
@@ -2697,17 +2697,17 @@
         ]
       },
       {
-        "uuid": "np-1-0-2-http-c-mwdi-1-0-0-100",
+        "uuid": "np-1-0-2-http-c-mwdi-1-2-0-100",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-0-2-op-c-is-mwdi-1-0-0-111",
-          "np-1-0-2-op-c-is-mwdi-1-0-0-120",
-          "np-1-0-2-op-c-is-mwdi-1-0-0-121",
-          "np-1-0-2-op-c-is-mwdi-1-0-0-122",
-          "np-1-0-2-op-c-is-mwdi-1-0-0-123"
+          "np-1-0-2-op-c-is-mwdi-1-2-0-111",
+          "np-1-0-2-op-c-is-mwdi-1-2-0-120",
+          "np-1-0-2-op-c-is-mwdi-1-2-0-121",
+          "np-1-0-2-op-c-is-mwdi-1-2-0-122",
+          "np-1-0-2-op-c-is-mwdi-1-2-0-123"
         ],
         "server-ltp": [
-          "np-1-0-2-tcp-c-mwdi-1-0-0-000"
+          "np-1-0-2-tcp-c-mwdi-1-2-0-000"
         ],
         "layer-protocol": [
           {
@@ -2716,17 +2716,17 @@
             "http-client-interface-1-0:http-client-interface-pac": {
               "http-client-interface-configuration": {
                 "application-name": "MicroWaveDeviceInventory",
-                "release-number": "1.1.1"
+                "release-number": "1.2.0"
               }
             }
           }
         ]
       },
       {
-        "uuid": "np-1-0-2-tcp-c-mwdi-1-0-0-000",
+        "uuid": "np-1-0-2-tcp-c-mwdi-1-2-0-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-0-2-http-c-mwdi-1-0-0-100"
+          "np-1-0-2-http-c-mwdi-1-2-0-100"
         ],
         "server-ltp": [
         ],
@@ -4059,7 +4059,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-0-0-111"
+                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-2-0-111"
               }
             ]
           },
@@ -4164,7 +4164,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-0-0-120"
+                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-2-0-120"
               }
             ]
           },
@@ -4199,7 +4199,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-0-0-121"
+                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-2-0-121"
               }
             ]
           },
@@ -4234,7 +4234,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-0-0-122"
+                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-2-0-122"
               }
             ]
           },
@@ -4269,7 +4269,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-0-0-123"
+                "logical-termination-point": "np-1-0-2-op-c-is-mwdi-1-2-0-123"
               }
             ]
           }
