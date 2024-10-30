@@ -25,6 +25,14 @@ servers:
           uuid: np-1-0-0-op-s-bm-010
         - operation-name: /v1/update-operation-client
           uuid: np-1-0-0-op-s-bm-011
+        - operation-name: /v1/inquire-basic-auth-approvals
+          uuid: np-1-0-2-op-s-bm-012
+        - operation-name: /v1/dispose-remainders-of-deregistered-application
+          uuid: np-1-0-2-op-s-bm-013
+        - operation-name: /v1/inform-about-preceding-release
+          uuid: np-1-0-2-op-s-bm-014
+        - operation-name: /v1/update-client-of-subsequent-release
+          uuid: np-1-0-2-op-s-bm-015
       individual:
         - operation-name: /v1/bequeath-your-data-and-die
           uuid: np-1-0-0-op-s-im-000
@@ -65,12 +73,12 @@ servers:
           uuid: np-1-0-0-op-s-is-023
   http-server:
     own-application-name: NotificationProxy
-    own-release-number: 1.0.1
+    own-release-number: 1.0.2
     uuid: np-1-0-0-http-s-000
   tcp-server:
     - description: Without TLS layer
       local-protocol: http
-      own-ip-address: 1.1.4.11
+      own-ip-address: 127.0.0.1
       own-tcp-port: 4011
       uuid: np-1-0-0-tcp-s-000
 
@@ -83,7 +91,7 @@ clients:
       uuid: np-1-0-0-http-c-or-1-0-0-000
     tcp-client:
       remote-protocol: http
-      ip-address: 1.1.4.11
+      ip-address: 127.0.0.1
       tcp-port: 4011
       uuid: np-1-0-0-tcp-c-or-1-0-0-000
     operation-clients:
@@ -102,7 +110,7 @@ clients:
       uuid: np-1-0-0-http-c-nr-1-0-0-000
     tcp-client:
       remote-protocol: http
-      ip-address: 1.1.4.11
+      ip-address: 127.0.0.1
       tcp-port: 4011
       uuid: np-1-0-0-tcp-c-nr-1-0-0-000
     operation-clients:
@@ -282,7 +290,7 @@ clients:
       uuid: np-1-0-0-http-c-np-1-0-0-000
     tcp-client:
       remote-protocol: http
-      ip-address: 1.1.4.11
+      ip-address: 127.0.0.1
       tcp-port: 4011
       uuid: np-1-0-0-tcp-c-np-1-0-0-000
     operation-clients:

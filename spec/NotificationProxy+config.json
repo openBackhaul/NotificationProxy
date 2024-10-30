@@ -956,7 +956,7 @@
                 "description": "Without TLS layer",
                 "local-protocol": "tcp-server-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "local-address": {
-                  "ipv-4-address": "1.1.4.11"
+                  "ipv-4-address": "127.0.0.1"
                 },
                 "local-port": 4011
               }
@@ -1028,7 +1028,7 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "1.1.4.11"
+                    "ipv-4-address": "127.0.0.1"
                   }
                 },
                 "remote-port": 4011
@@ -1309,7 +1309,7 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "1.1.4.11"
+                    "ipv-4-address": "127.0.0.1"
                   }
                 },
                 "remote-port": 4011
@@ -2050,7 +2050,7 @@
                 "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
                 "remote-address": {
                   "ip-address": {
-                    "ipv-4-address": "1.1.4.11"
+                    "ipv-4-address": "127.0.0.1"
                   }
                 },
                 "remote-port": 4011
