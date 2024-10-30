@@ -116,8 +116,8 @@ paths:
                 new-application-protocol: 'HTTP'
                 new-application-address:
                   ip-address:
-                    ipv-4-address: '1.1.3.8'
-                new-application-port: 3008
+                    ipv-4-address: '127.0.0.1'
+                new-application-port: 3031
       responses:
         '204':
           description: 'Process of embedding a new release initiated'
@@ -1216,8 +1216,8 @@ paths:
                         future-protocol: 'HTTP'
                         future-address:
                           ip-address:
-                            ipv-4-address: '1.1.3.8'
-                        future-port: 3008
+                            ipv-4-address: '127.0.0.1'
+                        future-port: 3031
               responses:
                 '204':
                   description: 'Will broadcast server replacement'
