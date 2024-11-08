@@ -231,7 +231,7 @@ clients:
     operation-clients:
       own-oam:
         basic:
-          - operation-name: /v1/approve-oam-request
+          - operation-name:  /v1/approve-basic-auth-request
             uuid: np-1-0-2-op-c-bs-aa-2-1-2-000
         individual:
       service:
