@@ -1,10 +1,11 @@
 'use strict';
 
+const fileOperation = require('onf-core-model-ap/applicationPattern/databaseDriver/JSONDriver');
+
 /**
  * Returns the configured life cycle state of the operation
  *
  * url String
- * returns inline_response_200_17
  **/
 exports.getOperationServerLifeCycleState = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -21,7 +22,6 @@ exports.getOperationServerLifeCycleState = async function (url) {
  * Returns key for connecting
  *
  * url String
- * returns inline_response_200_18
  **/
 exports.getOperationServerOperationKey = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -38,7 +38,6 @@ exports.getOperationServerOperationKey = async function (url) {
  * Returns operation name
  *
  * url String
- * returns inline_response_200_16
  **/
 exports.getOperationServerOperationName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);

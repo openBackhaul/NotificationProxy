@@ -20,7 +20,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -831,7 +831,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -1641,7 +1641,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -2451,7 +2451,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -3261,7 +3261,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -4071,7 +4071,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -4882,7 +4882,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -5692,7 +5692,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"\r",
@@ -6403,7 +6403,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"\r",
@@ -7226,7 +7226,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -8031,7 +8031,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -8841,7 +8841,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -9651,7 +9651,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"\r",
@@ -10230,7 +10230,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"\r",
@@ -10727,7 +10727,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"    \r",
@@ -11224,7 +11224,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"    \r",
@@ -11721,7 +11721,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"\r",
@@ -12228,7 +12228,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -13038,7 +13038,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -13855,7 +13855,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -14564,7 +14564,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -15374,7 +15374,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -16184,7 +16184,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -16994,7 +16994,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -17804,7 +17804,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -18614,7 +18614,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -19424,7 +19424,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -20234,7 +20234,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// Validate that the response code\r",
+											"// Validate the response code\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
@@ -21043,7 +21043,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"// Validate that the response code\r",
+							"// Validate the response code\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    console.log(\"message: \"+pm.response.json().message);\r",
 							"    pm.response.to.have.status(200);\r",

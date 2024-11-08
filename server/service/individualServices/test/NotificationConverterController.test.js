@@ -1,5 +1,4 @@
 const notificationConverter = require('../NotificationConverter');
-const configConstants = require("../ConfigConstants");
 
 //contains all controller notifications
 
@@ -1072,6 +1071,8 @@ test('Controller-Operation: testset2 5', () => {
 
 test('zia test issue #62', () => {
 
+    notificationConverter.resetAllCounters();
+
     let input =
         {
             "urn-ietf-params-xml-ns-netconf-notification-1.0:notification": {
@@ -1101,7 +1102,7 @@ test('zia test issue #62', () => {
             "subscriberNotificationType": "/v1/notify-controller-attribute-value-changes",
             "notificationMessage": {
                 "notification-proxy-1-0:attribute-value-changed-notification": {
-                    "counter": 2,
+                    "counter": 1,
                     "timestamp": "2023-12-14T07:28:58.668165416Z",
                     "resource": "/core-model-1-4:network-control-domain=live/control-construct=OpenDayLight1/logical-termination-point=513559991A/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
                     "attribute-name": "connection-status",
@@ -1120,6 +1121,52 @@ test('zia test issue #62', () => {
             }
         }
     ];
+
+    expect(output).toStrictEqual(outputExpected);
+});
+
+test('Device-Notification: Lab test Attribute Value change notification:', () => {
+
+    notificationConverter.resetAllCounters();
+
+    let input = {
+        "urn-ietf-params-xml-ns-netconf-notification-1.0:notification": {
+            "urn-opendaylight-params-xml-ns-yang-controller-md-sal-remote:data-changed-notification": {
+                "data-change-event": [{
+                    "path": "/urn-TBD-params-xml-ns-yang-network-topology:network-topology/urn-TBD-params-xml-ns-yang-network-topology:topology/urn-TBD-params-xml-ns-yang-network-topology:topology[urn-TBD-params-xml-ns-yang-network-topology:topology-id='topology-netconf']/urn-TBD-params-xml-ns-yang-network-topology:node/urn-TBD-params-xml-ns-yang-network-topology:node[urn-TBD-params-xml-ns-yang-network-topology:node-id='513250006']/urn-opendaylight-netconf-node-topology:connection-status",
+                    "data": {"netconf-node-topology:connection-status": "connected"},
+                    "operation": "updated"
+                }, {
+                    "path": "/urn-TBD-params-xml-ns-yang-network-topology:network-topology/urn-TBD-params-xml-ns-yang-network-topology:topology/urn-TBD-params-xml-ns-yang-network-topology:topology[urn-TBD-params-xml-ns-yang-network-topology:topology-id='topology-netconf']/urn-TBD-params-xml-ns-yang-network-topology:node/urn-TBD-params-xml-ns-yang-network-topology:node[urn-TBD-params-xml-ns-yang-network-topology:node-id='513250006']/urn-opendaylight-netconf-node-topology:session-id",
+                    "data": {"netconf-node-topology:session-id": 4},
+                    "operation": "created"
+                }]
+            }, "event-time": "2023-12-19T16:52:07.700728716Z"
+        }
+    };
+
+    let output = notificationConverter.convertControllerNotification(input, "OpenDayLight1", "1.2.3");
+
+    let outputExpected = [{
+        "notificationMessage": {
+            "notification-proxy-1-0:attribute-value-changed-notification": {
+                "attribute-name": "connection-status",
+                "counter": 1,
+                "new-value": "connected",
+                "resource": "/core-model-1-4:network-control-domain=live/control-construct=OpenDayLight1/logical-termination-point=513250006/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration",
+                "timestamp": "2023-12-19T16:52:07.700728716Z"
+            }
+        }, "subscriberNotificationType": "/v1/notify-controller-attribute-value-changes"
+    }, {
+        "notificationMessage": {
+            "notification-proxy-1-0:object-creation-notification": {
+                "counter": 1,
+                "object-type": "session-id",
+                "resource": "/core-model-1-4:network-control-domain=live/control-construct=OpenDayLight1/logical-termination-point=513250006/layer-protocol=0/mount-point-1-0:mount-point-pac/mount-point-configuration/session-id",
+                "timestamp": "2023-12-19T16:52:07.700728716Z"
+            }
+        }, "subscriberNotificationType": "/v1/notify-controller-object-creations"
+    }]
 
     expect(output).toStrictEqual(outputExpected);
 });

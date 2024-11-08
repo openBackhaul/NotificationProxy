@@ -9,7 +9,6 @@ const tcpServerInterface = require('onf-core-model-ap/applicationPattern/onfMode
  * Returns Description of TcpServer
  *
  * url String
- * returns inline_response_200_26
  **/
 exports.getTcpServerDescription = async function (url) {
   const value = await fileOperation.readFromDatabaseAsync(url);
@@ -22,7 +21,6 @@ exports.getTcpServerDescription = async function (url) {
  * Returns address of the server
  *
  * url String
- * returns inline_response_200_28
  **/
 exports.getTcpServerLocalAddress = async function (url) {
   const value = await fileOperation.readFromDatabaseAsync(url);
@@ -35,7 +33,6 @@ exports.getTcpServerLocalAddress = async function (url) {
  * Returns TCP port of the server
  *
  * url String
- * returns inline_response_200_29
  **/
 exports.getTcpServerLocalPort = async function (url) {
   const value = await fileOperation.readFromDatabaseAsync(url);
@@ -48,7 +45,6 @@ exports.getTcpServerLocalPort = async function (url) {
  * Returns Protocol of TcpServer
  *
  * url String
- * returns inline_response_200_27
  **/
 exports.getTcpServerLocalProtocol = async function (url) {
   const value = await fileOperation.readFromDatabaseAsync(url);

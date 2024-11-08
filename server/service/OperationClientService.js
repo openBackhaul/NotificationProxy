@@ -9,24 +9,19 @@ const operationClientInterface = require('onf-core-model-ap/applicationPattern/o
  * Returns detailed logging configuration.
  *
  * url String
- * returns inline_response_200_34
  **/
 exports.getOperationClientDetailedLoggingIsOn = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
-  var response = {};
-  response['application/json'] = {
+
+  return {
     "operation-client-interface-1-0:detailed-logging-is-on": value
   };
-  if (Object.keys(response).length > 0) {
-    return response[Object.keys(response)[0]];
-  }
 }
 
 /**
  * Returns life cycle state of the operation
  *
  * url String
- * returns inline_response_200_33
  **/
 exports.getOperationClientLifeCycleState = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -43,7 +38,6 @@ exports.getOperationClientLifeCycleState = async function (url) {
  * Returns key used for connecting to server.
  *
  * url String
- * returns inline_response_200_31
  **/
 exports.getOperationClientOperationKey = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -60,7 +54,6 @@ exports.getOperationClientOperationKey = async function (url) {
  * Returns operation name
  *
  * url String
- * returns inline_response_200_30
  **/
 exports.getOperationClientOperationName = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
@@ -77,7 +70,6 @@ exports.getOperationClientOperationName = async function (url) {
  * Returns operational state of the operation
  *
  * url String
- * returns inline_response_200_32
  **/
 exports.getOperationClientOperationalState = async function (url) {
   var value = await fileOperation.readFromDatabaseAsync(url);
