@@ -32,5 +32,13 @@ CONTROLLER_PASSWORD=xxx
 DEVICE_USER=xxx
 DEVICE_PASSWORD=xxx
 
+### Latest Update  
+The v1.0.2 release adds the following specification changes:
+
+- update the specification to use the new ApplicationPattern release 2.1.2
+- operation client update for MWDI to the latest MWDI spec version 1.2.0  
+
+There were no additions or changes to individual services or other bug fixes.
+
 ### Comments
 ./.
