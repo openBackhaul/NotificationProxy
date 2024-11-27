@@ -11,7 +11,7 @@ const logger = require('../service/LoggingService.js').getLogger();
 const subscriberManagement = require('../service/individualServices/SubscriberManagement');
 
 const OLD_RELEASE_FORWARDING_NAME = 'PromptForEmbeddingCausesRequestForBequeathingData';
-const NEW_RELEASE_FORWARDING_NAME = 'PromptForBequeathingDataCausesTransferOfListOfApplications';
+const NEW_RELEASE_FORWARDING_NAME = 'PromptForBequeathingDataCausesRequestForBroadcastingInfoAboutServerReplacement';
 
 module.exports.embedYourself = async function embedYourself(req, res, next, body, user, originator, xCorrelator, traceIndicator, customerJourney) {
   let startTime = process.hrtime();
