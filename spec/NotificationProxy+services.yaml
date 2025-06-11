@@ -99,6 +99,19 @@ servers:
 clients:
 
   - http-client:
+      application-name: KafkaMessageBus
+      release-number: 1.0.0
+      uuid: nep-1-1-0-http-c-kmb-1-0-0-000
+    tcp-client:
+      remote-protocol: http
+      ip-address: 127.0.0.1
+      tcp-port: 3017
+      uuid: nep-1-1-0-tcp-c-kmb-1-0-0-000
+    kafka-client:
+      uuid: nep-1-1-0-kmb-c-kmb-1-0-0-000
+      topic-name: all_notifications
+
+  - http-client:
       application-name: OldRelease
       release-number: 1.0.2
       uuid: np-1-1-0-http-c-or-1-0-2-000
