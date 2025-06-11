@@ -2,6 +2,12 @@
 info:
   title: NotificationProxy
   version: 1.1.0
+  description: Brings DeviceNotifications and ControllerNotifications into ONF-TR352 format, allows for subscribing to them and pushes them to Kafka message bus.
+  contact:
+    name: Zia Ul Haq Hussain Batcha
+    url: https://github.com/openBackhaul/NotificationProxy
+    email: zia-ul-haq.hussain-batcha.external@telefonica.com
+  x-api-id: u-1792-sdn-microwave-notificationproxy
 
 x-gui-paths:
 ########################################################################################################################
