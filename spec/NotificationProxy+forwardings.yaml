@@ -51,7 +51,7 @@ forwardings:
         uuid: np-1-0-2-op-s-bm-001
     consequent-requests:
       - client-name: OldRelease://v1/bequeath-your-data-and-die
-        uuid: np-1-0-2-op-c-bm-or-1-0-1-000
+        uuid: np-1-0-2-op-c-bm-or-1-0-2-000
 
   - forwarding-name: PromptForEmbeddingCausesRequestForListenToControllers
     uuid: np-1-0-2-op-fc-im-000
@@ -66,7 +66,7 @@ forwardings:
         uuid: np-1-0-2-op-s-bm-001
     consequent-requests:
       - client-name: NotificationProxy://v1/listen-to-controllers
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-001
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-001
 
   - forwarding-name: ServiceRequestCausesLoggingRequest
     uuid: np-1-0-2-op-fc-bm-002
@@ -223,7 +223,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-controller-attribute-value-changes
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-011
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-011
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerObjectCreationNotificationsBeingTransferredToNR
     uuid: np-1-0-2-op-fc-im-012
@@ -242,7 +242,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-controller-object-creations
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-012
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-012
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerObjectDeletionNotificationsBeingTransferredToNR
     uuid: np-1-0-2-op-fc-im-013
@@ -261,7 +261,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-controller-object-deletions
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-013
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-013
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceAlarmNotificationsBeingTransferredToNR
     uuid: np-1-0-2-op-fc-im-020
@@ -280,7 +280,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-alarms
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-020
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-020
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceAttributeValueChangedNotificationsBeingTransferredToNR
     uuid: np-1-0-2-op-fc-im-021
@@ -299,7 +299,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-attribute-value-changes
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-021
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-021
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceObjectCreationNotificationsBeingTransferredToNR
     uuid: np-1-0-2-op-fc-im-022
@@ -318,7 +318,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-object-creations
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-022
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-022
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForCDeviceObjectDeletionNotificationsBeingTransferredToNR
     uuid: np-1-0-2-op-fc-im-023
@@ -337,7 +337,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-object-deletions
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-023
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-023
 
   - forwarding-name: PromptForBequeathingDataCausesControllerClientsBeingTransferredToNR
     uuid: np-1-0-2-op-fc-im-030
@@ -356,7 +356,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/add-controller
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-000
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-000
 
   - forwarding-name: PromptForBequeathingDataCausesNRbeingRequestedToListenToControllers
     uuid: np-1-0-2-op-fc-im-040
@@ -375,7 +375,7 @@ forwardings:
         uuid: np-1-0-2-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/listen-to-controllers
-        uuid: np-1-0-2-op-c-im-nr-1-0-2-001
+        uuid: np-1-0-2-op-c-im-nr-1-1-0-001
 
   - forwarding-name: PromptForBequeathingDataCausesRequestForBroadcastingInfoAboutServerReplacement
     uuid: np-1-0-2-op-fc-bm-105
