@@ -40,37 +40,53 @@ servers:
       basic:
         - operation-name: /v1/start-application-in-generic-representation
           uuid: np-1-1-0-op-s-bs-000
+          operation-key: n.a.
         - operation-name: /v1/inform-about-application
           uuid: np-1-1-0-op-s-bs-001
+          operation-key: n.a.
         - operation-name: /v1/inform-about-application-in-generic-representation
           uuid: np-1-1-0-op-s-bs-002
+          operation-key: n.a.
         - operation-name: /v1/inform-about-release-history
           uuid: np-1-1-0-op-s-bs-003
+          operation-key: n.a.
         - operation-name: /v1/inform-about-release-history-in-generic-representation
           uuid: np-1-1-0-op-s-bs-004
+          operation-key: n.a.
         - operation-name: /docs
           uuid: np-1-1-0-op-s-bs-005
+          operation-key: n.a.
       individual:
         - operation-name: /v1/add-controller
           uuid: np-1-1-0-op-s-is-000
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/listen-to-controllers
           uuid: np-1-1-0-op-s-is-001
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/remove-controller
           uuid: np-1-1-0-op-s-is-002
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/notify-controller-attribute-value-changes
           uuid: np-1-1-0-op-s-is-011
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/notify-controller-object-creations
           uuid: np-1-1-0-op-s-is-012
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/notify-controller-object-deletions
           uuid: np-1-1-0-op-s-is-013
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/notify-device-alarms
           uuid: np-1-1-0-op-s-is-020
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/notify-device-attribute-value-changes
           uuid: np-1-1-0-op-s-is-021
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/notify-device-object-creations
           uuid: np-1-1-0-op-s-is-022
+          operation-key: Operation key not yet provided.
         - operation-name: /v1/notify-device-object-deletions
           uuid: np-1-1-0-op-s-is-023
+          operation-key: Operation key not yet provided.
   http-server:
     own-application-name: NotificationProxy
     own-release-number: 1.1.0
