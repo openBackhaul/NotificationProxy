@@ -1,0 +1,17 @@
+@startuml np-completeness-components
+
+skinparam componentStyle rectangle
+
+title
+NotificationProxy+test.functional.completeness
+end title
+
+package "completeness" {
+  component [<u>Postman</u>\n\nNotificationProxy+test.completeness.json] as TCC #Orange 
+  component [<u>Application under Test</u>\n\nNotificationProxy] as AUT #LightBlue 
+
+  TCC -> AUT
+
+}
+
+@enduml
