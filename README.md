@@ -42,6 +42,9 @@ To improve performance, NP will act as producer to Kafka, i.e. it will send the 
 - *All* notifications are sent to topic *all_notifications* (i.e. both proper notifications and proprietary notifications)
 - Kafka will sort the notifications from *all_notifications* topic into separate Kafka topics, from where consumers (e.g. MWDI) can pull them
 
+Details on changes can be seen in issue collection [NP v1.1.0_spec](https://github.com/openBackhaul/NotificationProxy/milestone/3).  
+Any findings during implementer review or still open issues will be handled in issue collection [NP v1.1.1_spec](https://github.com/openBackhaul/NotificationProxy/milestone/7).  
+
 #### v1.0.2
 The v1.0.2 release adds the following specification changes:
 
