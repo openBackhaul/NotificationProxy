@@ -1,0 +1,33 @@
+@startuml NotificationProxy+diagram.completeness
+skinparam responseMessageBelowArrow true
+
+title
+NotificationProxy+test.completeness
+end title
+
+participant "Postman\n" as Postman #Orange 
+participant "Data\n" as Data
+participant "Collection\n" as Collection
+
+participant "/v1/TODO" as foo #LightBlue
+
+
+group Preparation
+  Data --\\o Postman : {servers, mount-name}
+  activate Postman
+  Postman --\\o Collection : {servers, mount-name}
+end
+
+group /v1/todo 
+  Collection --\\o Postman: {servers}
+  Postman -> foo: {mount-name}
+  foo <-- Postman: ResponseCode, {ResponseBody}
+  note right Postman #Orange
+    check for ResponseCode == 200
+    check for ResponseBody matches reference schema
+  end note
+end
+
+deactivate Postman
+
+@enduml
