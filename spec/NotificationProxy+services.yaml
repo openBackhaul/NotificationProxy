@@ -31,6 +31,7 @@ servers:
           uuid: np-1-1-0-op-s-bm-013
         - operation-name: /v1/inform-about-preceding-release
           uuid: np-1-1-0-op-s-bm-014
+          operation-key: n.a.
         - operation-name: /v1/update-client-of-subsequent-release
           uuid: np-1-1-0-op-s-bm-015
       individual:
@@ -117,14 +118,14 @@ clients:
   - http-client:
       application-name: KafkaMessageBus
       release-number: 1.0.0
-      uuid: nep-1-1-0-http-c-kmb-1-0-0-000
+      uuid: np-1-1-0-http-c-kmb-1-0-0-000
     tcp-client:
       remote-protocol: http
       ip-address: 127.0.0.1
       tcp-port: 3017
-      uuid: nep-1-1-0-tcp-c-kmb-1-0-0-000
+      uuid: np-1-1-0-tcp-c-kmb-1-0-0-000
     kafka-client:
-      uuid: nep-1-1-0-kmb-c-kmb-1-0-0-000
+      uuid: np-1-1-0-kmb-c-kmb-1-0-0-000
       topic-name: all_notifications
 
   - http-client:
@@ -237,6 +238,7 @@ clients:
         basic:
           - operation-name: /v1/record-service-request
             uuid: np-1-1-0-op-c-bs-eatl-2-1-2-000
+            detailed-logging-is-on: false
         individual:
       service:
         basic:
@@ -254,11 +256,11 @@ clients:
     operation-clients:
       own-oam:
         basic:
-          - operation-name: /v1/record-oam-request
-            uuid: np-1-1-0-op-c-bs-ol-2-1-2-000
         individual:
       service:
         basic:
+          - operation-name: /v1/record-oam-request
+            uuid: np-1-1-0-op-c-bs-ol-2-1-2-000
         individual:
 
   - http-client:
@@ -273,11 +275,11 @@ clients:
     operation-clients:
       own-oam:
         basic:
-          - operation-name:  /v1/approve-basic-auth-request
-            uuid: np-1-1-0-op-c-bs-aa-2-1-2-000
         individual:
       service:
         basic:
+          - operation-name: /v1/approve-basic-auth-request
+            uuid: np-1-1-0-op-c-bs-aa-2-1-2-000
         individual:
 
   - http-client:
@@ -411,13 +413,13 @@ clients:
 
   - http-client:
       application-name: MicroWaveDeviceInventory
-      release-number: 1.2.0
-      uuid: np-1-1-0-http-c-mwdi-1-2-0-100
+      release-number: 2.0.1
+      uuid: np-1-1-0-http-c-mwdi-2-0-1-100
     tcp-client:
       remote-protocol: http
       ip-address: 127.0.0.1
       tcp-port: 4015
-      uuid: np-1-1-0-tcp-c-mwdi-1-2-0-100
+      uuid: np-1-1-0-tcp-c-mwdi-2-0-1-100
     operation-clients:
       own-oam:
         basic:
@@ -425,13 +427,14 @@ clients:
       service:
         basic:
         individual:
+          # the regard services at MWDI are deprecated!
           - operation-name: /v1/regard-controller-attribute-value-change
-            uuid: np-1-1-0-op-c-is-mwdi-1-2-0-111
+            uuid: np-1-1-0-op-c-is-mwdi-2-0-1-111
           - operation-name: /v1/regard-device-alarm
-            uuid: np-1-1-0-op-c-is-mwdi-1-2-0-120
+            uuid: np-1-1-0-op-c-is-mwdi-2-0-1-120
           - operation-name: /v1/regard-device-attribute-value-change
-            uuid: np-1-1-0-op-c-is-mwdi-1-2-0-121
+            uuid: np-1-1-0-op-c-is-mwdi-2-0-1-121
           - operation-name: /v1/regard-device-object-creation
-            uuid: np-1-1-0-op-c-is-mwdi-1-2-0-122
+            uuid: np-1-1-0-op-c-is-mwdi-2-0-1-122
           - operation-name: /v1/regard-device-object-deletion
-            uuid: np-1-1-0-op-c-is-mwdi-1-2-0-123
+            uuid: np-1-1-0-op-c-is-mwdi-2-0-1-123
