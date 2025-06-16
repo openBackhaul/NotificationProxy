@@ -1,11 +1,15 @@
 @startuml is005_SubscribingForDeviceNotifications
 skinparam responseMessageBelowArrow true
 
-title PromptForListenToControllersCausesSubscribingForDeviceNotifications
+title
+  PromptForListenToControllersCausesSubscribingForDeviceNotifications
+  ReceiptOfDeviceNotificationsCausesSendingNotificationsToKafka
+end title
 
 participant "Admin or \n/v1/embed-yourself" as Requestor
 participant "NP://v1/listen-to-controllers" as NP_listen
 participant "ODLn://rests/notif/device?notificationType=device" as ODLn
+participant "Kafka \n(topic=all_notifications)" as Kafka
 
 Requestor -> NP_listen
 activate NP_listen
@@ -17,5 +21,7 @@ end note
 
 NP_listen -> ODLn
 ODLn --> NP_listen: {notifications}
+
+NP_listen -> Kafka: {notifications}
 
 @enduml
