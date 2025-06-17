@@ -427,9 +427,9 @@ clients:
       service:
         basic:
         individual:
-          # the regard services at MWDI are deprecated!
           - operation-name: /v1/regard-controller-attribute-value-change
             uuid: np-1-1-0-op-c-is-mwdi-2-0-1-111
+          # the regard-device-* services at MWDI are deprecated!
           - operation-name: /v1/regard-device-alarm
             uuid: np-1-1-0-op-c-is-mwdi-2-0-1-120
           - operation-name: /v1/regard-device-attribute-value-change
