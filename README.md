@@ -37,10 +37,12 @@ DEVICE_PASSWORD=xxx
 #### v1.1.0
 Release v.1.1.0 introduces the integration with a Kafka message broker.  
 
-MWDI subscribing to NotificationProxy (NP) directly, which lead to NP pushing notifications to MWDI, showed that there were major performance issues due to how notifications were transferred to MWDI (for each notification a new session has to be opened, if the MWDI *regard*-services are called).  
-To improve performance, NP will act as producer to Kafka, i.e. it will send the notifications (after bringing them into the correct format) to Kafka.  
-- *All* notifications are sent to topic *all_notifications* (i.e. both proper notifications and proprietary notifications)
-- Kafka will sort the notifications from *all_notifications* topic into separate Kafka topics, from where consumers (e.g. MWDI) can pull them
+- Handling of Controller notifications has not changed. Those are not pushed to Kafka, applications interested in receiving those still need to subscribe to NotificationProxy directly.
+- Handling of device change notifications however has changed - those are now pushed to Kafka.
+
+Kafka sends all ONF TR52 device change notifications to Kafka topic *all_notifications* after bringing them into the required format (in regards to the included resource path).  
+If proprietary notifications are received by NP, they are also sent to the same topic.
+Kafka will sort the notifications into separate topics (e.g. *device_change_notifications* and *device_alarm_notifications*) from where consumers then can pull them.  
 
 Details on changes can be seen in issue collection [NP v1.1.0_spec](https://github.com/openBackhaul/NotificationProxy/milestone/3).  
 Any findings during implementer review or still open issues will be handled in issue collection [NP v1.1.1_spec](https://github.com/openBackhaul/NotificationProxy/milestone/7).  
