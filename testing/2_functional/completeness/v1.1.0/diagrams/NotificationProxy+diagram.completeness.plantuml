@@ -11,7 +11,7 @@ participant "Collection\n" as Collection
 
 participant "/v1/add-controller" as addCtrl #LightBlue
 participant "/v1/listen-to-controllers" as listenCtrl #LightBlue
-participant "/v1/remove-controller" as RemoveCtrl #LightBlue
+participant "/v1/remove-controller" as removeCtrl #LightBlue
 participant "/v1/notify-controller-attribute-value-changes" as notifyCAVC #LightBlue
 participant "/v1/notify-controller-object-creations" as notifyCOC #LightBlue
 participant "/v1/notify-controller-object-deletions" as notifyCOD #LightBlue
@@ -21,18 +21,16 @@ participant "/v1/notify-device-object-creations" as notifyDOC #LightBlue
 participant "/v1/notify-device-object-deletions" as notifyDOD #LightBlue
 
 
-TODO: die parameter anpassen (s. requestBodies!)
-
 group Preparation
-  Data --\\o Postman : {servers, mount-name}
+  Data --\\o Postman : {servers, collectionInput (controllerInfo, subscriberInfo)}
   activate Postman
-  Postman --\\o Collection : {servers, mount-name}
+  Postman --\\o Collection : {servers, collectionInput}
 end
 
 group /v1/add-controller
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, controllerInfo}
+  Postman -> addCtrl: {controllerInfo}
+  addCtrl <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
@@ -40,80 +38,80 @@ end
 
 group /v1/listen-to-controllers
   Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Postman -> listenCtrl
+  listenCtrl <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/remove-controller
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, controllerInfo}
+  Postman -> removeCtrl: {controllerInfo}
+  removeCtrl <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/notify-controller-attribute-value-changes
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, subscriberInfo}
+  Postman -> notifyCAVC: {subscriberInfo}
+  notifyCAVC <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/notify-controller-object-creations
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, subscriberInfo}
+  Postman -> notifyCOC: {subscriberInfo}
+  notifyCOC <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/notify-controller-object-deletions
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, subscriberInfo}
+  Postman -> notifyCOD: {subscriberInfo}
+  notifyCOD <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/notify-device-alarms
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, subscriberInfo}
+  Postman -> notifyAlarm: {subscriberInfo}
+  notifyAlarm <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/notify-device-attribute-value-changes
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, subscriberInfo}
+  Postman -> notifyDAVC: {subscriberInfo}
+  notifyDAVC <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/notify-device-object-creations
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, subscriberInfo}
+  Postman -> notifyDOC: {subscriberInfo}
+  notifyDOC <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
 end
 
 group /v1/notify-device-object-deletions
-  Collection --\\o Postman: {servers}
-  Postman -> foo: {mount-name}
-  foo <-- Postman: ResponseCode, {ResponseBody}
+  Collection --\\o Postman: {servers, subscriberInfo}
+  Postman -> notifyDOD: {subscriberInfo}
+  notifyDOD <-- Postman: ResponseCode
   note right Postman #Orange
     check for ResponseCode == 204
   end note
