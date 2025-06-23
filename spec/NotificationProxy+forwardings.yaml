@@ -695,21 +695,6 @@ forwardings:
       - client-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON
         uuid: np-1-1-0-op-c-is-odl1-4-0-2-002
 
-  - forwarding-name: ReceiptOfControllerConfigurationNotificationsCausesSendingNotificationsToKafka
-    uuid: np-1-1-0-op-fc-is-002
-    forwarding-type: InvariantProcessSnippet
-    management-requests:
-      operation-client-update:
-      fc-port-update:
-      fc-port-deletion:
-      operation-client-deletion:
-    initiating-requests:
-      - server-name: /v1/listen-to-controllers
-        uuid: np-1-1-0-op-s-is-001
-    consequent-requests:
-      - client-name: KafkaMessageBroker
-        uuid: np-1-1-0-kmb-c-kmb-1-0-0-000
-
   - forwarding-name: PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
     uuid: np-1-1-0-op-fc-is-003
     forwarding-type: Subscription
@@ -736,21 +721,6 @@ forwardings:
         uuid: np-1-1-0-op-c-is-odl1-4-0-2-003
       - client-name: OpenDayLight1://rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON
         uuid: np-1-1-0-op-c-is-odl1-4-0-2-004
-
-  - forwarding-name: ReceiptOfControllerOperationNotificationsCausesSendingNotificationsToKafka
-    uuid: np-1-1-0-op-fc-is-004
-    forwarding-type: InvariantProcessSnippet
-    management-requests:
-      operation-client-update:
-      fc-port-update:
-      fc-port-deletion:
-      operation-client-deletion:
-    initiating-requests:
-      - server-name: /v1/listen-to-controllers
-        uuid: np-1-1-0-op-s-is-001
-    consequent-requests:
-      - client-name: KafkaMessageBroker
-        uuid: np-1-1-0-kmb-c-kmb-1-0-0-000
 
   - forwarding-name: PromptForListenToControllersCausesSubscribingForDeviceNotifications
     uuid: np-1-1-0-op-fc-is-005
