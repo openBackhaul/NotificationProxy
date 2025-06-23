@@ -22,6 +22,15 @@ end note
 NP_listen -> ODLn
 ODLn --> NP_listen: {notifications}
 
+note over NP_listen
+  Before notifications are pushed to Kafka,
+  they have to be formatted into ONF TR-52
+  format.
+  (The target ressource identified in notifications
+  must be formed into a unique ressource path for
+  MWDI.)
+end note
+
 NP_listen -> Kafka: {notifications}
 
 @enduml

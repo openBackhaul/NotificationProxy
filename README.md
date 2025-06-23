@@ -37,7 +37,7 @@ DEVICE_PASSWORD=xxx
 #### v1.1.0
 Release v.1.1.0 introduces the integration with a Kafka message broker.  
 
-- Handling of Controller notifications has not changed. Those are not pushed to Kafka, applications interested in receiving those still need to subscribe to NotificationProxy directly. (This decision is based on the fact, that in the future there will be the Controller Domain Manager, which will produce the Controller notifications.)
+- Handling of Controller notifications has not changed. Those are not pushed to Kafka, applications interested in receiving those still need to subscribe to NotificationProxy directly. (This decision is based on the fact, that in the future Controller notifications will not be handed over from Controller to NP directly, but will be managed by future app Controller Domain Manager.)
 - Handling of device change notifications however has changed - those are now pushed to Kafka.
 
 Kafka sends all ONF TR52 device change notifications to Kafka topic *all_notifications* after bringing them into the required format (in regards to the included resource path).  
