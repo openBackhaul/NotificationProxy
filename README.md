@@ -37,12 +37,12 @@ DEVICE_PASSWORD=xxx
 #### v1.1.0
 Release v.1.1.0 introduces the integration with a Kafka message broker.  
 
-- Handling of Controller notifications has not changed. Those are not pushed to Kafka, applications interested in receiving those still need to subscribe to NotificationProxy directly. (This decision is based on the fact, that in the future Controller notifications will not be handed over from Controller to NP directly, but will be managed by future app Controller Domain Manager.)
-- Handling of device change notifications however has changed - those are now pushed to Kafka.
+- *Controller notifications*: handling of Controller notifications has not been changed. Those are not pushed to Kafka, applications interested in receiving those still need to subscribe to NotificationProxy directly. (This decision is based on the fact, that in the future Controller notifications will not be handed over from Controller to NP directly, but will be managed by future app Controller Domain Manager.)
+- *Device change and alarm notifications*: Handling of device change notifications however has changed - those are now pushed to Kafka.
+- *Proprietary notifications*: those are ignored for now.
 
 Kafka sends all ONF TR52 device change notifications to Kafka topic *all_notifications* after bringing them into the required format (in regards to the included resource path).  
-If proprietary notifications are received by NP, they are also sent to the same topic.
-Sorting the notifications into separate topics (e.g. *device_change_notifications* and *device_alarm_notifications*) on Kafka, from where consumers then can pull them, will not be done by the NotificationProxy.  
+Sorting the notifications into separate topics (e.g. *device_change_notifications* and *device_alarm_notifications*) on Kafka, from where consumers then can pull them, will not be done by the NotificationProxy but by other means (e.g. a KafkaStreams application).  
 
 Details on changes can be seen in issue collection [NP v1.1.0_spec](https://github.com/openBackhaul/NotificationProxy/milestone/3).  
 Any findings during implementer review or still open issues will be handled in issue collection [NP v1.1.1_spec](https://github.com/openBackhaul/NotificationProxy/milestone/7).  
