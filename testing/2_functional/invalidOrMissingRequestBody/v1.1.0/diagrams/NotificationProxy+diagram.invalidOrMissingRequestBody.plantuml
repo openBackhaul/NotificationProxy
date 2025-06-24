@@ -1,8 +1,8 @@
-@startuml NotificationProxy+diagram.completeness
+@startuml NotificationProxy+diagram.invalidOrMissingRequestBody
 skinparam responseMessageBelowArrow true
 
 title
-NotificationProxy+test.completeness
+NotificationProxy+test.invalidOrMissingRequestBody
 end title
 
 participant "Postman\n" as Postman #Orange 
@@ -10,7 +10,6 @@ participant "Data\n" as Data
 participant "Collection\n" as Collection
 
 participant "/v1/add-controller" as addCtrl #LightBlue
-participant "/v1/listen-to-controllers" as listenCtrl #LightBlue
 participant "/v1/remove-controller" as removeCtrl #LightBlue
 participant "/v1/notify-controller-attribute-value-changes" as notifyCAVC #LightBlue
 participant "/v1/notify-controller-object-creations" as notifyCOC #LightBlue
@@ -29,91 +28,82 @@ end
 
 group /v1/add-controller
   Collection --\\o Postman: {servers}
-  Postman -> addCtrl: {dummyControllerInfo}
+  Postman -> addCtrl: {1. missing requestBody \n2. invalid requestBody}
   addCtrl <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
-  end note
-end
-
-group /v1/listen-to-controllers
-  Collection --\\o Postman: {servers}
-  Postman -> listenCtrl
-  listenCtrl <-- Postman: ResponseCode
-  note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/remove-controller
   Collection --\\o Postman: {servers}
-  Postman -> removeCtrl: {dummyControllerInfo}
+  Postman -> removeCtrl: {1. missing requestBody \n2. invalid requestBody}
   removeCtrl <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/notify-controller-attribute-value-changes
   Collection --\\o Postman: {servers}
-  Postman -> notifyCAVC: {dummySubscriberInfo}
+  Postman -> notifyCAVC: {1. missing requestBody \n2. invalid requestBody}
   notifyCAVC <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/notify-controller-object-creations
   Collection --\\o Postman: {servers}
-  Postman -> notifyCOC: {dummySubscriberInfo}
+  Postman -> notifyCOC: {1. missing requestBody \n2. invalid requestBody}
   notifyCOC <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/notify-controller-object-deletions
   Collection --\\o Postman: {servers}
-  Postman -> notifyCOD: {dummySubscriberInfo}
+  Postman -> notifyCOD: {1. missing requestBody \n2. invalid requestBody}
   notifyCOD <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/notify-device-alarms
   Collection --\\o Postman: {servers}
-  Postman -> notifyAlarm: {dummySubscriberInfo}
+  Postman -> notifyAlarm: {1. missing requestBody \n2. invalid requestBody}
   notifyAlarm <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/notify-device-attribute-value-changes
   Collection --\\o Postman: {servers}
-  Postman -> notifyDAVC: {dummySubscriberInfo}
+  Postman -> notifyDAVC: {1. missing requestBody \n2. invalid requestBody}
   notifyDAVC <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/notify-device-object-creations
   Collection --\\o Postman: {servers}
-  Postman -> notifyDOC: {dummySubscriberInfo}
+  Postman -> notifyDOC: {1. missing requestBody \n2. invalid requestBody}
   notifyDOC <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
 group /v1/notify-device-object-deletions
   Collection --\\o Postman: {servers}
-  Postman -> notifyDOD: {dummySubscriberInfo}
+  Postman -> notifyDOD: {1. missing requestBody \n2. invalid requestBody}
   notifyDOD <-- Postman: ResponseCode
   note right Postman #Orange
-    check for ResponseCode == 204
+    check for ResponseCode == 400
   end note
 end
 
