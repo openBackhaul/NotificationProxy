@@ -33,15 +33,13 @@
 		],
 		"collectionInputList": [
 			{
-				"collectionName": "nep",
+				"collectionName": "np.completeness",
 				"serverToBeApplied": "NotificationProxy",
-				"mountName": "513250011",
 				"kindOfReference": "dynamic"
 			},
 			{
-				"collectionName": "nep_simulator",
+				"collectionName": "np_simulator.completeness",
 				"serverToBeApplied": "NotificationProxy+simu",
-				"mountName": "513250010",
 				"kindOfReference": "static",
 				"suffixUrlEncodingIsRequired": true
 			}
