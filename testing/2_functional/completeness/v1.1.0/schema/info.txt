@@ -1,0 +1,1 @@
+currently all individual NP services return 204, i.e. no schemas needed.
