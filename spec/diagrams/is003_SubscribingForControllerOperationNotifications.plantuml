@@ -1,7 +1,9 @@
 @startuml is003_SubscribingForControllerOperationNotifications
 skinparam responseMessageBelowArrow true
 
-title PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
+title
+  PromptForListenToControllersCausesSubscribingForControllerOperationNotifications
+end title
 
 participant "Admin or \n/v1/embed-yourself" as Requestor
 participant "NP://v1/listen-to-controllers" as NP_listen
@@ -25,5 +27,6 @@ ODL_step2 --> NP_listen: {subscriptionUri = e.g. /rests/notif/data-change-event-
 
 NP_listen -> ODL_step3: {URI = subscriptionUri}
 ODL_step3 --> NP_listen: {notifications}
+
 
 @enduml
