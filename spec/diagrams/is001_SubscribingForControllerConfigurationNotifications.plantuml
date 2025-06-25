@@ -1,7 +1,9 @@
 @startuml is001_SubscribingForControllerConfigurationNotifications
 skinparam responseMessageBelowArrow true
 
-title PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
+title 
+  PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
+end title
 
 participant "Admin or \n/v1/embed-yourself" as Requestor
 participant "NP://v1/listen-to-controllers" as NP_listen

@@ -1,0 +1,17 @@
+@startuml np-invalidOrMissingRequestBody-components
+
+skinparam componentStyle rectangle
+
+title
+NotificationProxy+test.functional.invalidOrMissingRequestBody
+end title
+
+package "invalidOrMissingRequestBody" {
+  component [<u>Postman</u>\n\nNotificationProxy+test.invalidOrMissingRequestBody.json] as TCC #Orange 
+  component [<u>Application under Test</u>\n\nNotificationProxy] as AUT #LightBlue 
+
+  TCC -> AUT
+
+}
+
+@enduml
