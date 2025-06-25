@@ -2,7 +2,7 @@
 info:
   title: NotificationProxy
   version: 1.1.0
-  description: Provides DeviceNotifications and ControllerNotifications according to ONF-TR352 definitions.
+  description: Provides DeviceNotifications and ControllerNotifications according to ONF TR-532 definitions.
   contact:
     name: Zia Ul Haq Hussain Batcha
     url: https://github.com/openBackhaul/NotificationProxy

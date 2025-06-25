@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
-  title: NP_1.1.0+simulator.completeness
+  title: NP_1.1.0+simulator.invalidOrMissingRequestBody
   version: 1.0.0
 
 paths:
 ########################################################################################################################
 #   Service Layer - Individual part
-#   NP_1.1.0+simulator.completeness in static reference mode
+#   NP_1.1.0+simulator.invalidOrMissingRequestBody in static reference mode
 ########################################################################################################################
 
   /v1/add-controller:
@@ -77,26 +77,8 @@ paths:
                     ipv-4-address: '1.1.1.2'
                 controller-port: 1002
       responses:
-        '204':
-          description: 'Tcp-, Http- and OperationClients of ODLn created and connected by FcPorts'
-
-  /v1/listen-to-controllers:
-    parameters:
-      - $ref: '#/components/parameters/user'
-      - $ref: '#/components/parameters/originator'
-      - $ref: '#/components/parameters/x-correlator'
-      - $ref: '#/components/parameters/trace-indicator'
-      - $ref: '#/components/parameters/customer-journey'
-    post:
-      operationId: listenToControllers
-      summary: 'Establishes event streams for controller and device notifications at all ODLn by initiating the callbacks defined by /v1/add-controller'
-      tags:
-        - IndividualServices
-      security:
-        - apiKeyAuth: []
-      responses:
-        '204':
-          description: 'Event streams for controller and device notifications established at all ODLn'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/remove-controller:
     parameters:
@@ -132,8 +114,8 @@ paths:
                 controller-name: 'OpenDayLight2'
                 controller-release: '4.0.2'
       responses:
-        '204':
-          description: 'FcPorts, Operation-, Http- and TcpClients of ODLn removed'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/notify-controller-attribute-value-changes:
     parameters:
@@ -207,8 +189,8 @@ paths:
                 subscribing-application-port: 4004
                 notifications-receiving-operation: '/v1/regard-controller-attribute-value-change'
       responses:
-        '204':
-          description: 'Subscription for notifications about changes of attributes at the controllers created'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/notify-controller-object-creations:
     parameters:
@@ -282,8 +264,8 @@ paths:
                 subscribing-application-port: 4004
                 notifications-receiving-operation: '/v1/regard-controller-object-creation'
       responses:
-        '204':
-          description: 'Subscription for notifications about object creations at the controllers created'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/notify-controller-object-deletions:
     parameters:
@@ -357,8 +339,8 @@ paths:
                 subscribing-application-port: 4004
                 notifications-receiving-operation: '/v1/regard-controller-object-deletion'
       responses:
-        '204':
-          description: 'Subscription for notifications about object deletions at the controllers created'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/notify-device-alarms:
     parameters:
@@ -432,8 +414,8 @@ paths:
                 subscribing-application-port: 4004
                 notifications-receiving-operation: '/v1/regard-device-alarm'
       responses:
-        '204':
-          description: 'Subscription for notifications about alarms at the devices created'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/notify-device-attribute-value-changes:
     parameters:
@@ -507,8 +489,8 @@ paths:
                 subscribing-application-port: 4004
                 notifications-receiving-operation: '/v1/regard-device-attribute-value-change'
       responses:
-        '204':
-          description: 'Subscription for notifications about changes of attributes at the devices created'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/notify-device-object-creations:
     parameters:
@@ -582,8 +564,8 @@ paths:
                 subscribing-application-port: 4004
                 notifications-receiving-operation: '/v1/regard-device-object-creation'
       responses:
-        '204':
-          description: 'Subscription for notifications about object creations at the devices created'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
   /v1/notify-device-object-deletions:
     parameters:
@@ -657,8 +639,8 @@ paths:
                 subscribing-application-port: 4004
                 notifications-receiving-operation: '/v1/regard-device-object-deletion'
       responses:
-        '204':
-          description: 'Subscription for notifications about object deletions at the devices created'
+        '400':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
 
 ########################################################################################################################
 #   Common Components

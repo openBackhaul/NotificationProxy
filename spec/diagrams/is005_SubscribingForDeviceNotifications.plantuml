@@ -9,7 +9,7 @@ end title
 participant "Admin or \n/v1/embed-yourself" as Requestor
 participant "NP://v1/listen-to-controllers" as NP_listen
 participant "ODLn://rests/notif/device?notificationType=device" as ODLn
-participant "Kafka \n(topic=all_notifications)" as Kafka
+participant "Kafka \n(topic=<i>all_notifications</i>)" as Kafka
 
 Requestor -> NP_listen
 activate NP_listen
@@ -21,6 +21,15 @@ end note
 
 NP_listen -> ODLn
 ODLn --> NP_listen: {notifications}
+
+note over NP_listen
+  Before notifications are pushed to Kafka,
+  they have to be formatted into ONF TR-532
+  format.
+  (The target ressource identified in notifications
+  must be formed into a unique ressource path for
+  MWDI.)
+end note
 
 NP_listen -> Kafka: {notifications}
 

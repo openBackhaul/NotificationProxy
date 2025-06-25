@@ -13,7 +13,7 @@
 				"authorizationCode": "Basic ????",
 				"operationKey": "Operation key not yet provided.",
 				"userName": "Thorsten Heinze",
-				"originator": "NEP_1.1.0+testcase.completeness",
+				"originator": "NEP_1.1.0+testcase.invalidOrMissingRequestBody",
 				"xCorrelator": "00000000-0000-0000-0000-000000000000",
 				"traceIndicator": "1",
 				"customerJourney": ""
@@ -25,7 +25,7 @@
 				"authorizationCode": "Basic ????",
 				"operationKey": "Operation key not yet provided.",
 				"userName": "Thorsten Heinze",
-				"originator": "NEP_1.1.0+testcase.completeness",
+				"originator": "NEP_1.1.0+testcase.invalidOrMissingRequestBody",
 				"xCorrelator": "00000000-0000-0000-0000-000000000000",
 				"traceIndicator": "1",
 				"customerJourney": ""
@@ -33,12 +33,12 @@
 		],
 		"collectionInputList": [
 			{
-				"collectionName": "np.completeness",
+				"collectionName": "np.invalidOrMissingRequestBody",
 				"serverToBeApplied": "NotificationProxy",
 				"kindOfReference": "dynamic"
 			},
 			{
-				"collectionName": "np_simulator.completeness",
+				"collectionName": "np_simulator.invalidOrMissingRequestBody",
 				"serverToBeApplied": "NotificationProxy+simu",
 				"kindOfReference": "static",
 				"suffixUrlEncodingIsRequired": true
