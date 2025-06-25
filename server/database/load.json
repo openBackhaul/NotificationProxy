@@ -689,19 +689,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/add-controller"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/add-controller"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-001",
@@ -710,19 +712,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/listen-to-controllers"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/listen-to-controllers"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-002",
@@ -731,19 +735,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/remove-controller"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/remove-controller"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-011",
@@ -752,19 +758,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/notify-controller-attribute-value-changes"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/notify-controller-attribute-value-changes"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-012",
@@ -773,19 +781,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/notify-controller-object-creations"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/notify-controller-object-creations"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-013",
@@ -794,19 +804,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/notify-controller-object-deletions"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/notify-controller-object-deletions"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-020",
@@ -815,19 +827,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/notify-device-alarms"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/notify-device-alarms"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-021",
@@ -836,19 +850,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/notify-device-attribute-value-changes"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/notify-device-attribute-value-changes"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-022",
@@ -857,19 +873,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/notify-device-object-creations"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/notify-device-object-creations"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-s-is-023",
@@ -878,19 +896,21 @@
         "server-ltp": [
           "np-1-0-2-http-s-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-server-interface-1-0:operation-server-interface-pac": {
-            "operation-server-interface-capability": {
-              "operation-name": "/v1/notify-device-object-deletions"
-            },
-            "operation-server-interface-configuration": {
-              "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
-              "operation-key": "Operation key not yet provided."
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/notify-device-object-deletions"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-http-s-000",
@@ -967,20 +987,22 @@
           "np-1-0-2-http-s-000"
         ],
         "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-server-interface-1-0:tcp-server-interface-pac": {
-            "tcp-server-interface-configuration": {
-              "description": "Without TLS layer",
-              "local-protocol": "tcp-server-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "local-address": {
-                "ipv-4-address": "127.0.0.1"
-              },
-              "local-port": 4011
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-server-interface-1-0:tcp-server-interface-pac": {
+              "tcp-server-interface-configuration": {
+                "description": "Without TLS layer",
+                "local-protocol": "tcp-server-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "local-address": {
+                  "ipv-4-address": "127.0.0.1"
+                },
+                "local-port": 4011
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-bm-or-1-0-1-000",
@@ -1013,16 +1035,18 @@
         "server-ltp": [
           "np-1-0-2-tcp-c-or-1-0-1-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
-          "http-client-interface-1-0:http-client-interface-pac": {
-            "http-client-interface-configuration": {
-              "application-name": "OldRelease",
-              "release-number": "1.0.1"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
+            "http-client-interface-1-0:http-client-interface-pac": {
+              "http-client-interface-configuration": {
+                "application-name": "OldRelease",
+                "release-number": "1.0.1"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-tcp-c-or-1-0-1-000",
@@ -1031,21 +1055,23 @@
           "np-1-0-2-http-c-or-1-0-1-000"
         ],
         "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 4011
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 4011
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-im-nr-1-0-2-000",
@@ -1262,16 +1288,18 @@
         "server-ltp": [
           "np-1-0-2-tcp-c-nr-1-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
-          "http-client-interface-1-0:http-client-interface-pac": {
-            "http-client-interface-configuration": {
-              "application-name": "NewRelease",
-              "release-number": "1.0.2"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
+            "http-client-interface-1-0:http-client-interface-pac": {
+              "http-client-interface-configuration": {
+                "application-name": "NewRelease",
+                "release-number": "1.0.2"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-tcp-c-nr-1-0-2-000",
@@ -1280,21 +1308,23 @@
           "np-1-0-2-http-c-nr-1-0-2-000"
         ],
         "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 4011
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 4011
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-bm-ro-2-1-2-000",
@@ -1413,22 +1443,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-ro-2-1-2-000"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 3031
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 3031
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-http-c-tar-2-1-2-000",
@@ -1454,22 +1487,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-tar-2-1-2-000"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 3032
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 3032
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-bs-eatl-2-1-2-000",
@@ -1520,22 +1556,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-eatl-2-1-2-000"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 3033
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 3033
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-bs-ol-2-1-2-000",
@@ -1585,22 +1624,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-ol-2-1-2-000"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 3034
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 3034
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-bs-aa-2-1-2-000",
@@ -1650,22 +1692,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-aa-2-1-2-000"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 3035
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 3035
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-bm-alt-2-1-2-000",
@@ -1830,22 +1875,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-alt-2-1-2-000"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 3036
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 3036
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-http-c-okm-2-1-2-000",
@@ -1871,22 +1919,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-okm-2-1-2-000"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 3037
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 3037
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-im-np-1-0-2-000",
@@ -1919,16 +1970,18 @@
         "server-ltp": [
           "np-1-0-2-tcp-c-np-1-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
-          "http-client-interface-1-0:http-client-interface-pac": {
-            "http-client-interface-configuration": {
-              "application-name": "NotificationProxy",
-              "release-number": "1.0.2"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
+            "http-client-interface-1-0:http-client-interface-pac": {
+              "http-client-interface-configuration": {
+                "application-name": "NotificationProxy",
+                "release-number": "1.0.2"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-tcp-c-np-1-0-2-000",
@@ -1937,21 +1990,23 @@
           "np-1-0-2-http-c-np-1-0-2-000"
         ],
         "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 4011
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 4011
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odlt-4-0-2-000",
@@ -1960,20 +2015,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odlt-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odlt-4-0-2-001",
@@ -1982,20 +2039,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odlt-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odlt-4-0-2-002",
@@ -2004,20 +2063,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odlt-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odlt-4-0-2-003",
@@ -2026,20 +2087,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odlt-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odlt-4-0-2-004",
@@ -2048,20 +2111,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odlt-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odlt-4-0-2-005",
@@ -2070,20 +2135,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odlt-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/notif/device?notificationType=device",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/notif/device?notificationType=device",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-http-c-odlt-4-0-2-000",
@@ -2117,21 +2184,23 @@
           "np-1-0-2-http-c-odlt-4-0-2-000"
         ],
         "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "1.1.1.1"
-                }
-              },
-              "remote-port": 1001
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "1.1.1.1"
+                  }
+                },
+                "remote-port": 1001
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odl1-4-0-2-000",
@@ -2140,20 +2209,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odl1-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/operations/sal-remote:create-data-change-event-subscription",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odl1-4-0-2-001",
@@ -2162,20 +2233,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odl1-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odl1-4-0-2-002",
@@ -2184,20 +2257,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odl1-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=CONFIGURATION/scope=SUBTREE/JSON",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odl1-4-0-2-003",
@@ -2206,20 +2281,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odl1-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/data/ietf-restconf-monitoring:restconf-state/streams/stream/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON?changed-leaf-nodes-only=true",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odl1-4-0-2-004",
@@ -2228,20 +2305,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odl1-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/notif/data-change-event-subscription/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE/JSON",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-odl1-4-0-2-005",
@@ -2250,20 +2329,22 @@
         "server-ltp": [
           "np-1-0-2-http-c-odl1-4-0-2-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
-          "operation-client-interface-1-0:operation-client-interface-pac": {
-            "operation-client-interface-configuration": {
-              "operation-name": "/rests/notif/device?notificationType=device",
-              "operation-key": "n.a."
-            },
-            "operation-client-interface-status": {
-              "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
-              "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-client-interface-1-0:operation-client-interface-pac": {
+              "operation-client-interface-configuration": {
+                "operation-name": "/rests/notif/device?notificationType=device",
+                "operation-key": "n.a."
+              },
+              "operation-client-interface-status": {
+                "operational-state": "operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED",
+                "life-cycle-state": "operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-http-c-odl1-4-0-2-000",
@@ -2297,21 +2378,23 @@
           "np-1-0-2-http-c-odl1-4-0-2-000"
         ],
         "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "1.1.1.1"
-                }
-              },
-              "remote-port": 1001
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "1.1.1.1"
+                  }
+                },
+                "remote-port": 1001
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-op-c-is-mwdi-1-2-0-111",
@@ -2436,16 +2519,18 @@
         "server-ltp": [
           "np-1-0-2-tcp-c-mwdi-1-2-0-000"
         ],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
-          "http-client-interface-1-0:http-client-interface-pac": {
-            "http-client-interface-configuration": {
-              "application-name": "MicroWaveDeviceInventory",
-              "release-number": "1.2.0"
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER",
+            "http-client-interface-1-0:http-client-interface-pac": {
+              "http-client-interface-configuration": {
+                "application-name": "MicroWaveDeviceInventory",
+                "release-number": "1.2.0"
+              }
             }
           }
-        }]
+        ]
       },
       {
         "uuid": "np-1-0-2-tcp-c-mwdi-1-2-0-000",
@@ -2453,22 +2538,25 @@
         "client-ltp": [
           "np-1-0-2-http-c-mwdi-1-2-0-100"
         ],
-        "server-ltp": [],
-        "layer-protocol": [{
-          "local-id": "0",
-          "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
-          "tcp-client-interface-1-0:tcp-client-interface-pac": {
-            "tcp-client-interface-configuration": {
-              "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
-              "remote-address": {
-                "ip-address": {
-                  "ipv-4-address": "127.0.0.1"
-                }
-              },
-              "remote-port": 4015
+        "server-ltp": [
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER",
+            "tcp-client-interface-1-0:tcp-client-interface-pac": {
+              "tcp-client-interface-configuration": {
+                "remote-protocol": "tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP",
+                "remote-address": {
+                  "ip-address": {
+                    "ipv-4-address": "127.0.0.1"
+                  }
+                },
+                "remote-port": 4015
+              }
             }
           }
-        }]
+        ]
       }
     ],
     "forwarding-domain": [{

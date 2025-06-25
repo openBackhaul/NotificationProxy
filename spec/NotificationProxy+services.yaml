@@ -135,6 +135,7 @@ clients:
     tcp-client:
       remote-protocol: http
       ip-address: 127.0.0.1
+      ip-address: 127.0.0.1
       tcp-port: 4011
       uuid: np-1-1-0-tcp-c-or-1-0-2-000
     operation-clients:
@@ -417,6 +418,7 @@ clients:
       uuid: np-1-1-0-http-c-mwdi-2-0-1-100
     tcp-client:
       remote-protocol: http
+      ip-address: 127.0.0.1
       ip-address: 127.0.0.1
       tcp-port: 4015
       uuid: np-1-1-0-tcp-c-mwdi-2-0-1-100
