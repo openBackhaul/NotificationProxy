@@ -15,6 +15,7 @@ const logger = require('../LoggingService.js').getLogger();
 const controllerManagement = require('./ControllerManagement');
 const notificationManagement = require("./NotificationManagement");
 const crypto = require("crypto");
+const kafkaClient = require("./KafkaClient");
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
@@ -724,20 +725,29 @@ function handleDeviceNotification(message, controllerName, controllerRelease, co
  * @param controllerTargetUrl
  */
 async function notifyAllDeviceSubscribers(deviceNotificationType, controllerNotification, controllerName, controllerRelease, controllerTargetUrl) {
-    let activeSubscribers = await exports.getActiveSubscribers(deviceNotificationType);
+    // Kafka
+    let notificationMessage = notificationConverter.convertNotification(controllerNotification, deviceNotificationType, controllerName, controllerRelease);
+    const topic = deviceNotificationType === configConstants.OAM_PATH_DEVICE_ALARMS ? 'device-alarms' : 'device-object-change';
+    await kafkaClient.sendMessage(topic, {
+      type: deviceNotificationType,
+      payload: notificationMessage,
+    });
 
-    if (activeSubscribers.length > 0) {
-        logger.debug("starting notification of " + activeSubscribers.length + " subscribers for '" + deviceNotificationType + "', source-stream is " + controllerName + " -> " + controllerTargetUrl);
+    // Webhook
+    // let activeSubscribers = await exports.getActiveSubscribers(deviceNotificationType);
 
-        //build one notification for all subscribers
-        let notificationMessage = notificationConverter.convertNotification(controllerNotification, deviceNotificationType, controllerName, controllerRelease);
+    // if (activeSubscribers.length > 0) {
+    //     logger.debug("starting notification of " + activeSubscribers.length + " subscribers for '" + deviceNotificationType + "', source-stream is " + controllerName + " -> " + controllerTargetUrl);
 
-        for (let subscriber of activeSubscribers) {
-            sendMessageToSubscriber(deviceNotificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessage);
-        }
-    } else {
-        logger.debug("no subscribers for " + deviceNotificationType + ", message discarded");
-    }
+    //     //build one notification for all subscribers
+    //     let notificationMessage = notificationConverter.convertNotification(controllerNotification, deviceNotificationType, controllerName, controllerRelease);
+
+    //     for (let subscriber of activeSubscribers) {
+    //         sendMessageToSubscriber(deviceNotificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessage);
+    //     }
+    // } else {
+    //     logger.debug("no subscribers for " + deviceNotificationType + ", message discarded");
+    // }
 }
 
 

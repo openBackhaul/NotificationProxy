@@ -6,6 +6,7 @@ var http = require('http');
 var oas3Tools = require('oas3-tools');
 var appCommons = require('onf-core-model-ap/applicationPattern/commons/AppCommons');
 
+const kafkaClient = require("./service/individualServices/KafkaClient");
 const logger = require('./service/LoggingService.js').getLogger();
 
 var serverPort = 9092;
@@ -34,6 +35,9 @@ http.createServer(app).listen(serverPort, function () {
 });
 
 global.databasePath = './database/load.json'
+
+// connect to Kafka
+kafkaClient.connect();
 
 // 1-integrate-loadfile
 // 3-integrate-authorization
