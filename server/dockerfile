@@ -9,6 +9,7 @@ COPY package*.json ./
 # Only copy package.json to avoid copying package-lock.json with local registry paths
 #COPY package.json ./
 
+ENV KAFKA_BROKER=${KAFKA_BROKER}
 ENV CONTROLLER_USER=${CONTROLLER_USER}
 ENV CONTROLLER_PASSWORD=${CONTROLLER_PASSWORD}
 ENV DEVICE_USER=${DEVICE_USER}
