@@ -11,7 +11,7 @@ describe('Basic Service Test Suite', () => {
 
     let backupConfigJson = null;
 
-    global.databasePath = 'database/load.json';
+    global.databasePath = 'database/config.json';
 
     beforeAll(() => {
         backupConfigJson = fs.readFileSync(global.databasePath, 'utf8');
@@ -44,7 +44,7 @@ describe('Basic Service Test Suite', () => {
     });
 
     afterAll(() => {
-        fs.writeFileSync('database/load.json', backupConfigJson, 'utf8');
+        fs.writeFileSync('database/config.json', backupConfigJson, 'utf8');
 
         ForwardingAutomationService.automateForwardingConstructAsync.mockRestore();
     });

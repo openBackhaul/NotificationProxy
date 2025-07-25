@@ -7,8 +7,9 @@ var oas3Tools = require('oas3-tools');
 var appCommons = require('onf-core-model-ap/applicationPattern/commons/AppCommons');
 
 const logger = require('./service/LoggingService.js').getLogger();
+let kafkaConnection = require('./service/individualServices/KafkaHandler');
 
-var serverPort = 9092;
+var serverPort = 4025;
 
 // uncomment if you do not want to validate security e.g. operation-key, basic auth, etc
 //appCommons.openApiValidatorOptions.validateSecurity = false;
@@ -33,10 +34,13 @@ http.createServer(app).listen(serverPort, function () {
     logger.info('Swagger-ui is available on http://localhost:%d/docs', serverPort);
 });
 
-global.databasePath = './database/load.json'
+global.databasePath = './database/config.json'
 
 // 1-integrate-loadfile
 // 3-integrate-authorization
 
 // perform application registration
-appCommons.performApplicationRegistration();
+//appCommons.performApplicationRegistration();
+
+//initiate connection to kafka broker
+kafkaConnection.connectToKafka();
