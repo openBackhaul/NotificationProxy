@@ -15,6 +15,8 @@ const logger = require('../LoggingService.js').getLogger();
 const controllerManagement = require('./ControllerManagement');
 const notificationManagement = require("./NotificationManagement");
 const crypto = require("crypto");
+const kafkaHandler = require('./KafkaHandler');
+const kafka = require("onf-core-model-ap/applicationPattern/services/KafkaProducerService");
 
 const CONTROLLER_SUB_MODE_CONFIGURATION = "CONFIGURATION";
 const CONTROLLER_SUB_MODE_OPERATIONAL = "OPERATIONAL";
@@ -27,7 +29,7 @@ let lastSentMessages = [];
  * Query and cache app information from the load file.
  * @returns appInformation with application-name and release-number
  */
-exports.getAppInformation = async function() {
+exports.getAppInformation = async function () {
     if (!appInformation) {
         appInformation = {};
 
@@ -444,8 +446,8 @@ exports.buildControllerTargetPath = function (controllerProtocol, controllerAddr
  * @return string: URL for subscription or null
  */
 async function createControllerNotificationStream(controllerAddress, operationKey,
-                                                  controllerSubscriptionMode,
-                                                  user, password) {
+    controllerSubscriptionMode,
+    user, password) {
 
     //for example http://{odlAddress}:{odlPort}/rests/operations/sal-remote:create-data-change-event-subscription
     let controllerTargetUrl = controllerAddress + configConstants.PATH_STREAM_CONTROLLER_STEP1;
@@ -683,7 +685,7 @@ async function listenToControllerNotifications(streamLocation, registeredControl
  * @param controllerRelease
  * @param controllerTargetUrl
  */
-function handleDeviceNotification(message, controllerName, controllerRelease, controllerTargetUrl) {
+exports.handleDeviceNotification = async function (message, controllerName, controllerRelease, controllerTargetUrl) {
     let notificationString = message.toString();
     try {
         let notification = JSON.parse(notificationString);
@@ -723,20 +725,15 @@ function handleDeviceNotification(message, controllerName, controllerRelease, co
  * @param controllerRelease
  * @param controllerTargetUrl
  */
-async function notifyAllDeviceSubscribers(deviceNotificationType, controllerNotification, controllerName, controllerRelease, controllerTargetUrl) {
-    let activeSubscribers = await exports.getActiveSubscribers(deviceNotificationType);
+async function notifyAllDeviceSubscribers(deviceNotificationType, notification, controllerName, controllerRelease, controllerTargetUrl) {
+    try {
+        // convert notifications to ONF format
+        let notificationMessage = notificationConverter.convertNotification(notification, deviceNotificationType, controllerName, controllerRelease);
+        //sending notifications to kafka
+        sendMessageToKafka(deviceNotificationType, notificationMessage);
 
-    if (activeSubscribers.length > 0) {
-        logger.debug("starting notification of " + activeSubscribers.length + " subscribers for '" + deviceNotificationType + "', source-stream is " + controllerName + " -> " + controllerTargetUrl);
-
-        //build one notification for all subscribers
-        let notificationMessage = notificationConverter.convertNotification(controllerNotification, deviceNotificationType, controllerName, controllerRelease);
-
-        for (let subscriber of activeSubscribers) {
-            sendMessageToSubscriber(deviceNotificationType, subscriber.targetOperationURL, subscriber.operationKey, notificationMessage);
-        }
-    } else {
-        logger.debug("no subscribers for " + deviceNotificationType + ", message discarded");
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -750,9 +747,9 @@ async function notifyAllDeviceSubscribers(deviceNotificationType, controllerNoti
  * @param notificationsReceivingOperation target url operation part
  */
 function buildDeviceSubscriberOperationPath(subscribingApplicationProtocol,
-                                            subscribingApplicationAddress,
-                                            subscribingApplicationPort,
-                                            notificationsReceivingOperation) {
+    subscribingApplicationAddress,
+    subscribingApplicationPort,
+    notificationsReceivingOperation) {
 
     let addressPart;
     if (subscribingApplicationAddress["domain-name"]) {
@@ -766,3 +763,84 @@ function buildDeviceSubscriberOperationPath(subscribingApplicationProtocol,
         + ":" + subscribingApplicationPort
         + notificationsReceivingOperation;
 }
+
+/**
+ * Trigger device notification to kafka broker also suppress duplicate notifications
+ * @param notificationType type of notification
+ * @param notificationMessage converted notification to send
+ */
+async function sendMessageToKafka(notificationType, notificationMessage) {
+    try {
+        cleanupOutboundNotificationCache();
+
+        // extract target topic-name of kafka-broker
+        let kafkaClientLtp = await kafkaHandler.getKafkaClient();
+        let topicName = await kafkaHandler.getKafkaTopicName(kafkaClientLtp);
+        let targetOperationURL = `kafka:+${topicName}`;
+
+        //check if same notification was sent more than once in certain timespan
+        let isDuplicate = checkNotificationDuplicate(notificationType, targetOperationURL, notificationMessage);
+
+        if (isDuplicate) {
+            logger.debug("notification duplicate ignored");
+        } else {
+            let sendingTimestampMs = Date.now();
+
+            // "clone"
+            let comparisonNotificationMessage = JSON.parse(JSON.stringify(notificationMessage));
+            //ignore timestamp and counter for comparison
+            delete comparisonNotificationMessage[Object.keys(comparisonNotificationMessage)[0]]["timestamp"];
+            delete comparisonNotificationMessage[Object.keys(comparisonNotificationMessage)[0]]["counter"];
+
+            let messageCacheEntry = {
+                "targetOperationURL": targetOperationURL,
+                "type": notificationType,
+                "notification": comparisonNotificationMessage,
+                "timeMs": sendingTimestampMs
+            }
+            lastSentMessages.push(messageCacheEntry);
+
+            let appInformation = await exports.getAppInformation();
+            let requestHeader = exports.createRequestHeader();
+            let uniqueSendingID = crypto.randomUUID();
+
+            //send notification
+            logger.debug("sending device notification to: " + targetOperationURL + " with content: " + JSON.stringify(notificationMessage) + " - debugId: '" + uniqueSendingID + "'");
+
+            await kafka.sendMessage(topicName, notificationMessage)
+                .then((response) => {
+                    logger.debug("subscriber-notification success, notificationType " + notificationType + ", target url: " + targetOperationURL + ", result status: " + response.status + " - debugId: '" + uniqueSendingID + "'");
+
+                    executionAndTraceService.recordServiceRequestFromClient(
+                        appInformation["application-name"],
+                        appInformation["release-number"],
+                        requestHeader.xCorrelator,
+                        requestHeader.traceIndicator,
+                        requestHeader.user,
+                        requestHeader.originator,
+                        notificationType, //for example "notifications/device-alarms"
+                        response.status,
+                        notificationMessage,
+                        response.data);
+                })
+                .catch(e => {
+                    logger.error(e, "error during subscriber-notification for " + notificationType + " - debugId: '" + uniqueSendingID + "'");
+
+                    executionAndTraceService.recordServiceRequestFromClient(
+                        appInformation["application-name"],
+                        appInformation["release-number"],
+                        requestHeader.xCorrelator,
+                        requestHeader.traceIndicator,
+                        requestHeader.user,
+                        requestHeader.originator,
+                        notificationType,
+                        responseCodeEnum.code.INTERNAL_SERVER_ERROR,
+                        notificationMessage,
+                        e);
+                });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
