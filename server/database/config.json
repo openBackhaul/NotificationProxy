@@ -471,6 +471,102 @@
         ]
       },
       {
+        "uuid": "np-1-1-0-op-s-bm-012",
+        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
+        "client-ltp": [
+        ],
+        "server-ltp": [
+          "np-1-1-0-http-s-000"
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/inquire-basic-auth-approvals"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "uuid": "np-1-1-0-op-s-bm-013",
+        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
+        "client-ltp": [
+        ],
+        "server-ltp": [
+          "np-1-1-0-http-s-000"
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/dispose-remainders-of-deregistered-application"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "uuid": "np-1-1-0-op-s-bm-014",
+        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
+        "client-ltp": [
+        ],
+        "server-ltp": [
+          "np-1-1-0-http-s-000"
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/inform-about-preceding-release"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "n.a."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "uuid": "np-1-1-0-op-s-bm-015",
+        "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
+        "client-ltp": [
+        ],
+        "server-ltp": [
+          "np-1-1-0-http-s-000"
+        ],
+        "layer-protocol": [
+          {
+            "local-id": "0",
+            "layer-protocol-name": "operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
+            "operation-server-interface-1-0:operation-server-interface-pac": {
+              "operation-server-interface-capability": {
+                "operation-name": "/v1/update-client-of-subsequent-release"
+              },
+              "operation-server-interface-configuration": {
+                "life-cycle-state": "operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL",
+                "operation-key": "Operation key not yet provided."
+              }
+            }
+          }
+        ]
+      },
+      {
         "uuid": "np-1-1-0-op-s-im-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SOURCE",
         "client-ltp": [
@@ -893,6 +989,10 @@
           "np-1-1-0-op-s-bm-009",
           "np-1-1-0-op-s-bm-010",
           "np-1-1-0-op-s-bm-011",
+          "np-1-1-0-op-s-bm-012",
+          "np-1-1-0-op-s-bm-013",
+          "np-1-1-0-op-s-bm-014",
+          "np-1-1-0-op-s-bm-015",
           "np-1-1-0-op-s-im-000",
           "np-1-1-0-op-s-bs-000",
           "np-1-1-0-op-s-bs-001",
@@ -1122,12 +1222,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-000",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1147,12 +1247,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-001",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1172,12 +1272,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-011",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-011",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1197,12 +1297,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-012",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-012",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1222,12 +1322,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-013",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-013",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1247,12 +1347,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-020",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-020",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1272,12 +1372,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-021",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-021",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1297,12 +1397,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-022",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-022",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1322,12 +1422,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-im-nr-1-0-0-023",
+        "uuid": "np-1-1-0-op-c-im-nr-1-1-0-023",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1347,21 +1447,21 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-nr-1-0-0-000",
+        "uuid": "np-1-1-0-http-c-nr-1-1-0-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-op-c-im-nr-1-0-0-000",
-          "np-1-1-0-op-c-im-nr-1-0-0-001",
-          "np-1-1-0-op-c-im-nr-1-0-0-011",
-          "np-1-1-0-op-c-im-nr-1-0-0-012",
-          "np-1-1-0-op-c-im-nr-1-0-0-013",
-          "np-1-1-0-op-c-im-nr-1-0-0-020",
-          "np-1-1-0-op-c-im-nr-1-0-0-021",
-          "np-1-1-0-op-c-im-nr-1-0-0-022",
-          "np-1-1-0-op-c-im-nr-1-0-0-023"
+          "np-1-1-0-op-c-im-nr-1-1-0-000",
+          "np-1-1-0-op-c-im-nr-1-1-0-001",
+          "np-1-1-0-op-c-im-nr-1-1-0-011",
+          "np-1-1-0-op-c-im-nr-1-1-0-012",
+          "np-1-1-0-op-c-im-nr-1-1-0-013",
+          "np-1-1-0-op-c-im-nr-1-1-0-020",
+          "np-1-1-0-op-c-im-nr-1-1-0-021",
+          "np-1-1-0-op-c-im-nr-1-1-0-022",
+          "np-1-1-0-op-c-im-nr-1-1-0-023"
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-nr-1-0-0-000"
+          "np-1-1-0-tcp-c-nr-1-1-0-000"
         ],
         "layer-protocol": [
           {
@@ -1377,10 +1477,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-nr-1-0-0-000",
+        "uuid": "np-1-1-0-tcp-c-nr-1-1-0-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-nr-1-0-0-000"
+          "np-1-1-0-http-c-nr-1-1-0-000"
         ],
         "server-ltp": [
         ],
@@ -1403,12 +1503,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-ro-2-0-1-000",
+        "uuid": "np-1-1-0-op-c-bm-ro-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-ro-2-0-1-000"
+          "np-1-1-0-http-c-ro-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1428,12 +1528,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-ro-2-0-1-001",
+        "uuid": "np-1-1-0-op-c-bm-ro-2-1-2-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-ro-2-0-1-000"
+          "np-1-1-0-http-c-ro-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1453,12 +1553,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-ro-2-0-1-002",
+        "uuid": "np-1-1-0-op-c-bm-ro-2-1-2-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-ro-2-0-1-000"
+          "np-1-1-0-http-c-ro-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1478,12 +1578,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-ro-2-0-1-003",
+        "uuid": "np-1-1-0-op-c-bm-ro-2-1-2-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-ro-2-0-1-000"
+          "np-1-1-0-http-c-ro-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1503,16 +1603,16 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-ro-2-0-1-000",
+        "uuid": "np-1-1-0-http-c-ro-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-op-c-bm-ro-2-0-1-000",
-          "np-1-1-0-op-c-bm-ro-2-0-1-001",
-          "np-1-1-0-op-c-bm-ro-2-0-1-002",
-          "np-1-1-0-op-c-bm-ro-2-0-1-003"
+          "np-1-1-0-op-c-bm-ro-2-1-2-000",
+          "np-1-1-0-op-c-bm-ro-2-1-2-001",
+          "np-1-1-0-op-c-bm-ro-2-1-2-002",
+          "np-1-1-0-op-c-bm-ro-2-1-2-003"
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-ro-2-0-1-000"
+          "np-1-1-0-tcp-c-ro-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1528,10 +1628,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-ro-2-0-1-000",
+        "uuid": "np-1-1-0-tcp-c-ro-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-ro-2-0-1-000"
+          "np-1-1-0-http-c-ro-2-1-2-000"
         ],
         "server-ltp": [
         ],
@@ -1554,12 +1654,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-tar-2-0-1-000",
+        "uuid": "np-1-1-0-http-c-tar-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-tar-2-0-1-000"
+          "np-1-1-0-tcp-c-tar-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1575,10 +1675,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-tar-2-0-1-000",
+        "uuid": "np-1-1-0-tcp-c-tar-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-tar-2-0-1-000"
+          "np-1-1-0-http-c-tar-2-1-2-000"
         ],
         "server-ltp": [
         ],
@@ -1601,12 +1701,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bs-eatl-2-0-1-000",
+        "uuid": "np-1-1-0-op-c-bs-eatl-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-eatl-2-0-1-000"
+          "np-1-1-0-http-c-eatl-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1627,13 +1727,13 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-eatl-2-0-1-000",
+        "uuid": "np-1-1-0-http-c-eatl-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-op-c-bs-eatl-2-0-1-000"
+          "np-1-1-0-op-c-bs-eatl-2-1-2-000"
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-eatl-2-0-1-000"
+          "np-1-1-0-tcp-c-eatl-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1649,10 +1749,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-eatl-2-0-1-000",
+        "uuid": "np-1-1-0-tcp-c-eatl-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-eatl-2-0-1-000"
+          "np-1-1-0-http-c-eatl-2-1-2-000"
         ],
         "server-ltp": [
         ],
@@ -1675,12 +1775,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bs-ol-2-0-1-000",
+        "uuid": "np-1-1-0-op-c-bs-ol-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-ol-2-0-1-000"
+          "np-1-1-0-http-c-ol-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1700,13 +1800,13 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-ol-2-0-1-000",
+        "uuid": "np-1-1-0-http-c-ol-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-op-c-bs-ol-2-0-1-000"
+          "np-1-1-0-op-c-bs-ol-2-1-2-000"
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-ol-2-0-1-000"
+          "np-1-1-0-tcp-c-ol-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1722,10 +1822,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-ol-2-0-1-000",
+        "uuid": "np-1-1-0-tcp-c-ol-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-ol-2-0-1-000"
+          "np-1-1-0-http-c-ol-2-1-2-000"
         ],
         "server-ltp": [
         ],
@@ -1748,12 +1848,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bs-aa-2-0-1-000",
+        "uuid": "np-1-1-0-op-c-bs-aa-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-aa-2-0-1-000"
+          "np-1-1-0-http-c-aa-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1773,13 +1873,13 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-aa-2-0-1-000",
+        "uuid": "np-1-1-0-http-c-aa-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-op-c-bs-aa-2-0-1-000"
+          "np-1-1-0-op-c-bs-aa-2-1-2-000"
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-aa-2-0-1-000"
+          "np-1-1-0-tcp-c-aa-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1795,10 +1895,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-aa-2-0-1-000",
+        "uuid": "np-1-1-0-tcp-c-aa-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-aa-2-0-1-000"
+          "np-1-1-0-http-c-aa-2-1-2-000"
         ],
         "server-ltp": [
         ],
@@ -1821,12 +1921,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-alt-2-0-1-000",
+        "uuid": "np-1-1-0-op-c-bm-alt-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-alt-2-0-1-000"
+          "np-1-1-0-http-c-alt-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1846,12 +1946,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-alt-2-0-1-001",
+        "uuid": "np-1-1-0-op-c-bm-alt-2-1-2-001",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-alt-2-0-1-000"
+          "np-1-1-0-http-c-alt-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1871,12 +1971,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-alt-2-0-1-002",
+        "uuid": "np-1-1-0-op-c-bm-alt-2-1-2-002",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-alt-2-0-1-000"
+          "np-1-1-0-http-c-alt-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1896,12 +1996,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-alt-2-0-1-003",
+        "uuid": "np-1-1-0-op-c-bm-alt-2-1-2-003",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-alt-2-0-1-000"
+          "np-1-1-0-http-c-alt-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1921,12 +2021,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-alt-2-0-1-004",
+        "uuid": "np-1-1-0-op-c-bm-alt-2-1-2-004",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-alt-2-0-1-000"
+          "np-1-1-0-http-c-alt-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1946,12 +2046,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-op-c-bm-alt-2-0-1-005",
+        "uuid": "np-1-1-0-op-c-bm-alt-2-1-2-005",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-http-c-alt-2-0-1-000"
+          "np-1-1-0-http-c-alt-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1971,18 +2071,18 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-alt-2-0-1-000",
+        "uuid": "np-1-1-0-http-c-alt-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-op-c-bm-alt-2-0-1-000",
-          "np-1-1-0-op-c-bm-alt-2-0-1-001",
-          "np-1-1-0-op-c-bm-alt-2-0-1-002",
-          "np-1-1-0-op-c-bm-alt-2-0-1-003",
-          "np-1-1-0-op-c-bm-alt-2-0-1-004",
-          "np-1-1-0-op-c-bm-alt-2-0-1-005"
+          "np-1-1-0-op-c-bm-alt-2-1-2-000",
+          "np-1-1-0-op-c-bm-alt-2-1-2-001",
+          "np-1-1-0-op-c-bm-alt-2-1-2-002",
+          "np-1-1-0-op-c-bm-alt-2-1-2-003",
+          "np-1-1-0-op-c-bm-alt-2-1-2-004",
+          "np-1-1-0-op-c-bm-alt-2-1-2-005"
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-alt-2-0-1-000"
+          "np-1-1-0-tcp-c-alt-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -1998,10 +2098,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-alt-2-0-1-000",
+        "uuid": "np-1-1-0-tcp-c-alt-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-alt-2-0-1-000"
+          "np-1-1-0-http-c-alt-2-1-2-000"
         ],
         "server-ltp": [
         ],
@@ -2024,12 +2124,12 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-http-c-okm-2-0-1-000",
+        "uuid": "np-1-1-0-http-c-okm-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
         ],
         "server-ltp": [
-          "np-1-1-0-tcp-c-okm-2-0-1-000"
+          "np-1-1-0-tcp-c-okm-2-1-2-000"
         ],
         "layer-protocol": [
           {
@@ -2045,10 +2145,10 @@
         ]
       },
       {
-        "uuid": "np-1-1-0-tcp-c-okm-2-0-1-000",
+        "uuid": "np-1-1-0-tcp-c-okm-2-1-2-000",
         "ltp-direction": "core-model-1-4:TERMINATION_DIRECTION_SINK",
         "client-ltp": [
-          "np-1-1-0-http-c-okm-2-0-1-000"
+          "np-1-1-0-http-c-okm-2-1-2-000"
         ],
         "server-ltp": [
         ],
@@ -2757,7 +2857,37 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-0-1-000"
+                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-1-2-000"
+              }
+            ]
+          },
+          {
+            "uuid": "np-1-1-0-op-fc-bm-000",
+            "name": [
+              {
+                "value-name": "ForwardingKind",
+                "value": "core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET"
+              },
+              {
+                "value-name": "ForwardingName",
+                "value": "PromptForRegisteringCausesRegistrationRequest2"
+              }
+            ],
+            "fc-port": [
+              {
+                "local-id": "0000",
+                "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT",
+                "logical-termination-point": "np-1-1-0-op-s-bm-000"
+              },
+              {
+                "local-id": "1000",
+                "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_INPUT",
+                "logical-termination-point": "np-1-1-0-op-s-bm-000"
+              },
+              {
+                "local-id": "2000",
+                "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
+                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-1-2-000"
               }
             ]
           },
@@ -2807,7 +2937,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-001"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-001"
               }
             ]
           },
@@ -2972,7 +3102,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bs-eatl-2-0-1-000"
+                "logical-termination-point": "np-1-1-0-op-c-bs-eatl-2-1-2-000"
               }
             ]
           },
@@ -2997,7 +3127,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bs-ol-2-0-1-000"
+                "logical-termination-point": "np-1-1-0-op-c-bs-ol-2-1-2-000"
               }
             ]
           },
@@ -3022,7 +3152,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bs-aa-2-0-1-000"
+                "logical-termination-point": "np-1-1-0-op-c-bs-aa-2-1-2-000"
               }
             ]
           },
@@ -3052,7 +3182,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-011"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-011"
               }
             ]
           },
@@ -3082,7 +3212,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-012"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-012"
               }
             ]
           },
@@ -3112,7 +3242,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-013"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-013"
               }
             ]
           },
@@ -3142,7 +3272,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-020"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-020"
               }
             ]
           },
@@ -3172,7 +3302,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-021"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-021"
               }
             ]
           },
@@ -3202,7 +3332,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-022"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-022"
               }
             ]
           },
@@ -3232,7 +3362,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-023"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-023"
               }
             ]
           },
@@ -3262,7 +3392,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-000"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-000"
               }
             ]
           },
@@ -3292,7 +3422,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-0-0-001"
+                "logical-termination-point": "np-1-1-0-op-c-im-nr-1-1-0-001"
               }
             ]
           },
@@ -3322,7 +3452,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-0-1-001"
+                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-1-2-001"
               }
             ]
           },
@@ -3352,7 +3482,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-0-1-002"
+                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-1-2-002"
               }
             ]
           },
@@ -3382,7 +3512,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-0-1-003"
+                "logical-termination-point": "np-1-1-0-op-c-bm-ro-2-1-2-003"
               }
             ]
           },
@@ -3492,7 +3622,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-001"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-001"
               }
             ]
           },
@@ -3527,7 +3657,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-002"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-002"
               }
             ]
           },
@@ -3552,7 +3682,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-003"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-003"
               }
             ]
           },
@@ -3617,7 +3747,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-004"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-004"
               }
             ]
           },
@@ -3652,7 +3782,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-005"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-005"
               }
             ]
           },
@@ -3677,7 +3807,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-001"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-001"
               }
             ]
           },
@@ -3702,7 +3832,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-002"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-002"
               }
             ]
           },
@@ -3727,7 +3857,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-003"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-003"
               }
             ]
           },
@@ -3752,7 +3882,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-004"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-004"
               }
             ]
           },
@@ -3777,7 +3907,7 @@
               {
                 "local-id": "200",
                 "port-direction": "core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT",
-                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-0-1-005"
+                "logical-termination-point": "np-1-1-0-op-c-bm-alt-2-1-2-005"
               }
             ]
           },

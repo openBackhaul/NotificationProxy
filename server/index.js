@@ -40,7 +40,7 @@ global.databasePath = './database/config.json'
 // 3-integrate-authorization
 
 // perform application registration
-//appCommons.performApplicationRegistration();
+appCommons.performApplicationRegistration();
 
 //initiate connection to kafka broker
 kafkaConnection.connectToKafka();
