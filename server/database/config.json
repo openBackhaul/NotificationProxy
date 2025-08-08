@@ -1516,7 +1516,7 @@
             "layer-protocol-name": "operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER",
             "operation-client-interface-1-0:operation-client-interface-pac": {
               "operation-client-interface-configuration": {
-                "operation-name": "/v1/register-application",
+                "operation-name": "/v2/register-application",
                 "operation-key": "n.a."
               },
               "operation-client-interface-status": {
@@ -3140,7 +3140,7 @@
               },
               {
                 "value-name": "ForwardingName",
-                "value": "OamRequestCausesInquiryForAuthentication"
+                "value": "BasicAuthRequestCausesInquiryForAuthentication"
               }
             ],
             "fc-port": [

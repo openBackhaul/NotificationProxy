@@ -3802,16 +3802,16 @@ paths:
                         future-application-name:
                           type: string
                           description: "'Future name of the application that has updated\
-                            \ connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-nr-1-0-0-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
+                            \ connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-nr-1-1-0-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
                         future-release-number:
                           type: string
                           description: "'Future release number of the application\
-                            \ that has updated connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-nr-1-0-0-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
+                            \ that has updated connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-nr-1-1-0-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
                         future-protocol:
                           type: string
                           description: "'Protocol to be used in future for addressing\
                             \ the application that has updated connection data from\
-                            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
+                            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-1-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
                         future-address:
                           type: object
                           properties:
@@ -3821,15 +3821,15 @@ paths:
                                 ipv-4-address:
                                   type: string
                                   description: "'Future IPv4 address of the application\
-                                    \ that has updated connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
+                                    \ that has updated connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-1-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
                             domain-name:
                               type: string
                               description: "'Future domain name of the application\
-                                \ that has updated connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
+                                \ that has updated connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-1-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
                         future-port:
                           type: integer
                           description: "'Future port of the application that has updated\
-                            \ connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
+                            \ connection data from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-1-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
                       example:
                         current-application-name: RegistryOffice
                         current-release-number: 1.0.0
@@ -14983,18 +14983,18 @@ paths:
                         timestamp:
                           type: string
                           description: "Date and time when [application-name] sent\
-                            \ response to [originator]; only to be provided, if [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-0-1-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/detailed-logging-is-on]\
+                            \ response to [originator]; only to be provided, if [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-1-2-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/detailed-logging-is-on]\
                             \ == true"
                         stringified-body:
                           type: string
                           description: "Stringified body of the request addressed\
                             \ from [originator] to [application-name]; only to be\
-                            \ provided, if [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-0-1-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/detailed-logging-is-on]\
+                            \ provided, if [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-1-2-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/detailed-logging-is-on]\
                             \ == true"
                         stringified-response:
                           type: string
                           description: "Stringified response sent from [application-name]\
-                            \ to [originator]; only to be provided, if [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-0-1-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/detailed-logging-is-on]\
+                            \ to [originator]; only to be provided, if [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-1-2-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/detailed-logging-is-on]\
                             \ == true"
                       example:
                         x-correlator: 550e8400-e29b-11d4-a716-446655440000
@@ -16635,7 +16635,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorDescription'
       callbacks:
-        OamRequestCausesInquiryForAuthentication:
+        BasicAuthRequestCausesInquiryForAuthentication:
           url:
             post:
               parameters:
@@ -16712,14 +16712,10 @@ paths:
                             \ for approval'\n"
                         application-name:
                           type: string
-                          description: "'Own application name for the AdministratorAdministration\
-                            \ to check, whether this application is part of the SDN\
-                            \ at all from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/application-name]'\n"
+                          description: "'Own application name from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/application-name]'\n"
                         release-number:
                           type: string
-                          description: "'Own application release number for the AdministratorAdministration\
-                            \ to check, whether this application is part of the SDN\
-                            \ at all from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-number]'\n"
+                          description: "'Own application release number from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-number]'\n"
                         operation-name:
                           type: string
                           description: "'Path (could be service, could be OaM path)\
@@ -28227,6 +28223,256 @@ paths:
       security:
       - basicAuth: []
       x-swagger-router-controller: TcpClient
+  ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/auth/user-name
+  : get:
+      tags:
+      - KafkaClient
+      summary: Returns UserName
+      operationId: getKafkaClientUserName
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
+          type: string
+          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
+      responses:
+        "200":
+          description: UserName provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_42'
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: KafkaClient
+    put:
+      tags:
+      - KafkaClient
+      summary: Configures UserName
+      operationId: putKafkaClientUserName
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
+          type: string
+          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_39'
+        required: true
+      responses:
+        "204":
+          description: UserName configured
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: KafkaClient
+  ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/auth/password
+  : get:
+      tags:
+      - KafkaClient
+      summary: Returns Password
+      operationId: getKafkaClientPassword
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
+          type: string
+          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
+      responses:
+        "200":
+          description: Password provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_43'
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: KafkaClient
+    put:
+      tags:
+      - KafkaClient
+      summary: Configures Password
+      operationId: putKafkaClientPassword
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
+          type: string
+          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_40'
+        required: true
+      responses:
+        "204":
+          description: Password configured
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: KafkaClient
   ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/topic-name
   : get:
       tags:
@@ -28438,6 +28684,131 @@ paths:
       responses:
         "204":
           description: client id configured
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: KafkaClient
+  ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/group-id
+  : get:
+      tags:
+      - KafkaClient
+      summary: Returns group id (Identifier for consumers consuming a topic)
+      operationId: getKafkaClientGroupId
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
+          type: string
+          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
+      responses:
+        "200":
+          description: group id provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_46'
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: KafkaClient
+    put:
+      tags:
+      - KafkaClient
+      summary: Configures group id
+      operationId: putKafkaClientGroupId
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
+          type: string
+          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_43'
+        required: true
+      responses:
+        "204":
+          description: group id configured
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -28848,6 +29219,77 @@ components:
                           type: string
               description: elasticsearch client
             - required:
+              - layer-protocol-name
+              - local-id
+              - mongodb-client-interface-1-0:mongodb-client-interface-pac
+              type: object
+              properties:
+                local-id:
+                  type: string
+                layer-protocol-name:
+                  type: string
+                mongodb-client-interface-1-0:mongodb-client-interface-pac:
+                  required:
+                  - mongodb-client-interface-configuration
+                  - mongodb-client-interface-status
+                  type: object
+                  properties:
+                    mongodb-client-interface-configuration:
+                      required:
+                      - collection-name
+                      - database-name
+                      type: object
+                      properties:
+                        database-name:
+                          type: string
+                        collection-name:
+                          type: string
+                    mongodb-client-interface-status:
+                      required:
+                      - life-cycle-state
+                      - operational-state
+                      type: object
+                      properties:
+                        operational-state:
+                          type: string
+                        life-cycle-state:
+                          type: string
+              description: mongodb client
+            - required:
+              - kafka-client-interface-1-0:kafka-client-interface-pac
+              - layer-protocol-name
+              - local-id
+              type: object
+              properties:
+                local-id:
+                  type: string
+                layer-protocol-name:
+                  type: string
+                kafka-client-interface-1-0:kafka-client-interface-pac:
+                  required:
+                  - kafka-client-interface-configuration
+                  - kafka-client-interface-status
+                  type: object
+                  properties:
+                    kafka-client-interface-configuration:
+                      required:
+                      - topic-name
+                      type: object
+                      properties:
+                        topic-name:
+                          type: string
+                    kafka-client-interface-status:
+                      required:
+                      - life-cycle-state
+                      - operational-state
+                      type: object
+                      properties:
+                        operational-state:
+                          type: string
+                        life-cycle-state:
+                          type: string
+              description: kafka client
+            - required:
               - http-client-interface-1-0:http-client-interface-pac
               - layer-protocol-name
               - local-id
@@ -28939,7 +29381,7 @@ components:
           pattern: "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,}$"
           type: string
           description: "'Domain name of application that shall be target of the handover\
-            \ process update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
+            \ process update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-1-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
     body:
       required:
       - new-application-address
@@ -28972,7 +29414,7 @@ components:
           minimum: 0
           type: integer
           description: "'Port of application that shall be target of the handover\
-            \ process update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-0-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
+            \ process update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-nr-1-1-0-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
       example:
         new-application-name: NewApplicationName
         new-application-release: 2.1.2
@@ -29788,7 +30230,7 @@ components:
           pattern: "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           type: string
           description: "'IPv4 address of application that shall record the service\
-            \ requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
+            \ requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
     v1redirectservicerequestinformation_servicelogaddress:
       type: object
       properties:
@@ -29798,7 +30240,7 @@ components:
           pattern: "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,}$"
           type: string
           description: "'Domain name of application that shall record the service\
-            \ requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
+            \ requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
     body_12:
       required:
       - service-log-address
@@ -29812,20 +30254,20 @@ components:
         service-log-application:
           type: string
           description: "'Name of application that shall record the service requests\
-            \ find [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-eatl-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
+            \ find [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-eatl-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
         service-log-application-release-number:
           pattern: "^([0-9]{1,2})\\.([0-9]{1,2})\\.([0-9]{1,2})$"
           type: string
           description: "'Release of application that shall record the service requests\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-eatl-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-eatl-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
         service-log-operation:
           minLength: 6
           type: string
-          description: "'Operation for recording the service requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-0-1-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+          description: "'Operation for recording the service requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-eatl-2-1-2-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         service-log-protocol:
           type: string
           description: "'Protocol to be used for addressing the application that shall\
-            \ record the service requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
+            \ record the service requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
           enum:
           - HTTP
           - HTTPS
@@ -29836,7 +30278,7 @@ components:
           minimum: 0
           type: integer
           description: "'Port of application that shall record the service requests\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-eatl-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
       example:
         service-log-application: LoggingApplication
         service-log-application-release-number: 34.2.6
@@ -29853,7 +30295,7 @@ components:
           pattern: "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           type: string
           description: "'IPv4 address of application that shall record the OaM requests\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
     v1redirectoamrequestinformation_oamlogaddress:
       type: object
       properties:
@@ -29863,7 +30305,7 @@ components:
           pattern: "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,}$"
           type: string
           description: "'Domain name of application that shall record the OaM requests\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
     body_13:
       required:
       - oam-log-address
@@ -29877,20 +30319,20 @@ components:
         oam-log-application:
           type: string
           description: "'Name of application that shall record the OaM requests find\
-            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-ol-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
+            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-ol-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
         oam-log-application-release-number:
           pattern: "^([0-9]{1,2})\\.([0-9]{1,2})\\.([0-9]{1,2})$"
           type: string
           description: "'Release of application that shall record the OaM request\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-ol-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-ol-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
         oam-log-operation:
           minLength: 6
           type: string
-          description: "'Operation for recording the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-ol-2-0-1-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+          description: "'Operation for recording the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-ol-2-1-2-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         oam-log-protocol:
           type: string
           description: "'Protocol to be used for addressing the application that shall\
-            \ record the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
+            \ record the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
           enum:
           - HTTP
           - HTTPS
@@ -29901,7 +30343,7 @@ components:
           minimum: 0
           type: integer
           description: "'Port of application that shall record the OaM requests update\
-            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
+            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-ol-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
       example:
         oam-log-application: LoggingApplication
         oam-log-application-release-number: 54.3.2
@@ -29943,7 +30385,7 @@ components:
           pattern: "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           type: string
           description: "'IPv4 address of application that shall approve the OaM requests\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
     v1inquireoamrequestapprovals_oamapprovaladdress:
       type: object
       properties:
@@ -29953,7 +30395,7 @@ components:
           pattern: "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,}$"
           type: string
           description: "'Domain name of application that shall approve the OaM requests\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
     body_15:
       required:
       - oam-approval-address
@@ -29967,20 +30409,20 @@ components:
         oam-approval-application:
           type: string
           description: "'Name of application that shall approve the OaM requests find\
-            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-aa-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
+            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-aa-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
         oam-approval-application-release-number:
           pattern: "^([0-9]{1,2})\\.([0-9]{1,2})\\.([0-9]{1,2})$"
           type: string
           description: "'Release of application that shall approve the OaM requests\
-            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-aa-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
+            \ update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-aa-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
         oam-approval-operation:
           minLength: 6
           type: string
-          description: "'Operation for approving the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-aa-2-0-1-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+          description: "'Operation for approving the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-aa-2-1-2-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         oam-approval-protocol:
           type: string
           description: "'Protocol to be used for addressing the application that shall\
-            \ approve the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
+            \ approve the OaM requests update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
           enum:
           - HTTP
           - HTTPS
@@ -29991,7 +30433,7 @@ components:
           minimum: 0
           type: integer
           description: "'Port of application that shall approve the OaM requests update\
-            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
+            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
       example:
         oam-approval-application: AccessApprover
         oam-approval-application-release-number: 34.3.3
@@ -30146,7 +30588,7 @@ components:
           pattern: "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           type: string
           description: "'IPv4 address of application that shall document the application\
-            \ layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
+            \ layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address]'\n"
     v1redirecttopologychangeinformation_topologyapplicationaddress:
       type: object
       properties:
@@ -30156,7 +30598,7 @@ components:
           pattern: "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,}$"
           type: string
           description: "'Domain name of application that shall document the application\
-            \ layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
+            \ layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]'\n"
     body_17:
       required:
       - topology-application
@@ -30174,38 +30616,38 @@ components:
         topology-application:
           type: string
           description: "'Name of application that shall document the application layer\
-            \ topology find [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-alt-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
+            \ topology find [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-alt-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'\n"
         topology-application-release-number:
           pattern: "^([0-9]{1,2})\\.([0-9]{1,2})\\.([0-9]{1,2})$"
           type: string
           description: "'Release of application that shall document the application\
-            \ layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-alt-2-0-1-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
+            \ layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-c-alt-2-1-2-000/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/release-number]'\n"
         topology-operation-ltp-update:
           minLength: 6
           type: string
-          description: "'Operation for updating an LTP update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-0-1-001/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+          description: "'Operation for updating an LTP update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-1-2-001/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         topology-operation-ltp-deletion:
           minLength: 6
           type: string
           description: "'Operation for deleting an LTP and its dependents like FC\
-            \ port and Link (if applicable) update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-0-1-002/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+            \ port and Link (if applicable) update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-1-2-002/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         topology-operation-fc-update:
           minLength: 6
           type: string
           description: "'Operation for updating a ForwardingConstruct instance update\
-            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-0-1-003/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+            \ [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-1-2-003/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         topology-operation-fc-port-update:
           minLength: 6
           type: string
-          description: "'Operation for updating an FC port update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-0-1-004/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+          description: "'Operation for updating an FC port update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-1-2-004/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         topology-operation-fc-port-deletion:
           minLength: 6
           type: string
-          description: "'Operation for deleting an FC port update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-0-1-005/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
+          description: "'Operation for deleting an FC port update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bm-alt-2-1-2-005/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]'\n"
         topology-application-protocol:
           type: string
           description: "'Protocol to be used for addresing the application that shall\
-            \ document the application layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
+            \ document the application layer topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]'\n"
           enum:
           - HTTP
           - HTTPS
@@ -30216,7 +30658,7 @@ components:
           minimum: 0
           type: integer
           description: "'Port of application that shall document the application layer\
-            \ topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
+            \ topology update [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-alt-2-1-2-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port]'\n"
       example:
         topology-application: InventoryApplication
         topology-application-release-number: 54.1.3
