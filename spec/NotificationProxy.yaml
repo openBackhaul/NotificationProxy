@@ -5514,12 +5514,12 @@ paths:
                         application-name:
                           type: string
                           description: >
-                            'Own application name for the AdministratorAdministration to check, whether this application is part of the SDN at all
+                            'Own application name for the AccessAdministration to check, whether this application is part of the SDN at all
                             from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/application-name]'
                         release-number:
                           type: string
                           description: >
-                            'Own application release number for the AdministratorAdministration to check, whether this application is part of the SDN at all
+                            'Own application release number for the AccessAdministration to check, whether this application is part of the SDN at all
                             from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-number]'
                         operation-name:
                           type: string
