@@ -17,7 +17,7 @@ forwardings:
         uuid: np-1-1-0-op-s-bm-000
     consequent-requests:
       - client-name: RegistryOffice://v1/register-application
-        uuid: np-1-1-0-op-c-bm-ro-2-0-1-000
+        uuid: np-1-1-0-op-c-bm-ro-2-1-2-000
 
   - forwarding-name: PromptForEmbeddingCausesRequestForBequeathingData
     uuid: np-1-1-0-op-fc-bm-001
@@ -47,7 +47,7 @@ forwardings:
         uuid: np-1-1-0-op-s-bm-001
     consequent-requests:
       - client-name: NotificationProxy://v1/listen-to-controllers
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-001
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-001
 
   - forwarding-name: ServiceRequestCausesLoggingRequest
     uuid: np-1-1-0-op-fc-bm-002
@@ -120,7 +120,7 @@ forwardings:
         uuid: np-1-1-0-op-s-is-023
     consequent-requests:
       - client-name: ExecutionAndTraceLog://v1/record-service-request
-        uuid: np-1-1-0-op-c-bs-eatl-2-0-1-000
+        uuid: np-1-1-0-op-c-bs-eatl-2-1-2-000
 
   - forwarding-name: OamRequestCausesLoggingRequest
     uuid: np-1-1-0-op-fc-bm-003
@@ -137,9 +137,9 @@ forwardings:
     initiating-requests:
     consequent-requests:
       - client-name: OamLog://v1/record-oam-request
-        uuid: np-1-1-0-op-c-bs-ol-2-0-1-000
+        uuid: np-1-1-0-op-c-bs-ol-2-1-2-000
 
-  - forwarding-name: OamRequestCausesInquiryForAuthentication
+  - forwarding-name: BasicAuthRequestCausesInquiryForAuthentication
     uuid: np-1-1-0-op-fc-bm-004
     forwarding-type: InvariantProcessSnippet
     management-requests:
@@ -153,8 +153,8 @@ forwardings:
       operation-client-deletion:
     initiating-requests:
     consequent-requests:
-      - client-name: AdministratorAdministration://v1/approve-oam-request
-        uuid: np-1-1-0-op-c-bs-aa-2-0-1-000
+      - client-name: AccessAdministration://v1/approve-basic-auth-request
+        uuid: np-1-1-0-op-c-bs-aa-2-1-2-000
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerAttributeValueChangedNotificationsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-011
@@ -173,7 +173,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-controller-attribute-value-changes
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-011
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-011
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerObjectCreationNotificationsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-012
@@ -192,7 +192,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-controller-object-creations
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-012
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-012
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForControllerObjectDeletionNotificationsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-013
@@ -211,7 +211,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-controller-object-deletions
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-013
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-013
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceAlarmNotificationsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-020
@@ -230,7 +230,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-alarms
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-020
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-020
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceAttributeValueChangedNotificationsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-021
@@ -249,7 +249,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-attribute-value-changes
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-021
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-021
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForDeviceObjectCreationNotificationsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-022
@@ -268,7 +268,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-object-creations
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-022
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-022
 
   - forwarding-name: PromptForBequeathingDataCausesSubscriptionsForCDeviceObjectDeletionNotificationsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-023
@@ -287,7 +287,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/notify-device-object-deletions
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-023
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-023
 
   - forwarding-name: PromptForBequeathingDataCausesControllerClientsBeingTransferredToNR
     uuid: np-1-1-0-op-fc-im-030
@@ -306,7 +306,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/add-controller
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-000
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-000
 
   - forwarding-name: PromptForBequeathingDataCausesNRbeingRequestedToListenToControllers
     uuid: np-1-1-0-op-fc-im-040
@@ -325,7 +325,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: NewRelease://v1/listen-to-controllers
-        uuid: np-1-1-0-op-c-im-nr-1-0-0-001
+        uuid: np-1-1-0-op-c-im-nr-1-1-0-001
 
   - forwarding-name: PromptForBequeathingDataCausesRequestForBroadcastingInfoAboutServerReplacement
     uuid: np-1-1-0-op-fc-bm-105
@@ -344,7 +344,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: RegistryOffice://v1/relay-server-replacement
-        uuid: np-1-1-0-op-c-bm-ro-2-0-1-001
+        uuid: np-1-1-0-op-c-bm-ro-2-1-2-001
 
   - forwarding-name: PromptForBequeathingDataCausesRequestForDeregisteringOfOldRelease
     uuid: np-1-1-0-op-fc-bm-106
@@ -363,7 +363,7 @@ forwardings:
         uuid: np-1-1-0-op-s-im-000
     consequent-requests:
       - client-name: RegistryOffice://v1/deregister-application
-        uuid: np-1-1-0-op-c-bm-ro-2-0-1-002
+        uuid: np-1-1-0-op-c-bm-ro-2-1-2-002
 
   - forwarding-name: PromptingNewReleaseForUpdatingServerCausesRequestForBroadcastingInfoAboutBackwardCompatibleUpdateOfOperation
     uuid: np-1-1-0-op-fc-bm-107
@@ -382,7 +382,7 @@ forwardings:
         uuid: np-1-1-0-op-s-bm-007
     consequent-requests:
       - client-name: RegistryOffice://v1/relay-operation-update
-        uuid: np-1-1-0-op-c-bm-ro-2-0-1-003
+        uuid: np-1-1-0-op-c-bm-ro-2-1-2-003
 
   - forwarding-name: ServiceRequestCausesLtpUpdateRequest
     uuid: np-1-1-0-op-fc-bm-006
@@ -433,7 +433,7 @@ forwardings:
         uuid: np-1-1-0-op-s-is-023
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/update-ltp
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-001
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-001
 
   - forwarding-name: ServiceRequestCausesLtpDeletionRequest
     uuid: np-1-1-0-op-fc-bm-007
@@ -454,7 +454,7 @@ forwardings:
         uuid: np-1-1-0-op-s-is-002
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/delete-ltp-and-dependents
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-002
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-002
 
   - forwarding-name: ServiceRequestCausesFcUpdateRequest
     uuid: np-1-1-0-op-fc-bm-008
@@ -471,7 +471,7 @@ forwardings:
     initiating-requests:
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/update-fc
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-003
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-003
 
   - forwarding-name: ServiceRequestCausesFcPortUpdateRequest
     uuid: np-1-1-0-op-fc-bm-009
@@ -504,7 +504,7 @@ forwardings:
         uuid: np-1-1-0-op-s-is-023
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/update-fc-port
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-004
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-004
 
   - forwarding-name: ServiceRequestCausesFcPortDeletionRequest
     uuid: np-1-1-0-op-fc-bm-010
@@ -525,7 +525,7 @@ forwardings:
         uuid: np-1-1-0-op-s-is-002
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/delete-fc-port
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-005
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-005
 
   - forwarding-name: OamRequestCausesLtpUpdateRequest
     uuid: np-1-1-0-op-fc-bm-011
@@ -542,7 +542,7 @@ forwardings:
     initiating-requests:
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/update-ltp
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-001
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-001
 
   - forwarding-name: OamRequestCausesLtpDeletionRequest
     uuid: np-1-1-0-op-fc-bm-012
@@ -559,7 +559,7 @@ forwardings:
     initiating-requests:
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/delete-ltp-and-dependents
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-002
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-002
 
   - forwarding-name: OamRequestCausesFcUpdateRequest
     uuid: np-1-1-0-op-fc-bm-013
@@ -576,7 +576,7 @@ forwardings:
     initiating-requests:
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/update-fc
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-003
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-003
 
   - forwarding-name: OamRequestCausesFcPortUpdateRequest
     uuid: np-1-1-0-op-fc-bm-014
@@ -593,7 +593,7 @@ forwardings:
     initiating-requests:
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/update-fc-port
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-004
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-004
 
   - forwarding-name: OamRequestCausesFcPortDeletionRequest
     uuid: np-1-1-0-op-fc-bm-015
@@ -610,7 +610,7 @@ forwardings:
     initiating-requests:
     consequent-requests:
       - client-name: ApplicationLayerTopology://v1/delete-fc-port
-        uuid: np-1-1-0-op-c-bm-alt-2-0-1-005
+        uuid: np-1-1-0-op-c-bm-alt-2-1-2-005
 
   - forwarding-name: PromptForListenToControllersCausesSubscribingForControllerConfigurationNotifications
     uuid: np-1-1-0-op-fc-is-001
