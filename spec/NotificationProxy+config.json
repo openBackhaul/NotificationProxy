@@ -2956,7 +2956,7 @@
               },
               {
                 "value-name": "ForwardingName",
-                "value": "OamRequestCausesInquiryForAuthentication"
+                "value": "BasicAuthRequestCausesInquiryForAuthentication"
               }
             ],
             "fc-port": [

@@ -5484,7 +5484,7 @@ paths:
         default:
           $ref: '#/components/responses/responseForErroredServiceRequests'
       callbacks:
-        OamRequestCausesInquiryForAuthentication:
+        BasicAuthRequestCausesInquiryForAuthentication:
           url: #[/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-protocol]://[/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/ip-address/ipv-4-address or /core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-address/domain-name]:[/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-tcp-c-aa-2-0-1-000/layer-protocol=0/tcp-client-interface-1-0:tcp-client-interface-pac/tcp-client-interface-configuration/remote-port][/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-op-c-bs-aa-2-0-1-000/layer-protocol=0/operation-client-interface-1-0:operation-client-interface-pac/operation-client-interface-configuration/operation-name]
             post:
               parameters:
@@ -9109,7 +9109,7 @@ paths:
                                   - value-name: 'ForwardingKind'
                                     value: 'core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET'
                                   - value-name: 'ForwardingName'
-                                    value: 'OamRequestCausesInquiryForAuthentication'
+                                    value: 'BasicAuthRequestCausesInquiryForAuthentication'
                                 fc-port:
                                   - local-id: '000'
                                     port-direction: 'core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT'
