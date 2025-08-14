@@ -22,6 +22,12 @@ end note
 NP_listen -> ODLn
 ODLn --> NP_listen: {notifications}
 
+note over NP_listen #LightPink
+  Notifications are only pushed to Kafka,
+  while profileInstance
+  <i>kafkaNotificationProvisioningSwitch</i> == on
+end note
+
 note over NP_listen
   Before notifications are pushed to Kafka,
   they have to be formatted into ONF TR-532
