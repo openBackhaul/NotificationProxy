@@ -5521,7 +5521,7 @@ paths:
                           description: >
                             'Own application release number for the AdministratorAdministration to check, whether this application is part of the SDN at all
                             from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-number]'
-                        Authorization:
+                        operation-name:
                           type: string
                           description: >
                             'Path (could be service, could be OaM path) that has been addressed by the BasicAuth request
