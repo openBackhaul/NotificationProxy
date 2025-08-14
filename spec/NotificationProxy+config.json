@@ -202,7 +202,23 @@
               }
             }
           }
-        }
+        },
+        {
+          "uuid": "np-1-1-0-string-p-000",
+          "profile-name": "string-profile-1-0:PROFILE_NAME_TYPE_STRING_PROFILE",
+          "string-profile-1-0:string-profile-pac": {
+            "string-profile-capability": {
+              "string-name": "kafkaNotificationProvisioningSwitch",
+              "enumeration": [
+                "on",
+                "off"
+              ]
+            },
+            "string-profile-configuration": {
+              "string-value": "on"
+            }
+          }
+        },
       ]
     },
     "logical-termination-point": [

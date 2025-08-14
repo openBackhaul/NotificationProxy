@@ -34,6 +34,12 @@ DEVICE_PASSWORD=xxx
 
 ### Latest Updates  
 
+#### v1.1.1
+The v1.1.1 release adds corrections and changes for findings from issue collection [NP v1.1.1_spec](https://github.com/openBackhaul/NotificationProxy/milestone/7).  
+
+This e.g. includes:
+- adding a switch to turn on/off sending of notifications to Kafka
+
 #### v1.1.0
 Release v.1.1.0 introduces integration with a Kafka message broker.  
 

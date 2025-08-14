@@ -106,3 +106,14 @@ profile-instances:
       datatype: string
     configuration:
       value-reference: '/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-list=0/changes'
+
+  - profile-name: 'StringProfile'
+    uuid: 'np-1-1-0-string-p-000'
+    capability:
+      string-name: 'kafkaNotificationProvisioningSwitch'
+      enumeration:
+        - 'on'
+        - 'off'
+      #description: 'This profileInstance allows toggeling the sending of notifications to Kafka on/off. Default is on.'
+    configuration:
+      string-value: 'on'
