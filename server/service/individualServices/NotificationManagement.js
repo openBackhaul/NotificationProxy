@@ -334,7 +334,7 @@ async function registerDeviceCallbackChain(registeredController) {
         let user = process.env['DEVICE_USER'];
         let password = process.env['DEVICE_PASSWORD'];
 
-        await notificationStreamManagement.startStream(controllerTargetUrl, registeredController, handleDeviceNotification,
+        await notificationStreamManagement.startStream(controllerTargetUrl, registeredController, exports.handleDeviceNotification,
             notificationStreamManagement.STREAM_TYPE_DEVICE, user, password);
     } else {
         logger.warn("device stream for " + registeredController.name + " already active");
