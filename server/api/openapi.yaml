@@ -31504,9 +31504,9 @@ components:
       properties:
         string-profile-1-0:string-value:
           type: string
-          example: string-profile-1-0:STRING_VALUE_TYPE_OFF
+          example: "on"
       example:
-        string-profile-1-0:string-value: string-profile-1-0:STRING_VALUE_TYPE_OFF
+        string-profile-1-0:string-value: "off"
     body_25:
       required:
       - string-profile-1-0:string-value
@@ -31516,7 +31516,7 @@ components:
           type: string
           description: "Value must be one of the options defined in /string-profile-capability/enumeration\
             \ to be accepted, if such enumeration is available in the Capability section"
-          example: string-profile-1-0:STRING_VALUE_TYPE_OFF
+          example: "on"
     inline_response_200_22:
       required:
       - operation-server-interface-1-0:operation-name
