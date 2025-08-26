@@ -25,6 +25,8 @@ let appInformation = null;
 
 let lastSentMessages = [];
 
+let isKafkaNotificationProvisioningSwitchOn = true;
+
 /**
  * Query and cache app information from the load file.
  * @returns appInformation with application-name and release-number
@@ -729,9 +731,12 @@ async function notifyAllDeviceSubscribers(deviceNotificationType, notification, 
     try {
         // convert notifications to ONF format
         let notificationMessage = notificationConverter.convertNotification(notification, deviceNotificationType, controllerName, controllerRelease);
-        //sending notifications to kafka
-        sendMessageToKafka(deviceNotificationType, notificationMessage);
-
+        if (isKafkaNotificationProvisioningSwitchOn) {
+            //sending notifications to kafka
+            sendMessageToKafka(deviceNotificationType, notificationMessage);
+        } else {
+            console.log(`*******************************************skipping ${JSON.stringify(notificationMessage)} from sending to kafka *********************************************************`);
+        }
     } catch (error) {
         console.log(error);
     }
@@ -842,5 +847,24 @@ async function sendMessageToKafka(notificationType, notificationMessage) {
     } catch (error) {
         console.log(error);
     }
+}
+
+/**
+ * This function updates the value of isKafkaNotificationProvisioningSwitchOn
+ * @param {Boolean} value if "on". messages are sent to kafka 
+ *                          if "off" messages are not sent to kafka
+ */
+exports.updateKafkaNotificationProvisioningSwitch = async function (value) {
+    try {
+        if (value == "on") {
+            isKafkaNotificationProvisioningSwitchOn = true;
+        } else {
+            console.log(`******************************************* SENDING NOTIFICATIONS TO KAFKA DISABLED *********************************************************`);
+            isKafkaNotificationProvisioningSwitchOn = false;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+    return;
 }
 

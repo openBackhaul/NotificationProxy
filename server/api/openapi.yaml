@@ -16712,10 +16712,14 @@ paths:
                             \ for approval'\n"
                         application-name:
                           type: string
-                          description: "'Own application name from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/application-name]'\n"
+                          description: "'Own application name for the AccessAdministration\
+                            \ to check, whether this application is part of the SDN\
+                            \ at all from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/application-name]'\n"
                         release-number:
                           type: string
-                          description: "'Own application release number from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-number]'\n"
+                          description: "'Own application release number for the AccessAdministration\
+                            \ to check, whether this application is part of the SDN\
+                            \ at all from [/core-model-1-4:control-construct/logical-termination-point=np-1-1-0-http-s-000/layer-protocol=0/http-server-interface-1-0:http-server-interface-pac/http-server-interface-capability/release-number]'\n"
                         operation-name:
                           type: string
                           description: "'Path (could be service, could be OaM path)\
@@ -25853,6 +25857,346 @@ paths:
       security:
       - basicAuth: []
       x-swagger-router-controller: GenericResponseProfile
+  ? /core-model-1-4:control-construct/profile-collection/profile={uuid}/string-profile-1-0:string-profile-pac/string-profile-capability/string-name
+  : get:
+      tags:
+      - StringProfile
+      summary: Returns the name of the String
+      operationId: getStringProfileStringName
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-string-p-([0-9]{3})$"
+          type: string
+          example: xy-15-3-2-string-p-000
+      responses:
+        "200":
+          description: String name provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_18'
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: StringProfile
+  ? /core-model-1-4:control-construct/profile-collection/profile={uuid}/string-profile-1-0:string-profile-pac/string-profile-capability/enumeration
+  : get:
+      tags:
+      - StringProfile
+      summary: Returns the enumeration values of the String
+      operationId: getStringProfileEnumeration
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-string-p-([0-9]{3})$"
+          type: string
+          example: xy-15-3-2-string-p-000
+      responses:
+        "200":
+          description: Enumeration values provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_19'
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: StringProfile
+  ? /core-model-1-4:control-construct/profile-collection/profile={uuid}/string-profile-1-0:string-profile-pac/string-profile-capability/pattern
+  : get:
+      tags:
+      - StringProfile
+      summary: Returns the pattern of the String
+      operationId: getStringProfilePattern
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-string-p-([0-9]{3})$"
+          type: string
+          example: xy-15-3-2-string-p-000
+      responses:
+        "200":
+          description: Pattern provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_20'
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: StringProfile
+  ? /core-model-1-4:control-construct/profile-collection/profile={uuid}/string-profile-1-0:string-profile-pac/string-profile-configuration/string-value
+  : get:
+      tags:
+      - StringProfile
+      summary: Returns the configured value of the String
+      operationId: getStringProfileStringValue
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-string-p-([0-9]{3})$"
+          type: string
+          example: xy-15-3-2-string-p-000
+      responses:
+        "200":
+          description: String value provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_21'
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: StringProfile
+    put:
+      tags:
+      - StringProfile
+      summary: Configures value of the String
+      operationId: putStringProfileStringValue
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-string-p-([0-9]{3})$"
+          type: string
+          example: xy-15-3-2-string-p-000
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_25'
+        required: true
+      responses:
+        "204":
+          description: String configured
+          headers:
+            x-correlator:
+              description: UUID for the service execution flow that allows to correlate
+                requests and responses. Its value must be identical at the response
+                compared with its corresponding request
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: 550e8400-e29b-11d4-a716-446655440000
+            exec-time:
+              description: "Value written by the service provider, reporting the total\
+                \ elapsed time for the execution, including all the additional processing\
+                \ needed to retrieve the data from the backend service. Expressed\
+                \ in milliseconds"
+              style: simple
+              explode: false
+              schema:
+                type: integer
+                example: 1100
+            backend-time:
+              description: "Value written by the service provider, reporting the elapsed\
+                \ time for data retrieval from the backend (service invocation, database\
+                \ access…). Expressed in milliseconds"
+              style: simple
+              explode: false
+              schema:
+                type: integer
+                example: 850
+        "400":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "401":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "403":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "404":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        "500":
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+        default:
+          description: Response in case of errored OaM requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorDescription'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: StringProfile
   ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/operation-server-interface-1-0:operation-server-interface-pac/operation-server-interface-capability/operation-name
   : get:
       tags:
@@ -25875,7 +26219,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_18'
+                $ref: '#/components/schemas/inline_response_200_22'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -25937,7 +26281,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_19'
+                $ref: '#/components/schemas/inline_response_200_23'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -25996,7 +26340,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_25'
+              $ref: '#/components/schemas/body_26'
         required: true
       responses:
         "204":
@@ -26062,7 +26406,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_20'
+                $ref: '#/components/schemas/inline_response_200_24'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26121,7 +26465,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_26'
+              $ref: '#/components/schemas/body_27'
         required: true
       responses:
         "204":
@@ -26187,7 +26531,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_21'
+                $ref: '#/components/schemas/inline_response_200_25'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26249,7 +26593,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_22'
+                $ref: '#/components/schemas/inline_response_200_26'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26311,7 +26655,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_23'
+                $ref: '#/components/schemas/inline_response_200_27'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26373,7 +26717,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_24'
+                $ref: '#/components/schemas/inline_response_200_28'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26435,7 +26779,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_25'
+                $ref: '#/components/schemas/inline_response_200_29'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26497,7 +26841,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_26'
+                $ref: '#/components/schemas/inline_response_200_30'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26559,7 +26903,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_27'
+                $ref: '#/components/schemas/inline_response_200_31'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26621,7 +26965,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_28'
+                $ref: '#/components/schemas/inline_response_200_32'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26680,7 +27024,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_27'
+              $ref: '#/components/schemas/body_28'
         required: true
       responses:
         "204":
@@ -26746,7 +27090,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_29'
+                $ref: '#/components/schemas/inline_response_200_33'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26805,7 +27149,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_28'
+              $ref: '#/components/schemas/body_29'
         required: true
       responses:
         "204":
@@ -26871,7 +27215,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_30'
+                $ref: '#/components/schemas/inline_response_200_34'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -26930,7 +27274,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_29'
+              $ref: '#/components/schemas/body_30'
         required: true
       responses:
         "204":
@@ -26996,7 +27340,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_31'
+                $ref: '#/components/schemas/inline_response_200_35'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27055,7 +27399,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_30'
+              $ref: '#/components/schemas/body_31'
         required: true
       responses:
         "204":
@@ -27121,7 +27465,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_32'
+                $ref: '#/components/schemas/inline_response_200_36'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27180,7 +27524,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_31'
+              $ref: '#/components/schemas/body_32'
         required: true
       responses:
         "204":
@@ -27246,7 +27590,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_33'
+                $ref: '#/components/schemas/inline_response_200_37'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27305,7 +27649,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_32'
+              $ref: '#/components/schemas/body_33'
         required: true
       responses:
         "204":
@@ -27371,7 +27715,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_34'
+                $ref: '#/components/schemas/inline_response_200_38'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27433,7 +27777,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_35'
+                $ref: '#/components/schemas/inline_response_200_39'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27495,7 +27839,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_36'
+                $ref: '#/components/schemas/inline_response_200_40'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27554,7 +27898,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_33'
+              $ref: '#/components/schemas/body_34'
         required: true
       responses:
         "204":
@@ -27620,7 +27964,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_37'
+                $ref: '#/components/schemas/inline_response_200_41'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27679,7 +28023,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_34'
+              $ref: '#/components/schemas/body_35'
         required: true
       responses:
         "204":
@@ -27745,7 +28089,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_38'
+                $ref: '#/components/schemas/inline_response_200_42'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27804,7 +28148,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_35'
+              $ref: '#/components/schemas/body_36'
         required: true
       responses:
         "204":
@@ -27870,7 +28214,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_39'
+                $ref: '#/components/schemas/inline_response_200_43'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -27929,7 +28273,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_36'
+              $ref: '#/components/schemas/body_37'
         required: true
       responses:
         "204":
@@ -27995,7 +28339,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_40'
+                $ref: '#/components/schemas/inline_response_200_44'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -28054,7 +28398,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_37'
+              $ref: '#/components/schemas/body_38'
         required: true
       responses:
         "204":
@@ -28120,7 +28464,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_41'
+                $ref: '#/components/schemas/inline_response_200_45'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -28179,7 +28523,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_38'
+              $ref: '#/components/schemas/body_39'
         required: true
       responses:
         "204":
@@ -28223,256 +28567,6 @@ paths:
       security:
       - basicAuth: []
       x-swagger-router-controller: TcpClient
-  ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/auth/user-name
-  : get:
-      tags:
-      - KafkaClient
-      summary: Returns UserName
-      operationId: getKafkaClientUserName
-      parameters:
-      - name: uuid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
-          type: string
-          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
-      responses:
-        "200":
-          description: UserName provided
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_42'
-        "400":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "401":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "403":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "404":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "500":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        default:
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-      security:
-      - basicAuth: []
-      x-swagger-router-controller: KafkaClient
-    put:
-      tags:
-      - KafkaClient
-      summary: Configures UserName
-      operationId: putKafkaClientUserName
-      parameters:
-      - name: uuid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
-          type: string
-          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/body_39'
-        required: true
-      responses:
-        "204":
-          description: UserName configured
-        "400":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "401":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "403":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "404":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "500":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        default:
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-      security:
-      - basicAuth: []
-      x-swagger-router-controller: KafkaClient
-  ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/auth/password
-  : get:
-      tags:
-      - KafkaClient
-      summary: Returns Password
-      operationId: getKafkaClientPassword
-      parameters:
-      - name: uuid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
-          type: string
-          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
-      responses:
-        "200":
-          description: Password provided
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_43'
-        "400":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "401":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "403":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "404":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "500":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        default:
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-      security:
-      - basicAuth: []
-      x-swagger-router-controller: KafkaClient
-    put:
-      tags:
-      - KafkaClient
-      summary: Configures Password
-      operationId: putKafkaClientPassword
-      parameters:
-      - name: uuid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
-          type: string
-          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/body_40'
-        required: true
-      responses:
-        "204":
-          description: Password configured
-        "400":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "401":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "403":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "404":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "500":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        default:
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-      security:
-      - basicAuth: []
-      x-swagger-router-controller: KafkaClient
   ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/topic-name
   : get:
       tags:
@@ -28495,7 +28589,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_44'
+                $ref: '#/components/schemas/inline_response_200_46'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -28554,7 +28648,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_41'
+              $ref: '#/components/schemas/body_40'
         required: true
       responses:
         "204":
@@ -28620,7 +28714,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_45'
+                $ref: '#/components/schemas/inline_response_200_47'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -28679,136 +28773,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_42'
+              $ref: '#/components/schemas/body_41'
         required: true
       responses:
         "204":
           description: client id configured
-        "400":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "401":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "403":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "404":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "500":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        default:
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-      security:
-      - basicAuth: []
-      x-swagger-router-controller: KafkaClient
-  ? /core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/kafka-client-interface-1-0:kafka-client-interface-pac/kafka-client-interface-configuration/group-id
-  : get:
-      tags:
-      - KafkaClient
-      summary: Returns group id (Identifier for consumers consuming a topic)
-      operationId: getKafkaClientGroupId
-      parameters:
-      - name: uuid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
-          type: string
-          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
-      responses:
-        "200":
-          description: group id provided
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_46'
-        "400":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "401":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "403":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "404":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        "500":
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-        default:
-          description: Response in case of errored OaM requests
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorDescription'
-      security:
-      - basicAuth: []
-      x-swagger-router-controller: KafkaClient
-    put:
-      tags:
-      - KafkaClient
-      summary: Configures group id
-      operationId: putKafkaClientGroupId
-      parameters:
-      - name: uuid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          pattern: "^([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-kmb-c-([a-z]{2,6})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{1,2})-([0-9]{3})$"
-          type: string
-          example: yz-34-3-3-kmb-c-kmb-1-0-0-000
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/body_43'
-        required: true
-      responses:
-        "204":
-          description: group id configured
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -28870,7 +28839,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_47'
+                $ref: '#/components/schemas/inline_response_200_48'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -28932,7 +28901,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_48'
+                $ref: '#/components/schemas/inline_response_200_49'
         "400":
           description: Response in case of errored OaM requests
           content:
@@ -31030,20 +30999,22 @@ components:
         core-model-1-4:control-construct:
           profile-collection:
             profile:
-            - uuid: ro-2-1-2-integer-p-000
+            - uuid: xy-15-3-2-integer-p-000
               profile-name: integer-profile-1-0:PROFILE_NAME_TYPE_INTEGER_PROFILE
               integer-profile-1-0:integer-profile-pac:
                 integer-profile-capability:
                   integer-name: maximumNumberOfEntries
+                  purpose: Limiting the number of entries for controlling the storage
+                    consumption and access response time
                   unit: records
                   minimum: 0
                   maximum: 1000000
                 integer-profile-configuration:
                   integer-value: 1000000
           forwarding-domain:
-          - uuid: ro-2-1-2-op-fd-000
+          - uuid: xy-15-3-2-op-fd-000
             forwarding-construct:
-            - uuid: ro-2-1-2-op-fc-bm-003
+            - uuid: xy-15-3-2-op-fc-bm-003
               name:
               - value-name: ForwardingKind
                 value: core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET
@@ -31052,53 +31023,53 @@ components:
               fc-port:
               - local-id: "000"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT
-                logical-termination-point: ro-2-1-2-op-s-bm-003
+                logical-termination-point: xy-15-3-2-op-s-bm-003
               - local-id: "200"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT
-                logical-termination-point: ro-2-1-2-op-c-bs-ol-2-1-2-000
-            - uuid: ro-2-1-2-op-fc-bm-004
+                logical-termination-point: xy-15-3-2-op-c-bs-yz-34-3-3-000
+            - uuid: xy-15-3-2-op-fc-bm-004
               name:
               - value-name: ForwardingKind
                 value: core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET
               - value-name: ForwardingName
-                value: OamRequestCausesInquiryForAuthentication
+                value: BasicAuthRequestCausesInquiryForAuthentication
               fc-port:
               - local-id: "000"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT
-                logical-termination-point: ro-2-1-2-op-s-bm-005
+                logical-termination-point: xy-15-3-2-op-s-bm-005
               - local-id: "200"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT
-                logical-termination-point: ro-2-1-2-op-c-bs-aa-2-1-2-000
+                logical-termination-point: xy-15-3-2-op-c-bs-yz-34-3-3-000
           logical-termination-point:
-          - uuid: ro-2-1-2-op-c-bm-ro-2-1-2-000
+          - uuid: xy-15-3-2-op-c-bm-yz-34-4-4-000
             ltp-direction: core-model-1-4:TERMINATION_DIRECTION_SINK
             client-ltp: []
             server-ltp:
-            - ro-2-1-2-http-c-ro-2-1-2-000
+            - xy-15-3-2-http-c-yz-34-4-4-000
             layer-protocol:
             - local-id: "0"
               layer-protocol-name: operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
               operation-client-interface-1-0:operation-client-interface-pac:
                 operation-client-interface-configuration:
-                  operation-name: /v1/register-application
+                  operation-name: /v2/register-application
                   operation-key: Operation key not yet provided.
                 operation-client-interface-status:
                   operational-state: operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
                   life-cycle-state: operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
-          - uuid: ro-2-1-2-http-c-ro-2-1-2-000
+          - uuid: xy-15-3-2-http-c-yz-34-4-4-000
             ltp-direction: core-model-1-4:TERMINATION_DIRECTION_SINK
             client-ltp:
-            - ro-2-1-2-op-c-bm-ro-2-1-2-000
+            - xy-15-3-2-op-c-bm-yz-34-4-4-000
             server-ltp:
-            - ro-2-1-2-tcp-c-ro-2-1-2-000
+            - xy-15-3-2-tcp-c-yz-34-4-4-000
             layer-protocol:
             - local-id: "0"
               layer-protocol-name: http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
               http-client-interface-1-0:http-client-interface-pac:
                 http-client-interface-configuration:
-                  application-name: RegistryOffice
-                  release-number: 2.1.2
-          uuid: ro-2-1-2
+                  application-name: ApplicationName
+                  release-number: 15.3.2
+          uuid: xy-15-3-2
     inline_response_200_7:
       required:
       - core-model-1-4:profile
@@ -31489,6 +31460,65 @@ components:
           $ref: '#/components/schemas/coremodel14controlconstructprofilecollectionprofileuuidresponseprofile10responseprofilepacresponseprofileconfigurationvalue_responseprofile10value'
     inline_response_200_18:
       required:
+      - string-profile-1-0:string-name
+      type: object
+      properties:
+        string-profile-1-0:string-name:
+          type: string
+          example: operationMode
+      example:
+        string-profile-1-0:string-name: operationMode
+    inline_response_200_19:
+      required:
+      - string-profile-1-0:enumeration
+      type: object
+      properties:
+        string-profile-1-0:enumeration:
+          type: array
+          example:
+          - string-profile-1-0:STRING_VALUE_TYPE_REACTIVE
+          - string-profile-1-0:STRING_VALUE_TYPE_PROTECTION
+          - string-profile-1-0:STRING_VALUE_TYPE_OFF
+          items:
+            type: string
+            description: Enumeration values of the string
+      example:
+        string-profile-1-0:enumeration:
+        - string-profile-1-0:STRING_VALUE_TYPE_REACTIVE
+        - string-profile-1-0:STRING_VALUE_TYPE_PROTECTION
+        - string-profile-1-0:STRING_VALUE_TYPE_OFF
+    inline_response_200_20:
+      required:
+      - string-profile-1-0:pattern
+      type: object
+      properties:
+        string-profile-1-0:pattern:
+          type: string
+          example: "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+      example:
+        string-profile-1-0:pattern: "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+    inline_response_200_21:
+      required:
+      - string-profile-1-0:string-value
+      type: object
+      properties:
+        string-profile-1-0:string-value:
+          type: string
+          example: "on"
+      example:
+        string-profile-1-0:string-value: "off"
+    body_25:
+      required:
+      - string-profile-1-0:string-value
+      type: object
+      properties:
+        string-profile-1-0:string-value:
+          type: string
+          description: "Value must be one of the options defined in /string-profile-capability/enumeration\
+            \ to be accepted, if such enumeration is available in the Capability section"
+          example: "on"
+    inline_response_200_22:
+      required:
       - operation-server-interface-1-0:operation-name
       type: object
       properties:
@@ -31497,7 +31527,7 @@ components:
           example: /v1/register-yourself
       example:
         operation-server-interface-1-0:operation-name: /v1/register-yourself
-    inline_response_200_19:
+    inline_response_200_23:
       required:
       - operation-server-interface-1-0:life-cycle-state
       type: object
@@ -31514,7 +31544,7 @@ components:
           - operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
       example:
         operation-server-interface-1-0:life-cycle-state: operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL
-    body_25:
+    body_26:
       required:
       - operation-server-interface-1-0:life-cycle-state
       type: object
@@ -31529,7 +31559,7 @@ components:
           - operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_OBSOLETE
           - operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_UNKNOWN
           - operation-server-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
-    inline_response_200_20:
+    inline_response_200_24:
       required:
       - operation-server-interface-1-0:operation-key
       type: object
@@ -31539,7 +31569,7 @@ components:
           example: Operation key not yet provided.
       example:
         operation-server-interface-1-0:operation-key: Operation key not yet provided.
-    body_26:
+    body_27:
       required:
       - operation-server-interface-1-0:operation-key
       type: object
@@ -31548,7 +31578,7 @@ components:
           minLength: 5
           type: string
           example: Operation key not yet provided.
-    inline_response_200_21:
+    inline_response_200_25:
       required:
       - http-server-interface-1-0:application-name
       type: object
@@ -31558,7 +31588,7 @@ components:
           example: ApplicationName
       example:
         http-server-interface-1-0:application-name: ApplicationName
-    inline_response_200_22:
+    inline_response_200_26:
       required:
       - http-server-interface-1-0:release-number
       type: object
@@ -31568,7 +31598,7 @@ components:
           example: 1.0.0
       example:
         http-server-interface-1-0:release-number: 1.0.0
-    inline_response_200_23:
+    inline_response_200_27:
       required:
       - http-server-interface-1-0:application-purpose
       type: object
@@ -31579,7 +31609,7 @@ components:
       example:
         http-server-interface-1-0:application-purpose: Brief description of the purpose
           of the application.
-    inline_response_200_24:
+    inline_response_200_28:
       required:
       - http-server-interface-1-0:data-update-period
       type: object
@@ -31594,7 +31624,7 @@ components:
           - http-server-interface-1-0:DATA_UPDATE_PERIOD_TYPE_MANUAL
       example:
         http-server-interface-1-0:data-update-period: http-server-interface-1-0:DATA_UPDATE_PERIOD_TYPE_REAL_TIME
-    inline_response_200_25:
+    inline_response_200_29:
       required:
       - http-server-interface-1-0:owner-name
       type: object
@@ -31604,7 +31634,7 @@ components:
           example: Thorsten Heinze
       example:
         http-server-interface-1-0:owner-name: Thorsten Heinze
-    inline_response_200_26:
+    inline_response_200_30:
       required:
       - http-server-interface-1-0:owner-email-address
       type: object
@@ -31614,7 +31644,7 @@ components:
           example: Thorsten.Heinze@telefonica.com
       example:
         http-server-interface-1-0:owner-email-address: Thorsten.Heinze@telefonica.com
-    inline_response_200_27:
+    inline_response_200_31:
       required:
       - http-server-interface-1-0:release-list
       type: object
@@ -31628,14 +31658,14 @@ components:
             release-date: 20.11.2010
             changes: Initial version.
           items:
-            $ref: '#/components/schemas/inline_response_200_27_httpserverinterface10releaselist'
+            $ref: '#/components/schemas/inline_response_200_31_httpserverinterface10releaselist'
       example:
         http-server-interface-1-0:release-list:
         - local-id: 0
           release-number: 1.0.0
           release-date: 20.11.2010
           changes: Initial version.
-    inline_response_200_28:
+    inline_response_200_32:
       required:
       - tcp-server-interface-1-0:description
       type: object
@@ -31644,14 +31674,14 @@ components:
           type: string
       example:
         tcp-server-interface-1-0:description: tcp-server-interface-1-0:description
-    body_27:
+    body_28:
       required:
       - tcp-server-interface-1-0:description
       type: object
       properties:
         tcp-server-interface-1-0:description:
           type: string
-    inline_response_200_29:
+    inline_response_200_33:
       required:
       - tcp-server-interface-1-0:local-protocol
       type: object
@@ -31664,7 +31694,7 @@ components:
           - tcp-server-interface-1-0:PROTOCOL_TYPE_NOT_YET_DEFINED
       example:
         tcp-server-interface-1-0:local-protocol: tcp-server-interface-1-0:PROTOCOL_TYPE_HTTP
-    body_28:
+    body_29:
       required:
       - tcp-server-interface-1-0:local-protocol
       type: object
@@ -31675,13 +31705,13 @@ components:
           - tcp-server-interface-1-0:PROTOCOL_TYPE_HTTP
           - tcp-server-interface-1-0:PROTOCOL_TYPE_HTTPS
           - tcp-server-interface-1-0:PROTOCOL_TYPE_NOT_YET_DEFINED
-    inline_response_200_30:
+    inline_response_200_34:
       required:
       - tcp-server-interface-1-0:local-address
       type: object
       properties:
         tcp-server-interface-1-0:local-address:
-          $ref: '#/components/schemas/inline_response_200_30_tcpserverinterface10localaddress'
+          $ref: '#/components/schemas/inline_response_200_34_tcpserverinterface10localaddress'
       example:
         tcp-server-interface-1-0:local-address:
           ipv-4-address: 1.1.4.1
@@ -31694,7 +31724,7 @@ components:
         domain-name:
           pattern: "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,}$"
           type: string
-    body_29:
+    body_30:
       required:
       - tcp-server-interface-1-0:local-address
       type: object
@@ -31704,7 +31734,7 @@ components:
       example:
         tcp-server-interface-1-0:local-address:
           ipv-4-address: 1.1.4.1
-    inline_response_200_31:
+    inline_response_200_35:
       required:
       - tcp-server-interface-1-0:local-port
       type: object
@@ -31714,7 +31744,7 @@ components:
           example: 1000
       example:
         tcp-server-interface-1-0:local-port: 1000
-    body_30:
+    body_31:
       required:
       - tcp-server-interface-1-0:local-port
       type: object
@@ -31724,7 +31754,7 @@ components:
           minimum: 0
           type: integer
           example: 1000
-    inline_response_200_32:
+    inline_response_200_36:
       required:
       - operation-client-interface-1-0:operation-name
       type: object
@@ -31734,7 +31764,7 @@ components:
           example: /v1/bequeath-your-data-and-die
       example:
         operation-client-interface-1-0:operation-name: /v1/bequeath-your-data-and-die
-    body_31:
+    body_32:
       required:
       - operation-client-interface-1-0:operation-name
       type: object
@@ -31743,7 +31773,7 @@ components:
           minLength: 6
           type: string
           example: /v1/bequeath-your-data-and-die
-    inline_response_200_33:
+    inline_response_200_37:
       required:
       - operation-client-interface-1-0:operation-key
       type: object
@@ -31753,7 +31783,7 @@ components:
           example: Operation key not yet provided.
       example:
         operation-client-interface-1-0:operation-key: Operation key not yet provided.
-    body_32:
+    body_33:
       required:
       - operation-client-interface-1-0:operation-key
       type: object
@@ -31762,7 +31792,7 @@ components:
           minLength: 5
           type: string
           example: Operation key not yet provided.
-    inline_response_200_34:
+    inline_response_200_38:
       required:
       - operation-client-interface-1-0:operational-state
       type: object
@@ -31776,7 +31806,7 @@ components:
           - operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
       example:
         operation-client-interface-1-0:operational-state: operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
-    inline_response_200_35:
+    inline_response_200_39:
       required:
       - operation-client-interface-1-0:life-cycle-state
       type: object
@@ -31793,7 +31823,7 @@ components:
           - operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
       example:
         operation-client-interface-1-0:life-cycle-state: operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
-    inline_response_200_36:
+    inline_response_200_40:
       required:
       - operation-client-interface-1-0:detailed-logging-is-on
       type: object
@@ -31803,7 +31833,7 @@ components:
           example: false
       example:
         operation-client-interface-1-0:detailed-logging-is-on: false
-    body_33:
+    body_34:
       required:
       - operation-client-interface-1-0:detailed-logging-is-on
       type: object
@@ -31811,7 +31841,7 @@ components:
         operation-client-interface-1-0:detailed-logging-is-on:
           type: boolean
           example: false
-    inline_response_200_37:
+    inline_response_200_41:
       required:
       - http-client-interface-1-0:application-name
       type: object
@@ -31821,7 +31851,7 @@ components:
           example: OldRelease
       example:
         http-client-interface-1-0:application-name: OldRelease
-    body_34:
+    body_35:
       required:
       - http-client-interface-1-0:application-name
       type: object
@@ -31830,7 +31860,7 @@ components:
           pattern: "^([A-Z][a-z0-9]+){2,}$"
           type: string
           example: NewApplication
-    inline_response_200_38:
+    inline_response_200_42:
       required:
       - http-client-interface-1-0:release-number
       type: object
@@ -31840,7 +31870,7 @@ components:
           example: 1.0.0
       example:
         http-client-interface-1-0:release-number: 1.0.0
-    body_35:
+    body_36:
       required:
       - http-client-interface-1-0:release-number
       type: object
@@ -31849,7 +31879,7 @@ components:
           pattern: "^([0-9]{1,2})\\.([0-9]{1,2})\\.([0-9]{1,2})$"
           type: string
           example: 1.0.0
-    inline_response_200_39:
+    inline_response_200_43:
       required:
       - tcp-client-interface-1-0:remote-protocol
       type: object
@@ -31862,7 +31892,7 @@ components:
           - tcp-client-interface-1-0:PROTOCOL_TYPE_NOT_YET_DEFINED
       example:
         tcp-client-interface-1-0:remote-protocol: tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP
-    body_36:
+    body_37:
       required:
       - tcp-client-interface-1-0:remote-protocol
       type: object
@@ -31873,13 +31903,13 @@ components:
           - tcp-client-interface-1-0:PROTOCOL_TYPE_HTTP
           - tcp-client-interface-1-0:PROTOCOL_TYPE_HTTPS
           - tcp-client-interface-1-0:PROTOCOL_TYPE_NOT_YET_DEFINED
-    inline_response_200_40:
+    inline_response_200_44:
       required:
       - tcp-client-interface-1-0:remote-address
       type: object
       properties:
         tcp-client-interface-1-0:remote-address:
-          $ref: '#/components/schemas/inline_response_200_40_tcpclientinterface10remoteaddress'
+          $ref: '#/components/schemas/inline_response_200_44_tcpclientinterface10remoteaddress'
       example:
         tcp-client-interface-1-0:remote-address:
           ip-address:
@@ -31898,7 +31928,7 @@ components:
         domain-name:
           pattern: "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,}$"
           type: string
-    body_37:
+    body_38:
       required:
       - tcp-client-interface-1-0:remote-address
       type: object
@@ -31909,7 +31939,7 @@ components:
         tcp-client-interface-1-0:remote-address:
           ip-address:
             ipv-4-address: 1.1.4.1
-    inline_response_200_41:
+    inline_response_200_45:
       required:
       - tcp-client-interface-1-0:remote-port
       type: object
@@ -31919,7 +31949,7 @@ components:
           example: 1000
       example:
         tcp-client-interface-1-0:remote-port: 1000
-    body_38:
+    body_39:
       required:
       - tcp-client-interface-1-0:remote-port
       type: object
@@ -31929,41 +31959,7 @@ components:
           minimum: 0
           type: integer
           example: 1000
-    inline_response_200_42:
-      required:
-      - kafka-client-interface-1-0:user-name
-      type: object
-      properties:
-        kafka-client-interface-1-0:user-name:
-          type: string
-          example: kafkaBroker
-      example:
-        kafka-client-interface-1-0:user-name: kafkaBroker
-    body_39:
-      required:
-      - kafka-client-interface-1-0:user-name
-      type: object
-      properties:
-        kafka-client-interface-1-0:user-name:
-          type: string
-    inline_response_200_43:
-      required:
-      - kafka-client-interface-1-0:password
-      type: object
-      properties:
-        kafka-client-interface-1-0:password:
-          type: string
-          example: YWRtaW46MTIzNDU2
-      example:
-        kafka-client-interface-1-0:password: YWRtaW46MTIzNDU2
-    body_40:
-      required:
-      - kafka-client-interface-1-0:password
-      type: object
-      properties:
-        kafka-client-interface-1-0:password:
-          type: string
-    inline_response_200_44:
+    inline_response_200_46:
       required:
       - kafka-client-interface-1-0:topic-name
       type: object
@@ -31973,14 +31969,14 @@ components:
           example: NotificationTopic
       example:
         kafka-client-interface-1-0:topic-name: NotificationTopic
-    body_41:
+    body_40:
       required:
       - kafka-client-interface-1-0:topic-name
       type: object
       properties:
         kafka-client-interface-1-0:topic-name:
           type: string
-    inline_response_200_45:
+    inline_response_200_47:
       required:
       - kafka-client-interface-1-0:client-id
       type: object
@@ -31990,31 +31986,14 @@ components:
           example: notification-proxy
       example:
         kafka-client-interface-1-0:client-id: notification-proxy
-    body_42:
+    body_41:
       required:
       - kafka-client-interface-1-0:client-id
       type: object
       properties:
         kafka-client-interface-1-0:client-id:
           type: string
-    inline_response_200_46:
-      required:
-      - kafka-client-interface-1-0:group-id
-      type: object
-      properties:
-        kafka-client-interface-1-0:group-id:
-          type: string
-          example: notification-consumer
-      example:
-        kafka-client-interface-1-0:group-id: notification-consumer
-    body_43:
-      required:
-      - kafka-client-interface-1-0:group-id
-      type: object
-      properties:
-        kafka-client-interface-1-0:group-id:
-          type: string
-    inline_response_200_47:
+    inline_response_200_48:
       required:
       - kafka-client-interface-1-0:operational-state
       type: object
@@ -32028,7 +32007,7 @@ components:
           - kafka-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
       example:
         kafka-client-interface-1-0:operational-state: kafka-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
-    inline_response_200_48:
+    inline_response_200_49:
       required:
       - kafka-client-interface-1-0:life-cycle-state
       type: object
@@ -32434,11 +32413,13 @@ components:
           uniqueItems: true
           type: array
           example:
-          - uuid: ro-2-1-2-integer-p-000
+          - uuid: xy-15-3-2-integer-p-000
             profile-name: integer-profile-1-0:PROFILE_NAME_TYPE_INTEGER_PROFILE
             integer-profile-1-0:integer-profile-pac:
               integer-profile-capability:
                 integer-name: maximumNumberOfEntries
+                purpose: Limiting the number of entries for controlling the storage
+                  consumption and access response time
                 unit: records
                 minimum: 0
                 maximum: 1000000
@@ -32595,14 +32576,10 @@ components:
                           type: string
                     file-profile-configuration:
                       required:
-                      - file-path
+                      - file-name
                       type: object
                       properties:
-                        file-path:
-                          type: string
-                        user-name:
-                          type: string
-                        password:
+                        file-name:
                           type: string
                         operation:
                           type: string
@@ -32640,6 +32617,8 @@ components:
                       type: object
                       properties:
                         integer-name:
+                          type: string
+                        purpose:
                           type: string
                         unit:
                           type: string
@@ -32685,7 +32664,9 @@ components:
                         string-name:
                           type: string
                         enumeration:
-                          type: string
+                          type: array
+                          items:
+                            type: string
                         pattern:
                           type: string
                     string-profile-configuration:
@@ -32698,11 +32679,13 @@ components:
               description: string profile
       example:
         profile:
-        - uuid: ro-2-1-2-integer-p-000
+        - uuid: xy-15-3-2-integer-p-000
           profile-name: integer-profile-1-0:PROFILE_NAME_TYPE_INTEGER_PROFILE
           integer-profile-1-0:integer-profile-pac:
             integer-profile-capability:
               integer-name: maximumNumberOfEntries
+              purpose: Limiting the number of entries for controlling the storage
+                consumption and access response time
               unit: records
               minimum: 0
               maximum: 1000000
@@ -32758,6 +32741,8 @@ components:
                   - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                   - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
                   - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
                   - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
                   - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                 operation-server-interface-1-0:operation-server-interface-pac:
@@ -32807,6 +32792,8 @@ components:
                   - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                   - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
                   - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
                   - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
                   - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                 http-server-interface-1-0:http-server-interface-pac:
@@ -32878,6 +32865,8 @@ components:
                   - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                   - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
                   - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
                   - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
                   - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                 tcp-server-interface-1-0:tcp-server-interface-pac:
@@ -32926,6 +32915,8 @@ components:
                   - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                   - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
                   - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
                   - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
                   - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                 operation-client-interface-1-0:operation-client-interface-pac:
@@ -32984,6 +32975,8 @@ components:
                   - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                   - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
                   - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
                   - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
                   - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                 elasticsearch-client-interface-1-0:elasticsearch-client-interface-pac:
@@ -33326,6 +33319,145 @@ components:
                           - elasticsearch-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
               description: elasticsearch client
             - required:
+              - layer-protocol-name
+              - local-id
+              - mongodb-client-interface-1-0:mongodb-client-interface-pac
+              type: object
+              properties:
+                local-id:
+                  type: string
+                layer-protocol-name:
+                  type: string
+                  enum:
+                  - operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
+                  - http-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
+                  - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
+                  - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
+                  - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
+                  - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
+                  - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
+                mongodb-client-interface-1-0:mongodb-client-interface-pac:
+                  required:
+                  - mongodb-client-interface-configuration
+                  - mongodb-client-interface-status
+                  type: object
+                  properties:
+                    mongodb-client-interface-configuration:
+                      required:
+                      - auth
+                      - collection-name
+                      - database-name
+                      type: object
+                      properties:
+                        auth:
+                          minProperties: 1
+                          type: object
+                          properties:
+                            auth-source:
+                              type: string
+                            user-name:
+                              type: string
+                            password:
+                              type: string
+                          additionalProperties: false
+                        database-name:
+                          type: string
+                        collection-name:
+                          type: string
+                    mongodb-client-interface-status:
+                      required:
+                      - life-cycle-state
+                      - operational-state
+                      type: object
+                      properties:
+                        operational-state:
+                          type: string
+                          enum:
+                          - mongodb-client-interface-1-0:OPERATIONAL_STATE_TYPE_AVAILABLE
+                          - mongodb-client-interface-1-0:OPERATIONAL_STATE_TYPE_UNAVAILABLE
+                          - mongodb-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
+                        life-cycle-state:
+                          type: string
+                          enum:
+                          - mongodb-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL
+                          - mongodb-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_OPERATIONAL
+                          - mongodb-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_DEPRECATED
+                          - mongodb-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_OBSOLETE
+                          - mongodb-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_UNKNOWN
+                          - mongodb-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
+              description: mongodb client
+            - required:
+              - kafka-client-interface-1-0:kafka-client-interface-pac
+              - layer-protocol-name
+              - local-id
+              type: object
+              properties:
+                local-id:
+                  type: string
+                layer-protocol-name:
+                  type: string
+                  enum:
+                  - operation-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
+                  - http-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
+                  - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
+                  - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
+                  - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
+                  - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
+                  - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
+                kafka-client-interface-1-0:kafka-client-interface-pac:
+                  required:
+                  - kafka-client-interface-configuration
+                  - kafka-client-interface-status
+                  type: object
+                  properties:
+                    kafka-client-interface-configuration:
+                      required:
+                      - auth
+                      - topic-name
+                      type: object
+                      properties:
+                        auth:
+                          minProperties: 1
+                          type: object
+                          properties:
+                            user-name:
+                              type: string
+                            password:
+                              type: string
+                          additionalProperties: false
+                        topic-name:
+                          type: string
+                        client-id:
+                          type: string
+                        group-id:
+                          type: string
+                    kafka-client-interface-status:
+                      required:
+                      - life-cycle-state
+                      - operational-state
+                      type: object
+                      properties:
+                        operational-state:
+                          type: string
+                          enum:
+                          - kafka-client-interface-1-0:OPERATIONAL_STATE_TYPE_AVAILABLE
+                          - kafka-client-interface-1-0:OPERATIONAL_STATE_TYPE_UNAVAILABLE
+                          - kafka-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
+                        life-cycle-state:
+                          type: string
+                          enum:
+                          - kafka-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_EXPERIMENTAL
+                          - kafka-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_OPERATIONAL
+                          - kafka-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_DEPRECATED
+                          - kafka-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_OBSOLETE
+                          - kafka-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_UNKNOWN
+                          - kafka-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
+              description: kafka client
+            - required:
               - http-client-interface-1-0:http-client-interface-pac
               - layer-protocol-name
               - local-id
@@ -33341,6 +33473,8 @@ components:
                   - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                   - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
                   - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
                   - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
                   - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                 http-client-interface-1-0:http-client-interface-pac:
@@ -33375,6 +33509,8 @@ components:
                   - tcp-server-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                   - operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
                   - elasticsearch-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_ELASTICSEARCH_LAYER
+                  - mongodb-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_MONGODB_LAYER
+                  - kafka-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_KAFKA_LAYER
                   - http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
                   - tcp-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_TCP_LAYER
                 tcp-client-interface-1-0:tcp-client-interface-pac:
@@ -33466,41 +33602,41 @@ components:
         uuid:
           pattern: "^([a-z]{2,6})-([0-9]+)-([0-9]+)-([0-9]+)$"
           type: string
-          example: ro-2-1-2
+          example: xy-15-3-2
         profile-collection:
           $ref: '#/components/schemas/inline_response_200_6_coremodel14controlconstruct_profilecollection'
         logical-termination-point:
           uniqueItems: true
           type: array
           example:
-          - uuid: ro-2-1-2-op-c-bm-ro-2-1-2-000
+          - uuid: xy-15-3-2-op-c-bm-yz-34-4-4-000
             ltp-direction: core-model-1-4:TERMINATION_DIRECTION_SINK
             client-ltp: []
             server-ltp:
-            - ro-2-1-2-http-c-ro-2-1-2-000
+            - xy-15-3-2-http-c-yz-34-4-4-000
             layer-protocol:
             - local-id: "0"
               layer-protocol-name: operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
               operation-client-interface-1-0:operation-client-interface-pac:
                 operation-client-interface-configuration:
-                  operation-name: /v1/register-application
+                  operation-name: /v2/register-application
                   operation-key: Operation key not yet provided.
                 operation-client-interface-status:
                   operational-state: operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
                   life-cycle-state: operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
-          - uuid: ro-2-1-2-http-c-ro-2-1-2-000
+          - uuid: xy-15-3-2-http-c-yz-34-4-4-000
             ltp-direction: core-model-1-4:TERMINATION_DIRECTION_SINK
             client-ltp:
-            - ro-2-1-2-op-c-bm-ro-2-1-2-000
+            - xy-15-3-2-op-c-bm-yz-34-4-4-000
             server-ltp:
-            - ro-2-1-2-tcp-c-ro-2-1-2-000
+            - xy-15-3-2-tcp-c-yz-34-4-4-000
             layer-protocol:
             - local-id: "0"
               layer-protocol-name: http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
               http-client-interface-1-0:http-client-interface-pac:
                 http-client-interface-configuration:
-                  application-name: RegistryOffice
-                  release-number: 2.1.2
+                  application-name: ApplicationName
+                  release-number: 15.3.2
           items:
             $ref: '#/components/schemas/inline_response_200_6_coremodel14controlconstruct_logicalterminationpoint'
         forwarding-domain:
@@ -33508,9 +33644,9 @@ components:
           minItems: 1
           type: array
           example:
-          - uuid: ro-2-1-2-op-fd-000
+          - uuid: xy-15-3-2-op-fd-000
             forwarding-construct:
-            - uuid: ro-2-1-2-op-fc-bm-003
+            - uuid: xy-15-3-2-op-fc-bm-003
               name:
               - value-name: ForwardingKind
                 value: core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET
@@ -33519,42 +33655,44 @@ components:
               fc-port:
               - local-id: "000"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT
-                logical-termination-point: ro-2-1-2-op-s-bm-003
+                logical-termination-point: xy-15-3-2-op-s-bm-003
               - local-id: "200"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT
-                logical-termination-point: ro-2-1-2-op-c-bs-ol-2-1-2-000
-            - uuid: ro-2-1-2-op-fc-bm-004
+                logical-termination-point: xy-15-3-2-op-c-bs-yz-34-3-3-000
+            - uuid: xy-15-3-2-op-fc-bm-004
               name:
               - value-name: ForwardingKind
                 value: core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET
               - value-name: ForwardingName
-                value: OamRequestCausesInquiryForAuthentication
+                value: BasicAuthRequestCausesInquiryForAuthentication
               fc-port:
               - local-id: "000"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT
-                logical-termination-point: ro-2-1-2-op-s-bm-005
+                logical-termination-point: xy-15-3-2-op-s-bm-005
               - local-id: "200"
                 port-direction: core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT
-                logical-termination-point: ro-2-1-2-op-c-bs-aa-2-1-2-000
+                logical-termination-point: xy-15-3-2-op-c-bs-yz-34-3-3-000
           items:
             $ref: '#/components/schemas/inline_response_200_6_coremodel14controlconstruct_forwardingdomain'
       example:
         profile-collection:
           profile:
-          - uuid: ro-2-1-2-integer-p-000
+          - uuid: xy-15-3-2-integer-p-000
             profile-name: integer-profile-1-0:PROFILE_NAME_TYPE_INTEGER_PROFILE
             integer-profile-1-0:integer-profile-pac:
               integer-profile-capability:
                 integer-name: maximumNumberOfEntries
+                purpose: Limiting the number of entries for controlling the storage
+                  consumption and access response time
                 unit: records
                 minimum: 0
                 maximum: 1000000
               integer-profile-configuration:
                 integer-value: 1000000
         forwarding-domain:
-        - uuid: ro-2-1-2-op-fd-000
+        - uuid: xy-15-3-2-op-fd-000
           forwarding-construct:
-          - uuid: ro-2-1-2-op-fc-bm-003
+          - uuid: xy-15-3-2-op-fc-bm-003
             name:
             - value-name: ForwardingKind
               value: core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET
@@ -33563,53 +33701,53 @@ components:
             fc-port:
             - local-id: "000"
               port-direction: core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT
-              logical-termination-point: ro-2-1-2-op-s-bm-003
+              logical-termination-point: xy-15-3-2-op-s-bm-003
             - local-id: "200"
               port-direction: core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT
-              logical-termination-point: ro-2-1-2-op-c-bs-ol-2-1-2-000
-          - uuid: ro-2-1-2-op-fc-bm-004
+              logical-termination-point: xy-15-3-2-op-c-bs-yz-34-3-3-000
+          - uuid: xy-15-3-2-op-fc-bm-004
             name:
             - value-name: ForwardingKind
               value: core-model-1-4:FORWARDING_KIND_TYPE_INVARIANT_PROCESS_SNIPPET
             - value-name: ForwardingName
-              value: OamRequestCausesInquiryForAuthentication
+              value: BasicAuthRequestCausesInquiryForAuthentication
             fc-port:
             - local-id: "000"
               port-direction: core-model-1-4:PORT_DIRECTION_TYPE_MANAGEMENT
-              logical-termination-point: ro-2-1-2-op-s-bm-005
+              logical-termination-point: xy-15-3-2-op-s-bm-005
             - local-id: "200"
               port-direction: core-model-1-4:PORT_DIRECTION_TYPE_OUTPUT
-              logical-termination-point: ro-2-1-2-op-c-bs-aa-2-1-2-000
+              logical-termination-point: xy-15-3-2-op-c-bs-yz-34-3-3-000
         logical-termination-point:
-        - uuid: ro-2-1-2-op-c-bm-ro-2-1-2-000
+        - uuid: xy-15-3-2-op-c-bm-yz-34-4-4-000
           ltp-direction: core-model-1-4:TERMINATION_DIRECTION_SINK
           client-ltp: []
           server-ltp:
-          - ro-2-1-2-http-c-ro-2-1-2-000
+          - xy-15-3-2-http-c-yz-34-4-4-000
           layer-protocol:
           - local-id: "0"
             layer-protocol-name: operation-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_OPERATION_LAYER
             operation-client-interface-1-0:operation-client-interface-pac:
               operation-client-interface-configuration:
-                operation-name: /v1/register-application
+                operation-name: /v2/register-application
                 operation-key: Operation key not yet provided.
               operation-client-interface-status:
                 operational-state: operation-client-interface-1-0:OPERATIONAL_STATE_TYPE_NOT_YET_DEFINED
                 life-cycle-state: operation-client-interface-1-0:LIFE_CYCLE_STATE_TYPE_NOT_YET_DEFINED
-        - uuid: ro-2-1-2-http-c-ro-2-1-2-000
+        - uuid: xy-15-3-2-http-c-yz-34-4-4-000
           ltp-direction: core-model-1-4:TERMINATION_DIRECTION_SINK
           client-ltp:
-          - ro-2-1-2-op-c-bm-ro-2-1-2-000
+          - xy-15-3-2-op-c-bm-yz-34-4-4-000
           server-ltp:
-          - ro-2-1-2-tcp-c-ro-2-1-2-000
+          - xy-15-3-2-tcp-c-yz-34-4-4-000
           layer-protocol:
           - local-id: "0"
             layer-protocol-name: http-client-interface-1-0:LAYER_PROTOCOL_NAME_TYPE_HTTP_LAYER
             http-client-interface-1-0:http-client-interface-pac:
               http-client-interface-configuration:
-                application-name: RegistryOffice
-                release-number: 2.1.2
-        uuid: ro-2-1-2
+                application-name: ApplicationName
+                release-number: 15.3.2
+        uuid: xy-15-3-2
     inline_response_200_10_actionprofile10inputvaluelist:
       required:
       - field-name
@@ -33632,7 +33770,7 @@ components:
         field-name-reference:
           type: string
       example: "{\"static-field-name\":\"applicationName\"}"
-    inline_response_200_27_httpserverinterface10releaselist:
+    inline_response_200_31_httpserverinterface10releaselist:
       required:
       - changes
       - local-id
@@ -33648,23 +33786,23 @@ components:
           type: string
         changes:
           type: string
-    inline_response_200_30_tcpserverinterface10localaddress:
+    inline_response_200_34_tcpserverinterface10localaddress:
       type: object
       properties:
         ipv-4-address:
           type: string
         domain-name:
           type: string
-    inline_response_200_40_tcpclientinterface10remoteaddress_ipaddress:
+    inline_response_200_44_tcpclientinterface10remoteaddress_ipaddress:
       type: object
       properties:
         ipv-4-address:
           type: string
-    inline_response_200_40_tcpclientinterface10remoteaddress:
+    inline_response_200_44_tcpclientinterface10remoteaddress:
       type: object
       properties:
         ip-address:
-          $ref: '#/components/schemas/inline_response_200_40_tcpclientinterface10remoteaddress_ipaddress'
+          $ref: '#/components/schemas/inline_response_200_44_tcpclientinterface10remoteaddress_ipaddress'
         domain-name:
           type: string
   responses:
