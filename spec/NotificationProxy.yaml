@@ -1,4 +1,4 @@
-﻿openapi: 3.0.0
+openapi: 3.0.0
 info:
   title: NotificationProxy
   version: 1.1.0
@@ -12857,6 +12857,77 @@ components:
                           index-alias:
                             type: string
                       elasticsearch-client-interface-status:
+                        type: object
+                        required:
+                          - operational-state
+                          - life-cycle-state
+                        properties:
+                          operational-state:
+                            type: string
+                          life-cycle-state:
+                            type: string
+              - description: 'mongodb client'
+                type: object
+                required:
+                  - local-id
+                  - layer-protocol-name
+                  - mongodb-client-interface-1-0:mongodb-client-interface-pac
+                properties:
+                  local-id:
+                    type: string
+                  layer-protocol-name:
+                    type: string
+                  mongodb-client-interface-1-0:mongodb-client-interface-pac:
+                    type: object
+                    required:
+                      - mongodb-client-interface-configuration
+                      - mongodb-client-interface-status
+                    properties:
+                      mongodb-client-interface-configuration:
+                        type: object
+                        required:
+                          - database-name
+                          - collection-name
+                        properties:
+                          database-name:
+                            type: string
+                          collection-name:
+                            type: string
+                      mongodb-client-interface-status:
+                        type: object
+                        required:
+                          - operational-state
+                          - life-cycle-state
+                        properties:
+                          operational-state:
+                            type: string
+                          life-cycle-state:
+                            type: string
+              - description: 'kafka client'
+                type: object
+                required:
+                  - local-id
+                  - layer-protocol-name
+                  - kafka-client-interface-1-0:kafka-client-interface-pac
+                properties:
+                  local-id:
+                    type: string
+                  layer-protocol-name:
+                    type: string
+                  kafka-client-interface-1-0:kafka-client-interface-pac:
+                    type: object
+                    required:
+                      - kafka-client-interface-configuration
+                      - kafka-client-interface-status
+                    properties:
+                      kafka-client-interface-configuration:
+                        type: object
+                        required:
+                          - topic-name
+                        properties:
+                          topic-name:
+                            type: string
+                      kafka-client-interface-status:
                         type: object
                         required:
                           - operational-state
